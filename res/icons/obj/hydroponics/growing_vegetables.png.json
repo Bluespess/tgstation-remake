@@ -1,0 +1,926 @@
+{
+    "potato-grow1": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "potato-grow2": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "potato-grow3": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "potato-grow4": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "potato-harvest": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "sweetpotato-harvest": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "potato-dead": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "corn-grow1": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "corn-grow2": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "corn-grow3": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "corn-harvest": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "snapcorn-harvest": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "corn-dead": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "cabbage-grow1": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "cabbage-harvest": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "cabbage-dead": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "carrot-grow1": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "carrot-grow2": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "carrot-grow3": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "carrot-harvest": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "carrot-dead": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "parsnip-grow1": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "parsnip-grow2": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "parsnip-grow3": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "parsnip-harvest": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "whitebeet-grow1": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "whitebeet-grow2": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "whitebeet-grow3": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "whitebeet-grow4": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "whitebeet-grow5": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "whitebeet-grow6": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "whitebeet-harvest": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "whitebeet-dead": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "redbeet-grow1": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "redbeet-grow2": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "redbeet-grow3": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "redbeet-grow4": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "redbeet-grow5": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "redbeet-grow6": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "redbeet-harvest": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "chili-grow1": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "chili-grow2": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "chili-grow3": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "chili-grow4": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "chili-grow5": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "chili-grow6": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "chili-harvest": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "chiliice-harvest": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "chilighost-harvest": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "chili-dead": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "eggplant-grow1": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "eggplant-grow2": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "eggplant-grow3": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "eggplant-grow4": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "eggplant-grow5": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "eggplant-grow6": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "eggplant-harvest": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "eggy-harvest": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "eggplant-dead": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "soybean-grow1": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "soybean-grow2": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "soybean-grow3": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "soybean-grow4": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "soybean-harvest": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 224,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "koibean-harvest": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 224,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "soybean-dead": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 224,
+                    "delay": 100
+                }
+            ]
+        }
+    }
+}

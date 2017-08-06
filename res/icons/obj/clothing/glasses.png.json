@@ -1,0 +1,715 @@
+{
+    "glasses": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "sun": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "meson": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "nvgmeson": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "thermal": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "material": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "blindfold": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "monocle_old": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "eyepatch": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "thermoncle": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "leforge": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "night": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "healthhud": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "securityhud": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "monocle": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "sunhudsec": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "sunhudmed": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "purple": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "thermalimplants": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "bigsunglasses": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "jensenshades": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "hipster_glasses": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "welding-g": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "welding-gup": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "healthhudnight": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "securityhudnight": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "hudpatch": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "cold": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "heat": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "garb": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "gars": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "supergarb": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "supergars": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "supergar": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "gar": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "garm": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "trayson-meson": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "trayson-tray": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "trayson-tray_off": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "diagnostichudnight": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "diagnostichud": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "doublegodeye": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 160,
+                    "delay": 50
+                },
+                {
+                    "x": 64,
+                    "y": 160,
+                    "delay": 50
+                },
+                {
+                    "x": 96,
+                    "y": 160,
+                    "delay": 50
+                },
+                {
+                    "x": 128,
+                    "y": 160,
+                    "delay": 50
+                },
+                {
+                    "x": 160,
+                    "y": 160,
+                    "delay": 50
+                }
+            ]
+        }
+    },
+    "godeye": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 160,
+                    "delay": 100
+                },
+                {
+                    "x": 224,
+                    "y": 160,
+                    "delay": 100
+                },
+                {
+                    "x": 0,
+                    "y": 192,
+                    "delay": 100
+                },
+                {
+                    "x": 32,
+                    "y": 192,
+                    "delay": 100
+                },
+                {
+                    "x": 64,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "orangeglasses": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "medsechud": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "redglasses": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 192,
+                    "delay": 100
+                },
+                {
+                    "x": 192,
+                    "y": 192,
+                    "delay": 100
+                },
+                {
+                    "x": 224,
+                    "y": 192,
+                    "delay": 100
+                },
+                {
+                    "x": 0,
+                    "y": 224,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "jamjar_glasses": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 224,
+                    "delay": 100
+                }
+            ]
+        }
+    }
+}

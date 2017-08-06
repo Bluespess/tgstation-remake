@@ -1,0 +1,93 @@
+{
+    "wet_floor": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "delay": 100
+                },
+                {
+                    "x": 32,
+                    "y": 0,
+                    "delay": 100
+                },
+                {
+                    "x": 64,
+                    "y": 0,
+                    "delay": 100
+                },
+                {
+                    "x": 96,
+                    "y": 0,
+                    "delay": 100
+                },
+                {
+                    "x": 0,
+                    "y": 32,
+                    "delay": 100
+                },
+                {
+                    "x": 32,
+                    "y": 32,
+                    "delay": 100
+                },
+                {
+                    "x": 64,
+                    "y": 32,
+                    "delay": 100
+                },
+                {
+                    "x": 96,
+                    "y": 32,
+                    "delay": 5000
+                }
+            ]
+        }
+    },
+    "wet_floor_static": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "wet_static": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "ice_floor": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    }
+}

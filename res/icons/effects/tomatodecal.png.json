@@ -1,0 +1,142 @@
+{
+    "smashed_egg1": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "smashed_egg2": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "smashed_egg3": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "smashed_egg4": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "tomato_floor1": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "tomato_floor2": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "tomato_floor3": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "smashed_pie": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "smashed_plant": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "salt_pile": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    }
+}

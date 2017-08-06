@@ -1,0 +1,464 @@
+{
+    "bluetie": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "redtie": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "horribletie": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "stethoscope": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "bronze": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "bronze_heart": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "silver": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "gold": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "redband": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "hydroband": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "medband": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "medblueband": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "rndband": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "engieband": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "cargoband": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "waistcoat": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "blacktie": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "scarf": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "zebrascarf": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "christmasscarf": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "stripedgreenscarf": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "stripedbluescarf": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "stripedredscarf": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "petcollar": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "pettag": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "petcollar-overlay": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "bling": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "talisman": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "holster": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "webbing": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "vest_brown": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "vest_black": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "lawyerbadge": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    }
+}

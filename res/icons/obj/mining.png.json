@@ -1,0 +1,1804 @@
+{
+    "satchel": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "orebox": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "bin": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "bin_partial": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "bin_full": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "deploycrate": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "rail": {
+        "dirCount": 8,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "1": [
+                {
+                    "x": 224,
+                    "y": 0,
+                    "delay": 100
+                }
+            ],
+            "2": [
+                {
+                    "x": 192,
+                    "y": 0,
+                    "delay": 100
+                }
+            ],
+            "4": [
+                {
+                    "x": 256,
+                    "y": 0,
+                    "delay": 100
+                }
+            ],
+            "5": [
+                {
+                    "x": 384,
+                    "y": 0,
+                    "delay": 100
+                }
+            ],
+            "6": [
+                {
+                    "x": 320,
+                    "y": 0,
+                    "delay": 100
+                }
+            ],
+            "8": [
+                {
+                    "x": 288,
+                    "y": 0,
+                    "delay": 100
+                }
+            ],
+            "9": [
+                {
+                    "x": 416,
+                    "y": 0,
+                    "delay": 100
+                }
+            ],
+            "10": [
+                {
+                    "x": 352,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "rail_intersection": {
+        "dirCount": 8,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "1": [
+                {
+                    "x": 32,
+                    "y": 32,
+                    "delay": 100
+                }
+            ],
+            "2": [
+                {
+                    "x": 0,
+                    "y": 32,
+                    "delay": 100
+                }
+            ],
+            "4": [
+                {
+                    "x": 64,
+                    "y": 32,
+                    "delay": 100
+                }
+            ],
+            "5": [
+                {
+                    "x": 192,
+                    "y": 32,
+                    "delay": 100
+                }
+            ],
+            "6": [
+                {
+                    "x": 128,
+                    "y": 32,
+                    "delay": 100
+                }
+            ],
+            "8": [
+                {
+                    "x": 96,
+                    "y": 32,
+                    "delay": 100
+                }
+            ],
+            "9": [
+                {
+                    "x": 224,
+                    "y": 32,
+                    "delay": 100
+                }
+            ],
+            "10": [
+                {
+                    "x": 160,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "rail_intersection_NSE": {
+        "dirCount": 8,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "1": [
+                {
+                    "x": 288,
+                    "y": 32,
+                    "delay": 100
+                }
+            ],
+            "2": [
+                {
+                    "x": 256,
+                    "y": 32,
+                    "delay": 100
+                }
+            ],
+            "4": [
+                {
+                    "x": 320,
+                    "y": 32,
+                    "delay": 100
+                }
+            ],
+            "5": [
+                {
+                    "x": 0,
+                    "y": 64,
+                    "delay": 100
+                }
+            ],
+            "6": [
+                {
+                    "x": 384,
+                    "y": 32,
+                    "delay": 100
+                }
+            ],
+            "8": [
+                {
+                    "x": 352,
+                    "y": 32,
+                    "delay": 100
+                }
+            ],
+            "9": [
+                {
+                    "x": 32,
+                    "y": 64,
+                    "delay": 100
+                }
+            ],
+            "10": [
+                {
+                    "x": 416,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "rail_intersection_SEW": {
+        "dirCount": 8,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "1": [
+                {
+                    "x": 96,
+                    "y": 64,
+                    "delay": 100
+                }
+            ],
+            "2": [
+                {
+                    "x": 64,
+                    "y": 64,
+                    "delay": 100
+                }
+            ],
+            "4": [
+                {
+                    "x": 128,
+                    "y": 64,
+                    "delay": 100
+                }
+            ],
+            "5": [
+                {
+                    "x": 256,
+                    "y": 64,
+                    "delay": 100
+                }
+            ],
+            "6": [
+                {
+                    "x": 192,
+                    "y": 64,
+                    "delay": 100
+                }
+            ],
+            "8": [
+                {
+                    "x": 160,
+                    "y": 64,
+                    "delay": 100
+                }
+            ],
+            "9": [
+                {
+                    "x": 288,
+                    "y": 64,
+                    "delay": 100
+                }
+            ],
+            "10": [
+                {
+                    "x": 224,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "rail_intersection_NSW": {
+        "dirCount": 8,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "1": [
+                {
+                    "x": 352,
+                    "y": 64,
+                    "delay": 100
+                }
+            ],
+            "2": [
+                {
+                    "x": 320,
+                    "y": 64,
+                    "delay": 100
+                }
+            ],
+            "4": [
+                {
+                    "x": 384,
+                    "y": 64,
+                    "delay": 100
+                }
+            ],
+            "5": [
+                {
+                    "x": 64,
+                    "y": 96,
+                    "delay": 100
+                }
+            ],
+            "6": [
+                {
+                    "x": 0,
+                    "y": 96,
+                    "delay": 100
+                }
+            ],
+            "8": [
+                {
+                    "x": 416,
+                    "y": 64,
+                    "delay": 100
+                }
+            ],
+            "9": [
+                {
+                    "x": 96,
+                    "y": 96,
+                    "delay": 100
+                }
+            ],
+            "10": [
+                {
+                    "x": 32,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "rail_intersection_NEW": {
+        "dirCount": 8,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "1": [
+                {
+                    "x": 160,
+                    "y": 96,
+                    "delay": 100
+                }
+            ],
+            "2": [
+                {
+                    "x": 128,
+                    "y": 96,
+                    "delay": 100
+                }
+            ],
+            "4": [
+                {
+                    "x": 192,
+                    "y": 96,
+                    "delay": 100
+                }
+            ],
+            "5": [
+                {
+                    "x": 320,
+                    "y": 96,
+                    "delay": 100
+                }
+            ],
+            "6": [
+                {
+                    "x": 256,
+                    "y": 96,
+                    "delay": 100
+                }
+            ],
+            "8": [
+                {
+                    "x": 224,
+                    "y": 96,
+                    "delay": 100
+                }
+            ],
+            "9": [
+                {
+                    "x": 352,
+                    "y": 96,
+                    "delay": 100
+                }
+            ],
+            "10": [
+                {
+                    "x": 288,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "gigadrill_mov": {
+        "dirCount": 4,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "1": [
+                {
+                    "x": 416,
+                    "y": 96,
+                    "delay": 100
+                },
+                {
+                    "x": 96,
+                    "y": 128,
+                    "delay": 100
+                },
+                {
+                    "x": 224,
+                    "y": 128,
+                    "delay": 100
+                },
+                {
+                    "x": 352,
+                    "y": 128,
+                    "delay": 100
+                }
+            ],
+            "2": [
+                {
+                    "x": 384,
+                    "y": 96,
+                    "delay": 100
+                },
+                {
+                    "x": 64,
+                    "y": 128,
+                    "delay": 100
+                },
+                {
+                    "x": 192,
+                    "y": 128,
+                    "delay": 100
+                },
+                {
+                    "x": 320,
+                    "y": 128,
+                    "delay": 100
+                }
+            ],
+            "4": [
+                {
+                    "x": 0,
+                    "y": 128,
+                    "delay": 100
+                },
+                {
+                    "x": 128,
+                    "y": 128,
+                    "delay": 100
+                },
+                {
+                    "x": 256,
+                    "y": 128,
+                    "delay": 100
+                },
+                {
+                    "x": 384,
+                    "y": 128,
+                    "delay": 100
+                }
+            ],
+            "8": [
+                {
+                    "x": 32,
+                    "y": 128,
+                    "delay": 100
+                },
+                {
+                    "x": 160,
+                    "y": 128,
+                    "delay": 100
+                },
+                {
+                    "x": 288,
+                    "y": 128,
+                    "delay": 100
+                },
+                {
+                    "x": 416,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "gigadrill": {
+        "dirCount": 4,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "1": [
+                {
+                    "x": 32,
+                    "y": 160,
+                    "delay": 100
+                }
+            ],
+            "2": [
+                {
+                    "x": 0,
+                    "y": 160,
+                    "delay": 100
+                }
+            ],
+            "4": [
+                {
+                    "x": 64,
+                    "y": 160,
+                    "delay": 100
+                }
+            ],
+            "8": [
+                {
+                    "x": 96,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    " ": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "Adamantine ore": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "Clown ore": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "Diamond ore": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "Glass ore": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "Gold ore": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 288,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "Iron ore": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 320,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "ore": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 352,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "Plasma ore": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 384,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "Silver ore": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 416,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "slag": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "Uranium ore": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "Green lump": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "Phazon": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "sheet-sandstone": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "sheet-diamond": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "sheet-gold": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "sheet-uranium": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "sheet-plasma": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "sheet-silver": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 288,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "sheet-adamantine": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 320,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "sheet-clown": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 352,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "sheet-mythril": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 384,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "sheetsnatcher": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 416,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "Gibtonite ore": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 224,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "Gibtonite active": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 224,
+                    "delay": 100
+                },
+                {
+                    "x": 64,
+                    "y": 224,
+                    "delay": 100
+                },
+                {
+                    "x": 96,
+                    "y": 224,
+                    "delay": 100
+                },
+                {
+                    "x": 128,
+                    "y": 224,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "Gibtonite ore 2": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 224,
+                    "delay": 100
+                },
+                {
+                    "x": 192,
+                    "y": 224,
+                    "delay": 100
+                },
+                {
+                    "x": 224,
+                    "y": 224,
+                    "delay": 100
+                },
+                {
+                    "x": 256,
+                    "y": 224,
+                    "delay": 100
+                },
+                {
+                    "x": 288,
+                    "y": 224,
+                    "delay": 100
+                },
+                {
+                    "x": 320,
+                    "y": 224,
+                    "delay": 100
+                },
+                {
+                    "x": 352,
+                    "y": 224,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "Gibtonite ore 3": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 256,
+                    "delay": 2000
+                },
+                {
+                    "x": 96,
+                    "y": 256,
+                    "delay": 100
+                },
+                {
+                    "x": 128,
+                    "y": 256,
+                    "delay": 500
+                },
+                {
+                    "x": 160,
+                    "y": 256,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "Gibtonite_igniter": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 256,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "xeno_warning": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 256,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "satchel_bspace": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 256,
+                    "delay": 100
+                },
+                {
+                    "x": 288,
+                    "y": 256,
+                    "delay": 100
+                },
+                {
+                    "x": 320,
+                    "y": 256,
+                    "delay": 100
+                },
+                {
+                    "x": 352,
+                    "y": 256,
+                    "delay": 100
+                },
+                {
+                    "x": 384,
+                    "y": 256,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "pickaxe": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 416,
+                    "y": 256,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "spickaxe": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 288,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "dpickaxe": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 288,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "gpickaxe": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 288,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "upickaxe": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 288,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "ppickaxe": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 288,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "jackhammer": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 288,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "handdrill": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 288,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "diamonddrill": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 288,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "Jaunter": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 288,
+                    "delay": 3000
+                },
+                {
+                    "x": 288,
+                    "y": 288,
+                    "delay": 100
+                },
+                {
+                    "x": 320,
+                    "y": 288,
+                    "delay": 3000
+                },
+                {
+                    "x": 352,
+                    "y": 288,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "resonator": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 384,
+                    "y": 288,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "resonator_u": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 416,
+                    "y": 288,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "mining_voucher": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 320,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "goliath_hide": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 320,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "shovel": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 320,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "spade": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 320,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "bar-gibtonite": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 320,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "bar-igniter": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 320,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "bar-wire": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 320,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "sheet-snow": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 320,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "capsule": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 320,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "volcanic_sand": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 288,
+                    "y": 320,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "sinew": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 320,
+                    "y": 320,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "bone": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 352,
+                    "y": 320,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "sinewcuff": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 384,
+                    "y": 320,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "skull": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 416,
+                    "y": 320,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "dragon_hide": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 352,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "sheet-titanium": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 352,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "sheet-plastitanium": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 352,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "Titanium ore": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 352,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "minipick": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 352,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "mining_hammer1": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 352,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "mining_hammer1_uncharged": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 352,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "goliath_saddle": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 352,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "construction_drone_off": {
+        "dirCount": 4,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "1": [
+                {
+                    "x": 288,
+                    "y": 352,
+                    "delay": 500
+                },
+                {
+                    "x": 416,
+                    "y": 352,
+                    "delay": 500
+                }
+            ],
+            "2": [
+                {
+                    "x": 256,
+                    "y": 352,
+                    "delay": 500
+                },
+                {
+                    "x": 384,
+                    "y": 352,
+                    "delay": 500
+                }
+            ],
+            "4": [
+                {
+                    "x": 320,
+                    "y": 352,
+                    "delay": 500
+                },
+                {
+                    "x": 0,
+                    "y": 384,
+                    "delay": 500
+                }
+            ],
+            "8": [
+                {
+                    "x": 352,
+                    "y": 352,
+                    "delay": 500
+                },
+                {
+                    "x": 32,
+                    "y": 384,
+                    "delay": 500
+                }
+            ]
+        }
+    },
+    "construction_drone": {
+        "dirCount": 4,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "1": [
+                {
+                    "x": 96,
+                    "y": 384,
+                    "delay": 500
+                },
+                {
+                    "x": 224,
+                    "y": 384,
+                    "delay": 500
+                }
+            ],
+            "2": [
+                {
+                    "x": 64,
+                    "y": 384,
+                    "delay": 500
+                },
+                {
+                    "x": 192,
+                    "y": 384,
+                    "delay": 500
+                }
+            ],
+            "4": [
+                {
+                    "x": 128,
+                    "y": 384,
+                    "delay": 500
+                },
+                {
+                    "x": 256,
+                    "y": 384,
+                    "delay": 500
+                }
+            ],
+            "8": [
+                {
+                    "x": 160,
+                    "y": 384,
+                    "delay": 500
+                },
+                {
+                    "x": 288,
+                    "y": 384,
+                    "delay": 500
+                }
+            ]
+        }
+    },
+    "construction_drone_movement": {
+        "dirCount": 4,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "1": [
+                {
+                    "x": 352,
+                    "y": 384,
+                    "delay": 250
+                },
+                {
+                    "x": 32,
+                    "y": 416,
+                    "delay": 250
+                },
+                {
+                    "x": 160,
+                    "y": 416,
+                    "delay": 250
+                },
+                {
+                    "x": 288,
+                    "y": 416,
+                    "delay": 250
+                }
+            ],
+            "2": [
+                {
+                    "x": 320,
+                    "y": 384,
+                    "delay": 250
+                },
+                {
+                    "x": 0,
+                    "y": 416,
+                    "delay": 250
+                },
+                {
+                    "x": 128,
+                    "y": 416,
+                    "delay": 250
+                },
+                {
+                    "x": 256,
+                    "y": 416,
+                    "delay": 250
+                }
+            ],
+            "4": [
+                {
+                    "x": 384,
+                    "y": 384,
+                    "delay": 250
+                },
+                {
+                    "x": 64,
+                    "y": 416,
+                    "delay": 250
+                },
+                {
+                    "x": 192,
+                    "y": 416,
+                    "delay": 250
+                },
+                {
+                    "x": 320,
+                    "y": 416,
+                    "delay": 250
+                }
+            ],
+            "8": [
+                {
+                    "x": 416,
+                    "y": 384,
+                    "delay": 250
+                },
+                {
+                    "x": 96,
+                    "y": 416,
+                    "delay": 250
+                },
+                {
+                    "x": 224,
+                    "y": 416,
+                    "delay": 250
+                },
+                {
+                    "x": 352,
+                    "y": 416,
+                    "delay": 250
+                }
+            ]
+        }
+    }
+}

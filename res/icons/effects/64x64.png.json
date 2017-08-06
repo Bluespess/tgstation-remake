@@ -1,0 +1,69 @@
+{
+    "ratvarspearbreak": {
+        "dirCount": 1,
+        "width": 64,
+        "height": 64,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "delay": 120
+                },
+                {
+                    "x": 64,
+                    "y": 0,
+                    "delay": 120
+                },
+                {
+                    "x": 128,
+                    "y": 0,
+                    "delay": 120
+                },
+                {
+                    "x": 0,
+                    "y": 64,
+                    "delay": 120
+                },
+                {
+                    "x": 64,
+                    "y": 64,
+                    "delay": 120
+                },
+                {
+                    "x": 128,
+                    "y": 64,
+                    "delay": 120
+                }
+            ]
+        }
+    },
+    "drake_statue": {
+        "dirCount": 1,
+        "width": 64,
+        "height": 64,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "drake_statue_falling": {
+        "dirCount": 1,
+        "width": 64,
+        "height": 64,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    }
+}

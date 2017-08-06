@@ -1,0 +1,437 @@
+{
+    "blackimageoverlay": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "delay": 25000
+                },
+                {
+                    "x": 480,
+                    "y": 0,
+                    "delay": 100
+                },
+                {
+                    "x": 960,
+                    "y": 0,
+                    "delay": 100
+                },
+                {
+                    "x": 1440,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "oxydamageoverlay0": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 1920,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "oxydamageoverlay1": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 2400,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "oxydamageoverlay2": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 480,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "oxydamageoverlay3": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 480,
+                    "y": 480,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "oxydamageoverlay4": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 960,
+                    "y": 480,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "oxydamageoverlay5": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 1440,
+                    "y": 480,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "oxydamageoverlay6": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 1920,
+                    "y": 480,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "oxydamageoverlay7": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 2400,
+                    "y": 480,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "brutedamageoverlay0": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 960,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "brutedamageoverlay1": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 480,
+                    "y": 960,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "brutedamageoverlay2": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 960,
+                    "y": 960,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "brutedamageoverlay3": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 1440,
+                    "y": 960,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "brutedamageoverlay4": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 1920,
+                    "y": 960,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "brutedamageoverlay5": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 2400,
+                    "y": 960,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "brutedamageoverlay6": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 1440,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "passage0": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 480,
+                    "y": 1440,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "passage1": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 960,
+                    "y": 1440,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "passage2": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 1440,
+                    "y": 1440,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "passage3": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 1920,
+                    "y": 1440,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "passage4": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 2400,
+                    "y": 1440,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "passage5": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 1920,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "passage6": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 480,
+                    "y": 1920,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "passage7": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 960,
+                    "y": 1920,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "passage8": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 1440,
+                    "y": 1920,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "passage9": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 1920,
+                    "y": 1920,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "passage10": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 2400,
+                    "y": 1920,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "impairedoverlay1": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 2400,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "impairedoverlay2": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 480,
+                    "y": 2400,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "nightvision": {
+        "dirCount": 1,
+        "width": 480,
+        "height": 480,
+        "dirs": {
+            "2": [
+                {
+                    "x": 960,
+                    "y": 2400,
+                    "delay": 100
+                }
+            ]
+        }
+    }
+}

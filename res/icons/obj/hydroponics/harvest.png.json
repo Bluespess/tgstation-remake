@@ -1,0 +1,1518 @@
+{
+    "berrypile": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "chilipepper": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "eggplant": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "icepepper": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "soybeansOld": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "soybeans": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "koibeans": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "amanita": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "angel": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "libertycap": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 288,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "plumphelmet": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 320,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "chanterelle": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "carrot": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "potato": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "corn": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "cornBig": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "poppy": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "potato_battery": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "sunflower": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "moonflower": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "novaflower": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 288,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "logs": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 320,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "glowshroom": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "glowcap": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "shadowshroom": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "tomato": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "ambrosiavulgaris": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "whitebeet": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "grass": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "watermelon": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "apple": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "goldapple": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 288,
+                    "y": 64,
+                    "delay": 1000
+                },
+                {
+                    "x": 320,
+                    "y": 64,
+                    "delay": 100
+                },
+                {
+                    "x": 0,
+                    "y": 96,
+                    "delay": 100
+                },
+                {
+                    "x": 32,
+                    "y": 96,
+                    "delay": 100
+                },
+                {
+                    "x": 64,
+                    "y": 96,
+                    "delay": 100
+                },
+                {
+                    "x": 96,
+                    "y": 96,
+                    "delay": 100
+                },
+                {
+                    "x": 128,
+                    "y": 96,
+                    "delay": 100
+                },
+                {
+                    "x": 160,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "lime": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "lemon": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "orange": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "poisonberrypile": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 288,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "sugarcane": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 320,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "bloodtomato": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "cocoapod": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "tile_grass": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "deathberrypile": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "bluetomato": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "glowberrypile": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "walkingmushroom": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "grapes": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "cabbage": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "pumpkin": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 288,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "greengrapes": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 320,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "killertomato": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "corncob": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "berrypilefarart": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "wheat": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "meatwheat": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "ambrosiadeus": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "ambrosia_gaia": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "spawner": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "bluespacetomato": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 160,
+                    "delay": 2500
+                },
+                {
+                    "x": 288,
+                    "y": 160,
+                    "delay": 200
+                },
+                {
+                    "x": 320,
+                    "y": 160,
+                    "delay": 200
+                },
+                {
+                    "x": 0,
+                    "y": 192,
+                    "delay": 200
+                }
+            ]
+        }
+    },
+    "harebell": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "reishi": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "cherry": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "cherry_bomb": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "cherry_bomb_lit": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 192,
+                    "delay": 100
+                },
+                {
+                    "x": 192,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "kudzupod": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "carpetclump": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "slippery": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 288,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "crunchy": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 320,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "mushy": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 224,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "rubbery": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 224,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "glassy": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 224,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "ghostchilipepper": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 224,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "gatfruit": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 224,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "tobacco_leaves": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 224,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "stobacco_leaves": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 224,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coffee_arabica": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 224,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coffee_robusta": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 224,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "tea_aspera_leaves": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 288,
+                    "y": 224,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "tea_astra_leaves": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 320,
+                    "y": 224,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "eggyplant": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 256,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "grassclump": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 256,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "oat": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 256,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "rice": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 256,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "blumpkin": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 256,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "bluecherry": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 256,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "sweetpotato": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 256,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "parsnip": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 256,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "redbeet": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 256,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "snapcorn": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 288,
+                    "y": 256,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "holymelon": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 320,
+                    "y": 256,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "geranium": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 288,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "vanillapod": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 288,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "lily": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 288,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "steellogs": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 288,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "banana": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 288,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "banana_peel": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 288,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "mimana": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 288,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "mimana_peel": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 288,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "banana_blue": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 288,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "banana_peel_blue": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 288,
+                    "y": 288,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "honey": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 320,
+                    "y": 288,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "honeycomb": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 320,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "greyscale_honey": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 320,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "firelemon": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 320,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "firelemon_active": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 320,
+                    "delay": 100
+                },
+                {
+                    "x": 128,
+                    "y": 320,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "potato_wedges": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 320,
+                    "delay": 100
+                }
+            ]
+        }
+    }
+}

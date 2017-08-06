@@ -1,0 +1,342 @@
+{
+    "red_cube": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "blue_cube": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "chain": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "hook": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "talisman": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 0,
+                    "delay": 100
+                },
+                {
+                    "x": 160,
+                    "y": 0,
+                    "delay": 100
+                },
+                {
+                    "x": 192,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "ship_bottle": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "potionflask": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "potionflask_empty": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "blackbox": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "anomaly_crystal": {
+        "dirCount": 4,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "1": [
+                {
+                    "x": 160,
+                    "y": 32,
+                    "delay": 100
+                }
+            ],
+            "2": [
+                {
+                    "x": 128,
+                    "y": 32,
+                    "delay": 100
+                }
+            ],
+            "4": [
+                {
+                    "x": 192,
+                    "y": 32,
+                    "delay": 100
+                }
+            ],
+            "8": [
+                {
+                    "x": 0,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "hierophant_club": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "hierophant_club_beacon": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "hierophant_club_ready": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 64,
+                    "delay": 100
+                },
+                {
+                    "x": 128,
+                    "y": 64,
+                    "delay": 100
+                },
+                {
+                    "x": 160,
+                    "y": 64,
+                    "delay": 100
+                },
+                {
+                    "x": 192,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "hierophant_club_ready_beacon": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 96,
+                    "delay": 100
+                },
+                {
+                    "x": 32,
+                    "y": 96,
+                    "delay": 100
+                },
+                {
+                    "x": 64,
+                    "y": 96,
+                    "delay": 100
+                },
+                {
+                    "x": 96,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "hierophant_tele_off": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 96,
+                    "delay": 100
+                },
+                {
+                    "x": 160,
+                    "y": 96,
+                    "delay": 80
+                },
+                {
+                    "x": 192,
+                    "y": 96,
+                    "delay": 60
+                },
+                {
+                    "x": 0,
+                    "y": 128,
+                    "delay": 40
+                },
+                {
+                    "x": 32,
+                    "y": 128,
+                    "delay": 20
+                }
+            ]
+        }
+    },
+    "hierophant_tele_on": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 128,
+                    "delay": 100
+                },
+                {
+                    "x": 96,
+                    "y": 128,
+                    "delay": 80
+                },
+                {
+                    "x": 128,
+                    "y": 128,
+                    "delay": 60
+                },
+                {
+                    "x": 160,
+                    "y": 128,
+                    "delay": 40
+                },
+                {
+                    "x": 192,
+                    "y": 128,
+                    "delay": 20
+                },
+                {
+                    "x": 0,
+                    "y": 160,
+                    "delay": 300
+                },
+                {
+                    "x": 32,
+                    "y": 160,
+                    "delay": 150
+                },
+                {
+                    "x": 64,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    }
+}

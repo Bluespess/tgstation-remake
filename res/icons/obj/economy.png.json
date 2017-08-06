@@ -1,0 +1,1164 @@
+{
+    "coinpress0": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coinpress1": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 0,
+                    "delay": 100
+                },
+                {
+                    "x": 64,
+                    "y": 0,
+                    "delay": 100
+                },
+                {
+                    "x": 96,
+                    "y": 0,
+                    "delay": 100
+                },
+                {
+                    "x": 128,
+                    "y": 0,
+                    "delay": 100
+                },
+                {
+                    "x": 160,
+                    "y": 0,
+                    "delay": 100
+                },
+                {
+                    "x": 192,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "spacecash": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "spacecash10": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "spacecash20": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 288,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "spacecash50": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 320,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "spacecash100": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 352,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "spacecash200": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 384,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "spacecash500": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "spacecash1000": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin__heads": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin__tails": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_silver_heads": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_silver_tails": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_gold_heads": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_gold_tails": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_uranium_heads": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_uranium_tails": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 288,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_plasma_heads": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 320,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_plasma_tails": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 352,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_iron_heads": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 384,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_iron_tails": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_diamond_heads": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_diamond_tails": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_bananium_heads": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_bananium_tails": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_adamantine_heads": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_adamantine_tails": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_mythril_heads": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_mythril_tails": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_string_overlay": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 288,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_silver_flip": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 320,
+                    "y": 64,
+                    "delay": 100
+                },
+                {
+                    "x": 352,
+                    "y": 64,
+                    "delay": 100
+                },
+                {
+                    "x": 384,
+                    "y": 64,
+                    "delay": 100
+                },
+                {
+                    "x": 0,
+                    "y": 96,
+                    "delay": 100
+                },
+                {
+                    "x": 32,
+                    "y": 96,
+                    "delay": 100
+                },
+                {
+                    "x": 64,
+                    "y": 96,
+                    "delay": 100
+                },
+                {
+                    "x": 96,
+                    "y": 96,
+                    "delay": 100
+                },
+                {
+                    "x": 128,
+                    "y": 96,
+                    "delay": 100
+                },
+                {
+                    "x": 160,
+                    "y": 96,
+                    "delay": 100
+                },
+                {
+                    "x": 192,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_gold_flip": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 224,
+                    "y": 96,
+                    "delay": 100
+                },
+                {
+                    "x": 256,
+                    "y": 96,
+                    "delay": 100
+                },
+                {
+                    "x": 288,
+                    "y": 96,
+                    "delay": 100
+                },
+                {
+                    "x": 320,
+                    "y": 96,
+                    "delay": 100
+                },
+                {
+                    "x": 352,
+                    "y": 96,
+                    "delay": 100
+                },
+                {
+                    "x": 384,
+                    "y": 96,
+                    "delay": 100
+                },
+                {
+                    "x": 0,
+                    "y": 128,
+                    "delay": 100
+                },
+                {
+                    "x": 32,
+                    "y": 128,
+                    "delay": 100
+                },
+                {
+                    "x": 64,
+                    "y": 128,
+                    "delay": 100
+                },
+                {
+                    "x": 96,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_uranium_flip": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 128,
+                    "delay": 100
+                },
+                {
+                    "x": 160,
+                    "y": 128,
+                    "delay": 100
+                },
+                {
+                    "x": 192,
+                    "y": 128,
+                    "delay": 100
+                },
+                {
+                    "x": 224,
+                    "y": 128,
+                    "delay": 100
+                },
+                {
+                    "x": 256,
+                    "y": 128,
+                    "delay": 100
+                },
+                {
+                    "x": 288,
+                    "y": 128,
+                    "delay": 100
+                },
+                {
+                    "x": 320,
+                    "y": 128,
+                    "delay": 100
+                },
+                {
+                    "x": 352,
+                    "y": 128,
+                    "delay": 100
+                },
+                {
+                    "x": 384,
+                    "y": 128,
+                    "delay": 100
+                },
+                {
+                    "x": 0,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_plasma_flip": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 160,
+                    "delay": 100
+                },
+                {
+                    "x": 64,
+                    "y": 160,
+                    "delay": 100
+                },
+                {
+                    "x": 96,
+                    "y": 160,
+                    "delay": 100
+                },
+                {
+                    "x": 128,
+                    "y": 160,
+                    "delay": 100
+                },
+                {
+                    "x": 160,
+                    "y": 160,
+                    "delay": 100
+                },
+                {
+                    "x": 192,
+                    "y": 160,
+                    "delay": 100
+                },
+                {
+                    "x": 224,
+                    "y": 160,
+                    "delay": 100
+                },
+                {
+                    "x": 256,
+                    "y": 160,
+                    "delay": 100
+                },
+                {
+                    "x": 288,
+                    "y": 160,
+                    "delay": 100
+                },
+                {
+                    "x": 320,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_iron_flip": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 352,
+                    "y": 160,
+                    "delay": 100
+                },
+                {
+                    "x": 384,
+                    "y": 160,
+                    "delay": 100
+                },
+                {
+                    "x": 0,
+                    "y": 192,
+                    "delay": 100
+                },
+                {
+                    "x": 32,
+                    "y": 192,
+                    "delay": 100
+                },
+                {
+                    "x": 64,
+                    "y": 192,
+                    "delay": 100
+                },
+                {
+                    "x": 96,
+                    "y": 192,
+                    "delay": 100
+                },
+                {
+                    "x": 128,
+                    "y": 192,
+                    "delay": 100
+                },
+                {
+                    "x": 160,
+                    "y": 192,
+                    "delay": 100
+                },
+                {
+                    "x": 192,
+                    "y": 192,
+                    "delay": 100
+                },
+                {
+                    "x": 224,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_diamond_flip": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 256,
+                    "y": 192,
+                    "delay": 100
+                },
+                {
+                    "x": 288,
+                    "y": 192,
+                    "delay": 100
+                },
+                {
+                    "x": 320,
+                    "y": 192,
+                    "delay": 100
+                },
+                {
+                    "x": 352,
+                    "y": 192,
+                    "delay": 100
+                },
+                {
+                    "x": 384,
+                    "y": 192,
+                    "delay": 100
+                },
+                {
+                    "x": 0,
+                    "y": 224,
+                    "delay": 100
+                },
+                {
+                    "x": 32,
+                    "y": 224,
+                    "delay": 100
+                },
+                {
+                    "x": 64,
+                    "y": 224,
+                    "delay": 100
+                },
+                {
+                    "x": 96,
+                    "y": 224,
+                    "delay": 100
+                },
+                {
+                    "x": 128,
+                    "y": 224,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_bananium_flip": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 224,
+                    "delay": 100
+                },
+                {
+                    "x": 192,
+                    "y": 224,
+                    "delay": 100
+                },
+                {
+                    "x": 224,
+                    "y": 224,
+                    "delay": 100
+                },
+                {
+                    "x": 256,
+                    "y": 224,
+                    "delay": 100
+                },
+                {
+                    "x": 288,
+                    "y": 224,
+                    "delay": 100
+                },
+                {
+                    "x": 320,
+                    "y": 224,
+                    "delay": 100
+                },
+                {
+                    "x": 352,
+                    "y": 224,
+                    "delay": 100
+                },
+                {
+                    "x": 384,
+                    "y": 224,
+                    "delay": 100
+                },
+                {
+                    "x": 0,
+                    "y": 256,
+                    "delay": 100
+                },
+                {
+                    "x": 32,
+                    "y": 256,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_adamantine_flip": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 256,
+                    "delay": 100
+                },
+                {
+                    "x": 96,
+                    "y": 256,
+                    "delay": 100
+                },
+                {
+                    "x": 128,
+                    "y": 256,
+                    "delay": 100
+                },
+                {
+                    "x": 160,
+                    "y": 256,
+                    "delay": 100
+                },
+                {
+                    "x": 192,
+                    "y": 256,
+                    "delay": 100
+                },
+                {
+                    "x": 224,
+                    "y": 256,
+                    "delay": 100
+                },
+                {
+                    "x": 256,
+                    "y": 256,
+                    "delay": 100
+                },
+                {
+                    "x": 288,
+                    "y": 256,
+                    "delay": 100
+                },
+                {
+                    "x": 320,
+                    "y": 256,
+                    "delay": 100
+                },
+                {
+                    "x": 352,
+                    "y": 256,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_mythril_flip": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 384,
+                    "y": 256,
+                    "delay": 100
+                },
+                {
+                    "x": 0,
+                    "y": 288,
+                    "delay": 100
+                },
+                {
+                    "x": 32,
+                    "y": 288,
+                    "delay": 100
+                },
+                {
+                    "x": 64,
+                    "y": 288,
+                    "delay": 100
+                },
+                {
+                    "x": 96,
+                    "y": 288,
+                    "delay": 100
+                },
+                {
+                    "x": 128,
+                    "y": 288,
+                    "delay": 100
+                },
+                {
+                    "x": 160,
+                    "y": 288,
+                    "delay": 100
+                },
+                {
+                    "x": 192,
+                    "y": 288,
+                    "delay": 100
+                },
+                {
+                    "x": 224,
+                    "y": 288,
+                    "delay": 100
+                },
+                {
+                    "x": 256,
+                    "y": 288,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "slots1": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 288,
+                    "y": 288,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "slots2": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 320,
+                    "y": 288,
+                    "delay": 100
+                },
+                {
+                    "x": 352,
+                    "y": 288,
+                    "delay": 100
+                },
+                {
+                    "x": 384,
+                    "y": 288,
+                    "delay": 100
+                },
+                {
+                    "x": 0,
+                    "y": 320,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "slots0": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 320,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "slotsb": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 320,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_valid_valid": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 320,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_valid_salad": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 320,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "coin_valid_flip": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 320,
+                    "delay": 100
+                },
+                {
+                    "x": 192,
+                    "y": 320,
+                    "delay": 100
+                },
+                {
+                    "x": 224,
+                    "y": 320,
+                    "delay": 100
+                },
+                {
+                    "x": 256,
+                    "y": 320,
+                    "delay": 100
+                },
+                {
+                    "x": 288,
+                    "y": 320,
+                    "delay": 100
+                },
+                {
+                    "x": 320,
+                    "y": 320,
+                    "delay": 100
+                },
+                {
+                    "x": 352,
+                    "y": 320,
+                    "delay": 100
+                },
+                {
+                    "x": 384,
+                    "y": 320,
+                    "delay": 100
+                },
+                {
+                    "x": 0,
+                    "y": 352,
+                    "delay": 100
+                },
+                {
+                    "x": 32,
+                    "y": 352,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "rupee": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 352,
+                    "delay": 100
+                }
+            ]
+        }
+    }
+}

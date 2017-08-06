@@ -1,0 +1,58 @@
+{
+    "tree1": {
+        "dirCount": 1,
+        "width": 128,
+        "height": 160,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "tree2": {
+        "dirCount": 1,
+        "width": 128,
+        "height": 160,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "tree3": {
+        "dirCount": 1,
+        "width": 128,
+        "height": 160,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "tree": {
+        "dirCount": 1,
+        "width": 128,
+        "height": 160,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    }
+}

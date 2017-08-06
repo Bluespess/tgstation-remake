@@ -1,0 +1,30 @@
+{
+    "orbital_cannon1": {
+        "dirCount": 1,
+        "width": 384,
+        "height": 96,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "orbital_cannon2": {
+        "dirCount": 1,
+        "width": 384,
+        "height": 96,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    }
+}

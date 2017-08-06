@@ -1,0 +1,114 @@
+{
+    "bush1": {
+        "dirCount": 1,
+        "width": 64,
+        "height": 64,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "bush2": {
+        "dirCount": 1,
+        "width": 64,
+        "height": 64,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "bush3": {
+        "dirCount": 1,
+        "width": 64,
+        "height": 64,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "rocks1": {
+        "dirCount": 1,
+        "width": 64,
+        "height": 64,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "rocks2": {
+        "dirCount": 1,
+        "width": 64,
+        "height": 64,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "rocks3": {
+        "dirCount": 1,
+        "width": 64,
+        "height": 64,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "bush": {
+        "dirCount": 1,
+        "width": 64,
+        "height": 64,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "rocks": {
+        "dirCount": 1,
+        "width": 64,
+        "height": 64,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    }
+}

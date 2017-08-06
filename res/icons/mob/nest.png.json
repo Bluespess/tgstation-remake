@@ -1,0 +1,78 @@
+{
+    "tombstone": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 64,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "hole": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 64,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "tendril": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 64,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 0,
+                    "delay": 500
+                },
+                {
+                    "x": 96,
+                    "y": 0,
+                    "delay": 200
+                },
+                {
+                    "x": 0,
+                    "y": 64,
+                    "delay": 200
+                },
+                {
+                    "x": 32,
+                    "y": 64,
+                    "delay": 200
+                },
+                {
+                    "x": 64,
+                    "y": 64,
+                    "delay": 200
+                }
+            ]
+        }
+    },
+    "ash_walker_nest": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 64,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    }
+}

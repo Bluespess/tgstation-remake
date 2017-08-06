@@ -1,0 +1,370 @@
+{
+    "tablet": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "comm_logs": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 0,
+                    "delay": 500
+                },
+                {
+                    "x": 64,
+                    "y": 0,
+                    "delay": 500
+                }
+            ]
+        }
+    },
+    "comm_monitor": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 0,
+                    "delay": 200
+                },
+                {
+                    "x": 128,
+                    "y": 0,
+                    "delay": 200
+                },
+                {
+                    "x": 160,
+                    "y": 0,
+                    "delay": 100
+                },
+                {
+                    "x": 192,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "hostile": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 32,
+                    "delay": 100
+                },
+                {
+                    "x": 32,
+                    "y": 32,
+                    "delay": 100
+                },
+                {
+                    "x": 64,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "generic": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 32,
+                    "delay": 100
+                },
+                {
+                    "x": 128,
+                    "y": 32,
+                    "delay": 100
+                },
+                {
+                    "x": 160,
+                    "y": 32,
+                    "delay": 100
+                },
+                {
+                    "x": 192,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "atmos_control": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "alert-green": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 64,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "alert-red": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 64,
+                    "delay": 400
+                },
+                {
+                    "x": 96,
+                    "y": 64,
+                    "delay": 200
+                }
+            ]
+        }
+    },
+    "power_monitor": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 64,
+                    "delay": 200
+                },
+                {
+                    "x": 160,
+                    "y": 64,
+                    "delay": 200
+                },
+                {
+                    "x": 192,
+                    "y": 64,
+                    "delay": 200
+                },
+                {
+                    "x": 0,
+                    "y": 96,
+                    "delay": 200
+                },
+                {
+                    "x": 32,
+                    "y": 96,
+                    "delay": 200
+                },
+                {
+                    "x": 64,
+                    "y": 96,
+                    "delay": 200
+                },
+                {
+                    "x": 96,
+                    "y": 96,
+                    "delay": 200
+                },
+                {
+                    "x": 128,
+                    "y": 96,
+                    "delay": 200
+                }
+            ]
+        }
+    },
+    "power_monitor_warn": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 96,
+                    "delay": 400
+                },
+                {
+                    "x": 192,
+                    "y": 96,
+                    "delay": 400
+                }
+            ]
+        }
+    },
+    "menu": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "id": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "bsod": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 128,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "command": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 128,
+                    "delay": 200
+                },
+                {
+                    "x": 128,
+                    "y": 128,
+                    "delay": 200
+                },
+                {
+                    "x": 160,
+                    "y": 128,
+                    "delay": 200
+                },
+                {
+                    "x": 192,
+                    "y": 128,
+                    "delay": 200
+                },
+                {
+                    "x": 0,
+                    "y": 160,
+                    "delay": 200
+                },
+                {
+                    "x": 32,
+                    "y": 160,
+                    "delay": 200
+                },
+                {
+                    "x": 64,
+                    "y": 160,
+                    "delay": 200
+                },
+                {
+                    "x": 96,
+                    "y": 160,
+                    "delay": 200
+                },
+                {
+                    "x": 128,
+                    "y": 160,
+                    "delay": 1500
+                }
+            ]
+        }
+    },
+    "crew": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 160,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "__MASK__": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 192,
+                    "y": 160,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "broken": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 192,
+                    "delay": 100
+                }
+            ]
+        }
+    }
+}

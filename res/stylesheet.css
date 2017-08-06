@@ -1,0 +1,127 @@
+div#mapwindow-container {
+	position: absolute;
+	left:0px;top:0px;
+	width:95vh;height:95vh;
+	overflow: hidden;
+	background-color: #000000;
+}
+
+div#mapwindow {
+	position: absolute;
+	width: 480px;
+	height: 480px;
+	margin: auto;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+}
+
+div#rightwindow {
+	position: absolute;
+	left: 95vh;
+	bottom: 5vh;
+	top: 0px;
+	right: 0px;
+}
+
+div.maplayer {
+	overflow: visible;
+	position: absolute;
+	
+}
+
+div.mapobject {
+	position: absolute;
+	width: 32px;
+	height: 32px;
+}
+
+div.uiframe {
+	position: absolute;
+	background: linear-gradient(to bottom,
+		#2a2a2a 0%,
+		#202020 100%) no-repeat fixed center/100% 100%;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	margin: 7px;
+	box-shadow: 10px 10px 20px rgba(0,0,0,.3);
+	left:0px;top:0px;right:0px;bottom:0px;
+	border: 1px solid #40628a;
+	cursor: auto;
+}
+div.uiframe-container {
+	position: absolute;
+	background: transparent;
+	padding: 8px;
+	pointer-events: auto;
+}
+div#uiframes-container {
+	pointer-events: none;
+	position: absolute;
+	top:0px;left:0px;right:0px;bottom:0px;
+	overflow:hidden;
+}
+div.uiframe-header {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	height: 30px;
+	font-size: 16px;
+	color: #e9c183;
+	overflow: hidden;
+	user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+	-o-user-select: none;
+	cursor: default;
+	line-height: 30px;
+	padding-left: 10px;
+}
+div.uiframe-content {
+	position: absolute;
+	left: 0px;
+	top: 30px;
+	right: 0px;
+	bottom: 0px;
+	overflow: auto;
+}
+
+.animObj {}
+
+/* PIXELLATED GRAPHICS EVERYWHERE */
+* {
+	image-rendering: optimizeSpeed;
+	image-rendering: -moz-crisp-edges;
+	image-rendering: -o-crisp-edges;
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: pixelated;
+	image-rendering: optimize-contrast;
+	-ms-interpolation-mode: nearest-neighbor;
+}
+
+/* Fancy scrollbars on chrome! */
+::-webkit-scrollbar {
+	background-color:transparent;
+}
+::-webkit-scrollbar:vertical {
+	width:10px;
+}
+::-webkit-scrollbar:horizontal {
+	height:10px;
+}
+::-webkit-scrollbar-thumb {
+	background-color:#444;
+	border-radius:5px;
+	background: linear-gradient(to right, #505050 0%,#5a5a5a 100%);
+	border:1px solid #333333;
+}
+::-webkit-scrollbar-corner {
+	background-color:#222222;
+}
+::-webkit-scrollbar-track {
+	background-color:#222222;
+}

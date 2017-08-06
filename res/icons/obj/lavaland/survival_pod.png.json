@@ -1,0 +1,155 @@
+{
+    "sleeper_cover": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "fans": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 0,
+                    "delay": 10
+                },
+                {
+                    "x": 64,
+                    "y": 0,
+                    "delay": 10
+                },
+                {
+                    "x": 96,
+                    "y": 0,
+                    "delay": 10
+                },
+                {
+                    "x": 128,
+                    "y": 0,
+                    "delay": 10
+                }
+            ]
+        }
+    },
+    "bed": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "table": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 32,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "tubes": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 32,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "fan_tiny": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 96,
+                    "y": 32,
+                    "delay": 10
+                },
+                {
+                    "x": 128,
+                    "y": 32,
+                    "delay": 10
+                },
+                {
+                    "x": 0,
+                    "y": 64,
+                    "delay": 10
+                },
+                {
+                    "x": 32,
+                    "y": 64,
+                    "delay": 10
+                }
+            ]
+        }
+    },
+    "sleeper": {
+        "dirCount": 1,
+        "width": 32,
+        "height": 32,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 64,
+                    "delay": 150
+                },
+                {
+                    "x": 96,
+                    "y": 64,
+                    "delay": 100
+                },
+                {
+                    "x": 128,
+                    "y": 64,
+                    "delay": 100
+                },
+                {
+                    "x": 0,
+                    "y": 96,
+                    "delay": 100
+                },
+                {
+                    "x": 32,
+                    "y": 96,
+                    "delay": 150
+                },
+                {
+                    "x": 64,
+                    "y": 96,
+                    "delay": 150
+                }
+            ]
+        }
+    }
+}

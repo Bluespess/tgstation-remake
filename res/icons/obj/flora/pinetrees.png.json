@@ -1,0 +1,86 @@
+{
+    "pine_1": {
+        "dirCount": 1,
+        "width": 64,
+        "height": 96,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "pine_2": {
+        "dirCount": 1,
+        "width": 64,
+        "height": 96,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "pine_3": {
+        "dirCount": 1,
+        "width": 64,
+        "height": 96,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 0,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "pine_c": {
+        "dirCount": 1,
+        "width": 64,
+        "height": 96,
+        "dirs": {
+            "2": [
+                {
+                    "x": 0,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "festivus_pole": {
+        "dirCount": 1,
+        "width": 64,
+        "height": 96,
+        "dirs": {
+            "2": [
+                {
+                    "x": 64,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    },
+    "tree_stump": {
+        "dirCount": 1,
+        "width": 64,
+        "height": 96,
+        "dirs": {
+            "2": [
+                {
+                    "x": 128,
+                    "y": 96,
+                    "delay": 100
+                }
+            ]
+        }
+    }
+}
