@@ -9,7 +9,7 @@
   "author": "",
   "license": "AGPL-3.0",
   "dependencies": {
-    "bluespess": "0.0.2",
+    "bluespess": "0.1.0",
     "finalhandler": "^1.0.1",
     "serve-static": "^1.12.1"
   }

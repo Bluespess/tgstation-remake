@@ -34,7 +34,7 @@ class MobHud extends Component {
 				return;
 			if(new_master && new_master != thealert.components.Alert.master) {
 				console.warn(`${this} threw alert ${category} with new_master ${new_master} while already having that alert with master ${thealert.components.Alert.master}`);
-				
+
 				this.clear_alert(category);
 				return this.throw_alert.apply(this, arguments);
 			} else if(thealert.template != template) {
@@ -55,7 +55,7 @@ class MobHud extends Component {
 				thealert.components.Alert.timeout = 0;
 		}
 		thealert.components.Alert.mob_viewer = this.atom;
-		
+
 		if(this.atom.server.is_atom(new_master)) {
 			var overlay = Object.assign({}, new_master.appearance);
 			delete overlay.layer;
@@ -67,7 +67,7 @@ class MobHud extends Component {
 			thealert.appearance.icon_state = `${thealert.template.vars.appearance.icon_state}${severity}`;
 			thealert.components.Alert.severity = severity;
 		}
-		
+
 		this.alerts[category] = thealert;
 		this.reorganize_alerts();
 		// TODO Animation, see code/_onclick/hud/alert.dm line 64
@@ -84,14 +84,14 @@ class MobHud extends Component {
 			return false;
 		if(alert.components.Alert.override_alerts && !clear_override)
 			return false;
-		
+
 		delete this.alerts[category];
 		this.reorganize_alerts();
 		//this.components.Eye.screen[`alert_${category}`] = undefined;
 		// TODO: destroy the alert;
 	}
 	_onclick(e) {
-		
+
 	}
 	reorganize_alerts() {
 		var alert_idx = 0;
@@ -134,7 +134,8 @@ Alert.template = {
 			tooltip_theme: "",
 			layer: 20
 		}
-	}
+	},
+	hidden: true // Make it not appear in map editor
 }
 
 module.exports.templates = {
@@ -146,7 +147,7 @@ module.exports.templates = {
 			icon_state: 'oxy'
 		}}
 	},
-	
+
 	"alert_too_much_oxy": {
 		components: ["Alert"],
 		vars: {appearance: {
@@ -155,7 +156,7 @@ module.exports.templates = {
 			icon_state: 'too_much_oxy'
 		}}
 	},
-	
+
 	"alert_not_enough_co2": {
 		components: ["Alert"],
 		vars: {appearance: {
@@ -164,7 +165,7 @@ module.exports.templates = {
 			icon_state: 'not_enough_co2'
 		}}
 	},
-	
+
 	"alert_too_much_co2": {
 		components: ["Alert"],
 		vars: {appearance: {
@@ -173,7 +174,7 @@ module.exports.templates = {
 			icon_state: 'too_much_co2'
 		}}
 	},
-	
+
 	"alert_not_enough_tox": {
 		components: ["Alert"],
 		vars: {appearance: {
@@ -182,7 +183,7 @@ module.exports.templates = {
 			icon_state: 'not_enough_tox'
 		}}
 	},
-	
+
 	"alert_tox_in_air": {
 		components: ["Alert"],
 		vars: {appearance: {
@@ -193,7 +194,7 @@ The box in your backpack has an oxygen tank and gas mask in it.",
 		}}
 	},
 	//End gas alerts
-	
+
 	"alert_fat": {
 		components: ["Alert"],
 		vars: {appearance: {
@@ -303,9 +304,9 @@ or shoot a gun to move around via Newton's 3rd Law of Motion.",
 			icon_state: 'fire'
 		}}
 	},
-	
+
 	//ALIENS
-	
+
 	"alert_alien_tox": {
 		components: ["Alert"],
 		vars: {appearance: {
@@ -333,9 +334,9 @@ or shoot a gun to move around via Newton's 3rd Law of Motion.",
 			tooltip_theme: "alien"
 		}}
 	},
-	
+
 	//BLOBS
-	
+
 	"alert_nofactory": {
 		components: ["Alert"],
 		vars: {appearance: {

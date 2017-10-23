@@ -12,7 +12,7 @@ class Turf extends Component {
 		this.atom.on("moved", this.on_move.bind(this));
 		this.on_move();
 	}
-	
+
 	on_move() {
 		if(this.prevLoc) {
 			this.prevLoc.turf = undefined;
@@ -23,6 +23,8 @@ class Turf extends Component {
 	}
 }
 
+Turf.one_per_tile = true;
+
 Turf.template = {
 	vars: {
 		components: {
@@ -30,13 +32,14 @@ Turf.template = {
 				initial_gas_mix: `o2=${atmos_defines.MOLES_O2STANDARD};n2=${atmos_defines.MOLES_N2STANDARD};TEMP=${atmos_defines.T20C}`
 			}
 		}
-	}
+	},
+	tile_bound: true, // Integer coordinates only in map editor
 }
 
 class SimulatedTurf extends Component {
 	constructor(atom, template) {
 		super(atom, template);
-		
+
 		this.archived_cycle = -1;
 		this.current_cycle = -1;
 		this.excited = false;
@@ -44,7 +47,7 @@ class SimulatedTurf extends Component {
 		this.recently_active = false;
 		this.atmos_cooldown = 0;
 	}
-	
+
 	assume_air(giver) {
 		if(!giver)
 			return false;
@@ -52,32 +55,32 @@ class SimulatedTurf extends Component {
 		this.update_visuals();
 		return true;
 	}
-	
+
 	remove_air(amount) {
 		var removed = this.atom.components.Turf.air.remove(amount);
 		this.update_visuals();
 		return removed;
 	}
-	
+
 	copy_air_with_tile(turf) {
 		if(this.atom.server.has_component(turf, "Turf"))
 			this.atom.components.Turf.air.copy_from(turf.components.Turf.air);
 	}
-	
+
 	copy_air(copy) {
 		if(copy)
 			this.atom.components.Turf.air.copy_from(copy);
 	}
-	
+
 	temperature_expose() {
-		
+
 	}
-	
+
 	archive(cycle_num) {
 		this.atom.components.Turf.air.archive();
 		this.archived_cycle = cycle_num;
 	}
-	
+
 	update_visuals() {
 		for(var gas of this.atom.components.Turf.air.gases_list) {
 			if(gas.gas_meta.gas_overlay && gas.moles > gas.gas_meta.moles_visible) {
@@ -89,13 +92,13 @@ class SimulatedTurf extends Component {
 			}
 		}
 	}
-	
+
 	process_cell(cycle_num) {
 		if(this.archived_cycle < cycle_num)
 			this.archive(cycle_num)
-		
+
 		this.current_cycle = cycle_num;
-		
+
 		var adjacent_turfs = [];
 		for(var i = 1; i <= 8; i <<= 1) {
 			var turf = this.atom.loc.get_step(i).turf;
@@ -105,9 +108,9 @@ class SimulatedTurf extends Component {
 		var our_excited_group = this.excited_group;
 		var adjacent_turfs_length = adjacent_turfs.length;
 		var cached_atmos_cooldown = this.atmos_cooldown + 1;
-		
+
 		var our_air = this.atom.components.Turf.air;
-		
+
 		for(var enemy_tile of adjacent_turfs) {
 			if(!(cycle_num > enemy_tile.components.SimulatedTurf.current_cycle))
 				continue;
@@ -161,7 +164,7 @@ class SimulatedTurf extends Component {
 					should_share_air = true;
 				}
 			}
-			
+
 			//air sharing
 			if(should_share_air) {
 				var difference = our_air.share(enemy_air, adjacent_turfs_length);
@@ -182,21 +185,21 @@ class SimulatedTurf extends Component {
 				}
 			}
 		}
-		
+
 		// TODO our_air.react(this);
-		
+
 		this.update_visuals();
-		
+
 		var remove = true;
 		// TODO superconductivity
-		
+
 		if((!our_excited_group && remove) || (cached_atmos_cooldown > (atmos_defines.EXCITED_GROUP_DISMANTLE_CYCLES * 2))) {
 			this.atom.server.air_controller.remove_from_active(this.atom);
 		}
-		
+
 		this.atmos_cooldown = cached_atmos_cooldown;
 	}
-	
+
 	consider_pressure_difference(turf, difference) {
 		// TODO What do you think? This is an empty function, can't you figure it out yourself?
 	}

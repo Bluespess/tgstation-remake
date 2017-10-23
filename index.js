@@ -8,8 +8,10 @@ console.log("Loading game..");
 
 var server = new Bluespess();
 global.server = server; // So the debugger can access it
+server.resRoot = "./res/";
 
 server.importModule(require('./player.js'));
+server.importModule(require('./code/game/turfs.js'));
 server.importModule(require('./code/game/mobs/new_player.js'));
 server.importModule(require('./code/game/mobs/living/living.js'));
 server.importModule(require('./code/game/mobs/living/carbon/carbon.js'));
@@ -28,12 +30,14 @@ if(global.is_bs_editor_env) {
 	const finalhandler = require('finalhandler');
 	const http = require('http');
 	const serveStatic = require('serve-static');
-	
-	for(var x = -7; x <= 7; x++) for(var y = -7; y <= 7; y++) {
-		var turf = new Bluespess.Atom(server, {"components": ["SimulatedTurf"],"vars":{"appearance":{"icon":'icons/turf/floors.png',"icon_state":"floor"}}}, x, y, 0);
+	const fs = require('fs');
+
+	/*for(var x = -7; x <= 7; x++) for(var y = -7; y <= 7; y++) {
+		var turf = new Bluespess.Atom(server, server.templates["floor"], x, y, 0);
 		//turf.appearance.icon = 'icons/turf/floors.png';
 		//turf.appearance.icon_state = 'floor';
-	}
+	}*/
+	server.instance_map(JSON.parse(fs.readFileSync('testmap.bsmap', 'utf8')), 0, 0, 0);
 	for(var i = 0; i < 5; i++) {
 		var template = {"components": ["Item"], "vars":{"appearance":{"icon":'icons/obj/items.png', "icon_state":"cuff_red","layer":2}}};
 		var a = new Bluespess.Atom(server, template, i, 0, 0);
@@ -51,7 +55,7 @@ if(global.is_bs_editor_env) {
 		atom.appearance.layer = 5;
 	});
 	console.log("Starting server..");
-	var serve = serveStatic('./res/', {'index': ['index.html']});
+	var serve = serveStatic(server.resRoot, {'index': ['index.html']});
 
 	var httpServer = http.createServer((req, res) => {
 		serve(req, res, finalhandler(req, res));
