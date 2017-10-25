@@ -1,3 +1,5 @@
+'use strict';
+
 var defines = {};
 defines.R_IDEAL_GAS_EQUATION =	8.31; // kPa*L/(K*mol)
 defines.ONE_ATMOSPHERE =		101.325; //kPa
@@ -46,8 +48,8 @@ defines.DOOR_HEAT_TRANSFER_COEFFICIENT =	0.0;
 defines.SPACE_HEAT_TRANSFER_COEFFICIENT =	0.2;		//a hack to partly simulate radiative heat
 defines.OPEN_HEAT_TRANSFER_COEFFICIENT =	0.4;
 defines.WINDOW_HEAT_TRANSFER_COEFFICIENT =	0.1;		//a hack for now
-	//Must be between 0 and 1. Values closer to 1 equalize temperature faster
-	//Should not exceed 0.4 else strange heat flow occur
+//Must be between 0 and 1. Values closer to 1 equalize temperature faster
+//Should not exceed 0.4 else strange heat flow occur
 defines.FIRE_MINIMUM_TEMPERATURE_TO_SPREAD =150+defines.T0C;
 defines.FIRE_MINIMUM_TEMPERATURE_TO_EXIST =	100+defines.T0C;
 defines.FIRE_SPREAD_RADIOSITY_SCALE =		0.85;
@@ -56,7 +58,7 @@ defines.FIRE_PLASMA_ENERGY_RELEASED =		3000000;	//Amount of heat released per mo
 defines.FIRE_GROWTH_RATE =					40000;	//For small fires
 defines.CARBON_LIFEFORM_FIRE_RESISTANCE = 	200+defines.T0C;	//Resistance to fire damage
 defines.CARBON_LIFEFORM_FIRE_DAMAGE =		4;		//Fire damage
-	//Plasma fire properties
+//Plasma fire properties
 defines.OXYGEN_BURN_RATE_BASE =				1.4;
 defines.PLASMA_BURN_RATE_DELTA =			9;
 defines.PLASMA_MINIMUM_BURN_TEMPERATURE =	100+defines.T0C;
@@ -67,7 +69,7 @@ defines.PLASMA_OXYGEN_FULLBURN =			10;
 defines.MIN_PLASMA_DAMAGE =					1;
 defines.MAX_PLASMA_DAMAGE =					10;
 defines.MOLES_PLASMA_VISIBLE =				0.5;		//Moles in a standard cell after which plasma is visible
-	//Plasma fusion properties
+//Plasma fusion properties
 defines.PLASMA_BINDING_ENERGY =				3000000;
 defines.MAX_CARBON_EFFICENCY =				9;
 defines.PLASMA_FUSED_COEFFICENT =			0.08;

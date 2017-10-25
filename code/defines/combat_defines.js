@@ -1,3 +1,4 @@
+'use strict';
 /*ALL DEFINES RELATED TO COMBAT GO HERE*/
 
 module.exports = {
@@ -20,7 +21,7 @@ module.exports = {
 	DROWSY: "drowsy",
 	JITTER: "jitter",*/
 
-//Bitflags defining which status effects could be or are inflicted on a mob
+	//Bitflags defining which status effects could be or are inflicted on a mob
 	CANSTUN: 1,
 	CANKNOCKDOWN: 2,
 	CANUNCONSCIOUS: 4,
@@ -33,13 +34,13 @@ module.exports = {
 	DISFIGURED: 16384,	//I'll probably move this elsewhere if I ever get wround to writing a bitflag mob-damage system
 	XENO_HOST: 32768,	//Tracks whether we're gonna be a baby alien's mummy.
 
-//Health Defines
+	//Health Defines
 	HEALTH_THRESHOLD_CRIT: 0,
 	HEALTH_THRESHOLD_DEAD: -100,
 
-//Actual combat defines
+	//Actual combat defines
 
-//click cooldowns, in tenths of a second, used for various combat actions
+	//click cooldowns, in tenths of a second, used for various combat actions
 	CLICK_CD_MELEE: 8,
 	CLICK_CD_RANGE: 4,
 	CLICK_CD_RAPID: 2,
@@ -49,24 +50,24 @@ module.exports = {
 	CLICK_CD_RESIST: 20,
 	CLICK_CD_GRABBING: 10,
 
-//Cuff resist speeds
+	//Cuff resist speeds
 	FAST_CUFFBREAK: 1,
 	INSTANT_CUFFBREAK: 2,
 
-//Grab levels
+	//Grab levels
 	GRAB_PASSIVE: 0,
 	GRAB_AGGRESSIVE: 1,
 	GRAB_NECK: 2,
 	GRAB_KILL: 3,
 
-//Attack types for checking shields/hit reactions
+	//Attack types for checking shields/hit reactions
 	MELEE_ATTACK: 1,
 	UNARMED_ATTACK: 2,
 	PROJECTILE_ATTACK: 3,
 	THROWN_PROJECTILE_ATTACK: 4,
 	LEAP_ATTACK: 5,
 
-//attack visual effects
+	//attack visual effects
 	ATTACK_EFFECT_PUNCH: "punch",
 	ATTACK_EFFECT_KICK: "kick",
 	ATTACK_EFFECT_SMASH: "smash",
@@ -77,22 +78,22 @@ module.exports = {
 	ATTACK_EFFECT_MECHTOXIN: "mech_toxin",
 	ATTACK_EFFECT_BOOP: "boop", //Honk
 
-//intent defines
+	//intent defines
 	INTENT_HELP: "help",
 	INTENT_GRAB: "grab",
 	INTENT_DISARM: "disarm",
 	INTENT_HARM: "harm",
-//NOTE: INTENT_HOTKEY_* defines are not actual intents!
-//they are here to support hotkeys
+	//NOTE: INTENT_HOTKEY_* defines are not actual intents!
+	//they are here to support hotkeys
 	INTENT_HOTKEY_LEFT: "left",
 	INTENT_HOTKEY_RIGHT: "right",
 
-//the define for visible message range in combat
+	//the define for visible message range in combat
 	COMBAT_MESSAGE_RANGE: 3,
 
-//Combat object defines
+	//Combat object defines
 
-//Embedded objects
+	//Embedded objects
 	EMBEDDED_PAIN_CHANCE: 15,	//Chance for embedded objects to cause pain (damage user)
 	EMBEDDED_ITEM_FALLOUT: 5,	//Chance for embedded object to fall out (causing pain but removing the object)
 	EMBED_CHANCE: 45,	//Chance for an object to embed into somebody when thrown (if it's sharp)
@@ -103,25 +104,25 @@ module.exports = {
 	EMBEDDED_UNSAFE_REMOVAL_PAIN_MULTIPLIER: 8,	//Coefficient of multiplication for the damage the item does when removed without a surgery (this*item.w_class)
 	EMBEDDED_UNSAFE_REMOVAL_TIME: 30,	//A Time in ticks, total removal time = (this*item.w_class)
 
-//Gun Stuff
+	//Gun Stuff
 	SAWN_INTACT: 0,
 	SAWN_OFF: 1,
-//Gun weapon weight
+	//Gun weapon weight
 	WEAPON_DUAL_WIELD: 0,
 	WEAPON_LIGHT: 1,
 	WEAPON_MEDIUM: 2,
 	WEAPON_HEAVY: 3,
-//Gun trigger guards
+	//Gun trigger guards
 	TRIGGER_GUARD_ALLOW_ALL: -1,
 	TRIGGER_GUARD_NONE: 0,
 	TRIGGER_GUARD_NORMAL: 1,
 
-//Object/Item sharpness
+	//Object/Item sharpness
 	IS_BLUNT: 0,
 	IS_SHARP: 1,
 	IS_SHARP_ACCURATE: 2,
 
-//His Grace.
+	//His Grace.
 	HIS_GRACE_SATIATED: 0, //He hungers not. If bloodthirst is set to this, His Grace is asleep.
 	HIS_GRACE_PECKISH: 20, //Slightly hungry.
 	HIS_GRACE_HUNGRY: 60, //Getting closer. Increases damage up to a minimum of 20.
@@ -139,4 +140,4 @@ module.exports = {
 
 	EMP_HEAVY: 1,
 	EMP_LIGHT: 2
-}
+};

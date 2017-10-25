@@ -1,5 +1,5 @@
 'use strict';
-const {Component, FunctionChain} = require('bluespess');
+const {Component} = require('bluespess');
 const GasMixture = require('../gasmixtures/gas_mixture.js');
 const ExcitedGroup = require('./excited_group.js');
 const atmos_defines = require('../../../defines/atmos_defines.js');
@@ -34,7 +34,7 @@ Turf.template = {
 		}
 	},
 	tile_bound: true, // Integer coordinates only in map editor
-}
+};
 
 class SimulatedTurf extends Component {
 	constructor(atom, template) {
@@ -95,7 +95,7 @@ class SimulatedTurf extends Component {
 
 	process_cell(cycle_num) {
 		if(this.archived_cycle < cycle_num)
-			this.archive(cycle_num)
+			this.archive(cycle_num);
 
 		this.current_cycle = cycle_num;
 
@@ -138,11 +138,11 @@ class SimulatedTurf extends Component {
 					if(enemy_excited_group) {
 						if((this.recently_active && enemy_tile.recently_active) || our_air.compare(enemy_air))
 							enemy_excited_group.add_turf(this.atom); //join self to enemy group
-							our_excited_group = this.excited_group; //update our cache
-							should_share_air = true;
+						our_excited_group = this.excited_group; //update our cache
+						should_share_air = true;
 					} else {
 						if((this.recently_active && enemy_tile.recently_active) || our_air.compare(enemy_air)) {
-							var group = new ExcitedGroup(this.atom.server.air_controller); //generate new group
+							let group = new ExcitedGroup(this.atom.server.air_controller); //generate new group
 							group.add_turf(this.atom);
 							group.add_turf(enemy_tile);
 							our_excited_group = this.excited_group; //update our cache
@@ -156,7 +156,7 @@ class SimulatedTurf extends Component {
 					if(our_excited_group) {
 						our_excited_group.add_turf(enemy_tile); //add enemy to group
 					} else {
-						var group = new ExcitedGroup(this.atom.server.air_controller); //generate new group
+						let group = new ExcitedGroup(this.atom.server.air_controller); //generate new group
 						group.add_turf(this.atom);
 						group.add_turf(enemy_tile);
 						our_excited_group = this.excited_group; //update our cache

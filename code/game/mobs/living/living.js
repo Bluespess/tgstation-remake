@@ -1,5 +1,5 @@
 'use strict';
-const {Component, chain_func} = require('bluespess');
+const {Component} = require('bluespess');
 
 const _bruteloss = Symbol('_bruteloss');
 const _oxyloss = Symbol('_oxyloss');
@@ -21,8 +21,8 @@ class LivingMob extends Component {
 		this[_brainloss] = 0;
 		this[_staminaloss] = 0;
 	}
-	
-	// Getters and setters for every type of loss. 
+
+	// Getters and setters for every type of loss.
 	get bruteloss() {return this[_bruteloss];}
 	set bruteloss(value) {if(this.status_flags & LivingMob.GODMODE) return true;this[_bruteloss] = value;this[_health] = this.update_health();}
 
@@ -43,20 +43,20 @@ class LivingMob extends Component {
 
 	get staminaloss() {return this[_staminaloss];}
 	set staminaloss(value) {if(this.status_flags & LivingMob.GODMODE) return true;this[_staminaloss] = value;this[_health] = this.update_health();}
-	
+
 	get health() {return this[_health];}
 
 	update_health() {
 		var h = this.max_health - this.bruteloss - this.oxyloss - this.toxloss - this.burnloss - this.cloneloss - this.brainloss - this.staminaloss;
 		this.update_stat();
-		return h; 
+		return h;
 	}
-	
+
 	update_stat() {
 	}
 	//DAMAGE
 	apply_damage(damage = 0, damagetype = "brute", def_zone, blocked = 0) {
-		var hit_percent = (100-blocked)/100
+		var hit_percent = (100-blocked)/100;
 		if(!damage || (hit_percent <= 0))
 			return false;
 		if(this[`${damagetype}loss`] == undefined)
@@ -64,13 +64,13 @@ class LivingMob extends Component {
 		this[`${damagetype}loss`] -= (damage * hit_percent);
 		return true;
 	}
-	
+
 	apply_damage_type(damage = 0, damagetype = "brute") {
 		if(this[`${damagetype}loss`] == undefined)
 			throw new Error(`Damage type of ${damagetype} does not exist.`);
 		this[`${damagetype}loss`] -= damage;
 	}
-	
+
 	apply_damages(damages, def_zone, blocked) {
 		if(blocked >= 100)
 			return false;
@@ -81,9 +81,9 @@ class LivingMob extends Component {
 		}
 		return true;
 	}
-	
+
 	life() {
-		
+
 	}
 }
 
@@ -100,7 +100,7 @@ LivingMob.template = {
 			}
 		}
 	}
-}
+};
 
 LivingMob.CANSTUN = 1;
 LivingMob.CANWEAKEN = 2;

@@ -27,6 +27,6 @@ Tangible.template = {
 			}
 		}
 	}
-}
+};
 
 module.exports.components = {Tangible};

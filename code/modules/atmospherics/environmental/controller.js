@@ -10,7 +10,7 @@ class AirController {
 		setInterval(this.tick.bind(this), 500);
 		server.air_controller = this;
 	}
-	
+
 	async tick() {
 		try {
 			this.ticknum++;
@@ -20,7 +20,7 @@ class AirController {
 			console.error(e.stack);
 		}
 	}
-	
+
 	async process_active_turfs() {
 		var active_turfs = [...this.active_turfs];
 		var ticknum = this.ticknum;
@@ -28,7 +28,7 @@ class AirController {
 			turf.components.SimulatedTurf.process_cell(ticknum);
 		}
 	}
-	
+
 	async process_excited_groups() {
 		var excited_groups = [...this.excited_groups];
 		for(var group of excited_groups) {
@@ -40,7 +40,7 @@ class AirController {
 				group.dismantle();
 		}
 	}
-	
+
 	remove_from_active(turf) {
 		var idx = this.active_turfs.indexOf(turf);
 		if(idx != -1)
@@ -51,7 +51,7 @@ class AirController {
 				turf.components.SimulatedTurf.excited_group.garbage_collect();
 		}
 	}
-	
+
 	add_to_active(turf, blockchanges = true) {
 		if(this.server.has_component(turf, "SimulatedTurf")) {
 			turf.components.SimulatedTurf.excited = true;
@@ -65,4 +65,4 @@ class AirController {
 
 module.exports.server_start = (server) => {
 	server.air_controller = new AirController(server);
-}
+};

@@ -16,7 +16,7 @@ WearableItem.template = {
 			}
 		}
 	}
-}
+};
 
 WearableItem.depends = ["Item"];
 WearableItem.loadBefore = ["Item"];

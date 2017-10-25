@@ -9,7 +9,7 @@ class Item extends Component {
 		this.inhand_rhand_icon = 'icons/mob/inhands/items_righthand.png';
 		this.atom.attack_hand = chain_func(this.atom.attack_hand, this._attack_hand.bind(this));
 	}
-	
+
 	attack_self() {}
 
 	_attack_hand(prev, user) {
@@ -48,7 +48,7 @@ Item.template = {
 			icon: 'icons/obj/items.png',
 		}
 	}
-}
+};
 
 module.exports.symbols = {_slot};
 module.exports.components = {Item};
