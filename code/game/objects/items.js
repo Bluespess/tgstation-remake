@@ -46,6 +46,19 @@ Item.template = {
 		},
 		appearance: {
 			icon: 'icons/obj/items.png',
+			layer:3
+		}
+	}
+};
+
+module.exports.templates = {
+	"cablecuffs": {
+		"components": ["Item"],
+		"vars": {
+			"appearance": {
+				"icon":'icons/obj/items.png',
+				"icon_state":"cuff_red"
+			}
 		}
 	}
 };

@@ -101,6 +101,7 @@ class MobInventory extends Component {
 
 	click_on(e) {
 		if(e.atom == null) return;
+		if(e.ctrlKey) return;
 		var active_item = this[_slots][this[_active_hand]].item;
 		if(active_item) {
 			e.atom.attack_by(active_item, this.atom, e);

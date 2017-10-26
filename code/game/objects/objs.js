@@ -5,6 +5,15 @@ class Tangible extends Component {
 		super(atom, template);
 		this.fingerprints = [];
 		this.fingerprints_hidden = [];
+		this.pullers = [];
+		this.atom.on("bumped_by", this.bumped_by.bind(this));
+	}
+
+	bumped_by(atom, offsetx, offsety, reason) {
+		if(!this.anchored && (reason == "walking" || reason == "bumped")) {
+			this.atom.appearance.glide_size = atom.appearance.glide_size;
+			this.atom.move(Math.sign(offsetx), Math.sign(offsety), "bumped");
+		}
 	}
 }
 

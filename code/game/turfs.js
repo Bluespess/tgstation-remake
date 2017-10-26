@@ -101,8 +101,10 @@ module.exports.templates = {
 		vars: {
 			appearance: {
 				icon: 'icons/turf/walls/wall.png',
-				icon_state: "wall"
-			}
+				icon_state: "wall",
+				layer: 1
+			},
+			density: 1
 		},
 		tree_paths: ["basic_structures/wall"],
 		require_under: {
@@ -115,13 +117,26 @@ module.exports.templates = {
 		vars: {
 			appearance: {
 				icon: 'icons/turf/walls/reinforced_wall.png',
-				icon_state: "r_wall"
-			}
+				icon_state: "r_wall",
+				layer: 1
+			},
+			density: 1
 		},
 		tree_paths: ["basic_structures/wall/reinforced"],
 		require_under: {
 			component: "Turf",
 			default: "floor"
+		}
+	},
+	"crate": {
+		components: ["Tangible"],
+		vars: {
+			appearance: {
+				icon: 'icons/obj/crates.png',
+				icon_state: "crate",
+				layer: 2.9
+			},
+			density: 1
 		}
 	}
 };

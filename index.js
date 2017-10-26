@@ -19,6 +19,7 @@ server.importModule(require('./code/game/mobs/living/carbon/human/human.js'));
 server.importModule(require('./code/game/objects/items/clothing.js'));
 server.importModule(require('./code/game/objects/items.js'));
 server.importModule(require('./code/game/objects/objs.js'));
+server.importModule(require('./code/game/objects/puller.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/turf.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/controller.js'));
 server.importModule(require('./code/onclick/hud.js'));
@@ -38,12 +39,6 @@ if(global.is_bs_editor_env) {
 		//turf.appearance.icon_state = 'floor';
 	}*/
 	server.instance_map(JSON.parse(fs.readFileSync('testmap.bsmap', 'utf8')), 0, 0, 0);
-	for(var i = 0; i < 5; i++) {
-		var template = {"components": ["Item"], "vars":{"appearance":{"icon":'icons/obj/items.png', "icon_state":"cuff_red","layer":2}}};
-		var a = new Bluespess.Atom(server, template, i, 0, 0);
-		console.log(template);
-		a.components.Item.inhand_icon_state = "coil_red";
-	}
 
 	server.on("client_login", (client) => {
 		var template = {"components": ["Player", "MobInventory", "LivingMob"]};

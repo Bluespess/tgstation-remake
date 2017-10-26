@@ -978,6 +978,11 @@
 				],
 				"x": -4,
 				"y": 0
+			},
+			{
+				"template_name": "crate",
+				"x": -4,
+				"y": 0
 			}
 		],
 		"-3,0,0": [
@@ -996,6 +1001,11 @@
 				"variant_leaf_path": [
 					"floor"
 				],
+				"x": -2,
+				"y": 0
+			},
+			{
+				"template_name": "crate",
 				"x": -2,
 				"y": 0
 			}
@@ -1038,6 +1048,11 @@
 				],
 				"x": 2,
 				"y": 0
+			},
+			{
+				"template_name": "crate",
+				"x": 2,
+				"y": 0
 			}
 		],
 		"3,0,0": [
@@ -1056,6 +1071,11 @@
 				"variant_leaf_path": [
 					"floor"
 				],
+				"x": 4,
+				"y": 0
+			},
+			{
+				"template_name": "crate",
 				"x": 4,
 				"y": 0
 			}
@@ -1393,6 +1413,11 @@
 				],
 				"x": -4,
 				"y": 2
+			},
+			{
+				"template_name": "cablecuffs",
+				"x": -4,
+				"y": 2
 			}
 		],
 		"-3,2,0": [
@@ -1414,6 +1439,11 @@
 				],
 				"x": -2,
 				"y": 2
+			},
+			{
+				"template_name": "cablecuffs",
+				"x": -2,
+				"y": 2
 			}
 		],
 		"-1,2,0": [
@@ -1433,6 +1463,11 @@
 				"variant_leaf_path": [
 					"floor"
 				],
+				"x": 0,
+				"y": 2
+			},
+			{
+				"template_name": "cablecuffs",
 				"x": 0,
 				"y": 2
 			}
@@ -1457,6 +1492,16 @@
 				],
 				"x": 2,
 				"y": 2
+			},
+			{
+				"template_name": "cablecuffs",
+				"x": 2,
+				"y": 2
+			},
+			{
+				"template_name": "cablecuffs",
+				"x": 2,
+				"y": 2
 			}
 		],
 		"3,2,0": [
@@ -1476,6 +1521,11 @@
 					"greencorner",
 					4
 				],
+				"x": 4,
+				"y": 2
+			},
+			{
+				"template_name": "cablecuffs",
 				"x": 4,
 				"y": 2
 			}
