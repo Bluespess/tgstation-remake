@@ -61,10 +61,10 @@ class MobHud extends Component {
 			delete overlay.layer;
 			delete overlay.plane;
 			thealert.overlays.alert_master = overlay;
-			thealert.appearance.icon_state = "template"; // We'll set the icon to the client's ui pref in reorganize_alerts()
+			thealert.icon_state = "template"; // We'll set the icon to the client's ui pref in reorganize_alerts()
 			thealert.components.Alert.master = new_master;
 		} else {
-			thealert.appearance.icon_state = `${thealert.template.vars.appearance.icon_state}${severity}`;
+			thealert.icon_state = `${thealert.template.vars.icon_state}${severity}`;
 			thealert.components.Alert.severity = severity;
 		}
 
@@ -99,8 +99,8 @@ class MobHud extends Component {
 			if(!this.alerts.hasOwnProperty(alertname))
 				continue;
 			var alert = this.alerts[alertname];
-			alert.appearance.screen_loc_x = 13.875;
-			alert.appearance.screen_loc_y = 12.84375 - (1.0625*alert_idx);
+			alert.screen_loc_x = 13.875;
+			alert.screen_loc_y = 12.84375 - (1.0625*alert_idx);
 			this.atom.components.Eye.screen[`ui_alert${alert_idx}`] = alert;
 			alert_idx++;
 			if(alert_idx >= 5)
@@ -136,7 +136,7 @@ Alert.template = {
 		}
 	},
 	hidden: true // Make it not appear in map editor
-}
+};
 
 module.exports.templates = {
 	"alert_oxy": {

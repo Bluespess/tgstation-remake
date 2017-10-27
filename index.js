@@ -35,8 +35,8 @@ if(global.is_bs_editor_env) {
 
 	/*for(var x = -7; x <= 7; x++) for(var y = -7; y <= 7; y++) {
 		var turf = new Bluespess.Atom(server, server.templates["floor"], x, y, 0);
-		//turf.appearance.icon = 'icons/turf/floors.png';
-		//turf.appearance.icon_state = 'floor';
+		//turf.icon = 'icons/turf/floors.png';
+		//turf.icon_state = 'floor';
 	}*/
 	server.instance_map(JSON.parse(fs.readFileSync('testmap.bsmap', 'utf8')), 0, 0, 0);
 
@@ -45,9 +45,9 @@ if(global.is_bs_editor_env) {
 		var atom = new Bluespess.Atom(server, template, 0, 0, 0);
 		console.log(template);
 		atom.components.Mob.client = client;
-		atom.appearance.icon = 'icons/mob/human.png';
-		atom.appearance.icon_state = "skeleton";
-		atom.appearance.layer = 5;
+		atom.icon = 'icons/mob/human.png';
+		atom.icon_state = "skeleton";
+		atom.layer = 5;
 	});
 	console.log("Starting server..");
 	var serve = serveStatic(server.resRoot, {'index': ['index.html']});

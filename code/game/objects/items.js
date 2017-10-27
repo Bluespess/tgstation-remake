@@ -5,8 +5,6 @@ const {Component, chain_func} = require('bluespess');
 class Item extends Component {
 	constructor(atom, template) {
 		super(atom, template);
-		this.inhand_lhand_icon = 'icons/mob/inhands/items_lefthand.png';
-		this.inhand_rhand_icon = 'icons/mob/inhands/items_righthand.png';
 		this.atom.attack_hand = chain_func(this.atom.attack_hand, this._attack_hand.bind(this));
 	}
 
@@ -53,11 +51,14 @@ Item.template = {
 
 module.exports.templates = {
 	"cablecuffs": {
-		"components": ["Item"],
-		"vars": {
-			"appearance": {
-				"icon":'icons/obj/items.png',
-				"icon_state":"cuff_red"
+		components: ["Item"],
+		vars: {
+			icon: 'icons/obj/items.png',
+			icon_state: "cuff_red",
+			components: {
+				"Item": {
+					inhand_icon_state: "coil_red"
+				}
 			}
 		}
 	}

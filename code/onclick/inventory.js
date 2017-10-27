@@ -1,6 +1,6 @@
 'use strict';
 
-const {Component, Atom, chain_func} = require('bluespess');
+const {Component, Atom} = require('bluespess');
 const EventEmitter = require('events');
 const _slots = Symbol('_slots');
 const {_slot} = require('../game/objects/items.js').symbols;
@@ -20,7 +20,7 @@ class MobInventory extends Component {
 		this.atom.components.Eye.screen.swap_hands = new Atom(this.atom.server, {vars:{appearance:{
 			icon: 'icons/mob/screen_midnight.png', icon_state: "swap", screen_loc_x: 6.5, screen_loc_y: 1.15625, layer: 30
 		}}});
-		this.atom.components.Eye.screen.swap_hands.on("clicked", (e) => {
+		this.atom.components.Eye.screen.swap_hands.on("clicked", () => {
 			if(this.active_hand == "lhand") {
 				this.active_hand = "rhand";
 			} else {
@@ -32,9 +32,9 @@ class MobInventory extends Component {
 		this.atom.components.Eye.screen.act_equip = new Atom(this.atom.server, {vars:{appearance:{
 			icon: 'icons/mob/screen_midnight.png', icon_state: "act_equip", screen_loc_x: 6.5, screen_loc_y: 1.15625, layer: 30
 		}}});
-		this.atom.components.Eye.screen.act_equip.on("clicked", (e) => {
+		this.atom.components.Eye.screen.act_equip.on("clicked", () => {
 
-		})
+		});
 
 		this.add_slot('id', {icon: 'icons/mob/screen_midnight.png', icon_state: "id", screen_loc_x: 3.375, screen_loc_y: 0.15625, layer: 30}, {special_slot:true});
 		this.add_slot('belt', {icon: 'icons/mob/screen_midnight.png', icon_state: "belt", screen_loc_x: 4.4375, screen_loc_y: 0.15625, layer: 30}, {special_slot:true});
@@ -46,12 +46,12 @@ class MobInventory extends Component {
 		this.atom.components.Eye.screen.toggle_clothing = new Atom(this.atom.server, {vars:{appearance:{
 			icon: 'icons/mob/screen_midnight.png', icon_state: "toggle", screen_loc_x: 0.1875, screen_loc_y: 0.15625, layer: 30
 		}}});
-		this.atom.components.Eye.screen.toggle_clothing.on("clicked", (e) => {
+		this.atom.components.Eye.screen.toggle_clothing.on("clicked", () => {
 			for(var slotname of ['shoes', 'iclothing', 'oclothing', 'gloves', 'glasses', 'mask', 'ears', 'head']) {
 				var slot = this.slots[slotname];
 				slot.visible = !slot.visible;
 			}
-		})
+		});
 		this.add_slot('shoes', {icon: 'icons/mob/screen_midnight.png', icon_state: "shoes", screen_loc_x: 1.25, screen_loc_y: 0.15625, layer: 30}, {special_slot:true});
 		this.add_slot('iclothing', {icon: 'icons/mob/screen_midnight.png', icon_state: "uniform", screen_loc_x: 0.1875, screen_loc_y: 1.21875, layer: 30}, {special_slot:true});
 		this.add_slot('oclothing', {icon: 'icons/mob/screen_midnight.png', icon_state: "suit", screen_loc_x: 1.25, screen_loc_y: 1.21875, layer: 30}, {special_slot:true});
@@ -64,7 +64,7 @@ class MobInventory extends Component {
 		this.atom.components.Eye.screen.drop_item = new Atom(this.atom.server, {vars:{appearance:{
 			icon: 'icons/mob/screen_midnight.png', icon_state: "act_drop", screen_loc_x: 13.875, screen_loc_y: 1.21875, layer: 30
 		}}});
-		this.atom.components.Eye.screen.drop_item.on("clicked", (e) => {
+		this.atom.components.Eye.screen.drop_item.on("clicked", () => {
 			this.slots[this.active_hand].item = undefined;
 		});
 
@@ -152,7 +152,7 @@ class Slot extends EventEmitter {
 			return;
 		}
 		if(!this.item && this.can_accept_item(this.mob.components.MobInventory.slots[this.mob.components.MobInventory.active_hand].item)) {
-			this.item = this.mob.components.MobInventory.slots[this.mob.components.MobInventory.active_hand].item
+			this.item = this.mob.components.MobInventory.slots[this.mob.components.MobInventory.active_hand].item;
 		} else if(this.item && !this.mob.components.MobInventory.slots[this.mob.components.MobInventory.active_hand].item) {
 			this.item.attack_hand(this.mob, e);
 		}
@@ -189,9 +189,9 @@ class Slot extends EventEmitter {
 			throw new TypeError(`${value} is not an atom with item component or undefined!`);
 		if(this[_item]) {
 			this[_item].components.Item[_slot] = undefined;
-			this[_item].appearance.layer = this.old_item_layer;
-			delete this[_item].appearance.screen_loc_x;
-			delete this[_item].appearance.screen_loc_y;
+			this[_item].layer = this.old_item_layer;
+			delete this[_item].screen_loc_x;
+			delete this[_item].screen_loc_y;
 			this[_item].loc = this.mob.loc;
 			this.mob.components.Eye.screen[`item_in_slot_${this.id}`] = undefined;
 		}
@@ -202,10 +202,10 @@ class Slot extends EventEmitter {
 				this[_item].loc = this.mob.loc;
 			}
 			this[_item].components.Item[_slot] = this;
-			this.old_item_layer = this[_item].appearance.layer;
-			this[_item].appearance.layer = 31;
-			this[_item].appearance.screen_loc_x = this.atom.appearance.screen_loc_x;
-			this[_item].appearance.screen_loc_y = this.atom.appearance.screen_loc_y;
+			this.old_item_layer = this[_item].layer;
+			this[_item].layer = 31;
+			this[_item].screen_loc_x = this.atom.screen_loc_x;
+			this[_item].screen_loc_y = this.atom.screen_loc_y;
 			this.mob.components.Eye.screen[`item_in_slot_${this.id}`] = this[_item];
 			this[_item].loc = this.mob;
 			if(this.props.is_hand_slot && this[_item].components.Item.inhand_icon_state) {

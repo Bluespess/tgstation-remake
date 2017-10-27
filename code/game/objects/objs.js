@@ -11,7 +11,7 @@ class Tangible extends Component {
 
 	bumped_by(atom, offsetx, offsety, reason) {
 		if(!this.anchored && (reason == "walking" || reason == "bumped")) {
-			this.atom.appearance.glide_size = atom.appearance.glide_size;
+			this.atom.glide_size = atom.glide_size;
 			this.atom.move(Math.sign(offsetx), Math.sign(offsety), "bumped");
 		}
 	}

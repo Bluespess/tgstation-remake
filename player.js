@@ -36,7 +36,7 @@ class Player extends Component {
 			if(offsety > 0) dir |= 1;
 			if(offsety < 0) dir |= 2;
 			if(dir)
-				this.atom.appearance.dir = dir;
+				this.atom.dir = dir;
 		});
 
 		this.atom.on("bumped", (atom, offsetx, offsety) => {
@@ -46,7 +46,7 @@ class Player extends Component {
 			if(offsety > 0) dir |= 1;
 			if(offsety < 0) dir |= 2;
 			if(dir)
-				this.atom.appearance.dir = dir;
+				this.atom.dir = dir;
 		});
 	}
 	update_walk() {

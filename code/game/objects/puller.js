@@ -47,7 +47,7 @@ class Puller extends Component {
 		if(this[_pulling].x != oldx && this[_pulling].y != oldy && Math.abs(this[_pulling].x - this.atom.x) <= 1.00001 && Math.abs(this[_pulling].y - this.atom.y) <= 1.00001) {
 			return;
 		}
-		this.pulling.appearance.glide_size = this.atom.appearance.glide_size;
+		this.pulling.glide_size = this.atom.glide_size;
 		this.pulling.move(oldx - this.pulling.x, oldy - this.pulling.y, "pulled");
 	}
 
