@@ -104,7 +104,8 @@ module.exports.templates = {
 				icon_state: "wall",
 				layer: 1
 			},
-			density: 1
+			density: 1,
+			opacity: true
 		},
 		tree_paths: ["basic_structures/wall"],
 		require_under: {
@@ -120,7 +121,8 @@ module.exports.templates = {
 				icon_state: "r_wall",
 				layer: 1
 			},
-			density: 1
+			density: 1,
+			opacity: true
 		},
 		tree_paths: ["basic_structures/wall/reinforced"],
 		require_under: {

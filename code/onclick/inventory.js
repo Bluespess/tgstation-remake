@@ -102,11 +102,13 @@ class MobInventory extends Component {
 	click_on(e) {
 		if(e.atom == null) return;
 		if(e.ctrlKey) return;
-		var active_item = this[_slots][this[_active_hand]].item;
-		if(active_item) {
-			e.atom.attack_by(active_item, this.atom, e);
-		} else {
-			e.atom.attack_hand(this.atom, e);
+		if(Math.abs(e.atom.x - this.atom.x) <= 1 && Math.abs(e.atom.y - this.atom.y) <= 1) {
+			var active_item = this[_slots][this[_active_hand]].item;
+			if(active_item) {
+				e.atom.attack_by(active_item, this.atom, e);
+			} else {
+				e.atom.attack_hand(this.atom, e);
+			}
 		}
 	}
 
@@ -190,8 +192,8 @@ class Slot extends EventEmitter {
 		if(this[_item]) {
 			this[_item].components.Item[_slot] = undefined;
 			this[_item].layer = this.old_item_layer;
-			delete this[_item].screen_loc_x;
-			delete this[_item].screen_loc_y;
+			this[_item].screen_loc_x = null;
+			this[_item].screen_loc_y = null;
 			this[_item].loc = this.mob.loc;
 			this.mob.components.Eye.screen[`item_in_slot_${this.id}`] = undefined;
 		}

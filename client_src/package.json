@@ -9,7 +9,7 @@
   "author": "",
   "license": "AGPL-3.0",
   "dependencies": {
-    "bluespess-client": "0.2.0",
+    "bluespess-client": "0.2.1",
     "jquery": "^3.2.1"
   },
   "devDependencies": {

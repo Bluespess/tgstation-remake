@@ -41,13 +41,14 @@ if(global.is_bs_editor_env) {
 	server.instance_map(JSON.parse(fs.readFileSync('testmap.bsmap', 'utf8')), 0, 0, 0);
 
 	server.on("client_login", (client) => {
-		var template = {"components": ["Player", "MobInventory", "LivingMob"]};
-		var atom = new Bluespess.Atom(server, template, 0, 0, 0);
-		console.log(template);
-		atom.components.Mob.client = client;
-		atom.icon = 'icons/mob/human.png';
-		atom.icon_state = "skeleton";
-		atom.layer = 5;
+		if(!client.mob) {
+			var template = {"components": ["Player", "MobInventory", "LivingMob"]};
+			var atom = new Bluespess.Atom(server, template, 0, 0, 0);
+			atom.components.Mob.client = client;
+			atom.icon = 'icons/mob/human.png';
+			atom.icon_state = "skeleton";
+			atom.layer = 5;
+		}
 	});
 	console.log("Starting server..");
 	var serve = serveStatic(server.resRoot, {'index': ['index.html']});
