@@ -140,5 +140,20 @@ module.exports.templates = {
 			},
 			density: 1
 		}
+	},
+	"light": {
+		components: ["LightingObject", "Tangible"],
+		vars: {
+			layer: 10,
+			icon: 'icons/obj/lighting.png',
+			icon_state: "flashlight-on",
+			components: {
+				"LightingObject": {
+					on: true,
+					radius: 5,
+					color: "#ffffff"
+				}
+			}
+		}
 	}
 };

@@ -123,6 +123,11 @@
 				"template_name": "plating",
 				"x": 0,
 				"y": -7
+			},
+			{
+				"template_name": "light",
+				"x": 0,
+				"y": -7
 			}
 		],
 		"1,-7,0": [
@@ -1112,15 +1117,15 @@
 		],
 		"-4,0,0": [
 			{
-				"template_name": "floor",
-				"variant_leaf_path": [
-					"floor"
-				],
+				"template_name": "crate",
 				"x": -4,
 				"y": 0
 			},
 			{
-				"template_name": "crate",
+				"template_name": "floor",
+				"variant_leaf_path": [
+					"floor"
+				],
 				"x": -4,
 				"y": 0
 			}
@@ -1137,15 +1142,15 @@
 		],
 		"-2,0,0": [
 			{
-				"template_name": "floor",
-				"variant_leaf_path": [
-					"floor"
-				],
+				"template_name": "crate",
 				"x": -2,
 				"y": 0
 			},
 			{
-				"template_name": "crate",
+				"template_name": "floor",
+				"variant_leaf_path": [
+					"floor"
+				],
 				"x": -2,
 				"y": 0
 			}
@@ -1168,6 +1173,11 @@
 				],
 				"x": 0,
 				"y": 0
+			},
+			{
+				"template_name": "light",
+				"x": 0,
+				"y": 0
 			}
 		],
 		"1,0,0": [
@@ -1182,15 +1192,15 @@
 		],
 		"2,0,0": [
 			{
-				"template_name": "floor",
-				"variant_leaf_path": [
-					"floor"
-				],
+				"template_name": "crate",
 				"x": 2,
 				"y": 0
 			},
 			{
-				"template_name": "crate",
+				"template_name": "floor",
+				"variant_leaf_path": [
+					"floor"
+				],
 				"x": 2,
 				"y": 0
 			}
@@ -1207,15 +1217,15 @@
 		],
 		"4,0,0": [
 			{
-				"template_name": "floor",
-				"variant_leaf_path": [
-					"floor"
-				],
+				"template_name": "crate",
 				"x": 4,
 				"y": 0
 			},
 			{
-				"template_name": "crate",
+				"template_name": "floor",
+				"variant_leaf_path": [
+					"floor"
+				],
 				"x": 4,
 				"y": 0
 			}
@@ -1314,6 +1324,11 @@
 					"red",
 					10
 				],
+				"x": -8,
+				"y": 1
+			},
+			{
+				"template_name": "light",
 				"x": -8,
 				"y": 1
 			}
@@ -1483,6 +1498,11 @@
 				],
 				"x": 8,
 				"y": 1
+			},
+			{
+				"template_name": "light",
+				"x": 8,
+				"y": 1
 			}
 		],
 		"9,1,0": [
@@ -1546,16 +1566,16 @@
 		],
 		"-4,2,0": [
 			{
+				"template_name": "cablecuffs",
+				"x": -4,
+				"y": 2
+			},
+			{
 				"template_name": "floor_corner",
 				"variant_leaf_path": [
 					"yellowcorner",
 					1
 				],
-				"x": -4,
-				"y": 2
-			},
-			{
-				"template_name": "cablecuffs",
 				"x": -4,
 				"y": 2
 			}
@@ -1572,16 +1592,16 @@
 		],
 		"-2,2,0": [
 			{
+				"template_name": "cablecuffs",
+				"x": -2,
+				"y": 2
+			},
+			{
 				"template_name": "floor_corner",
 				"variant_leaf_path": [
 					"yellowcorner",
 					4
 				],
-				"x": -2,
-				"y": 2
-			},
-			{
-				"template_name": "cablecuffs",
 				"x": -2,
 				"y": 2
 			}
@@ -1599,15 +1619,15 @@
 		],
 		"0,2,0": [
 			{
-				"template_name": "floor",
-				"variant_leaf_path": [
-					"floor"
-				],
+				"template_name": "cablecuffs",
 				"x": 0,
 				"y": 2
 			},
 			{
-				"template_name": "cablecuffs",
+				"template_name": "floor",
+				"variant_leaf_path": [
+					"floor"
+				],
 				"x": 0,
 				"y": 2
 			}
@@ -1625,16 +1645,16 @@
 		],
 		"2,2,0": [
 			{
+				"template_name": "cablecuffs",
+				"x": 2,
+				"y": 2
+			},
+			{
 				"template_name": "floor_corner",
 				"variant_leaf_path": [
 					"greencorner",
 					1
 				],
-				"x": 2,
-				"y": 2
-			},
-			{
-				"template_name": "cablecuffs",
 				"x": 2,
 				"y": 2
 			}
@@ -1651,16 +1671,16 @@
 		],
 		"4,2,0": [
 			{
+				"template_name": "cablecuffs",
+				"x": 4,
+				"y": 2
+			},
+			{
 				"template_name": "floor_corner",
 				"variant_leaf_path": [
 					"greencorner",
 					4
 				],
-				"x": 4,
-				"y": 2
-			},
-			{
-				"template_name": "cablecuffs",
 				"x": 4,
 				"y": 2
 			}
