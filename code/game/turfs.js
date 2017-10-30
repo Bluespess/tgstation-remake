@@ -142,15 +142,15 @@ module.exports.templates = {
 		}
 	},
 	"light": {
-		components: ["LightingObject", "Tangible"],
+		components: ["LightSource", "Tangible"],
 		vars: {
-			layer: 10,
+			layer: 2.9,
 			icon: 'icons/obj/lighting.png',
 			icon_state: "flashlight-on",
 			components: {
-				"LightingObject": {
+				"LightSource": {
 					on: true,
-					radius: 5,
+					radius: 8,
 					color: "#ffffff"
 				}
 			}
