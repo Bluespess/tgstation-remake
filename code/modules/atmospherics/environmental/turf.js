@@ -23,6 +23,7 @@ class Turf extends Component {
 	}
 }
 
+Turf.depends = ["LightingTile"];
 Turf.one_per_tile = true;
 
 Turf.template = {
