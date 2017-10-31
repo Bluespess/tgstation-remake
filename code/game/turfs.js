@@ -142,7 +142,7 @@ module.exports.templates = {
 		}
 	},
 	"light": {
-		components: ["LightSource", "Tangible"],
+		components: ["LightSource", "Tangible", "Item"],
 		vars: {
 			layer: 2.9,
 			icon: 'icons/obj/lighting.png',
