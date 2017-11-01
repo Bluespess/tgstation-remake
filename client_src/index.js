@@ -6,6 +6,7 @@ var client = new BluespessClient();
 global.client = client;
 
 client.importModule(require('./parallax.js'));
+client.importModule(require('./ui/new_player.js'));
 
 if(global.is_bs_editor_env) {
 	module.exports = client;

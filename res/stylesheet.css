@@ -28,7 +28,7 @@ div#rightwindow {
 div.maplayer {
 	overflow: visible;
 	position: absolute;
-	
+
 }
 
 div.mapobject {
@@ -90,7 +90,20 @@ div.uiframe-content {
 	overflow: auto;
 }
 
-.animObj {}
+.button {
+	display: inline-block;
+	min-width: 15px;
+	height: 16px;
+	text-align: center;
+	color: #ffffff;
+	text-decoration: none;
+	background: #40628a;
+	border: 1px solid #161616;
+	padding: 0px 4px 4px 4px;
+	margin: 0 2px 2px 0;
+	cursor: default;
+	white-space: nowrap;
+}
 
 /* PIXELLATED GRAPHICS EVERYWHERE */
 * {

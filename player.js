@@ -1,6 +1,6 @@
 'use strict';
 const {Component} = require('bluespess');
-
+const NewPlayerPanel = require('./code/game/mobs/new_player_panel.js');
 
 class Player extends Component {
 	constructor(atom, template) {
@@ -47,6 +47,10 @@ class Player extends Component {
 			if(offsety < 0) dir |= 2;
 			if(dir)
 				this.atom.dir = dir;
+		});
+		process.nextTick(() => {
+			var panel = new NewPlayerPanel(this.atom.components.Mob.client);
+			panel.open();
 		});
 	}
 	update_walk() {
