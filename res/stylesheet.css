@@ -128,7 +128,7 @@ div.uiframe-content {
 }
 
 .button.yellow:hover {
-	background: #ffff66;
+	background: #dae422;
 }
 
 .button.red {
@@ -136,7 +136,16 @@ div.uiframe-content {
 }
 
 .button.red:hover {
-	background: #ff6666;
+	background: #fa1822;
+}
+
+.vertical-margins {
+	margin-top: 22px;
+	margin-bottom: 22px;
+}
+
+.center {
+	text-align: center;
 }
 
 /* PIXELLATED GRAPHICS EVERYWHERE */
