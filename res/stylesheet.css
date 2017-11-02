@@ -49,6 +49,12 @@ div.uiframe {
 	left:0px;top:0px;right:0px;bottom:0px;
 	border: 1px solid #40628a;
 	cursor: auto;
+	user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+	-o-user-select: none;
 }
 div.uiframe-container {
 	position: absolute;
@@ -71,12 +77,6 @@ div.uiframe-header {
 	font-size: 16px;
 	color: #e9c183;
 	overflow: hidden;
-	user-select: none;
-	-moz-user-select: none;
-	-khtml-user-select: none;
-	-webkit-user-select: none;
-	-webkit-touch-callout: none;
-	-o-user-select: none;
 	cursor: default;
 	line-height: 30px;
 	padding-left: 10px;
@@ -88,6 +88,7 @@ div.uiframe-content {
 	right: 0px;
 	bottom: 0px;
 	overflow: auto;
+	padding: 8px;
 }
 
 .button {
@@ -99,10 +100,43 @@ div.uiframe-content {
 	text-decoration: none;
 	background: #40628a;
 	border: 1px solid #161616;
-	padding: 0px 4px 4px 4px;
+	padding: 2px 4px;
 	margin: 0 2px 2px 0;
 	cursor: default;
 	white-space: nowrap;
+}
+
+.button:hover:not(.selected):not(.disabled):not(.on):not(.red):not(.yellow) {
+	background: #507aac;
+}
+
+.button.on, .button.selected {
+	background: #2f943c;
+}
+
+.button.on:hover {
+	background: #3Fac5e;
+}
+
+.button.disabled {
+	background: #999999;
+	border-color: #666666;
+}
+
+.button.yellow {
+	background: #cacc00;
+}
+
+.button.yellow:hover {
+	background: #ffff66;
+}
+
+.button.red {
+	background: #ea0000;
+}
+
+.button.red:hover {
+	background: #ff6666;
 }
 
 /* PIXELLATED GRAPHICS EVERYWHERE */
