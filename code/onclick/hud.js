@@ -5,9 +5,9 @@ class MobHud extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 		this.alerts = {};
-		this.atom.on("click", this._onclick.bind(this));
+		this.a.on("click", this._onclick.bind(this));
 	}
-	//mob.components.MobHud.throw_alert("generic",{components:["Alert"],vars:{appearance:{icon_state:"oxy"}}});
+	//mob.c.MobHud.throw_alert("generic",{components:["Alert"],vars:{appearance:{icon_state:"oxy"}}});
 	throw_alert(category, template, severity, new_master, override = false) {
 		/* Proc to create or update an alert. Returns the alert if the alert is new or updated, 0 if it was thrown already
 		category is a text string. Each mob may only have one alert per category; the previous one will be replaced
@@ -24,24 +24,24 @@ class MobHud extends Component {
 			return;
 		if(!template || typeof template != "object")
 			throw new TypeError(`${template} is not a valid template`);
-		this.atom.server.process_template(template);
+		this.a.server.process_template(template);
 		if(template.components.indexOf("Alert") == -1)
 			throw new TypeError(`Template provided is missing an Alert component.`);
 		var thealert;
 		if(this.alerts[category]) {
 			thealert = this.alerts[category];
-			if(thealert.components.Alert.override_alerts)
+			if(thealert.c.Alert.override_alerts)
 				return;
-			if(new_master && new_master != thealert.components.Alert.master) {
-				console.warn(`${this} threw alert ${category} with new_master ${new_master} while already having that alert with master ${thealert.components.Alert.master}`);
+			if(new_master && new_master != thealert.c.Alert.master) {
+				console.warn(`${this} threw alert ${category} with new_master ${new_master} while already having that alert with master ${thealert.c.Alert.master}`);
 
 				this.clear_alert(category);
 				return this.throw_alert.apply(this, arguments);
 			} else if(thealert.template != template) {
 				this.clear_alert(category);
 				return this.throw_alert.apply(this, arguments);
-			} else if(!severity || severity == thealert.components.Alert.severity) {
-				if(thealert.components.Alert.timeout) {
+			} else if(!severity || severity == thealert.c.Alert.severity) {
+				if(thealert.c.Alert.timeout) {
 					this.clear_alert(category);
 					return this.throw_alert.apply(this, arguments);
 				} else { //no need to update
@@ -49,45 +49,45 @@ class MobHud extends Component {
 				}
 			}
 		} else {
-			thealert = new Atom(this.atom.server, template);
-			thealert.components.Alert.override_alerts = override;
+			thealert = new Atom(this.a.server, template);
+			thealert.c.Alert.override_alerts = override;
 			if(override)
-				thealert.components.Alert.timeout = 0;
+				thealert.c.Alert.timeout = 0;
 		}
-		thealert.components.Alert.mob_viewer = this.atom;
+		thealert.c.Alert.mob_viewer = this.atom;
 
-		if(this.atom.server.is_atom(new_master)) {
+		if(this.a.server.is_atom(new_master)) {
 			var overlay = Object.assign({}, new_master.appearance);
 			delete overlay.layer;
 			delete overlay.plane;
 			thealert.overlays.alert_master = overlay;
 			thealert.icon_state = "template"; // We'll set the icon to the client's ui pref in reorganize_alerts()
-			thealert.components.Alert.master = new_master;
+			thealert.c.Alert.master = new_master;
 		} else {
 			thealert.icon_state = `${thealert.template.vars.icon_state}${severity}`;
-			thealert.components.Alert.severity = severity;
+			thealert.c.Alert.severity = severity;
 		}
 
 		this.alerts[category] = thealert;
 		this.reorganize_alerts();
 		// TODO Animation, see code/_onclick/hud/alert.dm line 64
-		if(thealert.components.Alert.timeout) {
+		if(thealert.c.Alert.timeout) {
 			setTimeout(() => {
-				if(thealert.components.Alert.timeout && this.alerts[category] == thealert)
+				if(thealert.c.Alert.timeout && this.alerts[category] == thealert)
 					this.clear_alert(category);
-			}, thealert.components.Alert.timeout);
+			}, thealert.c.Alert.timeout);
 		}
 	}
 	clear_alert(category, clear_override = false) {
 		var alert = this.alerts[category];
 		if(!alert)
 			return false;
-		if(alert.components.Alert.override_alerts && !clear_override)
+		if(alert.c.Alert.override_alerts && !clear_override)
 			return false;
 
 		delete this.alerts[category];
 		this.reorganize_alerts();
-		//this.components.Eye.screen[`alert_${category}`] = undefined;
+		//this.c.Eye.screen[`alert_${category}`] = undefined;
 		// TODO: destroy the alert;
 	}
 	_onclick(e) {
@@ -101,13 +101,13 @@ class MobHud extends Component {
 			var alert = this.alerts[alertname];
 			alert.screen_loc_x = 13.875;
 			alert.screen_loc_y = 12.84375 - (1.0625*alert_idx);
-			this.atom.components.Eye.screen[`ui_alert${alert_idx}`] = alert;
+			this.a.c.Eye.screen[`ui_alert${alert_idx}`] = alert;
 			alert_idx++;
 			if(alert_idx >= 5)
 				break;
 		}
 		for(;alert_idx < 5; alert_idx++) {
-			this.atom.components.Eye.screen[`ui_alert${alert_idx}`] = undefined;
+			this.a.c.Eye.screen[`ui_alert${alert_idx}`] = undefined;
 		}
 	}
 }

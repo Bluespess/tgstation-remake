@@ -9,7 +9,7 @@ class Turf extends Component {
 		super(atom, template);
 		this.air = new GasMixture();
 		this.air.parse_gas_string(this.initial_gas_mix);
-		this.atom.on("moved", this.on_move.bind(this));
+		this.a.on("moved", this.on_move.bind(this));
 		this.on_move();
 	}
 
@@ -17,8 +17,8 @@ class Turf extends Component {
 		if(this.prevLoc) {
 			this.prevLoc.turf = undefined;
 		}
-		if(this.atom.loc && this.atom.loc.isBaseLoc) {
-			this.atom.loc.turf = this.atom;
+		if(this.a.loc && this.a.loc.isBaseLoc) {
+			this.a.loc.turf = this.atom;
 		}
 	}
 }
@@ -52,25 +52,25 @@ class SimulatedTurf extends Component {
 	assume_air(giver) {
 		if(!giver)
 			return false;
-		this.atom.components.Turf.air.merge(giver);
+		this.a.c.Turf.air.merge(giver);
 		this.update_visuals();
 		return true;
 	}
 
 	remove_air(amount) {
-		var removed = this.atom.components.Turf.air.remove(amount);
+		var removed = this.a.c.Turf.air.remove(amount);
 		this.update_visuals();
 		return removed;
 	}
 
 	copy_air_with_tile(turf) {
-		if(this.atom.server.has_component(turf, "Turf"))
-			this.atom.components.Turf.air.copy_from(turf.components.Turf.air);
+		if(this.a.server.has_component(turf, "Turf"))
+			this.a.c.Turf.air.copy_from(turf.c.Turf.air);
 	}
 
 	copy_air(copy) {
 		if(copy)
-			this.atom.components.Turf.air.copy_from(copy);
+			this.a.c.Turf.air.copy_from(copy);
 	}
 
 	temperature_expose() {
@@ -78,18 +78,18 @@ class SimulatedTurf extends Component {
 	}
 
 	archive(cycle_num) {
-		this.atom.components.Turf.air.archive();
+		this.a.c.Turf.air.archive();
 		this.archived_cycle = cycle_num;
 	}
 
 	update_visuals() {
-		for(var gas of this.atom.components.Turf.air.gases_list) {
+		for(var gas of this.a.c.Turf.air.gases_list) {
 			if(gas.gas_meta.gas_overlay && gas.moles > gas.gas_meta.moles_visible) {
-				if(!this.atom.overlays[`gas_overlay_${gas.id}`]) {
-					this.atom.overlays[`gas_overlay_${gas.id}`] = {icon:'icons/effects/tile_effects.png',icon_state:gas.gas_meta.gas_overlay,mouse_opacity:0,layer:5};
+				if(!this.a.overlays[`gas_overlay_${gas.id}`]) {
+					this.a.overlays[`gas_overlay_${gas.id}`] = {icon:'icons/effects/tile_effects.png',icon_state:gas.gas_meta.gas_overlay,mouse_opacity:0,layer:5};
 				}
 			} else {
-				this.atom.overlays[`gas_overlay_${gas.id}`] = null;
+				this.a.overlays[`gas_overlay_${gas.id}`] = null;
 			}
 		}
 	}
@@ -102,25 +102,25 @@ class SimulatedTurf extends Component {
 
 		var adjacent_turfs = [];
 		for(var i = 1; i <= 8; i <<= 1) {
-			var turf = this.atom.loc.get_step(i).turf;
-			if(this.atom.server.has_component(turf, "SimulatedTurf"))
+			var turf = this.a.loc.get_step(i).turf;
+			if(this.a.server.has_component(turf, "SimulatedTurf"))
 				adjacent_turfs.push(turf);
 		}
 		var our_excited_group = this.excited_group;
 		var adjacent_turfs_length = adjacent_turfs.length;
 		var cached_atmos_cooldown = this.atmos_cooldown + 1;
 
-		var our_air = this.atom.components.Turf.air;
+		var our_air = this.a.c.Turf.air;
 
 		for(var enemy_tile of adjacent_turfs) {
-			if(!(cycle_num > enemy_tile.components.SimulatedTurf.current_cycle))
+			if(!(cycle_num > enemy_tile.c.SimulatedTurf.current_cycle))
 				continue;
-			enemy_tile.components.SimulatedTurf.archive();
+			enemy_tile.c.SimulatedTurf.archive();
 			// GROUP HANDLING START
 			var should_share_air = false;
-			var enemy_air = enemy_tile.components.Turf.air;
-			if(enemy_tile.components.SimulatedTurf.excited) {
-				var enemy_excited_group = enemy_tile.components.SimulatedTurf.excited_group;
+			var enemy_air = enemy_tile.c.Turf.air;
+			if(enemy_tile.c.SimulatedTurf.excited) {
+				var enemy_excited_group = enemy_tile.c.SimulatedTurf.excited_group;
 				if(our_excited_group) {
 					if(enemy_excited_group) {
 						if(our_excited_group != enemy_excited_group) {
@@ -130,7 +130,7 @@ class SimulatedTurf extends Component {
 						}
 						should_share_air = true;
 					} else {
-						if((this.recently_active && enemy_tile.components.SimulatedTurf.recently_active) || our_air.compare(enemy_air)) {
+						if((this.recently_active && enemy_tile.c.SimulatedTurf.recently_active) || our_air.compare(enemy_air)) {
 							our_excited_group.add_turf(enemy_tile);
 							should_share_air = true;
 						}
@@ -143,7 +143,7 @@ class SimulatedTurf extends Component {
 						should_share_air = true;
 					} else {
 						if((this.recently_active && enemy_tile.recently_active) || our_air.compare(enemy_air)) {
-							let group = new ExcitedGroup(this.atom.server.air_controller); //generate new group
+							let group = new ExcitedGroup(this.a.server.air_controller); //generate new group
 							group.add_turf(this.atom);
 							group.add_turf(enemy_tile);
 							our_excited_group = this.excited_group; //update our cache
@@ -153,11 +153,11 @@ class SimulatedTurf extends Component {
 				}
 			} else {
 				if(our_air.compare(enemy_air)) { //compare if
-					this.atom.server.air_controller.add_to_active(enemy_tile); //excite enemy
+					this.a.server.air_controller.add_to_active(enemy_tile); //excite enemy
 					if(our_excited_group) {
 						our_excited_group.add_turf(enemy_tile); //add enemy to group
 					} else {
-						let group = new ExcitedGroup(this.atom.server.air_controller); //generate new group
+						let group = new ExcitedGroup(this.a.server.air_controller); //generate new group
 						group.add_turf(this.atom);
 						group.add_turf(enemy_tile);
 						our_excited_group = this.excited_group; //update our cache
@@ -173,7 +173,7 @@ class SimulatedTurf extends Component {
 					if(difference > 0) {
 						this.consider_pressure_difference(enemy_tile, difference);
 					} else {
-						enemy_tile.components.SimulatedTurf.consider_pressure_difference(this.atom, -difference);
+						enemy_tile.c.SimulatedTurf.consider_pressure_difference(this.atom, -difference);
 					}
 				}
 				var last_share = our_air.last_share;
@@ -195,7 +195,7 @@ class SimulatedTurf extends Component {
 		// TODO superconductivity
 
 		if((!our_excited_group && remove) || (cached_atmos_cooldown > (atmos_defines.EXCITED_GROUP_DISMANTLE_CYCLES * 2))) {
-			this.atom.server.air_controller.remove_from_active(this.atom);
+			this.a.server.air_controller.remove_from_active(this.atom);
 		}
 
 		this.atmos_cooldown = cached_atmos_cooldown;

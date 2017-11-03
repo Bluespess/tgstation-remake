@@ -5,14 +5,14 @@ const {Component, chain_func} = require('bluespess');
 class Item extends Component {
 	constructor(atom, template) {
 		super(atom, template);
-		this.atom.attack_hand = chain_func(this.atom.attack_hand, this._attack_hand.bind(this));
+		this.a.attack_hand = chain_func(this.a.attack_hand, this._attack_hand.bind(this));
 	}
 
 	attack_self() {}
 
 	_attack_hand(prev, user) {
-		if(this.atom.server.has_component(user, "MobInventory")) {
-			var slot = user.components.MobInventory.slots[user.components.MobInventory.active_hand];
+		if(this.a.server.has_component(user, "MobInventory")) {
+			var slot = user.c.MobInventory.slots[user.c.MobInventory.active_hand];
 			if(slot.item != null)
 				return prev();
 			slot.item = this.atom;

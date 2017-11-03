@@ -6,13 +6,13 @@ class Tangible extends Component {
 		this.fingerprints = [];
 		this.fingerprints_hidden = [];
 		this.pullers = [];
-		this.atom.on("bumped_by", this.bumped_by.bind(this));
+		this.a.on("bumped_by", this.bumped_by.bind(this));
 	}
 
 	bumped_by(atom, offsetx, offsety, reason) {
 		if(!this.anchored && (reason == "walking" || reason == "bumped")) {
-			this.atom.glide_size = atom.glide_size;
-			this.atom.move(Math.sign(offsetx), Math.sign(offsety), "bumped");
+			this.a.glide_size = atom.glide_size;
+			this.a.move(Math.sign(offsetx), Math.sign(offsety), "bumped");
 		}
 	}
 }

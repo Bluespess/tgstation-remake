@@ -25,7 +25,7 @@ class AirController {
 		var active_turfs = [...this.active_turfs];
 		var ticknum = this.ticknum;
 		for(var turf of active_turfs) {
-			turf.components.SimulatedTurf.process_cell(ticknum);
+			turf.c.SimulatedTurf.process_cell(ticknum);
 		}
 	}
 
@@ -46,19 +46,19 @@ class AirController {
 		if(idx != -1)
 			this.active_turfs.splice(idx, 1);
 		if(this.server.has_component(turf, "SimulatedTurf")) {
-			turf.components.SimulatedTurf.excited = false;
-			if(turf.components.SimulatedTurf.excited_group)
-				turf.components.SimulatedTurf.excited_group.garbage_collect();
+			turf.c.SimulatedTurf.excited = false;
+			if(turf.c.SimulatedTurf.excited_group)
+				turf.c.SimulatedTurf.excited_group.garbage_collect();
 		}
 	}
 
 	add_to_active(turf, blockchanges = true) {
 		if(this.server.has_component(turf, "SimulatedTurf")) {
-			turf.components.SimulatedTurf.excited = true;
+			turf.c.SimulatedTurf.excited = true;
 			if(this.active_turfs.indexOf(turf) == -1)
 				this.active_turfs.push(turf);
-			if(blockchanges && turf.components.SimulatedTurf.excited_group)
-				turf.components.SimulatedTurf.excited_group.garbage_collect();
+			if(blockchanges && turf.c.SimulatedTurf.excited_group)
+				turf.c.SimulatedTurf.excited_group.garbage_collect();
 		}
 	}
 }

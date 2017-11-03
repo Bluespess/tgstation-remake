@@ -26,7 +26,7 @@ class GasMixture {
 		this.volume = Math.max(0, volume);
 		this.last_share = 0;
 		this.reaction_results = {};
-		
+
 		//Hold on to structures for ALL gases. For explanation why, read about
 		//hidden classes
 		for(var metakey in gas_metas) {
@@ -49,8 +49,9 @@ class GasMixture {
 			var gas = cached_gases_list[i];
 			capacity += gas.moles * gas.gas_meta.specific_heat;
 		}
+		return capacity;
 	}
-	
+
 	heat_capacity_archived() { //joules per kelvin
 		var capacity = 0;
 		var cached_gases_list = this.gases_list;
@@ -58,8 +59,9 @@ class GasMixture {
 			var gas = cached_gases_list[i];
 			capacity += gas.moles_archived * gas.gas_meta.specific_heat;
 		}
+		return capacity;
 	}
-	
+
 	total_moles() {
 		var moles = 0;
 		var cached_gases_list = this.gases_list;
@@ -69,7 +71,7 @@ class GasMixture {
 		}
 		return moles;
 	}
-	
+
 	return_pressure() { // kilopascals
 		if(this.volume > 0) { // to preventr division by zero
 			var total_moles = this.total_moles();
@@ -77,11 +79,11 @@ class GasMixture {
 		}
 		return 0;
 	}
-	
+
 	thermal_energy() { // joules
 		return this.temperature * this.heat_capacity();
 	}
-	
+
 	archive() {
 		this.temperature_archived = this.temperature;
 		var cached_gases_list = this.gases_list;
@@ -91,11 +93,11 @@ class GasMixture {
 		}
 		return true;
 	}
-	
+
 	merge(giver) {
 		if(!giver)
 			return false;
-		
+
 		if(Math.abs(this.temperature - giver.temperature) > atmos_defines.MINIMUM_TEMPERATURE_DELTA_TO_CONSIDER) {
 			var self_heat_capacity = this.heat_capacity();
 			var giver_heat_capacity = giver.heat_capacity();
@@ -110,15 +112,15 @@ class GasMixture {
 		}
 		return true;
 	}
-	
+
 	remove_ratio(percent) {
-		percent = Math.min(percent, 1) // Cannot take more air than tile has!
+		percent = Math.min(percent, 1); // Cannot take more air than tile has!
 		if(percent <= 0)
 			return null;
 		var removed = new GasMixture();
 		var removed_gases_list = removed.gases_list;
-		
-		removed.temperature = temperature;
+
+		removed.temperature = this.temperature;
 		var cached_gases_list = this.gases_list;
 		for(var i = 0, l = cached_gases_list.length; i < l; i++) {
 			var gas = cached_gases_list[i];
@@ -126,33 +128,33 @@ class GasMixture {
 			removed_gases_list[i].moles = amount_local;
 			gas.moles -= amount_local;
 		}
-		
+
 		return removed;
 	}
-	
+
 	remove(amount) {
 		return this.remove_ratio(amount / this.total_moles());
 	}
-	
+
 	copy() {
 		var copy = new GasMixture(this.volume);
 		copy.copy_from(this); // Fuck it I'm not rewriting the same function twice
 	}
-	
+
 	copy_from(sample) {
-		
+
 		this.temperature = sample.temperature;
 		var cached_gases_list = this.gases_list;
 		var sample_gases_list = sample.gases_list;
 		for(var i = 0, l = cached_gases_list.length; i < l; i++) {
 			cached_gases_list[i].moles = sample_gases_list[i].moles;
 		}
-		
+
 		return true;
 	}
-	
+
 	//TODO copy_from_turf, see code/modules/atmospherics/gasmixtures/gas_mixture.dm line 270
-	
+
 	parse_gas_string(gases_string) {
 		var cached_gases = this.gases;
 		var split1 = gases_string.split(";");
@@ -166,36 +168,36 @@ class GasMixture {
 		}
 		return true;
 	}
-	
+
 	share(sharer, atmos_adjacent_turfs = 4) {
 		if(!sharer)
 			return false;
-			
-		
+
+
 		var temperature_delta = this.temperature_archived - sharer.temperature_archived;
 		var abs_temperature_delta = Math.abs(temperature_delta);
-		
+
 		var old_self_heat_capacity = 0;
 		var old_sharer_heat_capacity = 0;
 		if(abs_temperature_delta > atmos_defines.MINIMUM_TEMPERATURE_DELTA_TO_CONSIDER) {
 			old_self_heat_capacity = this.heat_capacity();
 			old_sharer_heat_capacity = sharer.heat_capacity();
 		}
-		
+
 		var heat_capacity_self_to_sharer = 0;
 		var heat_capacity_sharer_to_self = 0;
-		
+
 		var moved_moles = 0;
 		var abs_moved_moles = 0;
-		
+
 		var cached_gases_list = this.gases_list;
 		var sharer_gases_list = sharer.gases_list;
 		for(var i = 0, l = cached_gases_list.length; i < l; i++) {
 			var gas = cached_gases_list[i];
 			var sharergas = sharer_gases_list[i];
-			
+
 			var delta = quantize(gas.moles_archived - sharergas.moles_archived) / (atmos_adjacent_turfs+1);
-			
+
 			if(delta && abs_temperature_delta > atmos_defines.MINIMUM_TEMPERATURE_DELTA_TO_CONSIDER) {
 				var gas_heat_capacity = delta * gas.gas_meta.specific_heat;
 				if(delta > 0) {
@@ -204,36 +206,36 @@ class GasMixture {
 					heat_capacity_sharer_to_self -= gas_heat_capacity;
 				}
 			}
-			
+
 			gas.moles -= delta;
 			sharergas.moles += delta;
 			moved_moles += delta;
 			abs_moved_moles += Math.abs(delta);
 		}
 		this.last_share = abs_moved_moles;
-		
+
 		//THERMAL ENERGY TRANSFER
 		if(abs_temperature_delta > atmos_defines.MINIMUM_TEMPERATURE_DELTA_TO_CONSIDER) {
 			var new_self_heat_capacity = old_self_heat_capacity + heat_capacity_sharer_to_self - heat_capacity_self_to_sharer;
 			var new_sharer_heat_capacity = old_sharer_heat_capacity + heat_capacity_self_to_sharer - heat_capacity_sharer_to_self;
-			
+
 			//transfer of thermal energy (via changed heat capacity) between self and sharer
 			if(new_self_heat_capacity > atmos_defines.MINIMUM_HEAT_CAPACITY){
 				this.temperature = (old_self_heat_capacity*this.temperature - heat_capacity_self_to_sharer*this.temperature_archived + heat_capacity_sharer_to_self*sharer.temperature_archived)/new_self_heat_capacity;
 			}
-			
+
 			if(new_sharer_heat_capacity > atmos_defines.MINIMUM_HEAT_CAPACITY) {
 				sharer.temperature = (old_sharer_heat_capacity*sharer.temperature-heat_capacity_sharer_to_self*sharer.temperature_archived + heat_capacity_self_to_sharer*this.temperature_archived)/new_sharer_heat_capacity;
 				//thermal energy of the system (self and sherer) is unchanged
-				
+
 				if(Math.abs(old_sharer_heat_capacity) > atmos_defines.MINIMUM_HEAT_CAPACITY) {
 					if(Math.abs(new_sharer_heat_capacity/old_sharer_heat_capacity - 1) < 0.10) {// <10% change in sharer heat capacity
 						this.temperature_share(sharer, atmos_defines.OPEN_HEAT_TRANSFER_COEFFICIENT);
-					} 
+					}
 				}
 			}
 		}
-		
+
 		sharer.after_share(this, atmos_adjacent_turfs);
 		if(this.temperature_delta > atmos_defines.MINIMUM_TEMPERATURE_TO_MOVE || Math.abs(moved_moles) > atmos_defines.MINIMUM_MOLES_DELTA_TO_MOVE) {
 			var our_moles = this.total_moles();
@@ -242,25 +244,25 @@ class GasMixture {
 			return delta_pressure * atmos_defines.R_IDEAL_GAS_EQUATION / this.volume;
 		}
 	}
-	
+
 	after_share(sharer, atmos_adjacent_turfs = 4) {
 		return;
 	}
-	
+
 	temperature_share(sharer, conduction_coefficient, sharer_temperature, sharer_heat_capacity) {
 		//transfer of thermal energy (via conduction) between self and sharer
 		if(sharer)
-			sharer_temprature = sharer.temperature_archived;
-		var temperature_delta = temperature_archived - sharer_temperature;
-		if(abs(temperature_delta) > atmos_defines.MINIMUM_TEMPERATURE_DELTA_TO_CONSIDER) {
+			sharer_temperature = sharer.temperature_archived;
+		var temperature_delta = this.temperature_archived - sharer_temperature;
+		if(Math.abs(temperature_delta) > atmos_defines.MINIMUM_TEMPERATURE_DELTA_TO_CONSIDER) {
 			var self_heat_capacity = this.heat_capacity_archived();
 			sharer_heat_capacity = sharer_heat_capacity || sharer.heat_capacity_archived();
-			
+
 			if((sharer_heat_capacity > atmos_defines.MINIMUM_HEAT_CAPACITY) && (self_heat_capacity > atmos_defines.MINIMUM_HEAT_CAPACITY)) {
 				var heat = conduction_coefficient * temperature_delta * (self_heat_capacity*sharer_heat_capacity/(self_heat_capacity+sharer_heat_capacity));
-				
-				this.temperature = Math.max(temperature - heat/self_heat_capacity, atmos_defines.TCMB);
-				sharer_temperature = max(sharer_temperature + heat / sharer_heat_capacity, atmos_defines.TCMB);
+
+				this.temperature = Math.max(this.temperature - heat/self_heat_capacity, atmos_defines.TCMB);
+				sharer_temperature = Math.max(sharer_temperature + heat / sharer_heat_capacity, atmos_defines.TCMB);
 				if(sharer)
 					sharer.temperature = sharer_temperature;
 			}
@@ -268,7 +270,7 @@ class GasMixture {
 		return sharer_temperature;
 		// thermal energy of the system (self and sherer) is unchanged
 	}
-	
+
 	compare(sample) {
 		var cached_gases_list = this.gases_list;
 		var sample_gases_list = sample.gases_list;
@@ -279,7 +281,7 @@ class GasMixture {
 			if(delta > atmos_defines.MINIMUM_MOLES_DELTA_TO_MOVE && delta > gas.moles * atmos_defines.MINIMUM_AIR_RATIO_TO_MOVE)
 				return gas.id;
 		}
-		
+
 		var our_moles = this.total_moles();
 		if(our_moles > atmos_defines.MINIMUM_MOLES_DELTA_TO_MOVE) {
 			if(Math.abs(this.temperature - sample.temperature) > atmos_defines.MINIMUM_TEMPERATURE_DELTA_TO_SUSPEND)

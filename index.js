@@ -44,7 +44,7 @@ if(global.is_bs_editor_env) {
 		if(!client.mob) {
 			var template = {"components": ["Player", "MobInventory", "LivingMob"]};
 			var atom = new Bluespess.Atom(server, template, 0, 0, 0);
-			atom.components.Mob.client = client;
+			atom.c.Mob.client = client;
 			atom.icon = 'icons/mob/human.png';
 			atom.icon_state = "skeleton";
 			atom.layer = 5;

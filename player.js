@@ -49,7 +49,7 @@ class Player extends Component {
 				this.atom.dir = dir;
 		});
 		process.nextTick(() => {
-			var panel = new NewPlayerPanel(this.atom.components.Mob.client);
+			var panel = new NewPlayerPanel(this.a.c.Mob.client);
 			panel.open();
 		});
 	}

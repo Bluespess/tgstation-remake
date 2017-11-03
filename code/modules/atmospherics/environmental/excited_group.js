@@ -13,8 +13,8 @@ class ExcitedGroup {
 	}
 
 	add_turf(turf) {
-		turf.components.SimulatedTurf.excited_group = this;
-		turf.components.SimulatedTurf.recently_active = true;
+		turf.c.SimulatedTurf.excited_group = this;
+		turf.c.SimulatedTurf.recently_active = true;
 		this.turf_list.push(turf);
 		this.reset_cooldowns();
 	}
@@ -25,7 +25,7 @@ class ExcitedGroup {
 			if(idx != -1)
 				this.controller.excited_groups.splice(idx, 1);
 			for(let turf of group.turf_list) {
-				turf.components.SimulatedTurf.excited_group = this;
+				turf.c.SimulatedTurf.excited_group = this;
 				this.turf_list.push(turf);
 			}
 			this.reset_cooldowns();
@@ -34,7 +34,7 @@ class ExcitedGroup {
 			if(idx != -1)
 				this.controller.excited_groups.splice(idx, 1);
 			for(let turf of this.turf_list) {
-				turf.components.SimulatedTurf.excited_group = group;
+				turf.c.SimulatedTurf.excited_group = group;
 				group.turf_list.push(turf);
 			}
 			group.reset_cooldowns();
@@ -51,7 +51,7 @@ class ExcitedGroup {
 
 		for(let turf of this.turf_list) {
 			// TODO handle space
-			combined.merge(turf.components.Turf.air);
+			combined.merge(turf.c.Turf.air);
 		}
 
 		var turf_list_len = this.turf_list.length;
@@ -60,9 +60,9 @@ class ExcitedGroup {
 		}
 
 		for(let turf of this.turf_list) {
-			turf.components.Turf.air.copy_from(combined);
-			turf.components.SimulatedTurf.atmos_cooldown = 0;
-			turf.components.SimulatedTurf.update_visuals();
+			turf.c.Turf.air.copy_from(combined);
+			turf.c.SimulatedTurf.atmos_cooldown = 0;
+			turf.c.SimulatedTurf.update_visuals();
 		}
 
 		this.breakdown_cooldown = 0;
@@ -70,9 +70,9 @@ class ExcitedGroup {
 
 	dismantle() {
 		for(var turf of this.turf_list) {
-			turf.components.SimulatedTurf.excited = false;
-			turf.components.SimulatedTurf.recently_active = false;
-			turf.components.SimulatedTurf.excited_group = undefined;
+			turf.c.SimulatedTurf.excited = false;
+			turf.c.SimulatedTurf.recently_active = false;
+			turf.c.SimulatedTurf.excited_group = undefined;
 			var idx = this.controller.active_turfs.indexOf(turf);
 			if(idx != -1)
 				this.controller.active_turfs.splice(idx, 1);
@@ -82,7 +82,7 @@ class ExcitedGroup {
 
 	garbage_collect() {
 		for(var turf of this.turf_list) {
-			turf.components.SimulatedTurf.excited_group = undefined;
+			turf.c.SimulatedTurf.excited_group = undefined;
 		}
 		this.turf_list.length = 0;
 		var idx = this.controller.excited_groups.indexOf(this);

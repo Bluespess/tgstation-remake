@@ -8,10 +8,10 @@ class Puller extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 		this[_pulling] = null;
-		this.atom.on("before_move", this.before_move.bind(this));
-		this.atom.on("moved", this.moved.bind(this));
-		if(this.atom.components.Mob)
-			this.atom.on("click_on", this.click_on.bind(this));
+		this.a.on("before_move", this.before_move.bind(this));
+		this.a.on("moved", this.moved.bind(this));
+		if(this.a.c.Mob)
+			this.a.on("click_on", this.click_on.bind(this));
 	}
 
 	click_on(e) {
@@ -24,8 +24,8 @@ class Puller extends Component {
 	}
 
 	can_pull(target) {
-		return this.atom.server.has_component(target, "Tangible") && !target.components.Tangible.anchored
-			&& this.atom.z == target.z && Math.max(Math.abs(this.atom.x - target.x), Math.abs(this.atom.y - target.y)) <= 1;
+		return this.a.server.has_component(target, "Tangible") && !target.c.Tangible.anchored
+			&& this.a.z == target.z && Math.max(Math.abs(this.a.x - target.x), Math.abs(this.a.y - target.y)) <= 1;
 	}
 
 	before_move(offsetx, offsety) {
@@ -37,17 +37,17 @@ class Puller extends Component {
 	moved(offsetx, offsety) {
 		if(offsetx == null || offsety == null || this[_pulling] == null)
 			return;
-		var oldx = this.atom.x - offsetx;
-		var oldy = this.atom.y - offsety;
+		var oldx = this.a.x - offsetx;
+		var oldy = this.a.y - offsety;
 		if(Math.abs(this[_pulling].x - this.x) > 2.00001 || Math.abs(this[_pulling].y - this.y) > 2.00001) {
 			this.pulling = null;
 			return;
 		}
 		// no diagonal drags if you don't need it
-		if(this[_pulling].x != oldx && this[_pulling].y != oldy && Math.abs(this[_pulling].x - this.atom.x) <= 1.00001 && Math.abs(this[_pulling].y - this.atom.y) <= 1.00001) {
+		if(this[_pulling].x != oldx && this[_pulling].y != oldy && Math.abs(this[_pulling].x - this.a.x) <= 1.00001 && Math.abs(this[_pulling].y - this.a.y) <= 1.00001) {
 			return;
 		}
-		this.pulling.glide_size = this.atom.glide_size;
+		this.pulling.glide_size = this.a.glide_size;
 		this.pulling.move(oldx - this.pulling.x, oldy - this.pulling.y, "pulled");
 	}
 
