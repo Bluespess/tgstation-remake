@@ -1,368 +1,410 @@
 {
-    "forge": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 32,
-        "dirs": {
-            "2": [
-                {
-                    "x": 0,
-                    "y": 0,
-                    "delay": 100
-                },
-                {
-                    "x": 32,
-                    "y": 0,
-                    "delay": 100
-                },
-                {
-                    "x": 64,
-                    "y": 0,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "forge_off": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 32,
-        "dirs": {
-            "2": [
-                {
-                    "x": 96,
-                    "y": 0,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "talismanaltar": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 32,
-        "dirs": {
-            "2": [
-                {
-                    "x": 128,
-                    "y": 0,
-                    "delay": 100
-                },
-                {
-                    "x": 160,
-                    "y": 0,
-                    "delay": 100
-                },
-                {
-                    "x": 192,
-                    "y": 0,
-                    "delay": 100
-                },
-                {
-                    "x": 0,
-                    "y": 32,
-                    "delay": 100
-                },
-                {
-                    "x": 32,
-                    "y": 32,
-                    "delay": 100
-                },
-                {
-                    "x": 64,
-                    "y": 32,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "talismanaltar_off": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 32,
-        "dirs": {
-            "2": [
-                {
-                    "x": 96,
-                    "y": 32,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "tomealtar": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 32,
-        "dirs": {
-            "2": [
-                {
-                    "x": 128,
-                    "y": 32,
-                    "delay": 100
-                },
-                {
-                    "x": 160,
-                    "y": 32,
-                    "delay": 100
-                },
-                {
-                    "x": 192,
-                    "y": 32,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "tomealtar_off": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 32,
-        "dirs": {
-            "2": [
-                {
-                    "x": 0,
-                    "y": 64,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "pylon": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 32,
-        "dirs": {
-            "2": [
-                {
-                    "x": 32,
-                    "y": 64,
-                    "delay": 200
-                },
-                {
-                    "x": 64,
-                    "y": 64,
-                    "delay": 200
-                },
-                {
-                    "x": 96,
-                    "y": 64,
-                    "delay": 200
-                },
-                {
-                    "x": 128,
-                    "y": 64,
-                    "delay": 200
-                },
-                {
-                    "x": 160,
-                    "y": 64,
-                    "delay": 200
-                },
-                {
-                    "x": 192,
-                    "y": 64,
-                    "delay": 200
-                },
-                {
-                    "x": 0,
-                    "y": 96,
-                    "delay": 200
-                },
-                {
-                    "x": 32,
-                    "y": 96,
-                    "delay": 200
-                },
-                {
-                    "x": 64,
-                    "y": 96,
-                    "delay": 200
-                },
-                {
-                    "x": 96,
-                    "y": 96,
-                    "delay": 200
-                },
-                {
-                    "x": 128,
-                    "y": 96,
-                    "delay": 200
-                },
-                {
-                    "x": 160,
-                    "y": 96,
-                    "delay": 200
-                }
-            ]
-        }
-    },
-    "pylon_off": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 32,
-        "dirs": {
-            "2": [
-                {
-                    "x": 192,
-                    "y": 96,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "cultgirder": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 32,
-        "dirs": {
-            "2": [
-                {
-                    "x": 0,
-                    "y": 128,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "hole": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 32,
-        "dirs": {
-            "2": [
-                {
-                    "x": 32,
-                    "y": 128,
-                    "delay": 100
-                },
-                {
-                    "x": 64,
-                    "y": 128,
-                    "delay": 100
-                },
-                {
-                    "x": 96,
-                    "y": 128,
-                    "delay": 100
-                },
-                {
-                    "x": 128,
-                    "y": 128,
-                    "delay": 100
-                },
-                {
-                    "x": 160,
-                    "y": 128,
-                    "delay": 100
-                },
-                {
-                    "x": 192,
-                    "y": 128,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "summoning_orb": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 32,
-        "dirs": {
-            "2": [
-                {
-                    "x": 0,
-                    "y": 160,
-                    "delay": 300
-                },
-                {
-                    "x": 32,
-                    "y": 160,
-                    "delay": 100
-                },
-                {
-                    "x": 64,
-                    "y": 160,
-                    "delay": 100
-                },
-                {
-                    "x": 96,
-                    "y": 160,
-                    "delay": 100
-                },
-                {
-                    "x": 128,
-                    "y": 160,
-                    "delay": 200
-                }
-            ]
-        }
-    },
-    "shifter": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 32,
-        "dirs": {
-            "2": [
-                {
-                    "x": 160,
-                    "y": 160,
-                    "delay": 300
-                },
-                {
-                    "x": 192,
-                    "y": 160,
-                    "delay": 300
-                },
-                {
-                    "x": 0,
-                    "y": 192,
-                    "delay": 300
-                },
-                {
-                    "x": 32,
-                    "y": 192,
-                    "delay": 300
-                }
-            ]
-        }
-    },
-    "shifter_drained": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 32,
-        "dirs": {
-            "2": [
-                {
-                    "x": 64,
-                    "y": 192,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "shuttlecurse": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 32,
-        "dirs": {
-            "2": [
-                {
-                    "x": 96,
-                    "y": 192,
-                    "delay": 100
-                },
-                {
-                    "x": 128,
-                    "y": 192,
-                    "delay": 100
-                },
-                {
-                    "x": 160,
-                    "y": 192,
-                    "delay": 100
-                }
-            ]
-        }
-    }
+	"forge": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 0,
+						"delay": 100
+					},
+					{
+						"x": 32,
+						"y": 0,
+						"delay": 100
+					},
+					{
+						"x": 64,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"forge_off": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 96,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"talismanaltar": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 128,
+						"y": 0,
+						"delay": 100
+					},
+					{
+						"x": 160,
+						"y": 0,
+						"delay": 100
+					},
+					{
+						"x": 192,
+						"y": 0,
+						"delay": 100
+					},
+					{
+						"x": 0,
+						"y": 32,
+						"delay": 100
+					},
+					{
+						"x": 32,
+						"y": 32,
+						"delay": 100
+					},
+					{
+						"x": 64,
+						"y": 32,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"talismanaltar_off": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 96,
+						"y": 32,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"tomealtar": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 128,
+						"y": 32,
+						"delay": 100
+					},
+					{
+						"x": 160,
+						"y": 32,
+						"delay": 100
+					},
+					{
+						"x": 192,
+						"y": 32,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"tomealtar_off": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 64,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"pylon": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 32,
+						"y": 64,
+						"delay": 200
+					},
+					{
+						"x": 64,
+						"y": 64,
+						"delay": 200
+					},
+					{
+						"x": 96,
+						"y": 64,
+						"delay": 200
+					},
+					{
+						"x": 128,
+						"y": 64,
+						"delay": 200
+					},
+					{
+						"x": 160,
+						"y": 64,
+						"delay": 200
+					},
+					{
+						"x": 192,
+						"y": 64,
+						"delay": 200
+					},
+					{
+						"x": 0,
+						"y": 96,
+						"delay": 200
+					},
+					{
+						"x": 32,
+						"y": 96,
+						"delay": 200
+					},
+					{
+						"x": 64,
+						"y": 96,
+						"delay": 200
+					},
+					{
+						"x": 96,
+						"y": 96,
+						"delay": 200
+					},
+					{
+						"x": 128,
+						"y": 96,
+						"delay": 200
+					},
+					{
+						"x": 160,
+						"y": 96,
+						"delay": 200
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"pylon_off": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 192,
+						"y": 96,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"cultgirder": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 128,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"hole": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 32,
+						"y": 128,
+						"delay": 100
+					},
+					{
+						"x": 64,
+						"y": 128,
+						"delay": 100
+					},
+					{
+						"x": 96,
+						"y": 128,
+						"delay": 100
+					},
+					{
+						"x": 128,
+						"y": 128,
+						"delay": 100
+					},
+					{
+						"x": 160,
+						"y": 128,
+						"delay": 100
+					},
+					{
+						"x": 192,
+						"y": 128,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"summoning_orb": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 160,
+						"delay": 300
+					},
+					{
+						"x": 32,
+						"y": 160,
+						"delay": 100
+					},
+					{
+						"x": 64,
+						"y": 160,
+						"delay": 100
+					},
+					{
+						"x": 96,
+						"y": 160,
+						"delay": 100
+					},
+					{
+						"x": 128,
+						"y": 160,
+						"delay": 200
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"shifter": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 160,
+						"y": 160,
+						"delay": 300
+					},
+					{
+						"x": 192,
+						"y": 160,
+						"delay": 300
+					},
+					{
+						"x": 0,
+						"y": 192,
+						"delay": 300
+					},
+					{
+						"x": 32,
+						"y": 192,
+						"delay": 300
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"shifter_drained": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 64,
+						"y": 192,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"shuttlecurse": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 96,
+						"y": 192,
+						"delay": 100
+					},
+					{
+						"x": 128,
+						"y": 192,
+						"delay": 100
+					},
+					{
+						"x": 160,
+						"y": 192,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	}
 }

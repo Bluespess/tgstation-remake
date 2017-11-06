@@ -1,0 +1,121 @@
+{
+	"tree1": {
+		"dir_count": 1,
+		"width": 96,
+		"height": 96,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"tree2": {
+		"dir_count": 1,
+		"width": 96,
+		"height": 96,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 96,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"tree3": {
+		"dir_count": 1,
+		"width": 96,
+		"height": 96,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 192,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"tree4": {
+		"dir_count": 1,
+		"width": 96,
+		"height": 96,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 96,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"tree5": {
+		"dir_count": 1,
+		"width": 96,
+		"height": 96,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 96,
+						"y": 96,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"tree6": {
+		"dir_count": 1,
+		"width": 96,
+		"height": 96,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 192,
+						"y": 96,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"tree": {
+		"dir_count": 1,
+		"width": 96,
+		"height": 96,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 192,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	}
+}

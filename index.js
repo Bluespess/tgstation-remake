@@ -1,6 +1,6 @@
 'use strict';
 
-// BASED OFF OF tgstation COMMIT 6fbf68ccfcd28e7b99a1ffdfde24dc49576cb819
+// BASED OFF OF tgstation COMMIT 910be9f4e29270e3a0a36ed8042310ed4bee1845
 
 const Bluespess = require('bluespess');
 
@@ -16,12 +16,15 @@ server.importModule(require('./code/game/mobs/new_player.js'));
 server.importModule(require('./code/game/mobs/living/living.js'));
 server.importModule(require('./code/game/mobs/living/carbon/carbon.js'));
 server.importModule(require('./code/game/mobs/living/carbon/human/human.js'));
+server.importModule(require('./code/game/objects/doors/airlock.js'));
+server.importModule(require('./code/game/objects/doors/door.js'));
 server.importModule(require('./code/game/objects/items/clothing.js'));
 server.importModule(require('./code/game/objects/items.js'));
 server.importModule(require('./code/game/objects/objs.js'));
 server.importModule(require('./code/game/objects/puller.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/turf.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/controller.js'));
+server.importModule(require('./code/modules/jobs/access.js'));
 server.importModule(require('./code/onclick/hud.js'));
 server.importModule(require('./code/onclick/inventory.js'));
 

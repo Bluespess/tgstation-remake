@@ -9,25 +9,25 @@ class Door extends Component {
 		this.seconds_electrified = 0;
 		this.shockedby = [];
 		this.operating = false;
-		this.a.layer = this.a.density ? this.closed_layer : this.open_layer;
+		this.a.layer = this.a.density > 0 ? this.closed_layer : this.open_layer;
+		this.a.opacity = this.a.density > 0;
 		this.a.on("bumped_by", this.bumped_by.bind(this));
-		this.a.c.RequiresAccess.has_access = chain_func(this.a.c.RequiresAccess.has_access, this.has_access);
+		this.a.c.RequiresAccess.can_access = chain_func(this.a.c.RequiresAccess.can_access, this.can_access);
+		this.a.attack_hand = chain_func(this.a.attack_hand, this.try_to_activate_door.bind(this));
 	}
 
 	bumped_by(atom) {
 		if(this.operating)
 			return;
-		if((atom.last_bump_time + 1000) > this.a.server.now())
-			return;
 		this.bump_open(atom);
 	}
 
 	bump_open(atom) {
-		if(this.density) {
-			if(this.a.c.RequiresAccess.has_access(atom)) {
+		if(this.a.density > 0) {
+			if(this.a.c.RequiresAccess.can_access(atom)) {
 				this.open();
 			} else {
-				this.do_animate("deny");
+				this.deny();
 			}
 		}
 	}
@@ -35,34 +35,34 @@ class Door extends Component {
 	try_to_activate_door(atom) {
 		if(this.operating)
 			return;
-		if(this.a.c.RequiresAccess.has_access(atom)) {
-			if(this.a.density) {
+		if(this.a.c.RequiresAccess.can_access(atom)) {
+			if(this.a.density > 0) {
 				this.open();
 			} else {
 				this.close();
 			}
 			return;
 		}
-		if(this.density)
-			this.do_animate("deny");
+		if(this.a.density > 0)
+			this.deny();
 	}
 
-	has_access(prev) {
+	can_access(prev) {
 		if(this.emergency)
 			return true;
 		return prev();
 	}
 
 	async open() {
-		if(!this.a.density)
+		if(this.a.density <= 0)
 			return true;
 		if(this.operating)
 			return;
 		this.operating = true;
-		this.do_animate("opening");
+		this.a.flick = {icon_state: this.opening_state};
 		this.a.opacity = false;
 		await this.a.server.sleep(500);
-		this.a.density = false;
+		this.a.density = 0;
 		await this.a.server.sleep(500);
 		this.a.layer = this.open_layer;
 		this.a.icon_state = this.open_state;
@@ -76,13 +76,13 @@ class Door extends Component {
 	}
 
 	async close() {
-		if(this.a.density)
+		if(this.a.density > 0)
 			return true;
 		if(this.operating)
 			return;
 		if(this.safe) {
 			for(let atom of this.a.crosses) {
-				if(atom.density) {
+				if(atom.density > 0) {
 					if(this.autoclose) {
 						setTimeout(() => {this.close();}, 6000);
 					}
@@ -92,24 +92,27 @@ class Door extends Component {
 		}
 		this.operating = true;
 
-		this.do_animate("closing");
+		this.a.flick = {icon_state: this.closing_state};
 		this.a.layer = this.closed_layer;
 		await this.a.server.sleep(500);
-		this.density = true;
+		this.a.density = 1;
 		await this.a.server.sleep(500);
 		this.a.icon_state = this.closed_state;
 		if(!this.glass)
-			this.opacity = true;
+			this.a.opacity = true;
 		if(this.safe) {
 			for(var atom of this.a.crosses) {
 				if(this.a.server.has_component(atom, "LivingMob")) {
 					setTimeout(() => {this.open();}, 100);
-					return;
+					break;
 				}
 			}
 		} else {
 			this.crush();
 		}
+		this.operating = false;
+		this.emit("closed");
+		return true;
 	}
 
 	crush() {
@@ -121,7 +124,11 @@ class Door extends Component {
 	}
 
 	unlock() {
-		
+
+	}
+
+	deny() {
+
 	}
 }
 
@@ -139,13 +146,17 @@ Door.template = {
 				open_layer: layers.OPEN_DOOR_LAYER,
 				autoclose: false, // does it automatically close after some time
 				autoclose_delay: 6000,
-				safe: true, // whether the door detects things and mobs in its way and reopen or crushes them.
+				safe: true, // whether the door detects things and mobs in its way and reopen, or crushes them.
 				locked: false, // whether the door is bolted or not
 				damage_deflection: 10,
 				open_state: "door1",
-				closed_state: "door0"
+				closed_state: "door0",
+				opening_state: "doorc0",
+				closing_state: "doorc1"
 			}
-		}
+		},
+		density: true,
+		layer: layers.CLOSED_DOOR_LAYER
 	}
 };
 

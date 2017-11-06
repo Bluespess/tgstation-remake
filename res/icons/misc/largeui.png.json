@@ -1,16 +1,19 @@
 {
-    "testbg": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 160,
-        "dirs": {
-            "2": [
-                {
-                    "x": 0,
-                    "y": 0,
-                    "delay": 100
-                }
-            ]
-        }
-    }
+	"testbg": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 160,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	}
 }

@@ -1,16 +1,19 @@
 {
-    "memorial": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 64,
-        "dirs": {
-            "2": [
-                {
-                    "x": 0,
-                    "y": 0,
-                    "delay": 100
-                }
-            ]
-        }
-    }
+	"memorial": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 64,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	}
 }

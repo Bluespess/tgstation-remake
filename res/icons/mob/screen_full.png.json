@@ -1,437 +1,685 @@
 {
-    "blackimageoverlay": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 0,
-                    "y": 0,
-                    "delay": 25000
-                },
-                {
-                    "x": 480,
-                    "y": 0,
-                    "delay": 100
-                },
-                {
-                    "x": 960,
-                    "y": 0,
-                    "delay": 100
-                },
-                {
-                    "x": 1440,
-                    "y": 0,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "oxydamageoverlay0": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 1920,
-                    "y": 0,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "oxydamageoverlay1": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 2400,
-                    "y": 0,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "oxydamageoverlay2": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 0,
-                    "y": 480,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "oxydamageoverlay3": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 480,
-                    "y": 480,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "oxydamageoverlay4": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 960,
-                    "y": 480,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "oxydamageoverlay5": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 1440,
-                    "y": 480,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "oxydamageoverlay6": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 1920,
-                    "y": 480,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "oxydamageoverlay7": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 2400,
-                    "y": 480,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "brutedamageoverlay0": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 0,
-                    "y": 960,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "brutedamageoverlay1": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 480,
-                    "y": 960,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "brutedamageoverlay2": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 960,
-                    "y": 960,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "brutedamageoverlay3": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 1440,
-                    "y": 960,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "brutedamageoverlay4": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 1920,
-                    "y": 960,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "brutedamageoverlay5": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 2400,
-                    "y": 960,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "brutedamageoverlay6": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 0,
-                    "y": 1440,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "passage0": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 480,
-                    "y": 1440,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "passage1": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 960,
-                    "y": 1440,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "passage2": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 1440,
-                    "y": 1440,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "passage3": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 1920,
-                    "y": 1440,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "passage4": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 2400,
-                    "y": 1440,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "passage5": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 0,
-                    "y": 1920,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "passage6": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 480,
-                    "y": 1920,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "passage7": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 960,
-                    "y": 1920,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "passage8": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 1440,
-                    "y": 1920,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "passage9": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 1920,
-                    "y": 1920,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "passage10": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 2400,
-                    "y": 1920,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "impairedoverlay1": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 0,
-                    "y": 2400,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "impairedoverlay2": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 480,
-                    "y": 2400,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "nightvision": {
-        "dirCount": 1,
-        "width": 480,
-        "height": 480,
-        "dirs": {
-            "2": [
-                {
-                    "x": 960,
-                    "y": 2400,
-                    "delay": 100
-                }
-            ]
-        }
-    }
+	"blackimageoverlay": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 0,
+						"delay": 25000
+					},
+					{
+						"x": 480,
+						"y": 0,
+						"delay": 100
+					},
+					{
+						"x": 960,
+						"y": 0,
+						"delay": 100
+					},
+					{
+						"x": 1440,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"oxydamageoverlay0": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 1920,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"oxydamageoverlay1": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 2400,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"oxydamageoverlay2": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 2880,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"oxydamageoverlay3": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 3360,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"oxydamageoverlay4": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 480,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"oxydamageoverlay5": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 480,
+						"y": 480,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"oxydamageoverlay6": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 960,
+						"y": 480,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"oxydamageoverlay7": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 1440,
+						"y": 480,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"oxydamageoverlay8": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 1920,
+						"y": 480,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"oxydamageoverlay9": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 2400,
+						"y": 480,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"oxydamageoverlay10": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 2880,
+						"y": 480,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"brutedamageoverlay0": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 3360,
+						"y": 480,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"brutedamageoverlay1": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 960,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"brutedamageoverlay2": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 480,
+						"y": 960,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"brutedamageoverlay3": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 960,
+						"y": 960,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"brutedamageoverlay4": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 1440,
+						"y": 960,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"brutedamageoverlay5": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 1920,
+						"y": 960,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"brutedamageoverlay6": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 2400,
+						"y": 960,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"passage0": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 2880,
+						"y": 960,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"passage1": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 3360,
+						"y": 960,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"passage2": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 1440,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"passage3": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 480,
+						"y": 1440,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"passage4": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 960,
+						"y": 1440,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"passage5": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 1440,
+						"y": 1440,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"passage6": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 1920,
+						"y": 1440,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"passage7": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 2400,
+						"y": 1440,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"passage8": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 2880,
+						"y": 1440,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"passage9": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 3360,
+						"y": 1440,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"passage10": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 1920,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"impairedoverlay1": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 480,
+						"y": 1920,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"impairedoverlay2": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 960,
+						"y": 1920,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"nightvision": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 1440,
+						"y": 1920,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"curse1": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 1920,
+						"y": 1920,
+						"delay": 400
+					},
+					{
+						"x": 2400,
+						"y": 1920,
+						"delay": 400
+					},
+					{
+						"x": 2880,
+						"y": 1920,
+						"delay": 400
+					},
+					{
+						"x": 3360,
+						"y": 1920,
+						"delay": 400
+					},
+					{
+						"x": 0,
+						"y": 2400,
+						"delay": 400
+					},
+					{
+						"x": 480,
+						"y": 2400,
+						"delay": 400
+					},
+					{
+						"x": 960,
+						"y": 2400,
+						"delay": 400
+					},
+					{
+						"x": 1440,
+						"y": 2400,
+						"delay": 400
+					},
+					{
+						"x": 1920,
+						"y": 2400,
+						"delay": 400
+					},
+					{
+						"x": 2400,
+						"y": 2400,
+						"delay": 400
+					},
+					{
+						"x": 2880,
+						"y": 2400,
+						"delay": 400
+					},
+					{
+						"x": 3360,
+						"y": 2400,
+						"delay": 400
+					},
+					{
+						"x": 0,
+						"y": 2880,
+						"delay": 400
+					},
+					{
+						"x": 480,
+						"y": 2880,
+						"delay": 400
+					},
+					{
+						"x": 960,
+						"y": 2880,
+						"delay": 400
+					},
+					{
+						"x": 1440,
+						"y": 2880,
+						"delay": 400
+					},
+					{
+						"x": 1920,
+						"y": 2880,
+						"delay": 400
+					},
+					{
+						"x": 2400,
+						"y": 2880,
+						"delay": 400
+					},
+					{
+						"x": 2880,
+						"y": 2880,
+						"delay": 400
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	}
 }

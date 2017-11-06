@@ -4,25 +4,21 @@ module.exports.templates = {
 	"plating": {
 		components: ["SimulatedTurf"],
 		vars: {
-			appearance: {
-				icon: 'icons/turf/floors.png',
-				icon_state: "plating"
-			}
+			icon: 'icons/turf/floors.png',
+			icon_state: "plating"
 		},
 		tree_paths: ["basic_structures/plating"]
 	},
 	"floor": {
 		components: ["SimulatedTurf"],
 		vars: {
-			appearance: {
-				icon: 'icons/turf/floors.png'
-			}
+			icon: 'icons/turf/floors.png'
 		},
 		tree_paths: ["basic_structures/floor"],
 		variants: [
 			{
 				type: "single",
-				var_path: ["appearance", "icon_state"],
+				var_path: ["icon_state"],
 				values: ["floor", "white", "dark", "bar", "floorgrime", "delivery", "bot", "barber", "whitebot", "whitedelivery", "cmo"],
 				label: true,
 				orientation: "vertical"
@@ -32,15 +28,13 @@ module.exports.templates = {
 	"floor_edge": {
 		components: ["SimulatedTurf"],
 		vars: {
-			appearance: {
-				icon: 'icons/turf/floors.png'
-			}
+			icon: 'icons/turf/floors.png'
 		},
 		tree_paths: ["basic_structures/floor/edge"],
 		variants: [
 			{
 				type: "single",
-				var_path: ["appearance", "icon_state"],
+				var_path: ["icon_state"],
 				values: [
 					"red", "whitered", "blue", "whiteblue", "green", "whitegreen", "yellow", "whiteyellow", "orange", "whitehall", "arrival", "escape", "purple", "whitepurple", "brownold", "brown", "redyellow", "redblue", "bluered", "redgreen", "greenyellow", "greenblue", "blueyellow", "darkpurple", "darkred", "darkblue", "darkgreen", "darkyellow", "darkbrown"
 				],
@@ -49,7 +43,7 @@ module.exports.templates = {
 			},
 			{
 				type: "single",
-				var_path: ["appearance", "dir"],
+				var_path: ["dir"],
 				values: [
 					2, 1, 4, 8, 5, 6, 9, 10
 				],
@@ -61,15 +55,13 @@ module.exports.templates = {
 	"floor_corner": {
 		components: ["SimulatedTurf"],
 		vars: {
-			appearance: {
-				icon: 'icons/turf/floors.png'
-			}
+			icon: 'icons/turf/floors.png'
 		},
 		tree_paths: ["basic_structures/floor/corner"],
 		variants: [
 			{
 				type: "single",
-				var_path: ["appearance", "icon_state"],
+				var_path: ["icon_state"],
 				values: [
 					"redcorner", "whiteredcorner", "bluecorner", "whitebluecorner", "greencorner", "whitegreencorner", "yellowcorner", "whiteyellowcorner", "orangecorner", "arrivalcorner", "escapecorner", "purplecorner", "whitepurplecorner", "browncorner"
 				],
@@ -78,7 +70,7 @@ module.exports.templates = {
 			},
 			{
 				type: "single",
-				var_path: ["appearance", "dir"],
+				var_path: ["dir"],
 				values: [
 					2, 1, 4, 8
 				],
@@ -89,21 +81,17 @@ module.exports.templates = {
 	"floor_plaque": {
 		components: ["SimulatedTurf"],
 		vars: {
-			appearance: {
-				icon: 'icons/turf/floors.png',
-				icon_state: "plaque"
-			}
+			icon: 'icons/turf/floors.png',
+			icon_state: "plaque"
 		},
 		tree_paths: ["basic_structures/floor/plaque"]
 	},
 	"wall": {
 		components: [],
 		vars: {
-			appearance: {
-				icon: 'icons/turf/walls/wall.png',
-				icon_state: "wall",
-				layer: 1
-			},
+			icon: 'icons/turf/walls/wall.png',
+			icon_state: "wall",
+			layer: 1,
 			density: 1,
 			opacity: true
 		},
@@ -116,11 +104,9 @@ module.exports.templates = {
 	"r-wall": {
 		components: [],
 		vars: {
-			appearance: {
-				icon: 'icons/turf/walls/reinforced_wall.png',
-				icon_state: "r_wall",
-				layer: 1
-			},
+			icon: 'icons/turf/walls/reinforced_wall.png',
+			icon_state: "r_wall",
+			layer: 1,
 			density: 1,
 			opacity: true
 		},
@@ -133,11 +119,9 @@ module.exports.templates = {
 	"crate": {
 		components: ["Tangible"],
 		vars: {
-			appearance: {
-				icon: 'icons/obj/crates.png',
-				icon_state: "crate",
-				layer: 2.9
-			},
+			icon: 'icons/obj/crates.png',
+			icon_state: "crate",
+			layer: 2.9,
 			density: 1
 		}
 	},

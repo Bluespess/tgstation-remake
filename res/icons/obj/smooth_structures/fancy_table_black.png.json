@@ -1,0 +1,359 @@
+{
+	"1-i": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 34,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"2-i": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 34,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 32,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"3-i": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 34,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 64,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"4-i": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 34,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 96,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"1-n": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 34,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 128,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"2-n": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 34,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 34,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"3-s": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 34,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 32,
+						"y": 34,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"4-s": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 34,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 64,
+						"y": 34,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"1-w": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 34,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 96,
+						"y": 34,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"2-e": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 34,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 128,
+						"y": 34,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"3-w": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 34,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 68,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"4-e": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 34,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 32,
+						"y": 68,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"1-nw": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 34,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 64,
+						"y": 68,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"2-ne": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 34,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 96,
+						"y": 68,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"3-sw": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 34,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 128,
+						"y": 68,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"4-se": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 34,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 102,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"1-f": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 34,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 32,
+						"y": 102,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"2-f": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 34,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 64,
+						"y": 102,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"3-f": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 34,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 96,
+						"y": 102,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"4-f": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 34,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 128,
+						"y": 102,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"fancy_table_black": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 34,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 136,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	}
+}

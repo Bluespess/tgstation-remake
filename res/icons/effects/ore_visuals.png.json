@@ -1,0 +1,189 @@
+{
+	"rock_Uranium": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"rock_Gold": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 480,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"rock_Diamond": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 960,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"rock_Silver": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 1440,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"rock_Plasma": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 480,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"rock_BScrystal": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 480,
+						"y": 480,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"rock_Gibtonite": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 960,
+						"y": 480,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"rock_Titanium": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 1440,
+						"y": 480,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"rock_Coal": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 960,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"rock_Clown": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 480,
+						"y": 960,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"rock_Iron": {
+		"dir_count": 1,
+		"width": 480,
+		"height": 480,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 960,
+						"y": 960,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	}
+}

@@ -1,937 +1,493 @@
 {
-    "1-i": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 0,
-                    "y": 0,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "2-i": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 40,
-                    "y": 0,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "3-i": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 80,
-                    "y": 0,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "4-i": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 120,
-                    "y": 0,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "1-n": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 160,
-                    "y": 0,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "2-n": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 200,
-                    "y": 0,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "3-s": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 240,
-                    "y": 0,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "4-s": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 280,
-                    "y": 0,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "1-w": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 320,
-                    "y": 0,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "2-e": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 360,
-                    "y": 0,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "3-w": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 400,
-                    "y": 0,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "4-e": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 0,
-                    "y": 40,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "1-nw": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 40,
-                    "y": 40,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "2-ne": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 80,
-                    "y": 40,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "3-sw": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 120,
-                    "y": 40,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "4-se": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 160,
-                    "y": 40,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "1-f": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 200,
-                    "y": 40,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "2-f": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 240,
-                    "y": 40,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "3-f": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 280,
-                    "y": 40,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "4-f": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 320,
-                    "y": 40,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "rockEXAMPLE": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 360,
-                    "y": 40,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "rock": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 400,
-                    "y": 40,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "rock_labor": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 0,
-                    "y": 80,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "rock_nochance": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 40,
-                    "y": 80,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "rock_lowchance": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 80,
-                    "y": 80,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "rock_highchance": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 120,
-                    "y": 80,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "rock_Uranium": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 160,
-                    "y": 80,
-                    "delay": 1000
-                },
-                {
-                    "x": 200,
-                    "y": 80,
-                    "delay": 400
-                },
-                {
-                    "x": 240,
-                    "y": 80,
-                    "delay": 400
-                },
-                {
-                    "x": 280,
-                    "y": 80,
-                    "delay": 300
-                },
-                {
-                    "x": 320,
-                    "y": 80,
-                    "delay": 300
-                },
-                {
-                    "x": 360,
-                    "y": 80,
-                    "delay": 300
-                },
-                {
-                    "x": 400,
-                    "y": 80,
-                    "delay": 300
-                }
-            ]
-        }
-    },
-    "rock_Gold": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 0,
-                    "y": 120,
-                    "delay": 1000
-                },
-                {
-                    "x": 40,
-                    "y": 120,
-                    "delay": 400
-                },
-                {
-                    "x": 80,
-                    "y": 120,
-                    "delay": 400
-                },
-                {
-                    "x": 120,
-                    "y": 120,
-                    "delay": 300
-                },
-                {
-                    "x": 160,
-                    "y": 120,
-                    "delay": 300
-                },
-                {
-                    "x": 200,
-                    "y": 120,
-                    "delay": 300
-                },
-                {
-                    "x": 240,
-                    "y": 120,
-                    "delay": 300
-                }
-            ]
-        }
-    },
-    "rock_Diamond": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 280,
-                    "y": 120,
-                    "delay": 1000
-                },
-                {
-                    "x": 320,
-                    "y": 120,
-                    "delay": 400
-                },
-                {
-                    "x": 360,
-                    "y": 120,
-                    "delay": 400
-                },
-                {
-                    "x": 400,
-                    "y": 120,
-                    "delay": 300
-                },
-                {
-                    "x": 0,
-                    "y": 160,
-                    "delay": 300
-                },
-                {
-                    "x": 40,
-                    "y": 160,
-                    "delay": 300
-                },
-                {
-                    "x": 80,
-                    "y": 160,
-                    "delay": 300
-                }
-            ]
-        }
-    },
-    "rock_Silver": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 120,
-                    "y": 160,
-                    "delay": 1000
-                },
-                {
-                    "x": 160,
-                    "y": 160,
-                    "delay": 400
-                },
-                {
-                    "x": 200,
-                    "y": 160,
-                    "delay": 400
-                },
-                {
-                    "x": 240,
-                    "y": 160,
-                    "delay": 300
-                },
-                {
-                    "x": 280,
-                    "y": 160,
-                    "delay": 300
-                },
-                {
-                    "x": 320,
-                    "y": 160,
-                    "delay": 300
-                },
-                {
-                    "x": 360,
-                    "y": 160,
-                    "delay": 300
-                }
-            ]
-        }
-    },
-    "rock_Plasma": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 400,
-                    "y": 160,
-                    "delay": 1000
-                },
-                {
-                    "x": 0,
-                    "y": 200,
-                    "delay": 400
-                },
-                {
-                    "x": 40,
-                    "y": 200,
-                    "delay": 400
-                },
-                {
-                    "x": 80,
-                    "y": 200,
-                    "delay": 300
-                },
-                {
-                    "x": 120,
-                    "y": 200,
-                    "delay": 300
-                },
-                {
-                    "x": 160,
-                    "y": 200,
-                    "delay": 300
-                },
-                {
-                    "x": 200,
-                    "y": 200,
-                    "delay": 300
-                }
-            ]
-        }
-    },
-    "rock_BScrystal": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 240,
-                    "y": 200,
-                    "delay": 1000
-                },
-                {
-                    "x": 280,
-                    "y": 200,
-                    "delay": 400
-                },
-                {
-                    "x": 320,
-                    "y": 200,
-                    "delay": 400
-                },
-                {
-                    "x": 360,
-                    "y": 200,
-                    "delay": 300
-                },
-                {
-                    "x": 400,
-                    "y": 200,
-                    "delay": 300
-                },
-                {
-                    "x": 0,
-                    "y": 240,
-                    "delay": 300
-                },
-                {
-                    "x": 40,
-                    "y": 240,
-                    "delay": 300
-                }
-            ]
-        }
-    },
-    "rock_Gibtonite": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 80,
-                    "y": 240,
-                    "delay": 1000
-                },
-                {
-                    "x": 120,
-                    "y": 240,
-                    "delay": 400
-                },
-                {
-                    "x": 160,
-                    "y": 240,
-                    "delay": 400
-                },
-                {
-                    "x": 200,
-                    "y": 240,
-                    "delay": 300
-                },
-                {
-                    "x": 240,
-                    "y": 240,
-                    "delay": 300
-                },
-                {
-                    "x": 280,
-                    "y": 240,
-                    "delay": 300
-                },
-                {
-                    "x": 320,
-                    "y": 240,
-                    "delay": 300
-                }
-            ]
-        }
-    },
-    "rock_Gibtonite_active": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 360,
-                    "y": 240,
-                    "delay": 100
-                },
-                {
-                    "x": 400,
-                    "y": 240,
-                    "delay": 100
-                },
-                {
-                    "x": 0,
-                    "y": 280,
-                    "delay": 100
-                },
-                {
-                    "x": 40,
-                    "y": 280,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "rock_Gibtonite_inactive": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 80,
-                    "y": 280,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "rock_Adamantine": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 120,
-                    "y": 280,
-                    "delay": 1000
-                },
-                {
-                    "x": 160,
-                    "y": 280,
-                    "delay": 400
-                },
-                {
-                    "x": 200,
-                    "y": 280,
-                    "delay": 400
-                },
-                {
-                    "x": 240,
-                    "y": 280,
-                    "delay": 300
-                },
-                {
-                    "x": 280,
-                    "y": 280,
-                    "delay": 300
-                },
-                {
-                    "x": 320,
-                    "y": 280,
-                    "delay": 300
-                },
-                {
-                    "x": 360,
-                    "y": 280,
-                    "delay": 300
-                }
-            ]
-        }
-    },
-    "rock_Coal": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 400,
-                    "y": 280,
-                    "delay": 1000
-                },
-                {
-                    "x": 0,
-                    "y": 320,
-                    "delay": 400
-                },
-                {
-                    "x": 40,
-                    "y": 320,
-                    "delay": 400
-                },
-                {
-                    "x": 80,
-                    "y": 320,
-                    "delay": 300
-                },
-                {
-                    "x": 120,
-                    "y": 320,
-                    "delay": 300
-                },
-                {
-                    "x": 160,
-                    "y": 320,
-                    "delay": 300
-                },
-                {
-                    "x": 200,
-                    "y": 320,
-                    "delay": 300
-                }
-            ]
-        }
-    },
-    "rock_Clown": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 240,
-                    "y": 320,
-                    "delay": 1000
-                },
-                {
-                    "x": 280,
-                    "y": 320,
-                    "delay": 400
-                },
-                {
-                    "x": 320,
-                    "y": 320,
-                    "delay": 400
-                },
-                {
-                    "x": 360,
-                    "y": 320,
-                    "delay": 300
-                },
-                {
-                    "x": 400,
-                    "y": 320,
-                    "delay": 300
-                },
-                {
-                    "x": 0,
-                    "y": 360,
-                    "delay": 300
-                },
-                {
-                    "x": 40,
-                    "y": 360,
-                    "delay": 300
-                }
-            ]
-        }
-    },
-    "rock_Iron": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 80,
-                    "y": 360,
-                    "delay": 1000
-                },
-                {
-                    "x": 120,
-                    "y": 360,
-                    "delay": 400
-                },
-                {
-                    "x": 160,
-                    "y": 360,
-                    "delay": 400
-                },
-                {
-                    "x": 200,
-                    "y": 360,
-                    "delay": 300
-                },
-                {
-                    "x": 240,
-                    "y": 360,
-                    "delay": 300
-                },
-                {
-                    "x": 280,
-                    "y": 360,
-                    "delay": 300
-                },
-                {
-                    "x": 320,
-                    "y": 360,
-                    "delay": 300
-                }
-            ]
-        }
-    },
-    "rock_Titanium": {
-        "dirCount": 1,
-        "width": 40,
-        "height": 40,
-        "dirs": {
-            "2": [
-                {
-                    "x": 360,
-                    "y": 360,
-                    "delay": 1000
-                },
-                {
-                    "x": 400,
-                    "y": 360,
-                    "delay": 400
-                },
-                {
-                    "x": 0,
-                    "y": 400,
-                    "delay": 400
-                },
-                {
-                    "x": 40,
-                    "y": 400,
-                    "delay": 300
-                },
-                {
-                    "x": 80,
-                    "y": 400,
-                    "delay": 300
-                },
-                {
-                    "x": 120,
-                    "y": 400,
-                    "delay": 300
-                },
-                {
-                    "x": 160,
-                    "y": 400,
-                    "delay": 300
-                }
-            ]
-        }
-    }
+	"1-i": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"2-i": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 40,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"3-i": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 80,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"4-i": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 120,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"1-n": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 160,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"2-n": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 200,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"3-s": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 40,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"4-s": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 40,
+						"y": 40,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"1-w": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 80,
+						"y": 40,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"2-e": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 120,
+						"y": 40,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"3-w": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 160,
+						"y": 40,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"4-e": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 200,
+						"y": 40,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"1-nw": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 80,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"2-ne": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 40,
+						"y": 80,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"3-sw": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 80,
+						"y": 80,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"4-se": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 120,
+						"y": 80,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"1-f": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 160,
+						"y": 80,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"2-f": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 200,
+						"y": 80,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"3-f": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 120,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"4-f": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 40,
+						"y": 120,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"rockEXAMPLE": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 80,
+						"y": 120,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"rock": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 120,
+						"y": 120,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"rock_labor": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 160,
+						"y": 120,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"rock_nochance": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 200,
+						"y": 120,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"rock_lowchance": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 160,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"rock_highchance": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 40,
+						"y": 160,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"rock_Gibtonite_active": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 80,
+						"y": 160,
+						"delay": 100
+					},
+					{
+						"x": 120,
+						"y": 160,
+						"delay": 100
+					},
+					{
+						"x": 160,
+						"y": 160,
+						"delay": 100
+					},
+					{
+						"x": 200,
+						"y": 160,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"rock_Gibtonite_inactive": {
+		"dir_count": 1,
+		"width": 40,
+		"height": 40,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 200,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	}
 }

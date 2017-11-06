@@ -1,212 +1,266 @@
 {
-    "m_wings_angel_BEHIND": {
-        "dirCount": 4,
-        "width": 45,
-        "height": 34,
-        "dirs": {
-            "1": [
-                {
-                    "x": 45,
-                    "y": 0,
-                    "delay": 100
-                }
-            ],
-            "2": [
-                {
-                    "x": 0,
-                    "y": 0,
-                    "delay": 100
-                }
-            ],
-            "4": [
-                {
-                    "x": 90,
-                    "y": 0,
-                    "delay": 100
-                }
-            ],
-            "8": [
-                {
-                    "x": 135,
-                    "y": 0,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "m_wings_angel_ADJ": {
-        "dirCount": 4,
-        "width": 45,
-        "height": 34,
-        "dirs": {
-            "1": [
-                {
-                    "x": 45,
-                    "y": 34,
-                    "delay": 100
-                }
-            ],
-            "2": [
-                {
-                    "x": 0,
-                    "y": 34,
-                    "delay": 100
-                }
-            ],
-            "4": [
-                {
-                    "x": 90,
-                    "y": 34,
-                    "delay": 100
-                }
-            ],
-            "8": [
-                {
-                    "x": 135,
-                    "y": 34,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "m_wings_angel_FRONT": {
-        "dirCount": 4,
-        "width": 45,
-        "height": 34,
-        "dirs": {
-            "1": [
-                {
-                    "x": 45,
-                    "y": 68,
-                    "delay": 100
-                }
-            ],
-            "2": [
-                {
-                    "x": 0,
-                    "y": 68,
-                    "delay": 100
-                }
-            ],
-            "4": [
-                {
-                    "x": 90,
-                    "y": 68,
-                    "delay": 100
-                }
-            ],
-            "8": [
-                {
-                    "x": 135,
-                    "y": 68,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "m_wingsopen_angel_BEHIND": {
-        "dirCount": 4,
-        "width": 45,
-        "height": 34,
-        "dirs": {
-            "1": [
-                {
-                    "x": 45,
-                    "y": 102,
-                    "delay": 100
-                }
-            ],
-            "2": [
-                {
-                    "x": 0,
-                    "y": 102,
-                    "delay": 100
-                }
-            ],
-            "4": [
-                {
-                    "x": 90,
-                    "y": 102,
-                    "delay": 100
-                }
-            ],
-            "8": [
-                {
-                    "x": 135,
-                    "y": 102,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "m_wingsopen_angel_ADJ": {
-        "dirCount": 4,
-        "width": 45,
-        "height": 34,
-        "dirs": {
-            "1": [
-                {
-                    "x": 45,
-                    "y": 136,
-                    "delay": 100
-                }
-            ],
-            "2": [
-                {
-                    "x": 0,
-                    "y": 136,
-                    "delay": 100
-                }
-            ],
-            "4": [
-                {
-                    "x": 90,
-                    "y": 136,
-                    "delay": 100
-                }
-            ],
-            "8": [
-                {
-                    "x": 135,
-                    "y": 136,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "m_wingsopen_angel_FRONT": {
-        "dirCount": 4,
-        "width": 45,
-        "height": 34,
-        "dirs": {
-            "1": [
-                {
-                    "x": 45,
-                    "y": 170,
-                    "delay": 100
-                }
-            ],
-            "2": [
-                {
-                    "x": 0,
-                    "y": 170,
-                    "delay": 100
-                }
-            ],
-            "4": [
-                {
-                    "x": 90,
-                    "y": 170,
-                    "delay": 100
-                }
-            ],
-            "8": [
-                {
-                    "x": 135,
-                    "y": 170,
-                    "delay": 100
-                }
-            ]
-        }
-    }
+	"m_wings_angel_BEHIND": {
+		"dir_count": 4,
+		"width": 45,
+		"height": 34,
+		"dirs": {
+			"1": {
+				"frames": [
+					{
+						"x": 45,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			},
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			},
+			"4": {
+				"frames": [
+					{
+						"x": 90,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			},
+			"8": {
+				"frames": [
+					{
+						"x": 135,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"m_wings_angel_ADJ": {
+		"dir_count": 4,
+		"width": 45,
+		"height": 34,
+		"dirs": {
+			"1": {
+				"frames": [
+					{
+						"x": 45,
+						"y": 34,
+						"delay": 100
+					}
+				]
+			},
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 34,
+						"delay": 100
+					}
+				]
+			},
+			"4": {
+				"frames": [
+					{
+						"x": 90,
+						"y": 34,
+						"delay": 100
+					}
+				]
+			},
+			"8": {
+				"frames": [
+					{
+						"x": 135,
+						"y": 34,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"m_wings_angel_FRONT": {
+		"dir_count": 4,
+		"width": 45,
+		"height": 34,
+		"dirs": {
+			"1": {
+				"frames": [
+					{
+						"x": 45,
+						"y": 68,
+						"delay": 100
+					}
+				]
+			},
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 68,
+						"delay": 100
+					}
+				]
+			},
+			"4": {
+				"frames": [
+					{
+						"x": 90,
+						"y": 68,
+						"delay": 100
+					}
+				]
+			},
+			"8": {
+				"frames": [
+					{
+						"x": 135,
+						"y": 68,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"m_wingsopen_angel_BEHIND": {
+		"dir_count": 4,
+		"width": 45,
+		"height": 34,
+		"dirs": {
+			"1": {
+				"frames": [
+					{
+						"x": 45,
+						"y": 102,
+						"delay": 100
+					}
+				]
+			},
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 102,
+						"delay": 100
+					}
+				]
+			},
+			"4": {
+				"frames": [
+					{
+						"x": 90,
+						"y": 102,
+						"delay": 100
+					}
+				]
+			},
+			"8": {
+				"frames": [
+					{
+						"x": 135,
+						"y": 102,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"m_wingsopen_angel_ADJ": {
+		"dir_count": 4,
+		"width": 45,
+		"height": 34,
+		"dirs": {
+			"1": {
+				"frames": [
+					{
+						"x": 45,
+						"y": 136,
+						"delay": 100
+					}
+				]
+			},
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 136,
+						"delay": 100
+					}
+				]
+			},
+			"4": {
+				"frames": [
+					{
+						"x": 90,
+						"y": 136,
+						"delay": 100
+					}
+				]
+			},
+			"8": {
+				"frames": [
+					{
+						"x": 135,
+						"y": 136,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"m_wingsopen_angel_FRONT": {
+		"dir_count": 4,
+		"width": 45,
+		"height": 34,
+		"dirs": {
+			"1": {
+				"frames": [
+					{
+						"x": 45,
+						"y": 170,
+						"delay": 100
+					}
+				]
+			},
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 170,
+						"delay": 100
+					}
+				]
+			},
+			"4": {
+				"frames": [
+					{
+						"x": 90,
+						"y": 170,
+						"delay": 100
+					}
+				]
+			},
+			"8": {
+				"frames": [
+					{
+						"x": 135,
+						"y": 170,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	}
 }

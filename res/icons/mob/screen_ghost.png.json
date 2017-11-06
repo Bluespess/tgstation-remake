@@ -1,218 +1,245 @@
 {
-    "jumptomob_anim": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 32,
-        "dirs": {
-            "2": [
-                {
-                    "x": 0,
-                    "y": 0,
-                    "delay": 100
-                },
-                {
-                    "x": 32,
-                    "y": 0,
-                    "delay": 100
-                },
-                {
-                    "x": 64,
-                    "y": 0,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "orbit_anim": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 32,
-        "dirs": {
-            "2": [
-                {
-                    "x": 96,
-                    "y": 0,
-                    "delay": 100
-                },
-                {
-                    "x": 128,
-                    "y": 0,
-                    "delay": 100
-                },
-                {
-                    "x": 160,
-                    "y": 0,
-                    "delay": 100
-                },
-                {
-                    "x": 0,
-                    "y": 32,
-                    "delay": 100
-                },
-                {
-                    "x": 32,
-                    "y": 32,
-                    "delay": 100
-                },
-                {
-                    "x": 64,
-                    "y": 32,
-                    "delay": 100
-                },
-                {
-                    "x": 96,
-                    "y": 32,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "teleport_anim": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 32,
-        "dirs": {
-            "2": [
-                {
-                    "x": 128,
-                    "y": 32,
-                    "delay": 100
-                },
-                {
-                    "x": 160,
-                    "y": 32,
-                    "delay": 100
-                },
-                {
-                    "x": 0,
-                    "y": 64,
-                    "delay": 100
-                },
-                {
-                    "x": 32,
-                    "y": 64,
-                    "delay": 100
-                },
-                {
-                    "x": 64,
-                    "y": 64,
-                    "delay": 100
-                },
-                {
-                    "x": 96,
-                    "y": 64,
-                    "delay": 1000
-                }
-            ]
-        }
-    },
-    "reenter_corpse_anim": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 32,
-        "dirs": {
-            "2": [
-                {
-                    "x": 128,
-                    "y": 64,
-                    "delay": 100
-                },
-                {
-                    "x": 160,
-                    "y": 64,
-                    "delay": 100
-                },
-                {
-                    "x": 0,
-                    "y": 96,
-                    "delay": 100
-                },
-                {
-                    "x": 32,
-                    "y": 96,
-                    "delay": 100
-                },
-                {
-                    "x": 64,
-                    "y": 96,
-                    "delay": 100
-                },
-                {
-                    "x": 96,
-                    "y": 96,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "jumptomob": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 32,
-        "dirs": {
-            "2": [
-                {
-                    "x": 128,
-                    "y": 96,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "orbit": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 32,
-        "dirs": {
-            "2": [
-                {
-                    "x": 160,
-                    "y": 96,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "teleport": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 32,
-        "dirs": {
-            "2": [
-                {
-                    "x": 0,
-                    "y": 128,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "reenter_corpse": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 32,
-        "dirs": {
-            "2": [
-                {
-                    "x": 32,
-                    "y": 128,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "pai": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 32,
-        "dirs": {
-            "2": [
-                {
-                    "x": 64,
-                    "y": 128,
-                    "delay": 100
-                }
-            ]
-        }
-    }
+	"jumptomob_anim": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 0,
+						"delay": 100
+					},
+					{
+						"x": 32,
+						"y": 0,
+						"delay": 100
+					},
+					{
+						"x": 64,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"orbit_anim": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 96,
+						"y": 0,
+						"delay": 100
+					},
+					{
+						"x": 128,
+						"y": 0,
+						"delay": 100
+					},
+					{
+						"x": 160,
+						"y": 0,
+						"delay": 100
+					},
+					{
+						"x": 0,
+						"y": 32,
+						"delay": 100
+					},
+					{
+						"x": 32,
+						"y": 32,
+						"delay": 100
+					},
+					{
+						"x": 64,
+						"y": 32,
+						"delay": 100
+					},
+					{
+						"x": 96,
+						"y": 32,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"teleport_anim": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 128,
+						"y": 32,
+						"delay": 100
+					},
+					{
+						"x": 160,
+						"y": 32,
+						"delay": 100
+					},
+					{
+						"x": 0,
+						"y": 64,
+						"delay": 100
+					},
+					{
+						"x": 32,
+						"y": 64,
+						"delay": 100
+					},
+					{
+						"x": 64,
+						"y": 64,
+						"delay": 100
+					},
+					{
+						"x": 96,
+						"y": 64,
+						"delay": 1000
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"reenter_corpse_anim": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 128,
+						"y": 64,
+						"delay": 100
+					},
+					{
+						"x": 160,
+						"y": 64,
+						"delay": 100
+					},
+					{
+						"x": 0,
+						"y": 96,
+						"delay": 100
+					},
+					{
+						"x": 32,
+						"y": 96,
+						"delay": 100
+					},
+					{
+						"x": 64,
+						"y": 96,
+						"delay": 100
+					},
+					{
+						"x": 96,
+						"y": 96,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"jumptomob": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 128,
+						"y": 96,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"orbit": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 160,
+						"y": 96,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"teleport": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 128,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"reenter_corpse": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 32,
+						"y": 128,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"pai": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 64,
+						"y": 128,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	}
 }

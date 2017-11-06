@@ -1,0 +1,1106 @@
+{
+	"ratvarian_spear": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"clockwork_armor": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 32,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"clockwork_marauder": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 64,
+						"y": 0,
+						"delay": 70
+					},
+					{
+						"x": 96,
+						"y": 0,
+						"delay": 70
+					},
+					{
+						"x": 128,
+						"y": 0,
+						"delay": 70
+					},
+					{
+						"x": 160,
+						"y": 0,
+						"delay": 70
+					},
+					{
+						"x": 192,
+						"y": 0,
+						"delay": 70
+					},
+					{
+						"x": 224,
+						"y": 0,
+						"delay": 70
+					},
+					{
+						"x": 256,
+						"y": 0,
+						"delay": 70
+					},
+					{
+						"x": 288,
+						"y": 0,
+						"delay": 70
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"linked_minds": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 320,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"hierophant_slab": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 352,
+						"y": 0,
+						"delay": 100
+					},
+					{
+						"x": 0,
+						"y": 32,
+						"delay": 100
+					},
+					{
+						"x": 32,
+						"y": 32,
+						"delay": 100
+					},
+					{
+						"x": 64,
+						"y": 32,
+						"delay": 100
+					},
+					{
+						"x": 96,
+						"y": 32,
+						"delay": 100
+					},
+					{
+						"x": 128,
+						"y": 32,
+						"delay": 100
+					},
+					{
+						"x": 160,
+						"y": 32,
+						"delay": 100
+					},
+					{
+						"x": 192,
+						"y": 32,
+						"delay": 100
+					},
+					{
+						"x": 224,
+						"y": 32,
+						"delay": 100
+					},
+					{
+						"x": 256,
+						"y": 32,
+						"delay": 100
+					},
+					{
+						"x": 288,
+						"y": 32,
+						"delay": 100
+					},
+					{
+						"x": 320,
+						"y": 32,
+						"delay": 100
+					},
+					{
+						"x": 352,
+						"y": 32,
+						"delay": 100
+					},
+					{
+						"x": 0,
+						"y": 64,
+						"delay": 100
+					},
+					{
+						"x": 32,
+						"y": 64,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"hierophant": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 64,
+						"y": 64,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"warp_down": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 96,
+						"y": 64,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Hateful Manacles": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 128,
+						"y": 64,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Judicial Visor": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 160,
+						"y": 64,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Vanguard": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 192,
+						"y": 64,
+						"delay": 2000
+					},
+					{
+						"x": 224,
+						"y": 64,
+						"delay": 100
+					},
+					{
+						"x": 256,
+						"y": 64,
+						"delay": 100
+					},
+					{
+						"x": 288,
+						"y": 64,
+						"delay": 100
+					},
+					{
+						"x": 320,
+						"y": 64,
+						"delay": 100
+					},
+					{
+						"x": 352,
+						"y": 64,
+						"delay": 100
+					},
+					{
+						"x": 0,
+						"y": 96,
+						"delay": 100
+					},
+					{
+						"x": 32,
+						"y": 96,
+						"delay": 100
+					},
+					{
+						"x": 64,
+						"y": 96,
+						"delay": 100
+					},
+					{
+						"x": 96,
+						"y": 96,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Sentinel's Compromise": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 128,
+						"y": 96,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Geis": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 160,
+						"y": 96,
+						"delay": 2000
+					},
+					{
+						"x": 192,
+						"y": 96,
+						"delay": 100
+					},
+					{
+						"x": 224,
+						"y": 96,
+						"delay": 100
+					},
+					{
+						"x": 256,
+						"y": 96,
+						"delay": 100
+					},
+					{
+						"x": 288,
+						"y": 96,
+						"delay": 100
+					},
+					{
+						"x": 320,
+						"y": 96,
+						"delay": 100
+					},
+					{
+						"x": 352,
+						"y": 96,
+						"delay": 100
+					},
+					{
+						"x": 0,
+						"y": 128,
+						"delay": 100
+					},
+					{
+						"x": 32,
+						"y": 128,
+						"delay": 100
+					},
+					{
+						"x": 64,
+						"y": 128,
+						"delay": 100
+					},
+					{
+						"x": 96,
+						"y": 128,
+						"delay": 100
+					},
+					{
+						"x": 128,
+						"y": 128,
+						"delay": 100
+					},
+					{
+						"x": 160,
+						"y": 128,
+						"delay": 100
+					},
+					{
+						"x": 192,
+						"y": 128,
+						"delay": 100
+					},
+					{
+						"x": 224,
+						"y": 128,
+						"delay": 100
+					},
+					{
+						"x": 256,
+						"y": 128,
+						"delay": 100
+					},
+					{
+						"x": 288,
+						"y": 128,
+						"delay": 100
+					},
+					{
+						"x": 320,
+						"y": 128,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Replicant": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 352,
+						"y": 128,
+						"delay": 100
+					},
+					{
+						"x": 0,
+						"y": 160,
+						"delay": 100
+					},
+					{
+						"x": 32,
+						"y": 160,
+						"delay": 100
+					},
+					{
+						"x": 64,
+						"y": 160,
+						"delay": 100
+					},
+					{
+						"x": 96,
+						"y": 160,
+						"delay": 100
+					},
+					{
+						"x": 128,
+						"y": 160,
+						"delay": 100
+					},
+					{
+						"x": 160,
+						"y": 160,
+						"delay": 100
+					},
+					{
+						"x": 192,
+						"y": 160,
+						"delay": 100
+					},
+					{
+						"x": 224,
+						"y": 160,
+						"delay": 100
+					},
+					{
+						"x": 256,
+						"y": 160,
+						"delay": 100
+					},
+					{
+						"x": 288,
+						"y": 160,
+						"delay": 100
+					},
+					{
+						"x": 320,
+						"y": 160,
+						"delay": 100
+					},
+					{
+						"x": 352,
+						"y": 160,
+						"delay": 100
+					},
+					{
+						"x": 0,
+						"y": 192,
+						"delay": 100
+					},
+					{
+						"x": 32,
+						"y": 192,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Tinkerer's Cache": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 64,
+						"y": 192,
+						"delay": 120
+					},
+					{
+						"x": 96,
+						"y": 192,
+						"delay": 120
+					},
+					{
+						"x": 128,
+						"y": 192,
+						"delay": 120
+					},
+					{
+						"x": 160,
+						"y": 192,
+						"delay": 120
+					},
+					{
+						"x": 192,
+						"y": 192,
+						"delay": 120
+					},
+					{
+						"x": 224,
+						"y": 192,
+						"delay": 120
+					},
+					{
+						"x": 256,
+						"y": 192,
+						"delay": 120
+					},
+					{
+						"x": 288,
+						"y": 192,
+						"delay": 120
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Wraith Spectacles": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 320,
+						"y": 192,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Sigil of Transgression": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 352,
+						"y": 192,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Ocular Warden": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 224,
+						"delay": 500
+					},
+					{
+						"x": 32,
+						"y": 224,
+						"delay": 500
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Cogscarab": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 64,
+						"y": 224,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Clockwork Marauder": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 96,
+						"y": 224,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Vitality Matrix": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 128,
+						"y": 224,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Mending Mantra": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 160,
+						"y": 224,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Sigil of Submission": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 192,
+						"y": 224,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Soul Vessel": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 224,
+						"y": 224,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Replica Fabricator": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 256,
+						"y": 224,
+						"delay": 100
+					},
+					{
+						"x": 288,
+						"y": 224,
+						"delay": 100
+					},
+					{
+						"x": 320,
+						"y": 224,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Spatial Gateway": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 352,
+						"y": 224,
+						"delay": 60
+					},
+					{
+						"x": 0,
+						"y": 256,
+						"delay": 60
+					},
+					{
+						"x": 32,
+						"y": 256,
+						"delay": 60
+					},
+					{
+						"x": 64,
+						"y": 256,
+						"delay": 60
+					},
+					{
+						"x": 96,
+						"y": 256,
+						"delay": 60
+					},
+					{
+						"x": 128,
+						"y": 256,
+						"delay": 60
+					},
+					{
+						"x": 160,
+						"y": 256,
+						"delay": 60
+					},
+					{
+						"x": 192,
+						"y": 256,
+						"delay": 60
+					},
+					{
+						"x": 224,
+						"y": 256,
+						"delay": 60
+					},
+					{
+						"x": 256,
+						"y": 256,
+						"delay": 60
+					},
+					{
+						"x": 288,
+						"y": 256,
+						"delay": 60
+					},
+					{
+						"x": 320,
+						"y": 256,
+						"delay": 60
+					},
+					{
+						"x": 352,
+						"y": 256,
+						"delay": 60
+					},
+					{
+						"x": 0,
+						"y": 288,
+						"delay": 60
+					},
+					{
+						"x": 32,
+						"y": 288,
+						"delay": 60
+					},
+					{
+						"x": 64,
+						"y": 288,
+						"delay": 60
+					},
+					{
+						"x": 96,
+						"y": 288,
+						"delay": 60
+					},
+					{
+						"x": 128,
+						"y": 288,
+						"delay": 60
+					},
+					{
+						"x": 160,
+						"y": 288,
+						"delay": 60
+					},
+					{
+						"x": 192,
+						"y": 288,
+						"delay": 60
+					},
+					{
+						"x": 224,
+						"y": 288,
+						"delay": 60
+					},
+					{
+						"x": 256,
+						"y": 288,
+						"delay": 60
+					},
+					{
+						"x": 288,
+						"y": 288,
+						"delay": 30
+					},
+					{
+						"x": 320,
+						"y": 288,
+						"delay": 30
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Kindle": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 352,
+						"y": 288,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Sigil of Accession": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 320,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Sigil of Transmission": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 32,
+						"y": 320,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Prolonging Prism": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 64,
+						"y": 320,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Mania Motor": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 96,
+						"y": 320,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Tinkerer's Daemon": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 128,
+						"y": 320,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Clockwork Obelisk": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 160,
+						"y": 320,
+						"delay": 600
+					},
+					{
+						"x": 192,
+						"y": 320,
+						"delay": 600
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Stargazer": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 224,
+						"y": 320,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Linked Vanguard": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 256,
+						"y": 320,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Judicial Marker": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 288,
+						"y": 320,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Abscond": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 320,
+						"y": 320,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"Integration Cog": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 352,
+						"y": 320,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	}
+}

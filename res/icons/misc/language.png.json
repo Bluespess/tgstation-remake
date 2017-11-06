@@ -1,0 +1,223 @@
+{
+	"eal": {
+		"dir_count": 1,
+		"width": 16,
+		"height": 16,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"xeno": {
+		"dir_count": 1,
+		"width": 16,
+		"height": 16,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 16,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"animal": {
+		"dir_count": 1,
+		"width": 16,
+		"height": 16,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 32,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"ratvar": {
+		"dir_count": 1,
+		"width": 16,
+		"height": 16,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 48,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"slime": {
+		"dir_count": 1,
+		"width": 16,
+		"height": 16,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 16,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"swarmer": {
+		"dir_count": 1,
+		"width": 16,
+		"height": 16,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 16,
+						"y": 16,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"drone": {
+		"dir_count": 1,
+		"width": 16,
+		"height": 16,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 32,
+						"y": 16,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"codespeak": {
+		"dir_count": 1,
+		"width": 16,
+		"height": 16,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 48,
+						"y": 16,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"popcorn": {
+		"dir_count": 1,
+		"width": 16,
+		"height": 16,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 32,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"galcom": {
+		"dir_count": 1,
+		"width": 16,
+		"height": 16,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 16,
+						"y": 32,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"lizard": {
+		"dir_count": 1,
+		"width": 16,
+		"height": 16,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 32,
+						"y": 32,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"narsie": {
+		"dir_count": 1,
+		"width": 16,
+		"height": 16,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 48,
+						"y": 32,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"beach": {
+		"dir_count": 1,
+		"width": 16,
+		"height": 16,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 48,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	}
+}

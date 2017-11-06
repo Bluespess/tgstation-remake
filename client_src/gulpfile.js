@@ -4,10 +4,9 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var browserify = require('browserify');
 var watchify = require('watchify');
-var babel = require('babelify');
 
 function compile(watch) {
-	var bundler = watchify(browserify('./index.js', { debug: true }).transform(babel, {presets: ["es2015"]}));
+	var bundler = watchify(browserify('./index.js', { debug: true }));
 
 	function rebundle() {
 	bundler.bundle()

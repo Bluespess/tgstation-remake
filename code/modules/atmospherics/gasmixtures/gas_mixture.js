@@ -12,13 +12,14 @@ class Gas {
 		this.moles = 0;
 		this.moles_archived = 0;
 		this.id = meta.id;
+		// guarantees one virtual class
 		Object.seal(this);
 	}
 }
 
 class GasMixture {
 	constructor(volume = atmos_defines.CELL_VOLUME) {
-		// Initialize everything now for performance reasons
+		// Initialize everything now for performance reasons (only one virtual class)
 		this.gases = {};
 		this.gases_list = []; // Separate list for 4x faster gas iteration
 		this.temperature = 0;
@@ -37,6 +38,7 @@ class GasMixture {
 			this.gases[metakey] = gas;
 			this.gases_list.push(gas);
 		}
+		// this guarantees that there will only ever be one virtual class
 		Object.freeze(this.gases);
 		Object.freeze(this.gases_list);
 		Object.seal(this);

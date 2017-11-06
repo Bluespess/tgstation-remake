@@ -6,6 +6,7 @@ class Item extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 		this.a.attack_hand = chain_func(this.a.attack_hand, this._attack_hand.bind(this));
+		this.a.on("moved", this.moved.bind(this));
 	}
 
 	attack_self() {}
@@ -13,7 +14,7 @@ class Item extends Component {
 	_attack_hand(prev, user) {
 		if(this.a.server.has_component(user, "MobInventory")) {
 			var slot = user.c.MobInventory.slots[user.c.MobInventory.active_hand];
-			if(slot.item != null)
+			if(slot.item != null || !slot.can_accept_item(this.a))
 				return prev();
 			slot.item = this.atom;
 			return;
@@ -23,6 +24,14 @@ class Item extends Component {
 
 	get slot() {
 		return this[_slot];
+	}
+
+	moved() {
+		if(this.slot) {
+			var old_loc = this.a.fine_loc;
+			this.slot.item = null;
+			this.a.fine_loc = old_loc;
+		}
 	}
 }
 Item.depends = ["Tangible"];
@@ -42,10 +51,8 @@ Item.template = {
 				sharpness: Item.IS_BLUNT
 			}
 		},
-		appearance: {
-			icon: 'icons/obj/items.png',
-			layer:3
-		}
+		icon: 'icons/obj/items.png',
+		layer:3
 	}
 };
 

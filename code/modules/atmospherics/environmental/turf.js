@@ -17,7 +17,7 @@ class Turf extends Component {
 		if(this.prevLoc) {
 			this.prevLoc.turf = undefined;
 		}
-		if(this.a.loc && this.a.loc.isBaseLoc) {
+		if(this.a.loc && this.a.loc.is_base_loc) {
 			this.a.loc.turf = this.atom;
 		}
 	}

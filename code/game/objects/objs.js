@@ -15,6 +15,10 @@ class Tangible extends Component {
 			this.a.move(Math.sign(offsetx), Math.sign(offsety), "bumped");
 		}
 	}
+
+	ex_act() {
+		
+	}
 }
 
 Tangible.LAVA_PROOF = -2;

@@ -1,4 +1,13 @@
-#chatwindow				{font-family: Verdana, sans-serif;}
+#chatwindow {
+	font-family: Verdana, sans-serif;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	position: absolute;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
 
 .motd					{color: #638500;	font-family: Verdana, sans-serif;}
 .motd h1, .motd h2, .motd h3, .motd h4, .motd h5, .motd h6

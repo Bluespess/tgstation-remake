@@ -1,0 +1,19 @@
+{
+	"nzcrentr": {
+		"dir_count": 1,
+		"width": 274,
+		"height": 385,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	}
+}

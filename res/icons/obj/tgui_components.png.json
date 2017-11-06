@@ -1,0 +1,87 @@
+{
+	"belligerent_eye": {
+		"dir_count": 1,
+		"width": 22,
+		"height": 22,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"vanguard_cogwheel": {
+		"dir_count": 1,
+		"width": 22,
+		"height": 22,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 22,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"geis_capacitor": {
+		"dir_count": 1,
+		"width": 22,
+		"height": 22,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 44,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"replicant_alloy": {
+		"dir_count": 1,
+		"width": 22,
+		"height": 22,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 22,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"hierophant_ansible": {
+		"dir_count": 1,
+		"width": 22,
+		"height": 22,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 22,
+						"y": 22,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	}
+}

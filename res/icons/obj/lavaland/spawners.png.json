@@ -1,68 +1,80 @@
 {
-    "terrarium": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 36,
-        "dirs": {
-            "2": [
-                {
-                    "x": 0,
-                    "y": 0,
-                    "delay": 1000
-                },
-                {
-                    "x": 32,
-                    "y": 0,
-                    "delay": 1000
-                },
-                {
-                    "x": 64,
-                    "y": 0,
-                    "delay": 1000
-                }
-            ]
-        }
-    },
-    "terrarium_open": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 36,
-        "dirs": {
-            "2": [
-                {
-                    "x": 0,
-                    "y": 36,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "cryostasis_sleeper": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 36,
-        "dirs": {
-            "2": [
-                {
-                    "x": 32,
-                    "y": 36,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "cryostasis_sleeper_open": {
-        "dirCount": 1,
-        "width": 32,
-        "height": 36,
-        "dirs": {
-            "2": [
-                {
-                    "x": 64,
-                    "y": 36,
-                    "delay": 100
-                }
-            ]
-        }
-    }
+	"terrarium": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 36,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 0,
+						"delay": 1000
+					},
+					{
+						"x": 32,
+						"y": 0,
+						"delay": 1000
+					},
+					{
+						"x": 64,
+						"y": 0,
+						"delay": 1000
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"terrarium_open": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 36,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 36,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"cryostasis_sleeper": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 36,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 32,
+						"y": 36,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"cryostasis_sleeper_open": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 36,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 64,
+						"y": 36,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	}
 }

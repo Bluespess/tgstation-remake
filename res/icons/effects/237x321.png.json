@@ -1,0 +1,19 @@
+{
+	"nezbere": {
+		"dir_count": 1,
+		"width": 237,
+		"height": 321,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	}
+}

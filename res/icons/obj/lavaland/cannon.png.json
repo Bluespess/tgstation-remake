@@ -1,58 +1,70 @@
 {
-    "cannon_east": {
-        "dirCount": 1,
-        "width": 355,
-        "height": 76,
-        "dirs": {
-            "2": [
-                {
-                    "x": 0,
-                    "y": 0,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "cannon_west": {
-        "dirCount": 1,
-        "width": 355,
-        "height": 76,
-        "dirs": {
-            "2": [
-                {
-                    "x": 0,
-                    "y": 76,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "top_east": {
-        "dirCount": 1,
-        "width": 355,
-        "height": 76,
-        "dirs": {
-            "2": [
-                {
-                    "x": 0,
-                    "y": 152,
-                    "delay": 100
-                }
-            ]
-        }
-    },
-    "top_west": {
-        "dirCount": 1,
-        "width": 355,
-        "height": 76,
-        "dirs": {
-            "2": [
-                {
-                    "x": 0,
-                    "y": 228,
-                    "delay": 100
-                }
-            ]
-        }
-    }
+	"cannon_east": {
+		"dir_count": 1,
+		"width": 355,
+		"height": 76,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 0,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"cannon_west": {
+		"dir_count": 1,
+		"width": 355,
+		"height": 76,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 76,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"top_east": {
+		"dir_count": 1,
+		"width": 355,
+		"height": 76,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 152,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	},
+	"top_west": {
+		"dir_count": 1,
+		"width": 355,
+		"height": 76,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 0,
+						"y": 228,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
+	}
 }

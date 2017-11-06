@@ -85,9 +85,13 @@ class LivingMob extends Component {
 	life() {
 
 	}
+
+	incapacitated() {
+		return false;
+	}
 }
 
-LivingMob.depends = ["Mob"];
+LivingMob.depends = ["Mob", "Tangible"];
 LivingMob.loadBefore = ["Mob"];
 
 LivingMob.template = {
@@ -98,7 +102,8 @@ LivingMob.template = {
 				max_health: 100,
 				stat: LivingMob.CONSCIOUS
 			}
-		}
+		},
+		density: 1
 	}
 };
 

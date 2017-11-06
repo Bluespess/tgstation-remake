@@ -2,9 +2,8 @@
 
 const {Atom, chain_func} = require('bluespess-client');
 
-var parallax_mask;
 function create_mask(ctx, timestamp) {
-	parallax_mask = new Path2D();
+	this.parallax_mask = new Path2D();
 	var eye = this.eyes[""];
 	if(eye instanceof Atom)
 		eye.update_glide(timestamp);
@@ -12,7 +11,7 @@ function create_mask(ctx, timestamp) {
 	for(let tile of this.visible_tiles) {
 		tile = JSON.parse(tile);
 		let [x,y] = tile;
-		parallax_mask.rect(Math.round((x-eye.x-(eye.glide?eye.glide.x:0)+7)*32), -Math.round((y-eye.y-(eye.glide?eye.glide.y:0)-7)*32), 32, 32);
+		this.parallax_mask.rect(Math.round((x-eye.x-(eye.glide?eye.glide.x:0)+7)*32), -Math.round((y-eye.y-(eye.glide?eye.glide.y:0)-7)*32), 32, 32);
 	}
 }
 
@@ -44,10 +43,10 @@ module.exports.now = (client) => {
 					dispx += x*480;
 					dispy += y*480;
 					ctx.save();
-					if(parallax_mask)
-						ctx.clip(parallax_mask);
+					if(client.parallax_mask)
+						ctx.clip(client.parallax_mask);
 					ctx.translate(dispx, dispy);
-					ctx.globalCompositeOperation = "lighter";
+					ctx.globalCompositeOperation = "lighten";
 					prev();
 					ctx.globalCompositeOperation = "source-over";
 					ctx.restore();

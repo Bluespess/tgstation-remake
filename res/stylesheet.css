@@ -110,6 +110,11 @@ div.uiframe-content {
 	background: #507aac;
 }
 
+.button:active:not(.selected):not(.disabled):not(.on):not(.red):not(.yellow) {
+	transform: translate(1px,1px);
+}
+
+
 .button.on, .button.selected {
 	background: #2f943c;
 }
