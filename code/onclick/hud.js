@@ -136,6 +136,29 @@ Alert.template = {
 	hidden: true // Make it not appear in map editor
 };
 
+class GridDisplay extends Component.Networked {
+	constructor(atom, template) {
+		super(atom, template);
+		this.add_networked_var('width');
+		this.add_networked_var('height');
+		this.add_networked_var('offset_x');
+		this.add_networked_var('offset_y');
+	}
+}
+
+GridDisplay.template = {
+	vars: {
+		components: {
+			"GridDisplay": {
+				width: 1,
+				height: 1,
+				offset_x: 1,
+				offset_y: 1
+			}
+		}
+	}
+};
+
 module.exports.templates = {
 	"alert_oxy": {
 		components: ["Alert"],

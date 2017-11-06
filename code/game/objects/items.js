@@ -6,7 +6,7 @@ class Item extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 		this.a.attack_hand = chain_func(this.a.attack_hand, this._attack_hand.bind(this));
-		this.a.on("moved", this.moved.bind(this));
+		this.a.on("before_move", this.before_move.bind(this));
 	}
 
 	attack_self() {}
@@ -26,7 +26,7 @@ class Item extends Component {
 		return this[_slot];
 	}
 
-	moved() {
+	before_move() {
 		if(this.slot) {
 			var old_loc = this.a.fine_loc;
 			this.slot.item = null;
@@ -60,8 +60,8 @@ module.exports.templates = {
 	"cablecuffs": {
 		components: ["Item"],
 		vars: {
-			icon: 'icons/obj/items.png',
-			icon_state: "cuff_red",
+			icon: 'icons/obj/items_and_weapons.png',
+			icon_state: "cuff",
 			components: {
 				"Item": {
 					inhand_icon_state: "coil_red"

@@ -96,7 +96,7 @@ class MobInventory extends Component {
 			icon: 'icons/mob/screen_gen.png', icon_state: "healthdoll_OVERLAY", screen_loc_x: 13.875, screen_loc_y: 5.40625, layer: 30
 		}});
 
-		this.a.on("click_on", this.click_on.bind(this));
+		this.a.c.Mob.on("click_on", this.click_on.bind(this));
 	}
 
 	click_on(e) {

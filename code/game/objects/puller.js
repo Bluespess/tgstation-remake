@@ -11,7 +11,7 @@ class Puller extends Component {
 		this.a.on("before_move", this.before_move.bind(this));
 		this.a.on("moved", this.moved.bind(this));
 		if(this.a.c.Mob)
-			this.a.on("click_on", this.click_on.bind(this));
+			this.a.c.Mob.on("click_on", this.click_on.bind(this));
 	}
 
 	click_on(e) {
@@ -28,17 +28,15 @@ class Puller extends Component {
 			&& this.a.z == target.z && Math.max(Math.abs(this.a.x - target.x), Math.abs(this.a.y - target.y)) <= 1;
 	}
 
-	before_move(offsetx, offsety) {
+	before_move() {
 		this.pulling = this.pulling; // refresh the pullability;
-		if(offsetx == null || offsety == null || this[_pulling] == null)
-			return;
 	}
 
-	moved(offsetx, offsety) {
-		if(offsetx == null || offsety == null || this[_pulling] == null)
+	moved(movement) {
+		if(!movement.offset || movement.offset.z != 0 || this[_pulling] == null)
 			return;
-		var oldx = this.a.x - offsetx;
-		var oldy = this.a.y - offsety;
+		var oldx = this.a.x - movement.offset.x;
+		var oldy = this.a.y - movement.offset.y;
 		if(Math.abs(this[_pulling].x - this.x) > 2.00001 || Math.abs(this[_pulling].y - this.y) > 2.00001) {
 			this.pulling = null;
 			return;

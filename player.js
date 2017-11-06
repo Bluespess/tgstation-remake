@@ -9,7 +9,7 @@ class Player extends Component {
 		this.intended_walk_dir = 0;
 		this.last_axis = 3;
 
-		this.atom.on("keydown", (e) => {
+		this.atom.c.Mob.on("keydown", (e) => {
 			if(!e)
 				return;
 			if(e.which == 37){this.intended_walk_dir |= 8; this.last_axis = 12;}
@@ -19,7 +19,7 @@ class Player extends Component {
 			this.update_walk();
 		});
 
-		this.atom.on("keyup", (e) => {
+		this.atom.c.Mob.on("keyup", (e) => {
 			if(!e)
 				return;
 			if(e.which == 37){this.intended_walk_dir &= ~8;}
@@ -29,12 +29,14 @@ class Player extends Component {
 			this.update_walk();
 		});
 
-		this.atom.on("moved", (offsetx, offsety) => {
+		this.atom.on("moved", (movement) => {
+			if(!movement.offset || movement.offset.z != 0)
+				return;
 			var dir = 0;
-			if(offsetx > 0) dir |= 4;
-			if(offsetx < 0) dir |= 8;
-			if(offsety > 0) dir |= 1;
-			if(offsety < 0) dir |= 2;
+			if(movement.offset.x > 0) dir |= 4;
+			if(movement.offset.x < 0) dir |= 8;
+			if(movement.offset.y > 0) dir |= 1;
+			if(movement.offset.y < 0) dir |= 2;
 			if(dir)
 				this.atom.dir = dir;
 		});
