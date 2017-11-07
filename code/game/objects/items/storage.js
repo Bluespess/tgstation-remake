@@ -28,6 +28,7 @@ class StorageItem extends Component {
 				width: this.columns
 			}}
 		}});
+		this[_grid].on("clicked", this.grid_clicked.bind(this));
 		this[_close_button] = new Atom(this.a.server, {vars: {
 			name: "close",
 			icon: 'icons/mob/screen_gen.png',
@@ -63,7 +64,6 @@ class StorageItem extends Component {
 	}
 
 	set_screen_loc_for_slot_num(item, num) {
-		console.log(num);
 		item.screen_loc_x = num % this.columns + 3.5;
 		item.screen_loc_y = this.rows - Math.floor(num / this.columns) + 1.5;
 	}
@@ -73,7 +73,6 @@ class StorageItem extends Component {
 	}
 
 	exited(movement) {
-		console.log("exited");
 		var prev_rows = this.rows;
 		var i;
 		for(i = 0; i < this[_slots].length; i++) {
@@ -134,6 +133,10 @@ class StorageItem extends Component {
 
 	attack_hand(prev, mob) {
 		if(this.a.c.Item.slot && this.a.c.Item.slot.mob == mob && this.a.c.Item.slot.id != mob.c.MobInventory.active_hand) {
+			if(this.is_showing_to(mob)) {
+				this.hide_from(mob);
+				return;
+			}
 			this.show_to(mob);
 		} else {
 			return prev();
@@ -171,8 +174,27 @@ class StorageItem extends Component {
 		user.c.Eye.screen.storage_close_button = null;
 	}
 
+	is_showing_to(user) {
+		return this.a.server.has_component(user, "Eye") && user.components.Eye[_current_storage_item] == this.a;
+	}
+
 	close_button_clicked(e) {
 		this.hide_from(e.mob);
+	}
+	grid_clicked(e) {
+		console.log(e.x + ", " + e.y);
+		if(!e.mob)return;
+		var slot = (this.rows - Math.floor(e.y)) * 7 + Math.floor(e.x);
+		var target_atom;
+		if(this[_slots][slot]) {
+			target_atom = this[_slots][slot][0];
+		} else {
+			target_atom = this.a;
+		}
+		var new_event = Object.assign({}, e, {atom: target_atom, y: e.y - Math.floor(e.y), x: e.x - Math.floor(e.x)});
+		target_atom.emit("clicked", new_event);
+		if(e.mob)
+			e.mob.c.Mob.emit("click_on", new_event);
 	}
 }
 

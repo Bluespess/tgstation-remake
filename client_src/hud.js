@@ -6,6 +6,7 @@ class GridDisplay extends Component {
 		super(atom, template);
 		this.a.get_bounds = chain_func(this.a.get_bounds, this.get_bounds.bind(this));
 		this.a.draw = chain_func(this.a.draw, this.draw.bind(this));
+		this.a.is_mouse_over = chain_func(this.a.is_mouse_over, this.is_mouse_over.bind(this));
 	}
 
 	get_bounds(prev) {
@@ -24,6 +25,16 @@ class GridDisplay extends Component {
 				ctx.restore();
 			}
 		}
+	}
+
+	is_mouse_over(prev, x, y) {
+		for(let ox = 0; ox < this.width; ox++) {
+			for(let oy = 0; oy < this.height; oy++) {
+				if(prev(x-ox, y-oy))
+					return true;
+			}
+		}
+		return false;
 	}
 }
 
