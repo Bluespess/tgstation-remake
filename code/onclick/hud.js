@@ -369,4 +369,4 @@ or shoot a gun to move around via Newton's 3rd Law of Motion.",
 	},
 };
 
-module.exports.components = {Alert, MobHud};
+module.exports.components = {Alert, MobHud, GridDisplay};

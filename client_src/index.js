@@ -5,6 +5,7 @@ const $ = require('jquery');
 var client = new BluespessClient();
 global.client = client;
 
+client.importModule(require('./hud.js'));
 client.importModule(require('./parallax.js'));
 client.importModule(require('./progress_bar.js'));
 client.importModule(require('./ui/new_player.js'));

@@ -6,6 +6,7 @@ const _slots = Symbol('_slots');
 const _viewers = Symbol('_viewers');
 const _grid = Symbol('_grid');
 const _old_layers = Symbol('_old_layers');
+const _close_button = Symbol('_close_button');
 
 class StorageItem extends Component {
 	constructor(atom, template) {
@@ -16,17 +17,26 @@ class StorageItem extends Component {
 		this.a.attack_hand = chain_func(this.a.attack_hand, this.attack_hand.bind(this));
 		this[_slots] = [];
 		this[_viewers] = null;
-		this[_grid] = new Atom(this.a.server, {vars:{
-			name:"storage",
-			icon_state:"block",
-			icon:'icons/mob/screen_gen.png',
-			screen_loc_x:3.5,
-			screen_loc_y:1.5,
-			layer:20,
-			components: {Grid: {
-				width: 7
+		this[_grid] = new Atom(this.a.server, {components: ["GridDisplay"], vars:{
+			name: "storage",
+			icon: 'icons/mob/screen_gen.png',
+			icon_state: "block",
+			screen_loc_x: 3.5,
+			screen_loc_y: 1.5,
+			layer: 30,
+			components: {GridDisplay: {
+				width: this.columns
 			}}
 		}});
+		this[_close_button] = new Atom(this.a.server, {vars: {
+			name: "close",
+			icon: 'icons/mob/screen_gen.png',
+			icon_state: "backpack_close",
+			layer: 30,
+			screen_loc_x: 10.5,
+			screen_loc_y: 1.5
+		}});
+		this[_close_button].on("clicked", this.close_button_clicked.bind(this));
 		this[_old_layers] = new WeakMap();
 		for(var item of this.a.contents) {
 			this.entered({atom:item});
@@ -39,7 +49,7 @@ class StorageItem extends Component {
 		var slotnum = this[_slots].length;
 		this[_slots].push(slot);
 		this[_old_layers].set(movement.atom, movement.atom.layer);
-		movement.atom.layer = 30;
+		movement.atom.layer = 31;
 		this.set_screen_loc_for_slot_num(movement.atom, slotnum);
 		if(this[_viewers])
 			for(let viewer of this[_viewers]) {
@@ -49,6 +59,7 @@ class StorageItem extends Component {
 			for(let i = 0; i < slotnum; i++) {
 				this.set_screen_loc_for_slot_num(this[_slots][i][0], i);
 			}
+		this[_grid].c.GridDisplay.height = this.rows + 1;
 	}
 
 	set_screen_loc_for_slot_num(item, num) {
@@ -73,13 +84,13 @@ class StorageItem extends Component {
 			if(idx == 0) {
 				if(this[_viewers])
 					for(let viewer of this[_viewers]) {
-						viewer.c.Eye.screen[`storage_item_${idx}`] = slot[1];
+						viewer.c.Eye.screen[`storage_item_${i}`] = slot[1];
 					}
 				if(slot[1]) {
 					slot[1].screen_loc_x = slot[0].screen_loc_x;
 					slot[1].screen_loc_y = slot[0].screen_loc_y;
 					this[_old_layers].set(slot[1], slot[1].layer);
-					slot[1].layer = 30;
+					slot[1].layer = 31;
 				}
 				slot[0].layer = this[_old_layers].get(slot[0]);
 				slot[0].screen_loc_x = null;
@@ -95,24 +106,25 @@ class StorageItem extends Component {
 		}
 		if(i >= this[_slots].length) // this should never happen
 			return;
-		for(let j = i+1; j < this[_slots].length; j++) {
-			if(this[_viewers])
+		if(this[_viewers])
+			for(let j = i+1; j < this[_slots].length; j++) {
 				for(let viewer of this[_viewers]) {
 					viewer.c.Eye.screen[`storage_item_${j}`] = null;
 				}
-		}
+			}
 		this[_slots].splice(i,1);
 		for(let j = i; j < this[_slots].length; j++) {
 			if(this[_viewers])
 				for(let viewer of this[_viewers]) {
 					viewer.c.Eye.screen[`storage_item_${j}`] = this[_slots][j][0];
 				}
-			this.set_screen_loc_for_slot_num(this[_slots][j][0], j);
+			this.set_screen_loc_for_slot_num(this[_slots][j][0],j);
 		}
 		if(this.rows != prev_rows)
 			for(let j = 0; j < i; j++) {
-				this.set_screen_loc_for_slot_num(this[_slots][j][0], j);
+				this.set_screen_loc_for_slot_num(this[_slots][j][0],j);
 			}
+		this[_grid].c.GridDisplay.height = this.rows + 1;
 	}
 
 	attack_by(prev, item) {
@@ -141,7 +153,8 @@ class StorageItem extends Component {
 			user.c.Eye.screen[`storage_item_${i}`] = this[_slots][i][0];
 		}
 		user.c.Eye.screen.storage_grid = this[_grid];
-		user.c.Eye[_current_storage_item] = this;
+		user.c.Eye.screen.storage_close_button = this[_close_button];
+		user.c.Eye[_current_storage_item] = this.a;
 	}
 
 	hide_from(user) {
@@ -155,6 +168,11 @@ class StorageItem extends Component {
 			user.c.Eye.screen[`storage_item_${i}`] = null;
 		}
 		user.c.Eye.screen.storage_grid = null;
+		user.c.Eye.screen.storage_close_button = null;
+	}
+
+	close_button_clicked(e) {
+		this.hide_from(e.mob);
 	}
 }
 
@@ -189,7 +207,7 @@ StorageItem.loadBefore = ["Item"];
 
 module.exports.templates = {
 	"backpack": {
-		components: ["StorageItem"],
+		components: ["BackItem", "StorageItem"],
 		vars: {
 			components: {
 				"Item": {
