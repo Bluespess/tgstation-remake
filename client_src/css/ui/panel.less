@@ -1,0 +1,53 @@
+#uiframes-container {
+	pointer-events: none;
+	position: absolute;
+	top:0px;left:0px;right:0px;bottom:0px;
+	overflow:hidden;
+	.uiframe-container {
+		position: absolute;
+		background: transparent;
+		padding: 8px;
+		pointer-events: auto;
+		.uiframe {
+			position: absolute;
+			background: linear-gradient(to bottom,
+				#2a2a2a 0%,
+				#202020 100%) no-repeat fixed center/100% 100%;
+			font-family: Verdana, Geneva, sans-serif;
+			font-size: 12px;
+			margin: 7px;
+			box-shadow: 10px 10px 20px rgba(0,0,0,.3);
+			left:0px;top:0px;right:0px;bottom:0px;
+			border: 1px solid #40628a;
+			cursor: auto;
+			user-select: none;
+			-moz-user-select: none;
+			-khtml-user-select: none;
+			-webkit-user-select: none;
+			-webkit-touch-callout: none;
+			-o-user-select: none;
+			.uiframe-header {
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				right: 0px;
+				height: 30px;
+				font-size: 16px;
+				color: #e9c183;
+				overflow: hidden;
+				cursor: default;
+				line-height: 30px;
+				padding-left: 10px;
+			}
+			.uiframe-content {
+				position: absolute;
+				left: 0px;
+				top: 30px;
+				right: 0px;
+				bottom: 0px;
+				overflow: auto;
+				padding: 8px;
+			}
+		}
+	}
+}

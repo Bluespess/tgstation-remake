@@ -1,5 +1,6 @@
 res/client.js.map
 res/client.js
+res/client.css
 
 # Logs
 logs
@@ -59,4 +60,3 @@ typings/
 
 # dotenv environment variables file
 .env
-

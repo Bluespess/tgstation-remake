@@ -1,19 +1,18 @@
 'use strict';
 const BluespessClient = require('bluespess-client');
-const $ = require('jquery');
 
 var client = new BluespessClient();
 global.client = client;
 
-client.importModule(require('./hud.js'));
-client.importModule(require('./parallax.js'));
-client.importModule(require('./progress_bar.js'));
-client.importModule(require('./ui/new_player.js'));
+client.importModule(require('./code/hud.js'));
+client.importModule(require('./code/parallax.js'));
+client.importModule(require('./code/progress_bar.js'));
+client.importModule(require('./code/ui/new_player.js'));
 
 if(global.is_bs_editor_env) {
 	module.exports = client;
 } else {
-	$(window).on("load", () => {
+	window.addEventListener("load", () => {
 		client.login();
 	});
 }
