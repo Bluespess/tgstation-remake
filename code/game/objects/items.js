@@ -28,9 +28,7 @@ class Item extends Component {
 
 	before_move() {
 		if(this.slot) {
-			var old_loc = this.a.fine_loc;
 			this.slot.item = null;
-			this.a.fine_loc = old_loc;
 		}
 	}
 }
@@ -64,6 +62,8 @@ module.exports.templates = {
 			icon_state: "cuff",
 			components: {
 				"Item": {
+					inhand_lhand_icon: 'icons/mob/inhands/equipment/tools_lefthand.png',
+					inhand_rhand_icon: 'icons/mob/inhands/equipment/tools_righthand.png',
 					inhand_icon_state: "coil_red"
 				}
 			}
