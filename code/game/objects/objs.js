@@ -17,9 +17,12 @@ class Tangible extends Component {
 	}
 
 	ex_act() {
-		
+
 	}
 }
+
+Tangible.depends = ["Examine"];
+Tangible.loadBefore = ["Examine"];
 
 Tangible.LAVA_PROOF = -2;
 Tangible.FIRE_PROOF = -1;
@@ -42,4 +45,22 @@ Tangible.template = {
 	}
 };
 
-module.exports.components = {Tangible};
+class Examine extends Component {
+	constructor(atom, template) {
+		super(atom, template);
+		this.a.on("clicked", this.clicked.bind(this));
+	}
+
+	clicked(e) {
+		if(e.shiftKey && e.mob)
+			this.examine(e.mob);
+	}
+
+	examine(user) {
+		this.a.server.to_chat`That's a ${this.a}`(user);
+		if(this.desc)
+			this.a.server.to_chat(user, this.desc);
+	}
+}
+
+module.exports.components = {Tangible, Examine};

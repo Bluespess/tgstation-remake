@@ -18,6 +18,8 @@ server.importModule(require('./code/game/mobs/living/carbon/carbon.js'));
 server.importModule(require('./code/game/mobs/living/carbon/human/human.js'));
 server.importModule(require('./code/game/objects/doors/airlock.js'));
 server.importModule(require('./code/game/objects/doors/door.js'));
+server.importModule(require('./code/game/objects/items/stacks/rods.js'));
+server.importModule(require('./code/game/objects/items/stacks/stack.js'));
 server.importModule(require('./code/game/objects/items/clothing.js'));
 server.importModule(require('./code/game/objects/items/storage.js'));
 server.importModule(require('./code/game/objects/items.js'));

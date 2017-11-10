@@ -1,13 +1,17 @@
 'use strict';
-const {Component, chain_func} = require('bluespess');
+const {Component, Atom, chain_func} = require('bluespess');
 
 const _amount = Symbol('_amount');
 
 class Stack extends Component {
 	constructor(atom, template) {
 		super(atom, template);
-		this.on("amount_changed", this.amount_chaged.bind(this));
+		this.on("amount_changed", this.amount_changed.bind(this));
+		this.a.on("crossed_by", this.crossed_by.bind(this));
+		this.a.c.Examine.examine = chain_func(this.a.c.Examine.examine, this.examine.bind(this));
+		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
 		this.a.attack_hand = chain_func(this.a.attack_hand, this.attack_hand.bind(this));
+
 	}
 
 	get amount() {
@@ -21,9 +25,14 @@ class Stack extends Component {
 	}
 
 	amount_changed() {
-		if(this.amount == 0) {
+		if(this.amount <= 0) {
 			this.a.destroy();
 		}
+
+		if(this.amount == 1)
+			this.a.gender = "neutral";
+		else
+			this.a.gender = "plural";
 
 		if(!this.novariants) {
 			var base_state = this.a.template.vars.icon_state;
@@ -56,8 +65,54 @@ class Stack extends Component {
 			return;
 		var transfer = Math.min(this.amount, S.c.Stack.max_amount - S.c.Stack.amount);
 		this.use(transfer);
-		S.amount += transfer;
+		S.c.Stack.amount += transfer;
 		return transfer;
+	}
+
+	examine(prev, user) {
+		prev();
+		this.a.server.to_chat`There ${this.amount == 1 ? "is" : "are"} ${this.amount} ${this.singular_name || ""}s in the stack.`(user);
+	}
+
+	attack_by(prev, item, user) {
+		if(this.merge_type && this.a.server.has_component(item, this.merge_type)) {
+			if(this.merge(item))
+				this.a.server.to_chat`<span class='notice'>Your ${item.name} stack now contains ${item.c.Stack.amount} ${item.c.Stack.singular_name}s.</span>`(user);
+		} else {
+			return prev();
+		}
+	}
+
+	attack_hand(prev, user) {
+		let slot = this.a.c.Item.slot;
+		if(slot && slot.mob == user && slot.props.is_hand_slot && user.c.MobInventory.active_hand != slot) {
+			return this.split(user, 1);
+		} else {
+			prev();
+		}
+	}
+
+	split(user, amount) {
+		if(amount <= 0)
+			return;
+		if(amount >= this.amount) {
+			if(this.a.server.has_component(user, "MobInventory"))
+				user.c.MobInventory.put_in_hands(this.a);
+			return this.a;
+		}
+		var new_stack = new Atom(this.a.server, this.a.template);
+		new_stack.c.Stack.amount = amount;
+		this.use(amount, true);
+		if(this.a.server.has_component(user, "MobInventory")) {
+			user.c.MobInventory.put_in_hands(new_stack);
+		}
+		// TODO evidence
+	}
+
+	crossed_by(target) {
+		if(this.merge_type && this.a.server.has_component(target, this.merge_type) && !target.c.Tangible.throwing) {
+			process.nextTick(() => this.merge(target));
+		}
 	}
 }
 
@@ -78,3 +133,5 @@ Stack.template = {
 
 Stack.depends = ["Item"];
 Stack.loadBefore = ["Item"];
+
+module.exports.components = {Stack};

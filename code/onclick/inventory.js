@@ -102,7 +102,7 @@ class MobInventory extends Component {
 
 	click_on(e) {
 		if(e.atom == null) return;
-		if(e.ctrlKey) return;
+		if(e.ctrlKey || e.altKey || e.shiftKey) return;
 		if(Math.abs(e.atom.x - this.a.x) <= 1 && Math.abs(e.atom.y - this.a.y) <= 1) {
 			var active_item = this[_slots][this[_active_hand]].item;
 			if(active_item) {
@@ -118,8 +118,8 @@ class MobInventory extends Component {
 		this[_slots][id] = new Slot(this.atom, id, slotatom, props);
 	}
 	set active_hand(value) {
-		if(typeof value != "string" || !this[_slots][value])
-			throw new TypeError(`${value} is not a string referring to a valid slot.`);
+		if(typeof value != "string" || !this[_slots][value] || !this[_slots][value].props.is_hand_slot)
+			throw new TypeError(`${value} is not a string referring to a valid hand slot.`);
 		if(this[_active_hand])
 			this[_slots][this[_active_hand]].atom.overlays.hand_active = undefined;
 		var old_active_hand = this[_active_hand];
@@ -129,6 +129,23 @@ class MobInventory extends Component {
 	}
 	get active_hand() {
 		return this[_active_hand];
+	}
+
+	put_in_hands(item) {
+		var slot = this[_slots][this.active_hand];
+		if(slot.can_accept_item(item)) {
+			slot.item = item;
+			return true;
+		}
+		for(slot of Object.values(this[_slots])) {
+			if(!slot.props.is_hand_slot)
+				continue;
+			if(slot.can_accept_item(item)) {
+				slot.item = item;
+				return true;
+			}
+		}
+		return false;
 	}
 
 	do_after({delay, needhand = true, target = null, progress = true, extra_checks = null} = {}) {
@@ -224,7 +241,7 @@ class Slot extends EventEmitter {
 	can_accept_item(item) {
 		if(!this.mob.server.has_component(item, "Item"))
 			return false;
-		if(item.slot && !item.slot.can_unequip())
+		if(item.slot && item.slot.can_unequip())
 			return false;
 		if(this.props.max_size && this.props.max_size < item.c.Item.size)
 			return false;

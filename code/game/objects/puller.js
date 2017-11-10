@@ -25,7 +25,8 @@ class Puller extends Component {
 
 	can_pull(target) {
 		return this.a.server.has_component(target, "Tangible") && !target.c.Tangible.anchored
-			&& this.a.z == target.z && Math.max(Math.abs(this.a.x - target.x), Math.abs(this.a.y - target.y)) <= 1;
+			&& this.a.z == target.z && Math.max(Math.abs(this.a.x - target.x), Math.abs(this.a.y - target.y)) <= 1
+			&& this.a.loc && this.a.loc.is_base_loc && target.loc && target.loc.is_base_loc;
 	}
 
 	before_move() {
@@ -33,7 +34,8 @@ class Puller extends Component {
 	}
 
 	moved(movement) {
-		if(!movement.offset || movement.offset.z != 0 || this[_pulling] == null)
+		if(this[_pulling] == null || !this.a.loc || !this.a.loc.is_base_loc || !this.pulling.loc || !this.pulling.loc.is_base_loc
+			|| !movement.offset || movement.offset.z != 0 || this[_pulling] == null)
 			return;
 		var oldx = this.a.x - movement.offset.x;
 		var oldy = this.a.y - movement.offset.y;
