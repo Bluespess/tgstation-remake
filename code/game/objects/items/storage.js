@@ -15,6 +15,7 @@ class StorageItem extends Component {
 		this.a.on("exited", this.exited.bind(this));
 		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
 		this.a.attack_hand = chain_func(this.a.attack_hand, this.attack_hand.bind(this));
+		this.a.on("mouse_dragged_to", this.mouse_dragged_to.bind(this));
 		this[_slots] = [];
 		this[_viewers] = null;
 		this[_grid] = new Atom(this.a.server, {components: ["GridDisplay"], vars:{
@@ -140,6 +141,13 @@ class StorageItem extends Component {
 			this.show_to(mob);
 		} else {
 			return prev();
+		}
+	}
+
+	mouse_dragged_to(e) {
+		if(e.to.atom == e.mob) {
+			this.show_to(e.mob);
+			return;
 		}
 	}
 

@@ -222,7 +222,9 @@ class Slot extends EventEmitter {
 	}
 
 	can_accept_item(item) {
-		if(item.slot && !item.slot.can_unequip)
+		if(!this.mob.server.has_component(item, "Item"))
+			return false;
+		if(item.slot && !item.slot.can_unequip())
 			return false;
 		if(this.props.max_size && this.props.max_size < item.c.Item.size)
 			return false;

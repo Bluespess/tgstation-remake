@@ -63,7 +63,7 @@ class Player extends Component {
 	}
 }
 
-Player.depends = ["Mob", "Puller"];
+Player.depends = ["Mob", "Puller", "Hearer"];
 Player.loadBefore = ["Mob", "Puller"];
 
 module.exports.components = {Player};
