@@ -85,7 +85,7 @@ class Airlock extends Component {
 			if(!this.has_power())
 				return;
 		if(this.a.c.Door.safe)
-			for(let atom of this.a.crosses) {
+			for(let atom of this.a.crosses()) {
 				if(atom.density) {
 					setTimeout(() => {
 						this.a.c.Door.close();
@@ -101,7 +101,7 @@ class Airlock extends Component {
 			//play sound
 		}
 
-		for(var obj of this.a.crosses) {
+		for(var obj of this.a.crosses()) {
 			if(this.a.server.has_component(obj, "Window")) {
 				obj.a.c.Tangible.ex_act(combat_defines.EXPLODE_HEAVY); //Smashin windows
 			}
@@ -127,7 +127,7 @@ class Airlock extends Component {
 		this.a.c.Door.operating = false;
 		this.delayed_close_requested = false;
 		if(this.a.c.Door.safe)
-			for(let atom of this.a.crosses) {
+			for(let atom of this.a.crosses()) {
 				if(this.a.server.has_component(atom, "LivingMob")) {
 					setTimeout(() => {this.a.c.Door.open();}, 100);
 					break;

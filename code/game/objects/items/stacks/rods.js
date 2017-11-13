@@ -34,6 +34,9 @@ StackRod.template = {
 				max_amount: 50,
 				merge_type: "StackRod",
 				singular_name: "rod"
+			},
+			"Examine": {
+				desc: "Some rods. Can be used for building, or something."
 			}
 		},
 		name: "metal rod",

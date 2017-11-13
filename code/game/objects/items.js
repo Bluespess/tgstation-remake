@@ -7,6 +7,7 @@ class Item extends Component {
 		super(atom, template);
 		this.a.attack_hand = chain_func(this.a.attack_hand, this._attack_hand.bind(this));
 		this.a.on("before_move", this.before_move.bind(this));
+		this.a.c.Examine.examine = chain_func(this.a.c.Examine.examine, this.examine.bind(this));
 	}
 
 	attack_self() {}
@@ -29,6 +30,28 @@ class Item extends Component {
 	before_move() {
 		if(this.slot) {
 			this.slot.item = null;
+		}
+	}
+
+	examine(prev, user) {
+		prev();
+		this.a.server.to_chat`${this.a.gender == "plural" ? "They are" : "It is"} a ${this.get_size_text()} item.`(user);
+	}
+
+	get_size_text() {
+		switch(this.size) {
+		case 1:
+			return "tiny";
+		case 2:
+			return "small";
+		case 3:
+			return "normal-sized";
+		case 4:
+			return "bulky";
+		case 5:
+			return "huge";
+		case 6:
+			return "gigantic";
 		}
 	}
 }

@@ -81,7 +81,7 @@ class Door extends Component {
 		if(this.operating)
 			return;
 		if(this.safe) {
-			for(let atom of this.a.crosses) {
+			for(let atom of this.a.crosses()) {
 				if(atom.density > 0) {
 					if(this.autoclose) {
 						setTimeout(() => {this.close();}, 6000);
@@ -101,7 +101,7 @@ class Door extends Component {
 		if(!this.glass)
 			this.a.opacity = true;
 		if(this.safe) {
-			for(var atom of this.a.crosses) {
+			for(var atom of this.a.crosses()) {
 				if(this.a.server.has_component(atom, "LivingMob")) {
 					setTimeout(() => {this.open();}, 100);
 					break;

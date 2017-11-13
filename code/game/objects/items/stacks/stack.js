@@ -7,6 +7,7 @@ class Stack extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 		this.on("amount_changed", this.amount_changed.bind(this));
+		this.amount_changed();
 		this.a.on("crossed_by", this.crossed_by.bind(this));
 		this.a.c.Examine.examine = chain_func(this.a.c.Examine.examine, this.examine.bind(this));
 		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
@@ -44,13 +45,13 @@ class Stack extends Component {
 				this.a.icon_state = `${base_state}_3`;
 		}
 
-		var base_w_class = this.a.template.vars.w_class;
+		var base_size = this.a.template.vars.components.Item.size;
 		if(this.amount <= (this.max_amount * (1/3)))
-			this.a.c.Item.w_class = Math.max(base_w_class - 2, 1);
+			this.a.c.Item.size = Math.max(base_size - 2, 1);
 		else if(this.amount <= (this.max_amount * (2/3)))
-			this.a.c.Item.w_class = Math.max(base_w_class - 1, 1);
+			this.a.c.Item.size = Math.max(base_size - 1, 1);
 		else
-			this.a.c.Item.w_class = base_w_class;
+			this.a.c.Item.size = base_size;
 	}
 
 	use(used) {

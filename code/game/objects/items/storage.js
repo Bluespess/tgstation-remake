@@ -213,8 +213,8 @@ StorageItem.template = {
 				slient: false, // No message on putting items in
 				can_hold: null, // Whitelist of components which can be put in
 				cant_hold: null, // Whitelist of components which can't be put in
-				max_w_class: 2, // Max size of objects that this object can store (in effect only if can_hold isn't set)
-				max_combined_w_class: 14, //The sum of the w_classes of all the items in this storage item.
+				max_size: 2, // Max size of objects that this object can store (in effect only if can_hold isn't set)
+				max_combined_size: 14, //The sum of the sizees of all the items in this storage item.
 				storage_slots: 7, //The number of storage slots in this container.
 				columns: 7,
 				use_to_pickup: false, //Set this to make it possible to use this item in an inverse way, so you can have the item in your hand and click items on the floor to pick them up.
@@ -228,7 +228,7 @@ StorageItem.template = {
 		},
 		name: "storage",
 		icon: 'icons/obj/storage.png',
-		w_class: 3
+		size: 3
 	}
 };
 
@@ -244,9 +244,9 @@ module.exports.templates = {
 					inhand_icon_state: "backpack",
 					inhand_lhand_icon: 'icons/mob/inhands/equipment/backpack_lefthand.png',
 					inhand_rhand_icon: 'icons/mob/inhands/equipment/backpack_righthand.png',
-					w_class: 4,
-					max_w_class: 3,
-					max_combined_w_class: 21,
+					size: 4,
+					max_size: 3,
+					max_combined_size: 21,
 					storage_slots: 21
 				}
 			},

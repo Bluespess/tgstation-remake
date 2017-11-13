@@ -97,12 +97,12 @@ module.exports = {
 	EMBEDDED_PAIN_CHANCE: 15,	//Chance for embedded objects to cause pain (damage user)
 	EMBEDDED_ITEM_FALLOUT: 5,	//Chance for embedded object to fall out (causing pain but removing the object)
 	EMBED_CHANCE: 45,	//Chance for an object to embed into somebody when thrown (if it's sharp)
-	EMBEDDED_PAIN_MULTIPLIER: 2,	//Coefficient of multiplication for the damage the item does while embedded (this*item.w_class)
-	EMBEDDED_FALL_PAIN_MULTIPLIER: 5,	//Coefficient of multiplication for the damage the item does when it falls out (this*item.w_class)
-	EMBEDDED_IMPACT_PAIN_MULTIPLIER: 4,	//Coefficient of multiplication for the damage the item does when it first embeds (this*item.w_class)
+	EMBEDDED_PAIN_MULTIPLIER: 2,	//Coefficient of multiplication for the damage the item does while embedded (this*item.size)
+	EMBEDDED_FALL_PAIN_MULTIPLIER: 5,	//Coefficient of multiplication for the damage the item does when it falls out (this*item.size)
+	EMBEDDED_IMPACT_PAIN_MULTIPLIER: 4,	//Coefficient of multiplication for the damage the item does when it first embeds (this*item.size)
 	EMBED_THROWSPEED_THRESHOLD: 4,	//The minimum value of an item's throw_speed for it to embed (Unless it has embedded_ignore_throwspeed_threshold set to 1)
-	EMBEDDED_UNSAFE_REMOVAL_PAIN_MULTIPLIER: 8,	//Coefficient of multiplication for the damage the item does when removed without a surgery (this*item.w_class)
-	EMBEDDED_UNSAFE_REMOVAL_TIME: 30,	//A Time in ticks, total removal time = (this*item.w_class)
+	EMBEDDED_UNSAFE_REMOVAL_PAIN_MULTIPLIER: 8,	//Coefficient of multiplication for the damage the item does when removed without a surgery (this*item.size)
+	EMBEDDED_UNSAFE_REMOVAL_TIME: 30,	//A Time in ticks, total removal time = (this*item.size)
 
 	//Gun Stuff
 	SAWN_INTACT: 0,
