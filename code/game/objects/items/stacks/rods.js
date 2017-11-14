@@ -33,7 +33,10 @@ StackRod.template = {
 				novariants: true,
 				max_amount: 50,
 				merge_type: "StackRod",
-				singular_name: "rod"
+				singular_name: "rod",
+				recipes: [
+					{name: "grille", template_name: "grille", cost: 2, time: 1000, one_per_turf: true, on_floor: true}
+				]
 			},
 			"Examine": {
 				desc: "Some rods. Can be used for building, or something."

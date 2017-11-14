@@ -10,11 +10,10 @@ class Turf extends Component {
 		this.air = new GasMixture();
 		this.air.parse_gas_string(this.initial_gas_mix);
 		this.a.on("moved", this.moved.bind(this));
-		this.moved();
 	}
 
 	moved(movement) {
-		if(movement && movement.old_fine_loc.loc && movement.old_fine_loc.loc.is_base_loc) {
+		if(movement && movement.old.loc && movement.old.loc.is_base_loc) {
 			movement.old_fine_loc.loc.turf = undefined;
 		}
 		if(this.a.loc && this.a.loc.is_base_loc) {

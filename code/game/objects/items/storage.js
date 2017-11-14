@@ -43,6 +43,8 @@ class StorageItem extends Component {
 		for(var item of this.a.contents) {
 			this.entered({atom:item});
 		}
+		if(this.populate_contents)
+			this.populate_contents();
 	}
 
 	entered(movement) {

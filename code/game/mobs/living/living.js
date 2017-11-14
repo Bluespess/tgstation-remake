@@ -20,6 +20,9 @@ class LivingMob extends Component {
 		this[_cloneloss] = 0;
 		this[_brainloss] = 0;
 		this[_staminaloss] = 0;
+		this[_health] = 100;
+
+		this.a.c.Mob.can_interact_with_panel = this.can_interact_with_panel.bind(this);
 	}
 
 	// Getters and setters for every type of loss.
@@ -88,6 +91,10 @@ class LivingMob extends Component {
 
 	incapacitated() {
 		return false;
+	}
+
+	can_interact_with_panel(target) {
+		return target.z == this.a.z && Math.max(Math.abs(target.x - this.a.x), Math.abs(target.y - this.a.y)) < 1;
 	}
 }
 

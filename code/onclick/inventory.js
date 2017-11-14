@@ -105,10 +105,12 @@ class MobInventory extends Component {
 		if(e.ctrlKey || e.altKey || e.shiftKey) return;
 		if(Math.abs(e.atom.x - this.a.x) <= 1 && Math.abs(e.atom.y - this.a.y) <= 1) {
 			var active_item = this[_slots][this[_active_hand]].item;
-			if(active_item) {
-				e.atom.attack_by(active_item, this.atom, e);
+			if(e.atom == active_item) {
+				active_item.c.Item.attack_self(this.a);
+			} else if(active_item) {
+				e.atom.attack_by(active_item, this.a, e);
 			} else {
-				e.atom.attack_hand(this.atom, e);
+				e.atom.attack_hand(this.a, e);
 			}
 		}
 	}

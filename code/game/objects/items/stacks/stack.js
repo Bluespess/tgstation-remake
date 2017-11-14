@@ -1,5 +1,6 @@
 'use strict';
 const {Component, Atom, chain_func} = require('bluespess');
+const StackCraftPanel = require('./stack_craft_panel.js');
 
 const _amount = Symbol('_amount');
 
@@ -12,7 +13,7 @@ class Stack extends Component {
 		this.a.c.Examine.examine = chain_func(this.a.c.Examine.examine, this.examine.bind(this));
 		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
 		this.a.attack_hand = chain_func(this.a.attack_hand, this.attack_hand.bind(this));
-
+		this.a.c.Item.attack_self = chain_func(this.a.c.Item.attack_self, this.attack_self.bind(this));
 	}
 
 	get amount() {
@@ -89,8 +90,17 @@ class Stack extends Component {
 		if(slot && slot.mob == user && slot.props.is_hand_slot && user.c.MobInventory.active_hand != slot) {
 			return this.split(user, 1);
 		} else {
-			prev();
+			return prev();
 		}
+	}
+
+	attack_self(prev, user) {
+		if(!this.recipes || !this.recipes.length || user.c.Mob.get_panel(this.a, StackCraftPanel) || !user.c.Mob.can_read_panel(this.a, StackCraftPanel)) {
+			return prev();
+		}
+		var panel = new StackCraftPanel(user.c.Mob.client, {title: `${this.a.name} construction`});
+		user.c.Mob.bind_panel(this.a, panel);
+		panel.open();
 	}
 
 	split(user, amount) {

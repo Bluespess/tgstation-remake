@@ -1652,6 +1652,11 @@
 		],
 		"0,2,0": [
 			{
+				"template_name": "toolbox_mechanical",
+				"x": 0,
+				"y": 2
+			},
+			{
 				"template_name": "floor",
 				"variant_leaf_path": [
 					"floor"
