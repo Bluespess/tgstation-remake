@@ -7,12 +7,31 @@ class Tangible extends Component {
 		this.fingerprints_hidden = [];
 		this.pullers = [];
 		this.a.on("bumped_by", this.bumped_by.bind(this));
+		this.last_high_pressure_movement_air_cycle = 0;
 	}
 
 	bumped_by(atom, offsetx, offsety, reason) {
 		if(!this.anchored && (reason == "walking" || reason == "bumped")) {
 			this.a.glide_size = atom.glide_size;
 			this.a.move(Math.sign(offsetx), Math.sign(offsety), "bumped");
+		}
+	}
+
+	experience_pressure_difference(difference, dx, dy, pressure_resistance_prob_delta = 0) {
+		const PROBABILITY_OFFSET = 25;
+		const PROBABILITY_BASE_PERCENT = 75;
+		if(this.anchored)
+			return false;
+		if(this.last_high_pressure_movement_air_cycle < this.a.server.air_controller.ticknum) {
+			var move_prob = 100;
+			if(this.pressure_resistance > 0) {
+				move_prob = (difference / this.pressure_resistance * PROBABILITY_BASE_PERCENT) - PROBABILITY_OFFSET;
+			}
+			move_prob += pressure_resistance_prob_delta;
+			if(move_prob > PROBABILITY_OFFSET && (Math.random() * 100 < move_prob)) {
+				this.a.move(dx, dy);
+				this.last_high_pressure_movement_air_cycle = this.a.server.air_controller.ticknum;
+			}
 		}
 	}
 
@@ -40,6 +59,7 @@ Tangible.template = {
 				throw_force: 0,
 				burn_state: Tangible.FIRE_PROOF, // LAVA_PROOF, FIRE_PROOF, FLAMMABLE, or ON_FIRE
 				burn_time: 10, // How long it takes to burn to ashes, in seconds
+				pressure_resistance: 10
 			}
 		}
 	}

@@ -13,12 +13,21 @@ class Turf extends Component {
 	}
 
 	moved(movement) {
+		if(this.a.x != Math.round(this.a.x)) {
+			this.a.x = Math.round(this.a.x);
+			return;
+		}
+		if(this.a.y != Math.round(this.a.y)) {
+			this.a.y = Math.round(this.a.y);
+			return;
+		}
 		if(movement && movement.old.loc && movement.old.loc.is_base_loc) {
 			movement.old_fine_loc.loc.turf = undefined;
 		}
 		if(this.a.loc && this.a.loc.is_base_loc) {
 			this.a.loc.turf = this.atom;
 		}
+		this.a.server.air_controller.add_to_active(this.a);
 	}
 }
 
@@ -46,6 +55,7 @@ class SimulatedTurf extends Component {
 		this.excited_group = undefined;
 		this.recently_active = false;
 		this.atmos_cooldown = 0;
+		this.pressure_difference = 0;
 	}
 
 	assume_air(giver) {
@@ -136,10 +146,11 @@ class SimulatedTurf extends Component {
 					}
 				} else {
 					if(enemy_excited_group) {
-						if((this.recently_active && enemy_tile.recently_active) || our_air.compare(enemy_air))
+						if((this.recently_active && enemy_tile.recently_active) || our_air.compare(enemy_air)) {
 							enemy_excited_group.add_turf(this.atom); //join self to enemy group
-						our_excited_group = this.excited_group; //update our cache
-						should_share_air = true;
+							our_excited_group = this.excited_group; //update our cache
+							should_share_air = true;
+						}
 					} else {
 						if((this.recently_active && enemy_tile.recently_active) || our_air.compare(enemy_air)) {
 							let group = new ExcitedGroup(this.a.server.air_controller); //generate new group
@@ -200,8 +211,22 @@ class SimulatedTurf extends Component {
 		this.atmos_cooldown = cached_atmos_cooldown;
 	}
 
+	// SPACEWIND
+
 	consider_pressure_difference(turf, difference) {
-		// TODO What do you think? This is an empty function, can't you figure it out yourself?
+		this.a.server.air_controller.high_pressure_delta.add(this.a);
+		if(difference > this.pressure_difference) {
+			this.pressure_dx = turf.x - this.a.x;
+			this.pressure_dy = turf.y - this.a.y;
+			this.pressure_difference = difference;
+		}
+	}
+
+	high_pressure_movements() {
+		for(var atom of this.a.crosses()) {
+			if(atom.c.Tangible)
+				atom.c.Tangible.experience_pressure_difference(this.pressure_difference, this.pressure_dx, this.pressure_dy);
+		}
 	}
 }
 SimulatedTurf.depends = ["Turf"];

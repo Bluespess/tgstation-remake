@@ -5,10 +5,14 @@ class AirController {
 	constructor(server) {
 		this.excited_groups = [];
 		this.active_turfs = [];
+		this.high_pressure_delta = new Set();
 		this.server = server;
 		this.ticknum = 0;
-		setInterval(this.tick.bind(this), 500);
 		server.air_controller = this;
+	}
+
+	start() {
+		setInterval(this.tick.bind(this), 500);
 	}
 
 	async tick() {
@@ -16,6 +20,7 @@ class AirController {
 			this.ticknum++;
 			await this.process_active_turfs();
 			await this.process_excited_groups();
+			await this.process_high_pressure_delta();
 		} catch (e) {
 			console.error(e.stack);
 		}
@@ -41,6 +46,15 @@ class AirController {
 		}
 	}
 
+	async process_high_pressure_delta() {
+		var high_pressure_delta = [...this.high_pressure_delta];
+		this.high_pressure_delta.clear();
+		for(var turf of high_pressure_delta) {
+			turf.c.SimulatedTurf.high_pressure_movements();
+			turf.c.SimulatedTurf.pressure_difference = 0;
+		}
+	}
+
 	remove_from_active(turf) {
 		var idx = this.active_turfs.indexOf(turf);
 		if(idx != -1)
@@ -63,6 +77,10 @@ class AirController {
 	}
 }
 
-module.exports.server_start = (server) => {
+module.exports.now = (server) => {
 	server.air_controller = new AirController(server);
+};
+
+module.exports.server_start = (server) => {
+	server.air_controller.start();
 };
