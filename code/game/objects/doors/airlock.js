@@ -61,10 +61,13 @@ class Airlock extends Component {
 		this.a.c.Door.operating = true;
 		this.a.flick = {icon_state: this.a.c.Door.opening_state};
 		this.a.icon_state = this.a.c.Door.open_state;
+		if(!this.air_tight)
+			this.a.c.BlocksAir.is_blocking = false;
 		await this.a.server.sleep(100);
 		this.a.opacity = false;
 		await this.a.server.sleep(400);
 		this.a.density = 0;
+		this.a.c.BlocksAir.is_blocking = false;
 		await this.a.server.sleep(100);
 		this.a.layer = this.a.c.Door.open_layer;
 		this.a.c.Door.operating = false;
@@ -113,10 +116,13 @@ class Airlock extends Component {
 		this.a.flick = {icon_state: this.a.c.Door.closing_state};
 		this.a.icon_state = this.a.c.Door.closed_state;
 		this.a.layer = this.a.c.Door.closed_layer;
-		if(this.air_tight)
+		if(this.air_tight) {
 			this.a.density = 1;
+			this.a.c.BlocksAir.is_blocking = true;
+		}
 		await this.a.server.sleep(100);
 		this.a.density = 1;
+		this.a.c.BlocksAir.is_blocking = true;
 		await this.a.server.sleep(400);
 		if(!this.a.c.Door.safe) {
 			this.a.c.Door.crush();

@@ -4,11 +4,10 @@ const atmos_defines = require('../../../defines/atmos_defines.js');
 class AirController {
 	constructor(server) {
 		this.excited_groups = [];
-		this.active_turfs = [];
+		this.active_turfs = new Set();
 		this.high_pressure_delta = new Set();
 		this.server = server;
 		this.ticknum = 0;
-		server.air_controller = this;
 	}
 
 	start() {
@@ -56,9 +55,7 @@ class AirController {
 	}
 
 	remove_from_active(turf) {
-		var idx = this.active_turfs.indexOf(turf);
-		if(idx != -1)
-			this.active_turfs.splice(idx, 1);
+		this.active_turfs.delete(turf);
 		if(this.server.has_component(turf, "SimulatedTurf")) {
 			turf.c.SimulatedTurf.excited = false;
 			if(turf.c.SimulatedTurf.excited_group)
@@ -69,8 +66,7 @@ class AirController {
 	add_to_active(turf, blockchanges = true) {
 		if(this.server.has_component(turf, "SimulatedTurf")) {
 			turf.c.SimulatedTurf.excited = true;
-			if(this.active_turfs.indexOf(turf) == -1)
-				this.active_turfs.push(turf);
+			this.active_turfs.add(turf);
 			if(blockchanges && turf.c.SimulatedTurf.excited_group)
 				turf.c.SimulatedTurf.excited_group.garbage_collect();
 		}

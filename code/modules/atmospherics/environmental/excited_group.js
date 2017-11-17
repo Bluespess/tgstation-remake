@@ -46,7 +46,7 @@ class ExcitedGroup {
 		this.dismantle_cooldown = 0;
 	}
 
-	self_breakdown(space_is_all_consuming = false) {
+	self_breakdown(/*space_is_all_consuming = false*/) {
 		var combined = new GasMixture(this.turf_list.length * atmos_defines.CELL_VOLUME);
 
 		for(let turf of this.turf_list) {
@@ -73,9 +73,7 @@ class ExcitedGroup {
 			turf.c.SimulatedTurf.excited = false;
 			turf.c.SimulatedTurf.recently_active = false;
 			turf.c.SimulatedTurf.excited_group = undefined;
-			var idx = this.controller.active_turfs.indexOf(turf);
-			if(idx != -1)
-				this.controller.active_turfs.splice(idx, 1);
+			var idx = this.controller.active_turfs.delete(turf);
 		}
 		this.garbage_collect();
 	}

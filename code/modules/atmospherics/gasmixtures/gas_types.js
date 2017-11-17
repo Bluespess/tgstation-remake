@@ -1,7 +1,7 @@
 'use strict';
 const atmos_defines = require('../../../defines/atmos_defines.js');
 
-var metas = {};
+var metas = [];
 
 class GasMeta {
 	constructor({id = "", specific_heat = 0, name = "", gas_overlay = "", moles_visible = 0, dangerous = false}) {
@@ -87,7 +87,7 @@ addMeta(new GasMeta({
 }));
 
 function addMeta(meta) {
-	metas[meta.id] = meta;
+	metas.push(meta);
 }
 
 module.exports = metas;

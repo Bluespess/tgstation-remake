@@ -87,7 +87,7 @@ module.exports.templates = {
 		tree_paths: ["basic_structures/floor/plaque"]
 	},
 	"wall": {
-		components: [],
+		components: ["BlocksAir"],
 		vars: {
 			icon: 'icons/turf/walls/wall.png',
 			icon_state: "wall",
@@ -102,7 +102,7 @@ module.exports.templates = {
 		}
 	},
 	"r-wall": {
-		components: [],
+		components: ["BlocksAir"],
 		vars: {
 			icon: 'icons/turf/walls/reinforced_wall.png',
 			icon_state: "r_wall",

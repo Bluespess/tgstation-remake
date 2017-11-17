@@ -30,15 +30,12 @@ class GasMixture {
 
 		//Hold on to structures for ALL gases. For explanation why, read about
 		//hidden classes
-		for(var metakey in gas_metas) {
-			if(!gas_metas.hasOwnProperty(metakey))
-				continue;
-			var meta = gas_metas[metakey];
+		for(let meta of gas_metas) {
 			var gas = new Gas(meta);
-			this.gases[metakey] = gas;
+			this.gases[meta.id] = gas;
 			this.gases_list.push(gas);
 		}
-		// this guarantees that there will only ever be one virtual class
+		// this guarantees that every gas mixture object has an identical structure
 		Object.freeze(this.gases);
 		Object.freeze(this.gases_list);
 		Object.seal(this);
@@ -247,7 +244,7 @@ class GasMixture {
 		}
 	}
 
-	after_share(sharer, atmos_adjacent_turfs = 4) {
+	after_share(/*sharer, atmos_adjacent_turfs = 4*/) {
 		return;
 	}
 

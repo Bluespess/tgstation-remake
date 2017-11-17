@@ -11,6 +11,7 @@ class Door extends Component {
 		this.operating = false;
 		this.a.layer = this.a.density > 0 ? this.closed_layer : this.open_layer;
 		this.a.opacity = this.a.density > 0;
+		this.a.c.BlocksAir.is_blocking = this.a.density > 0;
 		this.a.on("bumped_by", this.bumped_by.bind(this));
 		this.a.c.RequiresAccess.can_access = chain_func(this.a.c.RequiresAccess.can_access, this.can_access);
 		this.a.attack_hand = chain_func(this.a.attack_hand, this.try_to_activate_door.bind(this));
@@ -63,6 +64,7 @@ class Door extends Component {
 		this.a.opacity = false;
 		await this.a.server.sleep(500);
 		this.a.density = 0;
+		this.a.c.BlocksAir.is_blocking = false;
 		await this.a.server.sleep(500);
 		this.a.layer = this.open_layer;
 		this.a.icon_state = this.open_state;
@@ -96,6 +98,7 @@ class Door extends Component {
 		this.a.layer = this.closed_layer;
 		await this.a.server.sleep(500);
 		this.a.density = 1;
+		this.a.c.BlocksAir.is_blocking = true;
 		await this.a.server.sleep(500);
 		this.a.icon_state = this.closed_state;
 		if(!this.glass)
@@ -160,7 +163,7 @@ Door.template = {
 	}
 };
 
-Door.depends = ["RequiresAccess"];
-Door.loadBefore = ["RequiresAccess"];
+Door.depends = ["RequiresAccess", "BlocksAir"];
+Door.loadBefore = ["RequiresAccess", "BlocksAir"];
 
 module.exports.components = {Door};
