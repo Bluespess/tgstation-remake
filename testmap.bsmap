@@ -120,12 +120,12 @@
 		],
 		"0,-7,0": [
 			{
-				"template_name": "plating",
+				"template_name": "light",
 				"x": 0,
 				"y": -7
 			},
 			{
-				"template_name": "light",
+				"template_name": "plating",
 				"x": 0,
 				"y": -7
 			}
@@ -478,6 +478,13 @@
 				"y": -3
 			}
 		],
+		"-7,-3,0": [
+			{
+				"template_name": "airlock",
+				"x": -7,
+				"y": -3
+			}
+		],
 		"-6,-3,0": [
 			{
 				"template_name": "wall",
@@ -578,6 +585,13 @@
 				"y": -3
 			}
 		],
+		"7,-3,0": [
+			{
+				"template_name": "airlock",
+				"x": 7,
+				"y": -3
+			}
+		],
 		"8,-3,0": [
 			{
 				"template_name": "r-wall",
@@ -608,7 +622,17 @@
 		],
 		"-11,-2,0": [
 			{
+				"template_name": "grille",
+				"x": -11,
+				"y": -2
+			},
+			{
 				"template_name": "plating",
+				"x": -11,
+				"y": -2
+			},
+			{
+				"template_name": "window",
 				"x": -11,
 				"y": -2
 			}
@@ -803,22 +827,32 @@
 		],
 		"11,-2,0": [
 			{
+				"template_name": "grille",
+				"x": 11,
+				"y": -2
+			},
+			{
 				"template_name": "plating",
+				"x": 11,
+				"y": -2
+			},
+			{
+				"template_name": "window",
 				"x": 11,
 				"y": -2
 			}
 		],
 		"-11,-1,0": [
 			{
-				"template_name": "floor",
-				"variant_leaf_path": [
-					"floor"
-				],
+				"template_name": "airlock",
 				"x": -11,
 				"y": -1
 			},
 			{
-				"template_name": "airlock",
+				"template_name": "floor",
+				"variant_leaf_path": [
+					"floor"
+				],
 				"x": -11,
 				"y": -1
 			}
@@ -835,15 +869,15 @@
 		],
 		"-9,-1,0": [
 			{
-				"template_name": "floor",
-				"variant_leaf_path": [
-					"floor"
-				],
+				"template_name": "airlock",
 				"x": -9,
 				"y": -1
 			},
 			{
-				"template_name": "airlock",
+				"template_name": "floor",
+				"variant_leaf_path": [
+					"floor"
+				],
 				"x": -9,
 				"y": -1
 			}
@@ -1031,15 +1065,15 @@
 		],
 		"9,-1,0": [
 			{
-				"template_name": "floor",
-				"variant_leaf_path": [
-					"floor"
-				],
+				"template_name": "airlock",
 				"x": 9,
 				"y": -1
 			},
 			{
-				"template_name": "airlock",
+				"template_name": "floor",
+				"variant_leaf_path": [
+					"floor"
+				],
 				"x": 9,
 				"y": -1
 			}
@@ -1056,22 +1090,32 @@
 		],
 		"11,-1,0": [
 			{
+				"template_name": "airlock",
+				"x": 11,
+				"y": -1
+			},
+			{
 				"template_name": "floor",
 				"variant_leaf_path": [
 					"floor"
 				],
 				"x": 11,
 				"y": -1
-			},
-			{
-				"template_name": "airlock",
-				"x": 11,
-				"y": -1
 			}
 		],
 		"-11,0,0": [
 			{
+				"template_name": "grille",
+				"x": -11,
+				"y": 0
+			},
+			{
 				"template_name": "plating",
+				"x": -11,
+				"y": 0
+			},
+			{
+				"template_name": "window",
 				"x": -11,
 				"y": 0
 			}
@@ -1137,15 +1181,15 @@
 		],
 		"-4,0,0": [
 			{
-				"template_name": "floor",
-				"variant_leaf_path": [
-					"floor"
-				],
+				"template_name": "crate",
 				"x": -4,
 				"y": 0
 			},
 			{
-				"template_name": "crate",
+				"template_name": "floor",
+				"variant_leaf_path": [
+					"floor"
+				],
 				"x": -4,
 				"y": 0
 			}
@@ -1162,15 +1206,15 @@
 		],
 		"-2,0,0": [
 			{
-				"template_name": "floor",
-				"variant_leaf_path": [
-					"floor"
-				],
+				"template_name": "crate",
 				"x": -2,
 				"y": 0
 			},
 			{
-				"template_name": "crate",
+				"template_name": "floor",
+				"variant_leaf_path": [
+					"floor"
+				],
 				"x": -2,
 				"y": 0
 			}
@@ -1187,15 +1231,15 @@
 		],
 		"0,0,0": [
 			{
-				"template_name": "floor",
-				"variant_leaf_path": [
-					"floor"
-				],
+				"template_name": "light",
 				"x": 0,
 				"y": 0
 			},
 			{
-				"template_name": "light",
+				"template_name": "floor",
+				"variant_leaf_path": [
+					"floor"
+				],
 				"x": 0,
 				"y": 0
 			}
@@ -1212,15 +1256,15 @@
 		],
 		"2,0,0": [
 			{
-				"template_name": "floor",
-				"variant_leaf_path": [
-					"floor"
-				],
+				"template_name": "crate",
 				"x": 2,
 				"y": 0
 			},
 			{
-				"template_name": "crate",
+				"template_name": "floor",
+				"variant_leaf_path": [
+					"floor"
+				],
 				"x": 2,
 				"y": 0
 			}
@@ -1237,15 +1281,15 @@
 		],
 		"4,0,0": [
 			{
-				"template_name": "floor",
-				"variant_leaf_path": [
-					"floor"
-				],
+				"template_name": "crate",
 				"x": 4,
 				"y": 0
 			},
 			{
-				"template_name": "crate",
+				"template_name": "floor",
+				"variant_leaf_path": [
+					"floor"
+				],
 				"x": 4,
 				"y": 0
 			}
@@ -1311,7 +1355,17 @@
 		],
 		"11,0,0": [
 			{
+				"template_name": "grille",
+				"x": 11,
+				"y": 0
+			},
+			{
 				"template_name": "plating",
+				"x": 11,
+				"y": 0
+			},
+			{
+				"template_name": "window",
 				"x": 11,
 				"y": 0
 			}
@@ -1339,16 +1393,16 @@
 		],
 		"-8,1,0": [
 			{
+				"template_name": "light",
+				"x": -8,
+				"y": 1
+			},
+			{
 				"template_name": "floor_edge",
 				"variant_leaf_path": [
 					"red",
 					10
 				],
-				"x": -8,
-				"y": 1
-			},
-			{
-				"template_name": "light",
 				"x": -8,
 				"y": 1
 			}
@@ -1428,15 +1482,15 @@
 		],
 		"0,1,0": [
 			{
-				"template_name": "floor",
-				"variant_leaf_path": [
-					"floor"
-				],
+				"template_name": "backpack",
 				"x": 0,
 				"y": 1
 			},
 			{
-				"template_name": "backpack",
+				"template_name": "floor",
+				"variant_leaf_path": [
+					"floor"
+				],
 				"x": 0,
 				"y": 1
 			}
@@ -1516,16 +1570,16 @@
 		],
 		"8,1,0": [
 			{
+				"template_name": "light",
+				"x": 8,
+				"y": 1
+			},
+			{
 				"template_name": "floor_edge",
 				"variant_leaf_path": [
 					"brown",
 					6
 				],
-				"x": 8,
-				"y": 1
-			},
-			{
-				"template_name": "light",
 				"x": 8,
 				"y": 1
 			}
@@ -1581,17 +1635,17 @@
 		],
 		"-5,2,0": [
 			{
-				"template_name": "floor",
+				"template_name": "stack_rods",
 				"variant_leaf_path": [
-					"floor"
+					1
 				],
 				"x": -5,
 				"y": 2
 			},
 			{
-				"template_name": "stack_rods",
+				"template_name": "floor",
 				"variant_leaf_path": [
-					1
+					"floor"
 				],
 				"x": -5,
 				"y": 2
@@ -1599,16 +1653,16 @@
 		],
 		"-4,2,0": [
 			{
+				"template_name": "cablecuffs",
+				"x": -4,
+				"y": 2
+			},
+			{
 				"template_name": "floor_corner",
 				"variant_leaf_path": [
 					"yellowcorner",
 					1
 				],
-				"x": -4,
-				"y": 2
-			},
-			{
-				"template_name": "cablecuffs",
 				"x": -4,
 				"y": 2
 			}
@@ -1625,16 +1679,16 @@
 		],
 		"-2,2,0": [
 			{
+				"template_name": "cablecuffs",
+				"x": -2,
+				"y": 2
+			},
+			{
 				"template_name": "floor_corner",
 				"variant_leaf_path": [
 					"yellowcorner",
 					4
 				],
-				"x": -2,
-				"y": 2
-			},
-			{
-				"template_name": "cablecuffs",
 				"x": -2,
 				"y": 2
 			}
@@ -1652,6 +1706,11 @@
 		],
 		"0,2,0": [
 			{
+				"template_name": "cablecuffs",
+				"x": 0,
+				"y": 2
+			},
+			{
 				"template_name": "toolbox_mechanical",
 				"x": 0,
 				"y": 2
@@ -1661,11 +1720,6 @@
 				"variant_leaf_path": [
 					"floor"
 				],
-				"x": 0,
-				"y": 2
-			},
-			{
-				"template_name": "cablecuffs",
 				"x": 0,
 				"y": 2
 			}
@@ -1683,16 +1737,16 @@
 		],
 		"2,2,0": [
 			{
+				"template_name": "cablecuffs",
+				"x": 2,
+				"y": 2
+			},
+			{
 				"template_name": "floor_corner",
 				"variant_leaf_path": [
 					"greencorner",
 					1
 				],
-				"x": 2,
-				"y": 2
-			},
-			{
-				"template_name": "cablecuffs",
 				"x": 2,
 				"y": 2
 			}
@@ -1709,6 +1763,11 @@
 		],
 		"4,2,0": [
 			{
+				"template_name": "cablecuffs",
+				"x": 4,
+				"y": 2
+			},
+			{
 				"template_name": "floor_corner",
 				"variant_leaf_path": [
 					"greencorner",
@@ -1716,26 +1775,21 @@
 				],
 				"x": 4,
 				"y": 2
-			},
-			{
-				"template_name": "cablecuffs",
-				"x": 4,
-				"y": 2
 			}
 		],
 		"5,2,0": [
 			{
-				"template_name": "floor",
+				"template_name": "stack_rods",
 				"variant_leaf_path": [
-					"floor"
+					50
 				],
 				"x": 5,
 				"y": 2
 			},
 			{
-				"template_name": "stack_rods",
+				"template_name": "floor",
 				"variant_leaf_path": [
-					50
+					"floor"
 				],
 				"x": 5,
 				"y": 2
@@ -1778,17 +1832,17 @@
 		],
 		"-5,3,0": [
 			{
-				"template_name": "floor",
+				"template_name": "stack_rods",
 				"variant_leaf_path": [
-					"floor"
+					5
 				],
 				"x": -5,
 				"y": 3
 			},
 			{
-				"template_name": "stack_rods",
+				"template_name": "floor",
 				"variant_leaf_path": [
-					5
+					"floor"
 				],
 				"x": -5,
 				"y": 3
@@ -1840,18 +1894,18 @@
 		],
 		"0,3,0": [
 			{
-				"template_name": "floor_edge",
+				"template_name": "stack_rods",
 				"variant_leaf_path": [
-					"blue",
-					2
+					1
 				],
 				"x": 0,
 				"y": 3
 			},
 			{
-				"template_name": "stack_rods",
+				"template_name": "floor_edge",
 				"variant_leaf_path": [
-					1
+					"blue",
+					2
 				],
 				"x": 0,
 				"y": 3
@@ -1903,17 +1957,17 @@
 		],
 		"5,3,0": [
 			{
-				"template_name": "floor",
+				"template_name": "stack_rods",
 				"variant_leaf_path": [
-					"floor"
+					40
 				],
 				"x": 5,
 				"y": 3
 			},
 			{
-				"template_name": "stack_rods",
+				"template_name": "floor",
 				"variant_leaf_path": [
-					40
+					"floor"
 				],
 				"x": 5,
 				"y": 3
@@ -1935,77 +1989,187 @@
 		],
 		"-5,4,0": [
 			{
+				"template_name": "grille",
+				"x": -5,
+				"y": 4
+			},
+			{
 				"template_name": "plating",
+				"x": -5,
+				"y": 4
+			},
+			{
+				"template_name": "window",
 				"x": -5,
 				"y": 4
 			}
 		],
 		"-4,4,0": [
 			{
+				"template_name": "grille",
+				"x": -4,
+				"y": 4
+			},
+			{
 				"template_name": "plating",
+				"x": -4,
+				"y": 4
+			},
+			{
+				"template_name": "window",
 				"x": -4,
 				"y": 4
 			}
 		],
 		"-3,4,0": [
 			{
+				"template_name": "grille",
+				"x": -3,
+				"y": 4
+			},
+			{
 				"template_name": "plating",
+				"x": -3,
+				"y": 4
+			},
+			{
+				"template_name": "window",
 				"x": -3,
 				"y": 4
 			}
 		],
 		"-2,4,0": [
 			{
+				"template_name": "grille",
+				"x": -2,
+				"y": 4
+			},
+			{
 				"template_name": "plating",
+				"x": -2,
+				"y": 4
+			},
+			{
+				"template_name": "window",
 				"x": -2,
 				"y": 4
 			}
 		],
 		"-1,4,0": [
 			{
+				"template_name": "grille",
+				"x": -1,
+				"y": 4
+			},
+			{
 				"template_name": "plating",
+				"x": -1,
+				"y": 4
+			},
+			{
+				"template_name": "window",
 				"x": -1,
 				"y": 4
 			}
 		],
 		"0,4,0": [
 			{
+				"template_name": "grille",
+				"x": 0,
+				"y": 4
+			},
+			{
 				"template_name": "plating",
+				"x": 0,
+				"y": 4
+			},
+			{
+				"template_name": "window",
 				"x": 0,
 				"y": 4
 			}
 		],
 		"1,4,0": [
 			{
+				"template_name": "grille",
+				"x": 1,
+				"y": 4
+			},
+			{
 				"template_name": "plating",
+				"x": 1,
+				"y": 4
+			},
+			{
+				"template_name": "window",
 				"x": 1,
 				"y": 4
 			}
 		],
 		"2,4,0": [
 			{
+				"template_name": "grille",
+				"x": 2,
+				"y": 4
+			},
+			{
 				"template_name": "plating",
+				"x": 2,
+				"y": 4
+			},
+			{
+				"template_name": "window",
 				"x": 2,
 				"y": 4
 			}
 		],
 		"3,4,0": [
 			{
+				"template_name": "grille",
+				"x": 3,
+				"y": 4
+			},
+			{
 				"template_name": "plating",
+				"x": 3,
+				"y": 4
+			},
+			{
+				"template_name": "window",
 				"x": 3,
 				"y": 4
 			}
 		],
 		"4,4,0": [
 			{
+				"template_name": "grille",
+				"x": 4,
+				"y": 4
+			},
+			{
 				"template_name": "plating",
+				"x": 4,
+				"y": 4
+			},
+			{
+				"template_name": "window",
 				"x": 4,
 				"y": 4
 			}
 		],
 		"5,4,0": [
 			{
+				"template_name": "grille",
+				"x": 5,
+				"y": 4
+			},
+			{
 				"template_name": "plating",
+				"x": 5,
+				"y": 4
+			},
+			{
+				"template_name": "window",
 				"x": 5,
 				"y": 4
 			}

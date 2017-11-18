@@ -29,7 +29,8 @@ class Tangible extends Component {
 			}
 			move_prob += pressure_resistance_prob_delta;
 			if(move_prob > PROBABILITY_OFFSET && (Math.random() * 100 < move_prob)) {
-				this.a.move(dx, dy);
+				this.a.glide_size = 2;
+				this.a.move(dx, dy, "pressure_difference");
 				this.last_high_pressure_movement_air_cycle = this.a.server.air_controller.ticknum;
 			}
 		}

@@ -24,6 +24,8 @@ server.importModule(require('./code/game/objects/items/storage/toolbox.js'));
 server.importModule(require('./code/game/objects/items/clothing.js'));
 server.importModule(require('./code/game/objects/items/storage.js'));
 server.importModule(require('./code/game/objects/items/tools.js'));
+server.importModule(require('./code/game/objects/structures/grille.js'));
+server.importModule(require('./code/game/objects/structures/window.js'));
 server.importModule(require('./code/game/objects/items.js'));
 server.importModule(require('./code/game/objects/objs.js'));
 server.importModule(require('./code/game/objects/puller.js'));

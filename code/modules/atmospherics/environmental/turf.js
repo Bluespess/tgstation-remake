@@ -116,7 +116,7 @@ class SimulatedTurf extends Component {
 				}
 			}
 		}
-		if(this.adjacent_dirs & newdirs)
+		if((15-this.adjacent_dirs) & (15-newdirs))
 			this.a.server.air_controller.add_to_active(this.a, true);
 		this.adjacent_dirs = 15-newdirs;
 	}
@@ -159,7 +159,7 @@ class SimulatedTurf extends Component {
 			if(issim && !(cycle_num > enemy_tile.c.SimulatedTurf.current_cycle))
 				continue;
 			if(issim)
-				enemy_tile.c.SimulatedTurf.archive();
+				enemy_tile.c.SimulatedTurf.archive(cycle_num);
 			// GROUP HANDLING START
 			var should_share_air = false;
 			var enemy_air = enemy_tile ? enemy_tile.c.Turf.air : new GasMixture();

@@ -55,6 +55,8 @@ class Player extends Component {
 		if(walk_dir & 12 && walk_dir & 3) walk_dir &= this.last_axis;
 		this.atom.walk_dir = walk_dir;
 		this.atom.walking = !!walk_dir;
+		this.atom.walk_size = .25;
+		this.atom.walk_delay = .15 / 4;
 	}
 }
 
