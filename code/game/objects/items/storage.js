@@ -253,7 +253,8 @@ module.exports.templates = {
 				}
 			},
 			icon_state: "backpack"
-		}
+		},
+		tree_paths: ["items/storage/backpack"]
 	}
 };
 

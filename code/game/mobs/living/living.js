@@ -1,5 +1,5 @@
 'use strict';
-const {Component} = require('bluespess');
+const {Component, Sound, chain_func} = require('bluespess');
 
 const _bruteloss = Symbol('_bruteloss');
 const _oxyloss = Symbol('_oxyloss');
@@ -23,6 +23,8 @@ class LivingMob extends Component {
 		this[_health] = 100;
 
 		this.a.c.Mob.can_interact_with_panel = this.can_interact_with_panel.bind(this);
+
+		this.a.c.Tangible.experience_pressure_difference = chain_func(this.a.c.Tangible.experience_pressure_difference, this.experience_pressure_difference.bind(this));
 	}
 
 	// Getters and setters for every type of loss.
@@ -96,10 +98,15 @@ class LivingMob extends Component {
 	can_interact_with_panel(target) {
 		return target.z == this.a.z && Math.max(Math.abs(target.x - this.a.x), Math.abs(target.y - this.a.y)) < 1;
 	}
+
+	experience_pressure_difference(prev, difference) {
+		new Sound(this.a.server, {path: 'sound/effects/space_wind.ogg', vary: true, volume: Math.min(difference / 100, 1)}).play_to(this.a);
+		prev();
+	}
 }
 
 LivingMob.depends = ["Mob", "Tangible"];
-LivingMob.loadBefore = ["Mob"];
+LivingMob.loadBefore = ["Mob", "Tangible"];
 
 LivingMob.template = {
 	vars: {

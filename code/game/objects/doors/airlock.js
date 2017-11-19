@@ -1,5 +1,5 @@
 'use strict';
-const {Component} = require('bluespess');
+const {Component, Sound} = require('bluespess');
 const combat_defines = require('../../../defines/combat_defines.js');
 
 class Airlock extends Component {
@@ -39,25 +39,25 @@ class Airlock extends Component {
 
 	deny() {
 		this.a.flick = {overlays: {airlock_lights: {icon_state: "lights_denied"}}};
+		new Sound(this.a.server, {path: this.deny_sound, volume: 0.5}).emit_from(this.a);
 	}
 
 	async open(forced = 0) {
 		if(this.a.c.Door.operating || this.a.c.Door.welded || this.a.c.Door.locked)
 			return false;
+		if(this.a.density < 1)
+			return true;
 		if(forced < 2) {
 			//use_power(50)
-			//play sound
-
+			new Sound(this.a.server, {path: this.open_sound, vary: true, volume: 0.3}).emit_from(this.a);
 		} else {
-			//play sound
+			new Sound(this.a.server, {path: 'sound/machines/airlockforced.ogg', vary: true, volume: 0.3}).emit_from(this.a);
 		}
 
 		if(this.a.c.Door.autoclose)
 			setTimeout(() => {
 				this.a.c.Door.close();
 			}, this.a.c.Door.autoclose_delay);
-		if(this.a.density < 1)
-			return true;
 		this.a.c.Door.operating = true;
 		this.a.flick = {icon_state: this.a.c.Door.opening_state};
 		this.a.icon_state = this.a.c.Door.open_state;
@@ -84,6 +84,8 @@ class Airlock extends Component {
 	async close(forced = 0) {
 		if(this.a.c.Door.operating || this.a.c.Door.welded || this.a.c.Door.locked)
 			return false;
+		if(this.a.density > 0)
+			return true;
 		if(!forced)
 			if(!this.has_power())
 				return;
@@ -99,9 +101,9 @@ class Airlock extends Component {
 		if(forced < 2) {
 			// emag check
 			//use_power(50)
-			//play sound
+			new Sound(this.a.server, {path: this.close_sound, vary: true, volume: 0.3}).emit_from(this.a);
 		} else {
-			//play sound
+			new Sound(this.a.server, {path: 'sound/machines/airlockforced.ogg', vary: true, volume: 0.3}).emit_from(this.a);
 		}
 
 		for(var obj of this.a.crosses()) {
@@ -110,8 +112,6 @@ class Airlock extends Component {
 			}
 		}
 
-		if(this.a.density > 0)
-			return true;
 		this.a.c.Door.operating = true;
 		this.a.flick = {icon_state: this.a.c.Door.closing_state};
 		this.a.icon_state = this.a.c.Door.closed_state;

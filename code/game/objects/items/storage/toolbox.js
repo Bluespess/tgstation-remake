@@ -65,7 +65,8 @@ module.exports.templates = {
 			},
 			icon_state: "blue",
 			name: "mechanical toolbox"
-		}
+		},
+		tree_paths: ["items/storage/toolbox/mechanical"]
 	}
 };
 
