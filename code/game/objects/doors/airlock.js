@@ -1,5 +1,5 @@
 'use strict';
-const {Component, Sound} = require('bluespess');
+const {Component, Sound, chain_func} = require('bluespess');
 const combat_defines = require('../../../defines/combat_defines.js');
 
 class Airlock extends Component {
@@ -18,6 +18,11 @@ class Airlock extends Component {
 		this.a.c.Door.deny = this.deny.bind(this);
 		this.a.c.Door.open = this.open.bind(this);
 		this.a.c.Door.close = this.close.bind(this);
+
+		this.a.c.Door.on("locked", this.locked.bind(this));
+		this.a.c.Door.on("unlocked", this.unlocked.bind(this));
+
+		this.a.c.Emaggable.emag_act = chain_func(this.a.c.Emaggable.emag_act, this.emag_act.bind(this));
 	}
 
 	update_panel_overlay() {
@@ -143,8 +148,41 @@ class Airlock extends Component {
 		return true;
 	}
 
+	emag_act(prev) {
+		if(!this.a.c.Door.operating && this.a.density && this.has_power() && !this.a.c.Emaggable.emagged) {
+			this.a.c.Door.operating = true;
+			this.a.flick = {overlays: {airlock_lights: {icon_state: "sparks"}}};
+			(async () => {
+				await this.a.server.sleep(600);
+				if(this.a.destroyed)
+					return;
+				this.a.c.Door.operating = false;
+				await this.open();
+				prev();
+				this.lights = false;
+				this.a.c.Door.locked = true;
+			})().catch(err => {
+				console.error(err);
+			});
+		}
+	}
+
 	has_power() {
 		return !this.seconds_main_power_lost || !this.seconds_backup_power_lost;
+	}
+
+	locked() {
+		if(this.a.c.Emaggable.emagged)
+			return;
+		new Sound(this.a.server, {path: this.bolt_sound, volume: 0.3}).emit_from(this.a);
+		this.update_lights_overlay();
+	}
+
+	unlocked() {
+		if(this.a.c.Emaggable.emagged)
+			return;
+		new Sound(this.a.server, {path: this.unbolt_sound, volume: 0.3}).emit_from(this.a);
+		this.update_lights_overlay();
 	}
 }
 
@@ -168,8 +206,8 @@ Airlock.template = {
 				open_sound: 'sound/machines/airlock.ogg',
 				close_sound: 'sound/machines/airlockclose.ogg',
 				deny_sound: 'sound/machines/deniedbeep.ogg',
-				bolt_sound: 'sound/machines/boltsup.ogg',
-				unbolt_sound: 'sound/machines/boltsdown.ogg',
+				bolt_sound: 'sound/machines/boltsdown.ogg',
+				unbolt_sound: 'sound/machines/boltsup.ogg',
 				nopower_sound: 'sound/machines/doorclick.ogg',
 
 				airlock_material: null,
@@ -184,8 +222,8 @@ Airlock.template = {
 	}
 };
 
-Airlock.depends = ["Door"];
-Airlock.loadBefore = ["Door"];
+Airlock.depends = ["Door", "Emaggable"];
+Airlock.loadBefore = ["Door", "Emaggable"];
 
 module.exports.templates = {
 	"airlock": {

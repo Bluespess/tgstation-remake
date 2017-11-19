@@ -2,6 +2,8 @@
 const {Component, chain_func} = require('bluespess');
 const layers = require('../../../defines/layers.js');
 
+const _locked = Symbol('_locked')
+
 class Door extends Component {
 	constructor(atom, template) {
 		super(atom, template);
@@ -122,16 +124,23 @@ class Door extends Component {
 
 	}
 
-	lock() {
-
-	}
-
-	unlock() {
-
-	}
-
 	deny() {
 
+	}
+
+	get locked() {
+		return !!this[_locked];
+	}
+
+	set locked(val) {
+		val = !!val;
+		if(val == this[_locked])
+			return;
+		this[_locked] = val;
+		if(val)
+			this.emit("locked");
+		else
+			this.emit("unlocked");
 	}
 }
 
