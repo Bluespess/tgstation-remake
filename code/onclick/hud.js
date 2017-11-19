@@ -1,5 +1,5 @@
 'use strict';
-const {Component, Atom. is_atom} = require('bluespess');
+const {Component, Atom, is_atom} = require('bluespess');
 
 class MobHud extends Component {
 	constructor(atom, template) {

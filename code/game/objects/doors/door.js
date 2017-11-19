@@ -26,7 +26,7 @@ class Door extends Component {
 	}
 
 	bump_open(atom) {
-		if(this.a.density > 0 && has_component(atom, "HasAccess")) {
+		if(this.a.density > 0 && has_component(atom, "LivingMob")) {
 			if(this.a.c.RequiresAccess.can_access(atom)) {
 				this.open();
 			} else {

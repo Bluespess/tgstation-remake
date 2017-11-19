@@ -73,7 +73,7 @@ class ExcitedGroup {
 			turf.c.SimulatedTurf.excited = false;
 			turf.c.SimulatedTurf.recently_active = false;
 			turf.c.SimulatedTurf.excited_group = undefined;
-			var idx = this.controller.active_turfs.delete(turf);
+			this.controller.active_turfs.delete(turf);
 		}
 		this.garbage_collect();
 	}
