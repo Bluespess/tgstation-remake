@@ -1,8 +1,8 @@
 'use strict';
-const {Component, chain_func} = require('bluespess');
+const {Component, chain_func, has_component, sleep} = require('bluespess');
 const layers = require('../../../defines/layers.js');
 
-const _locked = Symbol('_locked')
+const _locked = Symbol('_locked');
 
 class Door extends Component {
 	constructor(atom, template) {
@@ -26,7 +26,7 @@ class Door extends Component {
 	}
 
 	bump_open(atom) {
-		if(this.a.density > 0) {
+		if(this.a.density > 0 && has_component(atom, "HasAccess")) {
 			if(this.a.c.RequiresAccess.can_access(atom)) {
 				this.open();
 			} else {
@@ -64,10 +64,10 @@ class Door extends Component {
 		this.operating = true;
 		this.a.flick = {icon_state: this.opening_state};
 		this.a.opacity = false;
-		await this.a.server.sleep(500);
+		await sleep(500);
 		this.a.density = 0;
 		this.a.c.BlocksAir.is_blocking = false;
-		await this.a.server.sleep(500);
+		await sleep(500);
 		this.a.layer = this.open_layer;
 		this.a.icon_state = this.open_state;
 		this.a.opacity = false;
@@ -98,16 +98,16 @@ class Door extends Component {
 
 		this.a.flick = {icon_state: this.closing_state};
 		this.a.layer = this.closed_layer;
-		await this.a.server.sleep(500);
+		await sleep(500);
 		this.a.density = 1;
 		this.a.c.BlocksAir.is_blocking = true;
-		await this.a.server.sleep(500);
+		await sleep(500);
 		this.a.icon_state = this.closed_state;
 		if(!this.glass)
 			this.a.opacity = true;
 		if(this.safe) {
 			for(var atom of this.a.crosses()) {
-				if(this.a.server.has_component(atom, "LivingMob")) {
+				if(has_component(atom, "LivingMob")) {
 					setTimeout(() => {this.open();}, 100);
 					break;
 				}

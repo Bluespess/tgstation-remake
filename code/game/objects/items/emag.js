@@ -1,5 +1,5 @@
 'use strict';
-const {Component, chain_func} = require('bluespess');
+const {Component, chain_func, has_component} = require('bluespess');
 
 class Emag extends Component {
 	constructor(atom, template) {
@@ -35,7 +35,7 @@ class Emaggable extends Component {
 	}
 
 	attack_by(prev, item, user) {
-		if(this.a.server.has_component(item, "Emag")) {
+		if(has_component(item, "Emag")) {
 			this.emag_act(user);
 			return true;
 		}

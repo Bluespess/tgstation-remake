@@ -1,5 +1,5 @@
 'use strict';
-const {Component, Atom} = require('bluespess');
+const {Component, Atom. is_atom} = require('bluespess');
 
 class MobHud extends Component {
 	constructor(atom, template) {
@@ -56,7 +56,7 @@ class MobHud extends Component {
 		}
 		thealert.c.Alert.mob_viewer = this.atom;
 
-		if(this.a.server.is_atom(new_master)) {
+		if(is_atom(new_master)) {
 			var overlay = Object.assign({}, new_master.appearance);
 			delete overlay.layer;
 			delete overlay.plane;

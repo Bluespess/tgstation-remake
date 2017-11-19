@@ -1,5 +1,5 @@
 'use strict';
-const {Component} = require('bluespess');
+const {Component, has_component} = require('bluespess');
 const GasMixture = require('../gasmixtures/gas_mixture.js');
 const ExcitedGroup = require('./excited_group.js');
 const atmos_defines = require('../../../defines/atmos_defines.js');
@@ -79,7 +79,7 @@ class SimulatedTurf extends Component {
 	}
 
 	copy_air_with_tile(turf) {
-		if(this.a.server.has_component(turf, "Turf"))
+		if(has_component(turf, "Turf"))
 			this.a.c.Turf.air.copy_from(turf.c.Turf.air);
 	}
 
@@ -155,7 +155,7 @@ class SimulatedTurf extends Component {
 				continue;
 			let enemy_loc = this.a.loc.get_step(i);
 			let enemy_tile = enemy_loc.turf;
-			let issim = this.a.server.has_component(enemy_tile, "SimulatedTurf");
+			let issim = has_component(enemy_tile, "SimulatedTurf");
 			if(issim && !(cycle_num > enemy_tile.c.SimulatedTurf.current_cycle))
 				continue;
 			if(issim)
@@ -266,6 +266,10 @@ class SimulatedTurf extends Component {
 			if(atom.c.Tangible)
 				atom.c.Tangible.experience_pressure_difference(this.pressure_difference, this.pressure_dx, this.pressure_dy);
 		}
+	}
+
+	hotspot_expose() {
+
 	}
 }
 SimulatedTurf.depends = ["Turf"];

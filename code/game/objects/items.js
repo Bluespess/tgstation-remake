@@ -1,6 +1,6 @@
 'use strict';
 const _slot = Symbol('_slot');
-const {Component, chain_func} = require('bluespess');
+const {Component, chain_func, has_component, to_chat} = require('bluespess');
 
 class Item extends Component {
 	constructor(atom, template) {
@@ -13,7 +13,7 @@ class Item extends Component {
 	attack_self() {}
 
 	_attack_hand(prev, user) {
-		if(this.a.server.has_component(user, "MobInventory")) {
+		if(has_component(user, "MobInventory")) {
 			var slot = user.c.MobInventory.slots[user.c.MobInventory.active_hand];
 			if(slot.item != null || !slot.can_accept_item(this.a))
 				return prev();
@@ -35,7 +35,7 @@ class Item extends Component {
 
 	examine(prev, user) {
 		prev();
-		this.a.server.to_chat`${this.a.gender == "plural" ? "They are" : "It is"} a ${this.get_size_text()} item.`(user);
+		to_chat`${this.a.gender == "plural" ? "They are" : "It is"} a ${this.get_size_text()} item.`(user);
 	}
 
 	get_size_text() {

@@ -1,5 +1,5 @@
 'use strict';
-const {Component, Atom, chain_func} = require('bluespess');
+const {Component, Atom, chain_func, has_component, to_chat} = require('bluespess');
 const StackCraftPanel = require('./stack_craft_panel.js');
 
 const _amount = Symbol('_amount');
@@ -63,7 +63,7 @@ class Stack extends Component {
 	}
 
 	merge(S) { // merge into S, as much as possible
-		if(!this.a.server.has_component(S, "Stack") || S.destroyed || this.a.destroyed || S == this.a)
+		if(!has_component(S, "Stack") || S.destroyed || this.a.destroyed || S == this.a)
 			return;
 		var transfer = Math.min(this.amount, S.c.Stack.max_amount - S.c.Stack.amount);
 		this.use(transfer);
@@ -73,13 +73,13 @@ class Stack extends Component {
 
 	examine(prev, user) {
 		prev();
-		this.a.server.to_chat`There ${this.amount == 1 ? "is" : "are"} ${this.amount} ${this.singular_name || ""}s in the stack.`(user);
+		to_chat`There ${this.amount == 1 ? "is" : "are"} ${this.amount} ${this.singular_name || ""}s in the stack.`(user);
 	}
 
 	attack_by(prev, item, user) {
-		if(this.merge_type && this.a.server.has_component(item, this.merge_type)) {
+		if(this.merge_type && has_component(item, this.merge_type)) {
 			if(this.merge(item))
-				this.a.server.to_chat`<span class='notice'>Your ${item.name} stack now contains ${item.c.Stack.amount} ${item.c.Stack.singular_name}s.</span>`(user);
+				has_component`<span class='notice'>Your ${item.name} stack now contains ${item.c.Stack.amount} ${item.c.Stack.singular_name}s.</span>`(user);
 		} else {
 			return prev();
 		}
@@ -107,21 +107,21 @@ class Stack extends Component {
 		if(amount <= 0)
 			return;
 		if(amount >= this.amount) {
-			if(this.a.server.has_component(user, "MobInventory"))
+			if(has_component(user, "MobInventory"))
 				user.c.MobInventory.put_in_hands(this.a);
 			return this.a;
 		}
 		var new_stack = new Atom(this.a.server, this.a.template);
 		new_stack.c.Stack.amount = amount;
 		this.use(amount, true);
-		if(this.a.server.has_component(user, "MobInventory")) {
+		if(has_component(user, "MobInventory")) {
 			user.c.MobInventory.put_in_hands(new_stack);
 		}
 		// TODO evidence
 	}
 
 	crossed_by(target) {
-		if(this.merge_type && this.a.server.has_component(target, this.merge_type) && !target.c.Tangible.throwing) {
+		if(this.merge_type && has_component(target, this.merge_type) && !target.c.Tangible.throwing) {
 			process.nextTick(() => this.merge(target));
 		}
 	}

@@ -1,4 +1,5 @@
 'use strict';
+const {has_component} = require('bluespess');
 const atmos_defines = require('../../../defines/atmos_defines.js');
 
 class AirController {
@@ -56,7 +57,7 @@ class AirController {
 
 	remove_from_active(turf) {
 		this.active_turfs.delete(turf);
-		if(this.server.has_component(turf, "SimulatedTurf")) {
+		if(has_component(turf, "SimulatedTurf")) {
 			turf.c.SimulatedTurf.excited = false;
 			if(turf.c.SimulatedTurf.excited_group)
 				turf.c.SimulatedTurf.excited_group.garbage_collect();
@@ -64,7 +65,7 @@ class AirController {
 	}
 
 	add_to_active(turf, blockchanges = true) {
-		if(this.server.has_component(turf, "SimulatedTurf")) {
+		if(has_component(turf, "SimulatedTurf")) {
 			turf.c.SimulatedTurf.excited = true;
 			this.active_turfs.add(turf);
 			if(blockchanges && turf.c.SimulatedTurf.excited_group)

@@ -1,5 +1,5 @@
 'use strict';
-const {Atom, Component, chain_func} = require('bluespess');
+const {Atom, Component, chain_func, has_component} = require('bluespess');
 
 const _current_storage_item = Symbol('_current_storage_item');
 const _slots = Symbol('_slots');
@@ -154,7 +154,7 @@ class StorageItem extends Component {
 	}
 
 	show_to(user) {
-		if(!this.a.server.has_component(user, "Eye"))
+		if(!has_component(user, "Eye"))
 			return;
 		if(user.c.Eye[_current_storage_item] == this.a)
 			return;
@@ -171,7 +171,7 @@ class StorageItem extends Component {
 	}
 
 	hide_from(user) {
-		if(!this.a.server.has_component(user, "Eye"))
+		if(!has_component(user, "Eye"))
 			return;
 		if(user.c.Eye[_current_storage_item] != this.a)
 			return;
@@ -185,7 +185,7 @@ class StorageItem extends Component {
 	}
 
 	is_showing_to(user) {
-		return this.a.server.has_component(user, "Eye") && user.components.Eye[_current_storage_item] == this.a;
+		return has_component(user, "Eye") && user.components.Eye[_current_storage_item] == this.a;
 	}
 
 	close_button_clicked(e) {

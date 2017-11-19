@@ -33,6 +33,7 @@ server.importModule(require('./code/game/objects/puller.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/block_air.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/controller.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/turf.js'));
+server.importModule(require('./code/modules/effect_system/sparks.js'));
 server.importModule(require('./code/modules/jobs/access.js'));
 server.importModule(require('./code/onclick/hud.js'));
 server.importModule(require('./code/onclick/inventory.js'));

@@ -1,6 +1,6 @@
 'use strict';
 
-const {Component} = require('bluespess');
+const {Component, has_component} = require('bluespess');
 const _access_expression = Symbol('_access_expression');
 const _access_function = Symbol('_access_function');
 
@@ -36,7 +36,7 @@ class RequiresAccess extends Component {
 
 	can_access(target) {
 		var access_checker;
-		if(this.a.server.has_component(target, "HasAccess"))
+		if(has_component(target, "HasAccess"))
 			access_checker = target.c.HasAccess.has_access.bind(target.c.HasAccess);
 		else
 			access_checker = (() => false); // no access at all! But we still want to let people in if the thing doesn't actually need any access
@@ -64,7 +64,7 @@ class HasAccess extends Component {
 	}
 
 	can_access(target) {
-		if(!this.a.server.has_component(target, "RequiresAccess"))
+		if(!has_component(target, "RequiresAccess"))
 			return true;
 		return target.c.RequiresAccess.can_access(this);
 	}

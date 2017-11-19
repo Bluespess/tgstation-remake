@@ -1,5 +1,5 @@
 'use strict';
-var {Component} = require('bluespess');
+var {Component, to_chat} = require('bluespess');
 class Tangible extends Component {
 	constructor(atom, template) {
 		super(atom, template);
@@ -78,9 +78,9 @@ class Examine extends Component {
 	}
 
 	examine(user) {
-		this.a.server.to_chat`That's a ${this.a}`(user);
+		to_chat`That's a ${this.a}`(user);
 		if(this.desc)
-			this.a.server.to_chat(user, this.desc);
+			to_chat(user, this.desc);
 	}
 }
 

@@ -1,5 +1,5 @@
 'use strict';
-const {Component, Sound, chain_func} = require('bluespess');
+const {Component, Sound, chain_func, has_component, sleep} = require('bluespess');
 const combat_defines = require('../../../defines/combat_defines.js');
 
 class Airlock extends Component {
@@ -68,12 +68,12 @@ class Airlock extends Component {
 		this.a.icon_state = this.a.c.Door.open_state;
 		if(!this.air_tight)
 			this.a.c.BlocksAir.is_blocking = false;
-		await this.a.server.sleep(100);
+		await sleep(100);
 		this.a.opacity = false;
-		await this.a.server.sleep(400);
+		await sleep(400);
 		this.a.density = 0;
 		this.a.c.BlocksAir.is_blocking = false;
-		await this.a.server.sleep(100);
+		await sleep(100);
 		this.a.layer = this.a.c.Door.open_layer;
 		this.a.c.Door.operating = false;
 		if(this.delayed_close_requested) {
@@ -112,7 +112,7 @@ class Airlock extends Component {
 		}
 
 		for(var obj of this.a.crosses()) {
-			if(this.a.server.has_component(obj, "Window")) {
+			if(has_component(obj, "Window")) {
 				obj.a.c.Tangible.ex_act(combat_defines.EXPLODE_HEAVY); //Smashin windows
 			}
 		}
@@ -125,21 +125,21 @@ class Airlock extends Component {
 			this.a.density = 1;
 			this.a.c.BlocksAir.is_blocking = true;
 		}
-		await this.a.server.sleep(100);
+		await sleep(100);
 		this.a.density = 1;
 		this.a.c.BlocksAir.is_blocking = true;
-		await this.a.server.sleep(400);
+		await sleep(400);
 		if(!this.a.c.Door.safe) {
 			this.a.c.Door.crush();
 		}
 		if(!this.a.c.Door.glass)
 			this.a.opacity = true;
-		await this.a.server.sleep(100);
+		await sleep(100);
 		this.a.c.Door.operating = false;
 		this.delayed_close_requested = false;
 		if(this.a.c.Door.safe)
 			for(let atom of this.a.crosses()) {
-				if(this.a.server.has_component(atom, "LivingMob")) {
+				if(has_component(atom, "LivingMob")) {
 					setTimeout(() => {this.a.c.Door.open();}, 100);
 					break;
 				}
@@ -153,7 +153,7 @@ class Airlock extends Component {
 			this.a.c.Door.operating = true;
 			this.a.flick = {overlays: {airlock_lights: {icon_state: "sparks"}}};
 			(async () => {
-				await this.a.server.sleep(600);
+				await sleep(600);
 				if(this.a.destroyed)
 					return;
 				this.a.c.Door.operating = false;

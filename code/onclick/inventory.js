@@ -1,6 +1,6 @@
 'use strict';
 
-const {Component, Atom} = require('bluespess');
+const {Component, Atom, has_component} = require('bluespess');
 const EventEmitter = require('events');
 const _slots = Symbol('_slots');
 const {_slot} = require('../game/objects/items.js').symbols;
@@ -241,7 +241,7 @@ class Slot extends EventEmitter {
 	}
 
 	can_accept_item(item) {
-		if(!this.mob.server.has_component(item, "Item"))
+		if(!has_component(item, "Item"))
 			return false;
 		if(item.slot && item.slot.can_unequip())
 			return false;
@@ -251,7 +251,7 @@ class Slot extends EventEmitter {
 			return false;
 		}
 		if(this.props.clothing_slot) {
-			return this.mob.server.has_component(item, this.props.clothing_slot);
+			return has_component(item, this.props.clothing_slot);
 		}
 		return true;
 	}
@@ -275,7 +275,7 @@ class Slot extends EventEmitter {
 
 	get item() {return this[_item];}
 	set item(value) {
-		if(!this.atom.server.has_component(value, "Item") && value != undefined)
+		if(!has_component(value, "Item") && value != undefined)
 			throw new TypeError(`${value} is not an atom with item component or undefined!`);
 		if(this[_item]) {
 			this[_item].c.Item[_slot] = undefined;

@@ -1,5 +1,5 @@
 'use strict';
-const {Component} = require('bluespess');
+const {Component, has_component} = require('bluespess');
 
 const _is_blocking = Symbol('_is_blocking');
 const _blocking_dirs = Symbol('_blocking_dirs');
@@ -35,7 +35,7 @@ class BlocksAir extends Component {
 		}
 		this.affecting_turfs.length = 0;
 		for(let marginal of this.a.marginal_locs()) {
-			if(this.a.server.has_component(marginal.turf, "SimulatedTurf"))
+			if(has_component(marginal.turf, "SimulatedTurf"))
 				marginal.turf.c.SimulatedTurf.update_blockers();
 		}
 	}
