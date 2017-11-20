@@ -14,6 +14,13 @@ class Stack extends Component {
 		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
 		this.a.attack_hand = chain_func(this.a.attack_hand, this.attack_hand.bind(this));
 		this.a.c.Item.attack_self = chain_func(this.a.c.Item.attack_self, this.attack_self.bind(this));
+		this.a.on("moved", this.update_recipes.bind(this));
+		this.a.on("parent_moved", this.update_recipes.bind(this));
+
+		this.a.can_user_read_panel = this.can_user_read_panel.bind(this);
+
+		this.recipes = JSON.parse(JSON.stringify(this.recipes));
+		this.update_recipes();
 	}
 
 	get amount() {
@@ -53,6 +60,7 @@ class Stack extends Component {
 			this.a.c.Item.size = Math.max(base_size - 1, 1);
 		else
 			this.a.c.Item.size = base_size;
+		this.update_recipes();
 	}
 
 	use(used) {
@@ -79,7 +87,7 @@ class Stack extends Component {
 	attack_by(prev, item, user) {
 		if(this.merge_type && has_component(item, this.merge_type)) {
 			if(this.merge(item))
-				has_component`<span class='notice'>Your ${item.name} stack now contains ${item.c.Stack.amount} ${item.c.Stack.singular_name}s.</span>`(user);
+				to_chat`<span class='notice'>Your ${item.name} stack now contains ${item.c.Stack.amount} ${item.c.Stack.singular_name}s.</span>`(user);
 		} else {
 			return prev();
 		}
@@ -123,6 +131,24 @@ class Stack extends Component {
 	crossed_by(target) {
 		if(this.merge_type && has_component(target, this.merge_type) && !target.c.Tangible.throwing) {
 			process.nextTick(() => this.merge(target));
+		}
+	}
+
+	can_user_read_panel(user) {
+		return this.a.c.Item.slot && this.a.c.Item.slot.mob == user;
+	}
+
+	update_recipes() {
+		for(let i = 0; i < this.recipes.length; i++) {
+			let recipe = this.recipes[i];
+			var build_limit = (recipe.cost > this.amount) ? 1 : 0;
+			if(build_limit > 0 && this.max_batch) {
+				build_limit = Math.min(this.max_batch, Math.floor(this.amount / recipe.cost));
+			}
+			if(build_limit != recipe.build_limit) {
+				recipe.build_limit = build_limit;
+				this.emit("recipe_build_limit_changed", {recipe, index:i});
+			}
 		}
 	}
 }
