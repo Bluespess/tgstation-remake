@@ -1,3 +1,5 @@
+// The fact that I managed to do this without using
+// the hell that is !important is a miracle
 .button {
 	display: inline-block;
 	min-width: 15px;
@@ -11,35 +13,40 @@
 	margin: 0 2px 2px 0;
 	cursor: default;
 	white-space: nowrap;
-	&.on:not(.disabled &), &.selected:not(.disabled &) {
+	&.on, &.selected, &.selected:hover, &.selected:active {
 		background: #2f943c;
 	}
-	&.on:hover:not(.disabled &) {
+	&.on:hover {
 		background: #3fac5e;
 	}
 	&.disabled, .disabled & {
-		background: #999999;
-		border-color: #666666;
+		&, &:hover, &:active, &.yellow, &.yellow:hover, &.red, &.red:hover {
+			background: #999999;
+			border-color: #666666;
+		}
 	}
 
-	&.yellow:not(.disabled &) {
+	&.yellow {
 		background: #cacc00;
 		&:hover {
 			background: #dae422;
 		}
 	}
 
-	&.red:not(.disabled &) {
+	&.red {
 		background: #ea0000;
 		&:hover {
 			background: #fa1822;
 		}
 	}
 
-	&:hover:not(.selected):not(.disabled):not(.disabled &):not(.on):not(.red):not(.yellow) {
+	&:hover {
 		background: #507aac;
 	}
-	&:active:not(.selected):not(.disabled):not(.disabled &) {
+	&:active {
+		&.disabled, .disabled &, &.selected {
+			transform: none;
+		}
 		transform: translate(1px,1px);
 	}
 }

@@ -1,13 +1,17 @@
 'use strict';
-const {Component} = require('bluespess');
+const {Component, Sound, has_component} = require('bluespess');
 
 class Tool extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 	}
 
-	try_use() {
-		return true;
+	can_use(cname) {
+		return has_component(this.a, cname);
+	}
+	used() {
+		if(this.usesound)
+			new Sound(this.a.server, {path: this.usesound, vary: true}).emit_from(this.a);
 	}
 }
 
@@ -112,7 +116,7 @@ Wirecutters.template = {
 				random_color: true
 			},
 			"Tool": {
-				usesound: 'sound/weapons/wirecutter.ogg'
+				usesound: 'sound/items/wirecutter.ogg'
 			},
 			"Item": {
 				force: 6,
@@ -120,7 +124,7 @@ Wirecutters.template = {
 				throw_range: 7,
 				attack_verb: ["pinched", "nipped"],
 				size: 2,
-				hitsound: 'sound/weapons/wirecutter.ogg'
+				hitsound: 'sound/items/wirecutter.ogg'
 			},
 			"Describe": {
 				desc: "This cuts wires."
@@ -144,7 +148,7 @@ Crowbar.template = {
 	vars: {
 		components: {
 			"Tool": {
-				usesound: 'sound/weapons/crowbar.ogg'
+				usesound: 'sound/items/crowbar.ogg'
 			},
 			"Item": {
 				force: 5,

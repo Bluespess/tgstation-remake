@@ -141,15 +141,56 @@ class Stack extends Component {
 	update_recipes() {
 		for(let i = 0; i < this.recipes.length; i++) {
 			let recipe = this.recipes[i];
-			var build_limit = (recipe.cost > this.amount) ? 1 : 0;
+			var build_limit = (recipe.cost <= this.amount) ? 1 : 0;
 			if(build_limit > 0 && this.max_batch) {
 				build_limit = Math.min(this.max_batch, Math.floor(this.amount / recipe.cost));
+			}
+			if(recipe.cant_cross && this.a.base_mover && build_limit > 0) {
+				for(let crosser of this.a.base_mover.crosses()) {
+					let did_break = false;
+					for(let forbidden of recipe.cant_cross) {
+						if(has_component(crosser, forbidden)) {
+							did_break = true;
+							build_limit = 0;
+							break;
+						}
+					}
+					if(did_break)
+						break;
+				}
 			}
 			if(build_limit != recipe.build_limit) {
 				recipe.build_limit = build_limit;
 				this.emit("recipe_build_limit_changed", {recipe, index:i});
 			}
 		}
+	}
+
+	async build_recipe(recipe, amount, user) {
+		if(!has_component(user, "MobInventory") || !recipe)
+			return;
+		this.update_recipes();
+		amount = Math.min(Math.max(+amount || 1, 1), recipe.build_limit); // no trust clients
+		if(amount < 1)
+			return;
+		let multiplied_amount = (recipe.res_amount || 1) * amount;
+		if(recipe.time) {
+			if(!(await user.c.MobInventory.do_after({delay: recipe.time, target: this.a})))
+				return;
+			this.update_recipes();
+			if(amount > recipe.build_limit)
+				return;
+		}
+		let template = this.a.server.templates[recipe.template_name];
+		let new_atom = new Atom(this.a.server, template);
+		if(has_component(new_atom, "Stack")) {
+			new_atom.c.Stack.amount = multiplied_amount;
+		}
+		new_atom.loc = this.a.base_mover && this.a.base_mover.fine_loc;
+		if(has_component(new_atom, "Item")) {
+			user.c.MobInventory.put_in_hands(new_atom);
+		}
+		this.use(recipe.cost * amount);
 	}
 }
 

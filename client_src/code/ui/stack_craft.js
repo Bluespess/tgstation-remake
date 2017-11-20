@@ -21,6 +21,10 @@ class StackCraftPanel {
 		if(message.amount) {
 			this.amount_node.textContent = message.amount;
 		}
+		if(message.build_limit) {
+			this.recipes[message.build_limit.index].build_limit = message.build_limit.build_limit;
+			this.build_recipe(message.build_limit.index);
+		}
 	}
 
 	build_recipes() {
@@ -39,11 +43,14 @@ class StackCraftPanel {
 	}
 	build_recipe(i) {
 		let elem = this.recipes_elem.childNodes[i];
+		elem.innerHTML = "";
 		let recipe = this.recipes[i];
 
 		let main_button_elem = document.createElement('div');
 		main_button_elem.innerText = `${recipe.res_amount && recipe.res_amount > 1 ? `${recipe.res_amount}x ` : ""}${recipe.name} (costs ${recipe.cost})`;
 		main_button_elem.classList.add('button');
+		if(recipe.build_limit <= 0)
+			main_button_elem.classList.add('disabled');
 		main_button_elem.dataset.message = JSON.stringify({build: i, amount: 1});
 		elem.appendChild(main_button_elem);
 	}

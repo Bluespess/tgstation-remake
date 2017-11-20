@@ -39,6 +39,11 @@ class Tangible extends Component {
 	ex_act() {
 
 	}
+
+	//the obj is deconstructed into pieces, whether through careful disassembly or when destroyed.
+	deconstruct() {
+		this.a.destroy();
+	}
 }
 
 Tangible.depends = ["Examine"];

@@ -6,6 +6,7 @@ class StackCraftPanel extends Panel {
 		super(client, panel_props);
 		this.on("open", this.opened.bind(this));
 		this.on("close", this.closed.bind(this));
+		this.on("message", this.message_handler.bind(this));
 
 		this.recipe_build_limit_changed = this.recipe_build_limit_changed.bind(this);
 		this.amount_changed = this.amount_changed.bind(this);
@@ -28,6 +29,13 @@ class StackCraftPanel extends Panel {
 	closed() {
 		this.bound_atom.c.Stack.removeListener("amount_changed", this.amount_changed);
 		this.bound_atom.c.Stack.removeListener("recipe_build_limit_changed", this.recipe_build_limit_changed);
+	}
+
+	message_handler(msg) {
+		if(msg.build != undefined) {
+			msg.build = (+msg.build) || 0;
+			this.bound_atom.c.Stack.build_recipe(this.bound_atom.c.Stack.recipes[msg.build], msg.amount, this.bound_mob);
+		}
 	}
 }
 
