@@ -31,12 +31,14 @@ Toolbox.template = {
 				inhand_rhand_icon: 'icons/mob/inhands/equipment/toolbox_righthand.png',
 				inhand_icon_state: "toolbox_red",
 				force: 12,
-				throwforce: 12,
-				throw_speed: 2,
-				throw_range: 7,
 				size: 4,
 				attack_verb: ["robusted"],
 				hitsound: 'sound/weapons/smash.ogg'
+			},
+			"Tangible": {
+				throw_force: 12,
+				throw_speed: 2,
+				throw_range: 7,
 			},
 			"Describe": {
 				desc: "Danger. Very robust."

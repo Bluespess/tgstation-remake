@@ -7,7 +7,7 @@ class Grille extends Component {
 		super(atom, template);
 
 		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
-		this.a.c.Tangible.deconstruct = chain_func(this.a.c.Tangible.deconstruct, this.deconstruct.bind(this));
+		this.a.c.Destructible.deconstruct = chain_func(this.a.c.Destructible.deconstruct, this.deconstruct.bind(this));
 	}
 
 	attack_by(prev, item, user) {
@@ -44,8 +44,8 @@ class Grille extends Component {
 
 Grille.one_per_turf = true;
 
-Grille.depends = ["Tangible"];
-Grille.loadBefore = ["Tangible"];
+Grille.depends = ["Destructible"];
+Grille.loadBefore = ["Destructible"];
 
 Grille.template = {
 	vars: {

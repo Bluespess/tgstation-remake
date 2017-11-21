@@ -27,6 +27,7 @@ server.importModule(require('./code/game/objects/items/storage.js'));
 server.importModule(require('./code/game/objects/items/tools.js'));
 server.importModule(require('./code/game/objects/structures/grille.js'));
 server.importModule(require('./code/game/objects/structures/window.js'));
+server.importModule(require('./code/game/objects/destructible.js'));
 server.importModule(require('./code/game/objects/items.js'));
 server.importModule(require('./code/game/objects/objs.js'));
 server.importModule(require('./code/game/objects/puller.js'));
@@ -36,6 +37,7 @@ server.importModule(require('./code/modules/atmospherics/environmental/turf.js')
 server.importModule(require('./code/modules/effect_system/sparks.js'));
 server.importModule(require('./code/modules/jobs/access.js'));
 server.importModule(require('./code/onclick/hud.js'));
+server.importModule(require('./code/onclick/interact.js'));
 server.importModule(require('./code/onclick/inventory.js'));
 
 if(global.is_bs_editor_env) {

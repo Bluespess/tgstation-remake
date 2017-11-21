@@ -1,5 +1,6 @@
 'use strict';
-const {Component, Sound, chain_func} = require('bluespess');
+const {Component, Sound, chain_func, format_html, visible_message} = require('bluespess');
+const combat_defines = require('../../../defines/combat_defines.js');
 
 const _bruteloss = Symbol('_bruteloss');
 const _oxyloss = Symbol('_oxyloss');
@@ -23,8 +24,9 @@ class LivingMob extends Component {
 		this[_health] = 100;
 
 		this.a.c.Mob.can_interact_with_panel = this.can_interact_with_panel.bind(this);
-
 		this.a.c.Tangible.experience_pressure_difference = chain_func(this.a.c.Tangible.experience_pressure_difference, this.experience_pressure_difference.bind(this));
+		this.a.c.Tangible.attacked_by = this.attacked_by.bind(this);
+		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
 	}
 
 	// Getters and setters for every type of loss.
@@ -66,14 +68,14 @@ class LivingMob extends Component {
 			return false;
 		if(this[`${damagetype}loss`] == undefined)
 			throw new Error(`Damage type of ${damagetype} does not exist.`);
-		this[`${damagetype}loss`] -= (damage * hit_percent);
+		this[`${damagetype}loss`] += (damage * hit_percent);
 		return true;
 	}
 
 	apply_damage_type(damage = 0, damagetype = "brute") {
 		if(this[`${damagetype}loss`] == undefined)
 			throw new Error(`Damage type of ${damagetype} does not exist.`);
-		this[`${damagetype}loss`] -= damage;
+		this[`${damagetype}loss`] += damage;
 	}
 
 	apply_damages(damages, def_zone, blocked) {
@@ -103,10 +105,43 @@ class LivingMob extends Component {
 		new Sound(this.a.server, {path: 'sound/effects/space_wind.ogg', vary: true, volume: Math.min(difference / 100, 1)}).play_to(this.a);
 		prev();
 	}
+
+	attack_by(prev, item, user) {
+		user.c.MobInteract.change_next_move(combat_defines.CLICK_CD_MELEE);
+		return prev() || item.c.Item.attack(this.a, user);
+	}
+
+	attacked_by(item, user) {
+		this.send_item_attack_message(item, user);
+		if(item.c.Item.force) {
+			this.apply_damage(item.c.Item.force, item.c.Item.damage_type);
+			return true; // successful attack
+		}
+	}
+
+	send_item_attack_message(item, user, hit_area) {
+		var message_verb = "attacked";
+		if(item.c.Item.attack_verb && item.c.Item.attack_verb.length) {
+			message_verb = format_html`${item.c.Item.attack_verb[Math.floor(Math.random() * item.c.Item.attack_verb.length)]}`;
+		} else if(!item.c.Item.force) {
+			return;
+		}
+		var message_hit_area = "";
+		if(hit_area)
+			message_hit_area = format_html` in the ${hit_area}`;
+		var attack_message = `${format_html`The ${this.a}`} has been ${message_verb}${message_hit_area} with ${format_html`the ${item}`}.`;
+		if(this.a.c.Hearer.in_view(user))
+			attack_message = `${format_html`The ${user}`} has ${message_verb} ${format_html`the ${this.a}`}${message_hit_area} with ${format_html`the ${item}`}!`;
+		visible_message(`<span class='danger'>${attack_message}</span class='danger'>`)
+			.self(`<span class='userdanger'>${attack_message}</span>`)
+			.range(combat_defines.COMBAT_MESSAGE_RANGE)
+			.emit_from(this.a);
+		return true;
+	}
 }
 
-LivingMob.depends = ["Mob", "Tangible"];
-LivingMob.loadBefore = ["Mob", "Tangible"];
+LivingMob.depends = ["Mob", "Tangible", "MobInteract"];
+LivingMob.loadBefore = ["Mob", "Tangible", "MobInteract"];
 
 LivingMob.template = {
 	vars: {

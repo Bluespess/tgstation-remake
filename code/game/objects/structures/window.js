@@ -10,8 +10,8 @@ class Window extends Component {
 
 Window.one_per_turf = true;
 
-Window.depends = ["Tangible", "BlocksAir"];
-Window.loadBefore = ["Tangible", "BlocksAir"];
+Window.depends = ["Destructible", "BlocksAir"];
+Window.loadBefore = ["Destructible", "BlocksAir"];
 
 Window.template = {
 	vars: {

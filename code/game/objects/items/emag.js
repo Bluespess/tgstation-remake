@@ -16,7 +16,8 @@ Emag.template = {
 			"Item": {
 				inhand_lhand_icon: 'icons/mob/inhands/equipment/idcards_lefthand.png',
 				inhand_rhand_icon: 'icons/mob/inhands/equipment/idcards_righthand.png',
-				no_bludgeon: true
+				no_bludgeon: true,
+				size: 1
 			},
 			"Describe": {
 				desc: "It's a card with a magnetic strip attached to some circuitry"

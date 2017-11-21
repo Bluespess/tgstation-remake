@@ -11,11 +11,11 @@ class Puller extends Component {
 		this.a.on("before_move", this.before_move.bind(this));
 		this.a.on("moved", this.moved.bind(this));
 		if(this.a.c.Mob)
-			this.a.c.Mob.on("click_on", this.click_on.bind(this));
+			this.a.c.Mob.on("ctrl_click_on", this.ctrl_click_on.bind(this));
 	}
 
-	click_on(e) {
-		if(e.ctrlKey && e.atom) {
+	ctrl_click_on(e) {
+		if(e.atom) {
 			if(this.pulling == e.atom)
 				this.pulling = null;
 			else

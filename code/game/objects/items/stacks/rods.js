@@ -22,12 +22,10 @@ StackRod.template = {
 		components: {
 			"Item": {
 				force: 9,
-				throw_force: 10,
-				throw_speed: 3,
-				throw_range: 7,
 				materials: {"metal": 1000},
 				attack_verb: ["hit", "bludgeoned", "whacked"],
-				inhand_icon_state: "rods"
+				inhand_icon_state: "rods",
+				hitsound: 'sound/weapons/grenadelaunch.ogg'
 			},
 			"Stack": {
 				novariants: true,
@@ -37,6 +35,11 @@ StackRod.template = {
 				recipes: [
 					{name: "grille", template_name: "grille", cost: 2, time: 1000, cant_cross: ["Grille"], on_floor: true}
 				]
+			},
+			"Tangible": {
+				throw_force: 10,
+				throw_speed: 3,
+				throw_range: 7
 			},
 			"Examine": {
 				desc: "Some rods. Can be used for building, or something."

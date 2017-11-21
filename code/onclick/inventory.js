@@ -12,6 +12,7 @@ class MobInventory extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 
+		this.next_move = 0;
 		this[_slots] = {};
 		this.slots = new Proxy(this[_slots],{set:()=>{},deleteProperty:()=>{},defineProperty:()=>{}});
 		this.add_slot('lhand', {icon: 'icons/mob/screen_midnight.png', icon_state: "hand_l", screen_loc_x: 7.5, screen_loc_y: 0.15625, layer: 30}, {is_hand_slot: true, worn_layer: 19});
@@ -96,23 +97,6 @@ class MobInventory extends Component {
 		this.a.c.Eye.screen.healthdoll = new Atom(this.a.server, {vars:{
 			icon: 'icons/mob/screen_gen.png', icon_state: "healthdoll_OVERLAY", screen_loc_x: 13.875, screen_loc_y: 5.40625, layer: 30
 		}});
-
-		this.a.c.Mob.on("click_on", this.click_on.bind(this));
-	}
-
-	click_on(e) {
-		if(e.atom == null) return;
-		if(e.ctrlKey || e.altKey || e.shiftKey) return;
-		if(Math.abs(e.atom.x - this.a.x) <= 1 && Math.abs(e.atom.y - this.a.y) <= 1) {
-			var active_item = this[_slots][this[_active_hand]].item;
-			if(e.atom == active_item) {
-				active_item.c.Item.attack_self(this.a);
-			} else if(active_item) {
-				e.atom.attack_by(active_item, this.a, e);
-			} else {
-				e.atom.attack_hand(this.a, e);
-			}
-		}
 	}
 
 	add_slot(id, appearance, props) {

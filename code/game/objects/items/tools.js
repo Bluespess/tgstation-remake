@@ -51,7 +51,7 @@ Wrench.template = {
 			},
 			"Item": {
 				force: 5,
-				throwforce: 7,
+				throw_force: 7,
 				size: 2,
 				attack_verb: ["bashed", "battered", "bludgeoned", "whacked"],
 			},
@@ -81,13 +81,15 @@ Screwdriver.template = {
 			},
 			"Item": {
 				force: 5,
-				throwforce: 5,
-				throw_speed: 3,
-				throw_range: 5,
 				attack_verb: ["stabbed"],
 				inhand_icon_state: "screwdriver",
 				size: 1,
 				hitsound: 'sound/weapons/bladeslice.ogg'
+			},
+			"Tangible": {
+				throw_force: 5,
+				throw_speed: 3,
+				throw_range: 5,
 			},
 			"Describe": {
 				desc: "You can be totally screwy with this."
@@ -152,9 +154,11 @@ Crowbar.template = {
 			},
 			"Item": {
 				force: 5,
-				throwforce: 7,
 				attack_verb: ["attacked", "bashed", "battered", "bludgeoned", "whacked"],
 				size: 2
+			},
+			"Tangible": {
+				throw_force: 7
 			},
 			"Describe": {
 				desc: "A small crowbar. This handy tool is useful for lots of things, such as prying floor tiles or opening unpowered doors."

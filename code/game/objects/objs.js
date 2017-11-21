@@ -40,9 +40,12 @@ class Tangible extends Component {
 
 	}
 
-	//the obj is deconstructed into pieces, whether through careful disassembly or when destroyed.
-	deconstruct() {
-		this.a.destroy();
+	do_attack_animation() {
+		//later
+	}
+
+	attacked_by() {
+		// This is basically for legit attacks
 	}
 }
 
@@ -74,11 +77,11 @@ Tangible.template = {
 class Examine extends Component {
 	constructor(atom, template) {
 		super(atom, template);
-		this.a.on("clicked", this.clicked.bind(this));
+		this.a.on("shift_clicked", this.shift_clicked.bind(this));
 	}
 
-	clicked(e) {
-		if(e.shiftKey && e.mob)
+	shift_clicked(e) {
+		if(e.mob)
 			this.examine(e.mob);
 	}
 

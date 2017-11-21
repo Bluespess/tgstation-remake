@@ -159,7 +159,7 @@ class StorageItem extends Component {
 		if(user.c.Eye[_current_storage_item] == this.a)
 			return;
 		if(user.c.Eye[_current_storage_item])
-			user.c.Eye[_current_storage_item].hide_from(user);
+			user.c.Eye[_current_storage_item].c.StorageItem.hide_from(user);
 		this[_viewers] = this[_viewers] || new Set();
 		this[_viewers].add(user);
 		for(let i = 0; i < this[_slots].length; i++) {

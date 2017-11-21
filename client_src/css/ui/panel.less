@@ -41,6 +41,41 @@
 				cursor: default;
 				line-height: 30px;
 				padding-left: 10px;
+				.uiframe-visibility-indicator {
+					height: 100%;
+					margin-left: 2px;
+					.fa;
+					font-size: 28px;
+					line-height: 30px;
+					&:before {
+						content: @fa-var-eye;
+					}
+					&.good {
+						color: #080;
+					}
+					&.bad {
+						color: #800;
+					}
+				}
+				.uiframe-close-button {
+					position: absolute;
+					height: 100%;
+					right: 0px;
+					top: 0px;
+					.fa;
+					font-size: 28px;
+					line-height: 30px;
+					margin-right: 4px;
+					&:before {
+						content: @fa-var-times;
+					}
+					&:hover {
+						opacity: 0.7;
+					}
+					&:active {
+						transform: translate(1px,1px);
+					}
+				}
 			}
 			.uiframe-content {
 				position: absolute;
