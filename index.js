@@ -11,13 +11,13 @@ global.server = server; // So the debugger can access it
 server.resRoot = "./res/";
 
 server.importModule(require('./player.js'));
-server.importModule(require('./code/game/turfs.js'));
 server.importModule(require('./code/game/mobs/new_player.js'));
 server.importModule(require('./code/game/mobs/living/living.js'));
 server.importModule(require('./code/game/mobs/living/carbon/carbon.js'));
 server.importModule(require('./code/game/mobs/living/carbon/human/human.js'));
 server.importModule(require('./code/game/objects/doors/airlock.js'));
 server.importModule(require('./code/game/objects/doors/door.js'));
+server.importModule(require('./code/game/objects/items/stacks/sheets/glass.js'));
 server.importModule(require('./code/game/objects/items/stacks/rods.js'));
 server.importModule(require('./code/game/objects/items/stacks/stack.js'));
 server.importModule(require('./code/game/objects/items/storage/toolbox.js'));
@@ -31,6 +31,8 @@ server.importModule(require('./code/game/objects/destructible.js'));
 server.importModule(require('./code/game/objects/items.js'));
 server.importModule(require('./code/game/objects/objs.js'));
 server.importModule(require('./code/game/objects/puller.js'));
+server.importModule(require('./code/game/turfs/floor_base.js'));
+server.importModule(require('./code/game/turfs.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/block_air.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/controller.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/turf.js'));

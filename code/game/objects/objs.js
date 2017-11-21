@@ -1,5 +1,5 @@
 'use strict';
-var {Component, to_chat} = require('bluespess');
+var {Component, has_component, to_chat} = require('bluespess');
 class Tangible extends Component {
 	constructor(atom, template) {
 		super(atom, template);
@@ -10,8 +10,8 @@ class Tangible extends Component {
 		this.last_high_pressure_movement_air_cycle = 0;
 	}
 
-	bumped_by(atom, offsetx, offsety, reason) {
-		if(!this.anchored && (reason == "walking" || reason == "bumped")) {
+	bumped_by(atom, offsetx, offsety) {
+		if(!this.anchored && has_component(atom, "LivingMob")) {
 			this.a.glide_size = atom.glide_size;
 			this.a.move(Math.sign(offsetx), Math.sign(offsety), "bumped");
 		}

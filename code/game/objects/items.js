@@ -122,7 +122,11 @@ Item.template = {
 			}
 		},
 		icon: 'icons/obj/items.png',
-		layer:3
+		layer:3,
+		bounds_x: 0.375,
+		bounds_y: 0.375,
+		bounds_width: 0.125,
+		bounds_height: 0.125
 	}
 };
 

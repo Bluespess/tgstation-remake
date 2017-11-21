@@ -32,12 +32,12 @@ class Destructible extends Component {
 	}
 
 	run_obj_armor(damage_amount, damage_type, damage_flag) {
-		if(damage_type != "brute" || damage_type != "burn")
+		if(damage_type != "brute" && damage_type != "burn")
 			return 0;
 		var protection = 0;
 		if(damage_flag && this.armor)
 			protection = this.armor[damage_flag] || 0;
-		return Math.floor(damage_amount * (100 - protection) * 0.001) * 10;
+		return Math.floor(damage_amount * (100 - protection) * 0.1) * 0.1;
 	}
 
 	play_attack_sound(damage_amount, damage_type = "brute") {

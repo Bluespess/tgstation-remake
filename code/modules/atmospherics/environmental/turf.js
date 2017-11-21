@@ -100,8 +100,12 @@ class SimulatedTurf extends Component {
 	update_blockers() {
 		var newdirs = 0;
 		for(let atom of this.a.crosses()) {
-			if(atom.c.BlocksAir && atom.c.BlocksAir.is_blocking && atom.does_enclose_tile(this.a.loc))
+			if(atom.c.BlocksAir && atom.c.BlocksAir.is_blocking && atom.does_enclose_tile(this.a.loc)) {
 				newdirs |= atom.c.BlocksAir.blocking_dirs;
+				if(!atom.c.BlocksAir.affecting_turfs.includes(this.a)) {
+					atom.c.BlocksAir.affecting_turfs.push(this.a);
+				}
+			}
 		}
 		for(let i = 0; i < 4; i++) {
 			let cdir = [1,2,4,8][i];
@@ -116,7 +120,7 @@ class SimulatedTurf extends Component {
 				}
 			}
 		}
-		if((15-this.adjacent_dirs) & (15-newdirs))
+		if(this.adjacent_dirs != (15-newdirs))
 			this.a.server.air_controller.add_to_active(this.a, true);
 		this.adjacent_dirs = 15-newdirs;
 	}
