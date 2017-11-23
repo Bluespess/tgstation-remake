@@ -34,8 +34,15 @@ module.exports = {
 	DISFIGURED: 16384,	//I'll probably move this elsewhere if I ever get wround to writing a bitflag mob-damage system
 	XENO_HOST: 32768,	//Tracks whether we're gonna be a baby alien's mummy.
 
+	//stat
+	CONSCIOUS: 0,
+	SOFT_CRIT: 1,
+	UNCONSCIOUS: 2,
+	DEAD: 3,
+
 	//Health Defines
 	HEALTH_THRESHOLD_CRIT: 0,
+	HEALTH_THRESHOLD_FULLCRIT: -30,
 	HEALTH_THRESHOLD_DEAD: -100,
 
 	//Actual combat defines
@@ -59,6 +66,8 @@ module.exports = {
 	GRAB_AGGRESSIVE: 1,
 	GRAB_NECK: 2,
 	GRAB_KILL: 3,
+
+	SOFTCRIT_ADD_SLOWDOWN: 600,
 
 	//Attack types for checking shields/hit reactions
 	MELEE_ATTACK: 1,

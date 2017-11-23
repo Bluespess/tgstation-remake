@@ -52,14 +52,14 @@ class Grille extends Component {
 					.self`<span class='notice'>You ${this.a.c.Tangible.anchored ? `fasten the ${this.a} to` : `unfasten the ${this.a} from`} the floor.</span>`
 					.emit_from(user);
 				return true;
-			} else if(this.broken && has_component(item, "StackRod")) {
-				visible_message`<span class='notice'>${user} rebuilds the broken grille.</span>`
-					.self`<span class='notice'>You rebuild the broken grille</span>`
-					.emit_from(user);
-				item.c.Stack.use(1);
-				this.broken = false;
-				this.obj_integrity = 50;
 			}
+		} else if(this.broken && has_component(item, "StackRod")) {
+			visible_message`<span class='notice'>${user} rebuilds the broken grille.</span>`
+				.self`<span class='notice'>You rebuild the broken grille</span>`
+				.emit_from(user);
+			item.c.Stack.use(1);
+			this.broken = false;
+			this.obj_integrity = 50;
 		}
 		return prev();
 	}

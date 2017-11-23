@@ -2,6 +2,7 @@
 const _slot = Symbol('_slot');
 const {Component, Sound, chain_func, has_component, to_chat} = require('bluespess');
 const combat_defines = require('../../defines/combat_defines.js');
+const pass_flags = require('../../defines/pass_flags.js');
 
 class Item extends Component {
 	constructor(atom, template) {
@@ -126,7 +127,8 @@ Item.template = {
 		bounds_x: 0.375,
 		bounds_y: 0.375,
 		bounds_width: 0.125,
-		bounds_height: 0.125
+		bounds_height: 0.125,
+		pass_flags: pass_flags.PASSTABLE
 	}
 };
 

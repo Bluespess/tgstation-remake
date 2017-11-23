@@ -1,6 +1,6 @@
 'use strict';
 const {Component, has_component} = require('bluespess');
-const {combat_defines} = require('../defines/combat_defines.js');
+const combat_defines = require('../defines/combat_defines.js');
 
 class MobInteract extends Component {
 	constructor(atom, template) {
@@ -12,16 +12,20 @@ class MobInteract extends Component {
 	click_on(e) {
 		if(e.atom == null) return;
 		if(e.ctrlKey || e.altKey || e.shiftKey) return;
-		//let isliving = has_component(this.a, "LivingMob");
+		let isliving = has_component(this.a, "LivingMob");
 		let hasinv = has_component(this.a, "MobInventory");
 
 		if(this.next_move > this.a.server.now())
+			return;
+
+		if(isliving && this.a.c.LivingMob.incapacitated({ignore_restraints: true}))
 			return;
 
 		var active_item = hasinv ? this.a.c.MobInventory.slots[this.a.c.MobInventory.active_hand].item : null;
 
 		if(active_item == e.atom) {
 			active_item.c.Item.attack_self(this.a);
+			return;
 		}
 
 		if(Math.abs(e.atom.x - this.a.x) <= 1 && Math.abs(e.atom.y - this.a.y) <= 1) {

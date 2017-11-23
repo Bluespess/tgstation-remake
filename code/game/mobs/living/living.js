@@ -2,61 +2,109 @@
 const {Component, Sound, chain_func, format_html, visible_message} = require('bluespess');
 const combat_defines = require('../../../defines/combat_defines.js');
 
-const _bruteloss = Symbol('_bruteloss');
-const _oxyloss = Symbol('_oxyloss');
-const _toxloss = Symbol('_toxloss');
-const _burnloss = Symbol('_burnloss');
-const _cloneloss = Symbol('_cloneloss');
-const _brainloss = Symbol('_brainloss');
-const _staminaloss = Symbol('_staminaloss');
-const _health = Symbol('_health');
+const _stat = Symbol('_stat');
 
 class LivingMob extends Component {
 	constructor(atom, template) {
 		super(atom, template);
-		this[_bruteloss] = 0;
-		this[_oxyloss] = 0;
-		this[_toxloss] = 0;
-		this[_burnloss] = 0;
-		this[_cloneloss] = 0;
-		this[_brainloss] = 0;
-		this[_staminaloss] = 0;
-		this[_health] = 100;
+
+		this.damages = {};
+
+		this.add_damage_type("brute");
+		this.add_damage_type("burn");
+		this.add_damage_type("oxy");
+		this.add_damage_type("tox");
+		this.add_damage_type("clone");
 
 		this.a.c.Mob.can_interact_with_panel = this.can_interact_with_panel.bind(this);
 		this.a.c.Tangible.experience_pressure_difference = chain_func(this.a.c.Tangible.experience_pressure_difference, this.experience_pressure_difference.bind(this));
 		this.a.c.Tangible.attacked_by = this.attacked_by.bind(this);
 		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
+		this.a.can_be_crossed = chain_func(this.a.can_be_crossed, this.can_be_crossed.bind(this));
+		this.a.move = chain_func(this.a.move, this.move.bind(this));
+		this.on("health_changed", this.health_changed.bind(this));
 	}
 
-	// Getters and setters for every type of loss.
-	get bruteloss() {return this[_bruteloss];}
-	set bruteloss(value) {if(this.status_flags & LivingMob.GODMODE) return true;this[_bruteloss] = value;this[_health] = this.update_health();}
+	add_damage_type(name) {
+		let damage_obj = {
+			val: 0,
+			get: () => {
+				return damage_obj.val;
+			},
+			set: (newval, {health_event = true, force = false} = {}) => {
+				if((this.status_flags & combat_defines.GODMODE) &&  !force)
+					return false;
+				newval = Math.max(0, newval);
+				if(newval == damage_obj.val)
+					return;
+				damage_obj.val = newval;
+				this.emit("damage_changed", name);
+				if(health_event)
+					this.emit("health_changed");
+			},
+			adjust: (amount, props) => {
+				damage_obj.set(damage_obj.get() + amount, props);
+			}
+		};
+		this.damages[name] = damage_obj;
+	}
 
-	get oxyloss() {return this[_oxyloss];}
-	set oxyloss(value) {if(this.status_flags & LivingMob.GODMODE) return true;this[_oxyloss] = value;this[_health] = this.update_health();}
+	get_damage(name) {
+		let damage = this.damages[name];
+		if(damage)
+			return damage.get();
+		return 0;
+	}
 
-	get toxloss() {return this[_toxloss];}
-	set toxloss(value) {if(this.status_flags & LivingMob.GODMODE) return true;this[_toxloss] = value;this[_health] = this.update_health();}
+	set_damage(name, val, props) {
+		let damage = this.damages[name];
+		if(damage) {
+			damage.set(val, props);
+			return true;
+		}
+		return false;
+	}
 
-	get burnloss() {return this[_burnloss];}
-	set burnloss(value) {if(this.status_flags & LivingMob.GODMODE) return true;this[_burnloss] = value;this[_health] = this.update_health();}
+	adjust_damage(name, val, props) {
+		let damage = this.damages[name];
+		if(damage) {
+			damage.adjust(val, props);
+			return true;
+		}
+		return false;
+	}
 
-	get cloneloss() {return this[_cloneloss];}
-	set cloneloss(value) {if(this.status_flags & LivingMob.GODMODE) return true;this[_cloneloss] = value;this[_health] = this.update_health();}
-
-	get brainloss() {return this[_brainloss];}
-	set brainloss(value) {if(this.status_flags & LivingMob.GODMODE) return true;this[_brainloss] = value;this[_health] = this.update_health();}
-
-	get staminaloss() {return this[_staminaloss];}
-	set staminaloss(value) {if(this.status_flags & LivingMob.GODMODE) return true;this[_staminaloss] = value;this[_health] = this.update_health();}
-
-	get health() {return this[_health];}
-
-	update_health() {
-		var h = this.max_health - this.bruteloss - this.oxyloss - this.toxloss - this.burnloss - this.cloneloss - this.brainloss - this.staminaloss;
-		this.update_stat();
+	get health() {
+		let h = this.max_health;
+		for(let damage_obj of Object.values(this.damages)) {
+			if(damage_obj && damage_obj.get)
+				h -= damage_obj.get();
+		}
 		return h;
+	}
+
+	get stat() {
+		return this[_stat] || 0;
+	}
+
+	set stat(val) {
+		let oldstat = this.stat;
+		if(val == oldstat)
+			return false;
+		this[_stat] = val;
+		this.emit("stat_changed", oldstat, val);
+	}
+
+	get in_crit() {
+		return this.health <= combat_defines.HEALTH_THRESHOLD_CRIT && (this.stat == combat_defines.SOFT_CRIT || this.stat == combat_defines.UNCONSCIOUS);
+	}
+
+	get in_full_crit() {
+		return this.health <= combat_defines.HEALTH_THRESHOLD_FULLCRIT && this.stat == combat_defines.UNCONSCIOUS;
+	}
+
+	health_changed() {
+		this.update_stat();
 	}
 
 	update_stat() {
@@ -66,16 +114,8 @@ class LivingMob extends Component {
 		var hit_percent = (100-blocked)/100;
 		if(!damage || (hit_percent <= 0))
 			return false;
-		if(this[`${damagetype}loss`] == undefined)
-			throw new Error(`Damage type of ${damagetype} does not exist.`);
-		this[`${damagetype}loss`] += (damage * hit_percent);
+		this.adjust_damage(damagetype, damage * hit_percent);
 		return true;
-	}
-
-	apply_damage_type(damage = 0, damagetype = "brute") {
-		if(this[`${damagetype}loss`] == undefined)
-			throw new Error(`Damage type of ${damagetype} does not exist.`);
-		this[`${damagetype}loss`] += damage;
 	}
 
 	apply_damages(damages, def_zone, blocked) {
@@ -93,7 +133,19 @@ class LivingMob extends Component {
 
 	}
 
+	move(prev, dx, dy, reason) {
+		if(reason != "walking")
+			return prev();
+
+		if(this.incapacitated())
+			return;
+
+		return prev();
+	}
+
 	incapacitated() {
+		if(this.stat)
+			return true;
 		return false;
 	}
 
@@ -104,6 +156,12 @@ class LivingMob extends Component {
 	experience_pressure_difference(prev, difference) {
 		new Sound(this.a.server, {path: 'sound/effects/space_wind.ogg', vary: true, volume: Math.min(difference / 100, 1)}).play_to(this.a);
 		prev();
+	}
+
+	can_be_crossed(prev, mover) {
+		if(mover.density < 1 || this.a.density < 1)
+			return true;
+		return prev();
 	}
 
 	attack_by(prev, item, user) {
@@ -147,29 +205,13 @@ LivingMob.template = {
 	vars: {
 		components: {
 			LivingMob: {
-				status_flags: LivingMob.CANSTUN|LivingMob.CANWEAKEN|LivingMob.CANPARALYSE|LivingMob.CANPUSH,
+				status_flags: combat_defines.CANSTUN|combat_defines.CANWEAKEN|combat_defines.CANPARALYSE|combat_defines.CANPUSH,
 				max_health: 100,
-				stat: LivingMob.CONSCIOUS
+				stat: combat_defines.CONSCIOUS
 			}
 		},
 		density: 1
 	}
 };
-
-LivingMob.CANSTUN = 1;
-LivingMob.CANWEAKEN = 2;
-LivingMob.CANPARALYSE = 4;
-LivingMob.CANPUSH = 8;
-LivingMob.IGNORESLOWDOWN = 16;
-LivingMob.GOTTAGOFAST = 32;
-LivingMob.GOTTAGOREALLYFAST = 64;
-LivingMob.GODMODE = 4096;
-LivingMob.FAKEDEATH = 8192;	//Replaces stuff like changeling.changeling_fakedeath
-LivingMob.DISFIGURED = 16384;	//I'll probably move this elsewhere if I ever get wround to writing a bitflag mob-damage system
-LivingMob.XENO_HOST = 32768;	//Tracks whether we're gonna be a baby alien's mummy.
-
-LivingMob.CONSCIOUS = 0;
-LivingMob.UNCONSCIOUS = 1;
-LivingMob.DEAD = 2;
 
 module.exports.components = {LivingMob};

@@ -5,13 +5,17 @@
 <link rel='stylesheet' href='client.css'>
 </head>
 <body>
-	<div id='mapwindow-container'>
+	<div id='gamewindow'>
+		<div id='linkwindow'>
+			<div class='button' onclick="window.open('https://github.com/bluespess/tgstation-remake/', '_blank');">Github</div>
+			<div class='button' onclick="window.open('https://github.com/bluespess/tgstation-remake/issues/new', '_blank');">Report Issue</div>
+		</div>
 		<div id='mapwindow'>
 			<canvas width=480 height=480 id='mainlayer'></canvas>
 		</div>
-	</div>
-	<div id='rightwindow'>
 		<div id='chatwindow'>
+		</div>
+		<div id='inputwindow'>
 		</div>
 	</div>
 	<div id='uiframes-container'></div>

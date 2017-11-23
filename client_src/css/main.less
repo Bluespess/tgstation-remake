@@ -1,34 +1,76 @@
-div#mapwindow-container {
-	position: absolute;
-	left:0px;top:0px;
-	width:95vh;height:95vh;
-	overflow: hidden;
-	background-color: #000000;
+#gamewindow {
+	display: grid;
+	display: -ms-grid;
+
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 13px;
+
+	width: 100vw;
+	height: 100vh;
+
+	grid-template-rows: 50px auto 50px;
+	grid-template-columns: auto minmax(33vw,~"calc(100vw - 100vh + 50px)");
+	-ms-grid-template-rows: 50px auto 50px;
+	-ms-grid-template-columns: auto minmax(33vw,~"calc(100vw - 100vh + 50px)");
+
+	grid-template-areas: "m l" "m c" "i i";
+	-ms-grid-template-areas: "m l" "m c" "i i";
+
+	@media (max-aspect-ratio: 1/1) {
+		grid-template-rows: 50px auto minmax(33vh,~"calc(100vh - 100vw - 100px)") 50px;
+		grid-template-columns: auto;
+		grid-template-areas: "l" "m" "c" "i";
+		-ms-grid-template-rows: 50px auto minmax(33vh,~"calc(100vh - 100vw - 100px)") 50px;
+		-ms-grid-template-columns: auto;
+		-ms-grid-template-areas: "l" "m" "c" "i";
+	}
+
+	#mapwindow {
+		display: grid;
+		display: -ms-grid;
+		justify-items: center;
+		align-items: center;
+		grid-area: m;
+		-ms-grid-area: m;
+		background-color: black;
+		#mainlayer {
+			width: 100%;
+			@media (max-aspect-ratio: 1/1) {
+				width: initial;
+				height: 100%;
+			}
+		}
+	}
+
+	#chatwindow {
+		grid-area: c;
+		-ms-grid-area: c;
+	}
+
+	#linkwindow {
+		grid-area: l;
+		-ms-grid-area: l;
+		background-color: #eee;
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+
+		.button {
+			height: 20px;
+			line-height: 20px;
+			flex-grow: 1;
+			max-width: 100px;
+		}
+	}
+
+	#inputwindow {
+		grid-area: i;
+		-ms-grid-area: i;
+	}
 }
 
-div#mapwindow {
-	position: absolute;
-	width: 480px;
-	height: 480px;
-	margin: auto;
-	top:0;
-	bottom:0;
-	left:0;
-	right:0;
-}
-
-div#rightwindow {
-	position: absolute;
-	left: 95vh;
-	bottom: 5vh;
-	top: 0px;
-	right: 0px;
-}
-
-div.maplayer {
-	overflow: visible;
-	position: absolute;
-
+body {
+	margin: 0px;
 }
 
 /* PIXELLATED GRAPHICS EVERYWHERE */
