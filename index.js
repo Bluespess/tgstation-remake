@@ -41,6 +41,7 @@ server.importModule(require('./code/modules/jobs/access.js'));
 server.importModule(require('./code/onclick/hud.js'));
 server.importModule(require('./code/onclick/interact.js'));
 server.importModule(require('./code/onclick/inventory.js'));
+server.importModule(require('./code/onclick/screen_objects.js'));
 
 if(global.is_bs_editor_env) {
 	module.exports = server;
@@ -59,7 +60,7 @@ if(global.is_bs_editor_env) {
 
 	server.on("client_login", (client) => {
 		if(!client.mob) {
-			var template = {"components": ["Player", "MobInventory", "CarbonMob"]};
+			var template = {"components": ["Player", "MobInventory", "HumanMob"]};
 			var atom = new Bluespess.Atom(server, template, 0, 0, 0);
 			atom.c.Mob.client = client;
 			atom.icon = 'icons/mob/human.png';

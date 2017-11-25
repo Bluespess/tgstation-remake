@@ -86,10 +86,6 @@ class MobInventory extends Component {
 			icon: 'icons/mob/screen_gen.png', icon_state: "help", screen_loc_x: 11.75, screen_loc_y: .15625, layer: 30
 		}});
 
-		this.a.c.Eye.screen.zone_sel = new Atom(this.a.server, {vars:{
-			icon: 'icons/mob/screen_midnight.png', icon_state: "zone_sel", screen_loc_x: 13.875, screen_loc_y: .15625, layer: 30
-		}});
-
 		this.a.c.Eye.screen.health = new Atom(this.a.server, {vars:{
 			icon: 'icons/mob/screen_gen.png', icon_state: "health0", screen_loc_x: 13.875, screen_loc_y: 6.46875, layer: 30
 		}});
@@ -308,6 +304,16 @@ class Slot extends EventEmitter {
 
 MobInventory.depends = ["Mob", "MobHud"];
 MobInventory.loadBefore = ["Mob", "MobHud"];
+
+MobInventory.template = {
+	vars: {
+		components: {
+			"MobInventory": {
+				nohold_counter: 0
+			}
+		}
+	}
+};
 
 class ProgressBar extends Component.Networked {
 	constructor(atom, template) {

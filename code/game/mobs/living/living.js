@@ -93,6 +93,11 @@ class LivingMob extends Component {
 			return false;
 		this[_stat] = val;
 		this.emit("stat_changed", oldstat, val);
+		if(val >= combat_defines.UNCONSCIOUS && oldstat < combat_defines.UNCONSCIOUS) {
+			this.nomove_counter++;
+		} else if(val < combat_defines.UNCONSCIOUS && oldstat >= combat_defines.UNCONSCIOUS) {
+			this.nomove_counter--;
+		}
 	}
 
 	get in_crit() {
@@ -133,6 +138,10 @@ class LivingMob extends Component {
 
 	}
 
+	movement_delay() {
+		return 150;
+	}
+
 	move(prev, dx, dy, reason) {
 		if(reason != "walking")
 			return prev();
@@ -140,11 +149,13 @@ class LivingMob extends Component {
 		if(this.incapacitated())
 			return;
 
+		this.a.walk_delay = this.movement_delay();
+
 		return prev();
 	}
 
 	incapacitated() {
-		if(this.stat)
+		if(this.nomove_counter)
 			return true;
 		return false;
 	}
@@ -207,7 +218,8 @@ LivingMob.template = {
 			LivingMob: {
 				status_flags: combat_defines.CANSTUN|combat_defines.CANWEAKEN|combat_defines.CANPARALYSE|combat_defines.CANPUSH,
 				max_health: 100,
-				stat: combat_defines.CONSCIOUS
+				stat: combat_defines.CONSCIOUS,
+				nomove_counter: 0
 			}
 		},
 		density: 1

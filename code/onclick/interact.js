@@ -1,5 +1,5 @@
 'use strict';
-const {Component, has_component} = require('bluespess');
+const {Component, Atom, has_component} = require('bluespess');
 const combat_defines = require('../defines/combat_defines.js');
 
 class MobInteract extends Component {
@@ -7,6 +7,13 @@ class MobInteract extends Component {
 		super(atom, template);
 		this.a.c.Mob.on("click_on", this.click_on.bind(this));
 		this.next_move = 0;
+		if(this.zone_sel_template) {
+			let zone_sel = new Atom(this.a.server, this.zone_sel_template);
+			process.nextTick(() => {
+				zone_sel.c.ZoneSel.set_mob(this.a);
+			});
+			this.a.c.Eye.screen.zone_sel = zone_sel;
+		}
 	}
 
 	click_on(e) {
@@ -62,7 +69,11 @@ MobInteract.template = {
 		components: {
 			"MobInteract": {
 				next_move_adjust: 0,
-				next_move_modifier: 1
+				next_move_modifier: 1,
+				zone_sel: "chest",
+				zone_sel_template: null,
+				act_intents: ["help", "harm"],
+				act_intent: "help"
 			}
 		}
 	}

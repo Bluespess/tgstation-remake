@@ -4,6 +4,7 @@ const BluespessClient = require('bluespess-client');
 var client = new BluespessClient();
 global.client = client;
 
+client.importModule(require('./code/carbon_mob.js'));
 client.importModule(require('./code/hud.js'));
 client.importModule(require('./code/parallax.js'));
 client.importModule(require('./code/progress_bar.js'));
