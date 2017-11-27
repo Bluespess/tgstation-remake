@@ -258,6 +258,9 @@ class Slot extends EventEmitter {
 		if(!has_component(value, "Item") && value != undefined)
 			throw new TypeError(`${value} is not an atom with item component or undefined!`);
 		if(this[_item]) {
+			if(this.props.clothing_slot) {
+				this.mob.overlays[`clothing_${this.id}`] = null;
+			}
 			this[_item].c.Item[_slot] = undefined;
 			this[_item].layer = this.old_item_layer;
 			this[_item].screen_loc_x = null;

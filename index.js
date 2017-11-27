@@ -36,6 +36,8 @@ server.importModule(require('./code/game/turfs.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/block_air.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/controller.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/turf.js'));
+server.importModule(require('./code/modules/clothing/under/_under.js'));
+server.importModule(require('./code/modules/clothing/under/color.js'));
 server.importModule(require('./code/modules/effect_system/sparks.js'));
 server.importModule(require('./code/modules/jobs/access.js'));
 server.importModule(require('./code/onclick/hud.js'));
@@ -62,6 +64,7 @@ if(global.is_bs_editor_env) {
 		if(!client.mob) {
 			var template = {"components": ["Player", "MobInventory", "HumanMob"]};
 			var atom = new Bluespess.Atom(server, template, 0, 0, 0);
+			atom.c.MobInventory.slots.iclothing.item = new Bluespess.Atom(server, "jumpsuit_grey");
 			atom.c.Mob.client = client;
 			atom.icon = 'icons/mob/human.png';
 			atom.icon_state = "skeleton";

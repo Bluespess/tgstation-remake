@@ -225,24 +225,4 @@ SuitItem.template = {
 SuitItem.depends = ["WearableItem"];
 SuitItem.loadBefore = ["WearableItem"];
 
-class UniformItem extends Component {
-	constructor(atom, template) {
-		super(atom, template);
-	}
-}
-
-UniformItem.template = {
-	vars: {
-		components: {
-			"UniformItem": {
-				worn_icon: 'icons/mob/uniform.png',
-				worn_icon_state: null // If null, inherits from inhand_icon_state
-			}
-		}
-	}
-};
-
-UniformItem.depends = ["WearableItem"];
-UniformItem.loadBefore = ["WearableItem"];
-
-module.exports.components = {WearableItem, BackItem, BeltItem, EarItem, EyeItem, FootItem, HeadItem, HandItem, MaskItem, NeckItem, SuitItem, UniformItem};
+module.exports.components = {WearableItem, BackItem, BeltItem, EarItem, EyeItem, FootItem, HeadItem, HandItem, MaskItem, NeckItem, SuitItem};
