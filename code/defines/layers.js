@@ -56,4 +56,4 @@ module.exports = {
 	AREA_LAYER: 10,
 	MASSIVE_OBJ_LAYER: 11,
 	POINT_LAYER: 12
-}
+};

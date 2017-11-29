@@ -14,7 +14,12 @@ server.importModule(require('./player.js'));
 server.importModule(require('./code/game/mobs/new_player.js'));
 server.importModule(require('./code/game/mobs/living/living.js'));
 server.importModule(require('./code/game/mobs/living/carbon/carbon.js'));
+server.importModule(require('./code/game/mobs/living/carbon/body_parts/body_parts.js'));
+server.importModule(require('./code/game/mobs/living/carbon/body_parts/components.js'));
+server.importModule(require('./code/game/mobs/living/carbon/body_parts/head.js'));
+server.importModule(require('./code/game/mobs/living/carbon/body_parts/zones.js'));
 server.importModule(require('./code/game/mobs/living/carbon/human/human.js'));
+server.importModule(require('./code/game/mobs/living/carbon/human/human_parts.js'));
 server.importModule(require('./code/game/objects/doors/airlock.js'));
 server.importModule(require('./code/game/objects/doors/door.js'));
 server.importModule(require('./code/game/objects/items/stacks/sheets/glass.js'));
@@ -66,8 +71,6 @@ if(global.is_bs_editor_env) {
 			var atom = new Bluespess.Atom(server, template, 0, 0, 0);
 			atom.c.MobInventory.slots.iclothing.item = new Bluespess.Atom(server, "jumpsuit_grey");
 			atom.c.Mob.client = client;
-			atom.icon = 'icons/mob/human.png';
-			atom.icon_state = "skeleton";
 			atom.layer = 5;
 		}
 	});

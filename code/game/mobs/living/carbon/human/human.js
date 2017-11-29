@@ -7,8 +7,8 @@ class HumanMob extends Component {
 	}
 }
 
-HumanMob.depends = ["CarbonMob"];
-HumanMob.loadBefore = ["CarbonMob"];
+HumanMob.depends = ["CarbonMob", "MobBodyParts"];
+HumanMob.loadBefore = ["CarbonMob", "MobBodyParts"];
 
 HumanMob.template = {
 	vars: {
