@@ -24,7 +24,7 @@ HeadBodyPart.template = {
 			"Tangible": {
 				throw_range: 2 // No head bowling
 			},
-			"Describe": {
+			"Examine": {
 				desc: "Didn't make sense not to live for fun, your brain gets smart but your head gets dumb."
 			}
 		},

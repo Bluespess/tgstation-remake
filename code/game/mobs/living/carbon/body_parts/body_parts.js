@@ -56,6 +56,19 @@ class BodyPart extends Component {
 		atom.overlays[`limb_${this.body_zone}`] = this.get_main_overlay();
 	}
 
+	detach() {
+		if(!this.owner)
+			return;
+		let mob = this.owner;
+		this.a.loc = mob.fine_loc;
+		this.owner = null;
+		this.remove_overlays(mob);
+
+		this.apply_overlays(this.a);
+		this.emit("detached");
+		mob.c.MobBodyParts.emit("limb_detached", this.a);
+	}
+
 	remove_overlays(atom) {
 		atom.overlays[`limb_${this.body_zone}`] = undefined;
 	}
@@ -86,7 +99,9 @@ BodyPart.template = {
 				should_draw_gender: false,
 				dmg_overlay_type: null,
 				body_gender: "male",
-				species_id: "human"
+				species_id: "human",
+				brute_damage: 0,
+				burn_damage: 0,
 			},
 			"Item": {
 				force: 3,
@@ -94,7 +109,7 @@ BodyPart.template = {
 			"Tangible": {
 				throwforce: 3
 			},
-			"Describe": {
+			"Examine": {
 				desc: "Why is it detached..."
 			}
 		},

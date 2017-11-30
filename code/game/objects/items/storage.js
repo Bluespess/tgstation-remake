@@ -1,5 +1,6 @@
 'use strict';
-const {Atom, Component, chain_func, has_component} = require('bluespess');
+const {Atom, Component, Sound, chain_func, has_component, to_chat} = require('bluespess');
+const sounds = require('../../../defines/sounds.js');
 
 const _current_storage_item = Symbol('_current_storage_item');
 const _slots = Symbol('_slots');
@@ -129,9 +130,11 @@ class StorageItem extends Component {
 		this[_grid].c.GridDisplay.height = this.rows + 1;
 	}
 
-	attack_by(prev, item) {
-		item.c.Item.slot.item = null;
-		item.loc = this.a;
+	attack_by(prev, item, user) {
+		if(!this.can_be_inserted(item, user))
+			return prev();
+		this.insert_item(item, user);
+		return true;
 	}
 
 	attack_hand(prev, mob) {
@@ -182,6 +185,80 @@ class StorageItem extends Component {
 		}
 		user.c.Eye.screen.storage_grid = null;
 		user.c.Eye.screen.storage_close_button = null;
+	}
+
+	can_be_inserted(item, user, stop_messages = false) {
+		if(!has_component(item, "Item"))
+			return; // not an item
+		if(this.a.loc == item)
+			return false;
+
+		if(item.c.Item.slot && !item.c.Item.slot.can_unequip())
+			return false;
+
+		if(this.a.contents.length >= this.storage_slots) {
+			if(user && !stop_messages)
+				to_chat`<span class='warning'>The ${this.a} is full, make some space!</span>`(user);
+			return false;
+		}
+
+		if(this.cant_hold) {
+			for(let cant of this.cant_hold) {
+				if(has_component(item, cant)) {
+					if(user && !stop_messages)
+						to_chat`<span class='warning'>The ${this.a} cannot hold the ${item}!</span>`(user);
+					return false;
+				}
+			}
+		}
+		if(this.can_hold && this.can_hold.length) {
+			let flagged = false;
+			for(let can of this.can_hold) {
+				if(has_component(item, can)) {
+					flagged = true;
+					break;
+				}
+			}
+			if(!flagged) {
+				if(user && !stop_messages)
+					to_chat`<span class='warning'>The ${this.a} cannot hold the ${item}!</span>`(user);
+			}
+		}
+
+		if(item.c.Item.size > this.max_size) {
+			if(user && !stop_messages)
+				to_chat`<span class='warning'>The ${item} is too big for the ${this.a}!</span>`(user);
+			return false;
+		}
+
+		let sum_size = item.c.Item.size;
+		for(let item of this.a.contents)
+			sum_size += item.c.Item.size;
+
+		if(sum_size > this.max_combined_size) {
+			if(user && !stop_messages)
+				to_chat`<span class=w'arning'>The ${item} won't fit in the ${this.a}, make some space!</span>`(user);
+			return false;
+		}
+
+		if(has_component(item, "StorageItem") && item.c.Item.size >= this.a.c.Item.size) {
+			if(user && !stop_messages)
+				to_chat`<span class='warning'>The ${this.a} cannot hold ${item} as it's a storage item of the same size!</span>`(user);
+			return false;
+		}
+		return true;
+	}
+
+	insert_item(item, user, prevent_warning = false) {
+		if(!has_component(item, "Item"))
+			return false;
+		if(item.c.Item.slot)
+			item.c.Item.slot.item = null;
+		item.loc = this.a;
+		if(user && !prevent_warning) {
+			if(this.rustle_jimmies)
+				new Sound(this.a.server, {path: sounds.rustle(), volume: 1, vary: true}).emit_from(this.a.base_mover);
+		}
 	}
 
 	is_showing_to(user) {
@@ -242,16 +319,19 @@ module.exports.templates = {
 		components: ["BackItem", "StorageItem"],
 		vars: {
 			components: {
+				"StorageItem": {
+					max_size: 3,
+					max_combined_size: 21,
+					storage_slots: 21
+				},
 				"Item": {
 					inhand_icon_state: "backpack",
 					inhand_lhand_icon: 'icons/mob/inhands/equipment/backpack_lefthand.png',
 					inhand_rhand_icon: 'icons/mob/inhands/equipment/backpack_righthand.png',
-					size: 4,
-					max_size: 3,
-					max_combined_size: 21,
-					storage_slots: 21
+					size: 4
 				}
 			},
+			name: "backpack",
 			icon_state: "backpack"
 		},
 		tree_paths: ["items/storage/backpack"]

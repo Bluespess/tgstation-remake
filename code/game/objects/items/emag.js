@@ -19,7 +19,7 @@ Emag.template = {
 				no_bludgeon: true,
 				size: 1
 			},
-			"Describe": {
+			"Examine": {
 				desc: "It's a card with a magnetic strip attached to some circuitry"
 			}
 		},

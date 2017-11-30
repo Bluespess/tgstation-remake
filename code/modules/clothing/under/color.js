@@ -10,7 +10,7 @@ module.exports.templates = {
 		components: ["UniformItem"],
 		vars: {
 			components: {
-				"Describe": {
+				"Examine": {
 					desc: "A standard issue colored jumpsuit. Variety is the spice of life!"
 				},
 				"Item": {
@@ -31,7 +31,7 @@ module.exports.templates = {
 		components: ["UniformItem"],
 		vars: {
 			components: {
-				"Describe": {
+				"Examine": {
 					desc: "A tasteful grey jumpsuit that reminds you of the good old days."
 				},
 				"Item": {
@@ -51,7 +51,7 @@ module.exports.templates = {
 		components: ["UniformItem"],
 		vars: {
 			components: {
-				"Describe": {
+				"Examine": {
 					desc: "A standard issue colored jumpsuit. Variety is the spice of life!"
 				},
 				"Item": {
@@ -71,7 +71,7 @@ module.exports.templates = {
 		components: ["UniformItem"],
 		vars: {
 			components: {
-				"Describe": {
+				"Examine": {
 					desc: "A standard issue colored jumpsuit. Variety is the spice of life!"
 				},
 				"Item": {
@@ -91,7 +91,7 @@ module.exports.templates = {
 		components: ["UniformItem"],
 		vars: {
 			components: {
-				"Describe": {
+				"Examine": {
 					desc: "Don't wear this near paranoid security officers."
 				},
 				"Item": {
@@ -111,7 +111,7 @@ module.exports.templates = {
 		components: ["UniformItem"],
 		vars: {
 			components: {
-				"Describe": {
+				"Examine": {
 					desc: "Just looking at this makes you feel <i>fabulous</i>."
 				},
 				"Item": {
@@ -131,7 +131,7 @@ module.exports.templates = {
 		components: ["UniformItem"],
 		vars: {
 			components: {
-				"Describe": {
+				"Examine": {
 					desc: "A standard issue colored jumpsuit. Variety is the spice of life!"
 				},
 				"Item": {
@@ -151,7 +151,7 @@ module.exports.templates = {
 		components: ["UniformItem"],
 		vars: {
 			components: {
-				"Describe": {
+				"Examine": {
 					desc: "A standard issue colored jumpsuit. Variety is the spice of life!"
 				},
 				"Item": {
@@ -171,7 +171,7 @@ module.exports.templates = {
 		components: ["UniformItem"],
 		vars: {
 			components: {
-				"Describe": {
+				"Examine": {
 					desc: "A standard issue colored jumpsuit. Variety is the spice of life!"
 				},
 				"Item": {
@@ -191,7 +191,7 @@ module.exports.templates = {
 		components: ["UniformItem"],
 		vars: {
 			components: {
-				"Describe": {
+				"Examine": {
 					desc: "A standard issue colored jumpsuit. Variety is the spice of life!"
 				},
 				"Item": {
@@ -211,7 +211,7 @@ module.exports.templates = {
 		components: ["UniformItem"],
 		vars: {
 			components: {
-				"Describe": {
+				"Examine": {
 					desc: "A standard issue colored jumpsuit. Variety is the spice of life!"
 				},
 				"Item": {
@@ -231,7 +231,7 @@ module.exports.templates = {
 		components: ["UniformItem"],
 		vars: {
 			components: {
-				"Describe": {
+				"Examine": {
 					desc: "A standard issue colored jumpsuit. Variety is the spice of life!"
 				},
 				"Item": {
@@ -251,7 +251,7 @@ module.exports.templates = {
 		components: ["UniformItem"],
 		vars: {
 			components: {
-				"Describe": {
+				"Examine": {
 					desc: "A standard issue colored jumpsuit. Variety is the spice of life!"
 				},
 				"Item": {
@@ -271,7 +271,7 @@ module.exports.templates = {
 		components: ["UniformItem"],
 		vars: {
 			components: {
-				"Describe": {
+				"Examine": {
 					desc: "A standard issue colored jumpsuit. Variety is the spice of life!"
 				},
 				"Item": {
@@ -291,7 +291,7 @@ module.exports.templates = {
 		components: ["UniformItem"],
 		vars: {
 			components: {
-				"Describe": {
+				"Examine": {
 					desc: "A standard issue colored jumpsuit. Variety is the spice of life!"
 				},
 				"Item": {
@@ -311,7 +311,7 @@ module.exports.templates = {
 		components: ["UniformItem"],
 		vars: {
 			components: {
-				"Describe": {
+				"Examine": {
 					desc: "A standard issue colored jumpsuit. Variety is the spice of life!"
 				},
 				"Item": {
@@ -331,7 +331,7 @@ module.exports.templates = {
 		components: ["UniformItem"],
 		vars: {
 			components: {
-				"Describe": {
+				"Examine": {
 					desc: "A multi-colored jumpsuit!"
 				},
 				"Item": {

@@ -94,8 +94,8 @@ class Grille extends Component {
 			this.a.icon_state = "brokengrille";
 		} else {
 			this.a.density = this.a.template.vars.density;
-			this.rods_amount = this.a.template.vars.component.Grille.rods_amount;
-			this.rods_broken = this.a.template.vars.component.Grille.rods_broken;
+			this.rods_amount = this.a.template.vars.components.Grille.rods_amount;
+			this.rods_broken = this.a.template.vars.components.Grille.rods_broken;
 			this.a.icon_state = this.a.template.vars.icon_state;
 		}
 	}
@@ -125,7 +125,7 @@ Grille.template = {
 				anchored: true,
 				pressure_resistance: 510
 			},
-			"Describe": {
+			"Examine": {
 				desc: "A flimsy framework of metal rods."
 			}
 		},

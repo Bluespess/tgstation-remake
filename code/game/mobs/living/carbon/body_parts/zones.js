@@ -12,7 +12,7 @@ ChestBodyPart.template = {
 				max_damage: 200,
 				should_draw_gender: true
 			},
-			"Describe": {
+			"Examine": {
 				desc: "It's impolite to stare at a person's chest."
 			}
 		},
@@ -35,7 +35,7 @@ LArmBodyPart.template = {
 			"Item": {
 				attack_verb: ["slapped", "punched"]
 			},
-			"Describe": {
+			"Examine": {
 				desc: "Did you know that the word 'sinister' stems originally from the \
 Latin 'sinestra' (left hand), because the left hand was supposed to \
 be possessed by the devil? This arm appears to be possessed by no \
@@ -60,7 +60,7 @@ RArmBodyPart.template = {
 			"Item": {
 				attack_verb: ["slapped", "punched"]
 			},
-			"Describe": {
+			"Examine": {
 				desc: "Over 87% of humans are right handed. That figure is much lower \
 among humans missing their right arm."
 			}
@@ -83,7 +83,7 @@ LLegBodyPart.template = {
 			"Item": {
 				attack_verb: ["kicked", "stomped"]
 			},
-			"Describe": {
+			"Examine": {
 				desc: "Some athletes prefer to tie their left shoelaces first for good \
 luck. In this instance, it probably would not have helped."
 			}
@@ -106,7 +106,7 @@ RLegBodyPart.template = {
 			"Item": {
 				attack_verb: ["kicked", "stomped"]
 			},
-			"Describe": {
+			"Examine": {
 				desc: "You put your right leg in, your right leg out. In, out, in, out, \
 shake it all about. And apparently then it detaches.\n\
 The hokey pokey has certainly changed a lot since space colonisation."

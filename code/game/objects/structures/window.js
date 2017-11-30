@@ -80,7 +80,7 @@ Window.template = {
 				anchored: true,
 				pressure_resistance: 410
 			},
-			"Describe": {
+			"Examine": {
 				desc: "A window."
 			}
 		},

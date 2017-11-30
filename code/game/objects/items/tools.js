@@ -55,7 +55,7 @@ Wrench.template = {
 				size: 2,
 				attack_verb: ["bashed", "battered", "bludgeoned", "whacked"],
 			},
-			"Describe": {
+			"Examine": {
 				desc: "A wrench with common uses. Can be found in your hand."
 			}
 		},
@@ -91,7 +91,7 @@ Screwdriver.template = {
 				throw_speed: 3,
 				throw_range: 5,
 			},
-			"Describe": {
+			"Examine": {
 				desc: "You can be totally screwy with this."
 			}
 		},
@@ -128,7 +128,7 @@ Wirecutters.template = {
 				size: 2,
 				hitsound: 'sound/items/wirecutter.ogg'
 			},
-			"Describe": {
+			"Examine": {
 				desc: "This cuts wires."
 			}
 		},
@@ -160,7 +160,7 @@ Crowbar.template = {
 			"Tangible": {
 				throw_force: 7
 			},
-			"Describe": {
+			"Examine": {
 				desc: "A small crowbar. This handy tool is useful for lots of things, such as prying floor tiles or opening unpowered doors."
 			}
 		},

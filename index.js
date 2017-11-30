@@ -43,6 +43,8 @@ server.importModule(require('./code/modules/atmospherics/environmental/controlle
 server.importModule(require('./code/modules/atmospherics/environmental/turf.js'));
 server.importModule(require('./code/modules/clothing/under/_under.js'));
 server.importModule(require('./code/modules/clothing/under/color.js'));
+server.importModule(require('./code/modules/clothing/shoes/_shoes.js'));
+server.importModule(require('./code/modules/clothing/shoes/colour.js'));
 server.importModule(require('./code/modules/effect_system/sparks.js'));
 server.importModule(require('./code/modules/jobs/access.js'));
 server.importModule(require('./code/onclick/hud.js'));
@@ -70,6 +72,8 @@ if(global.is_bs_editor_env) {
 			var template = {"components": ["Player", "MobInventory", "HumanMob"]};
 			var atom = new Bluespess.Atom(server, template, 0, 0, 0);
 			atom.c.MobInventory.slots.iclothing.item = new Bluespess.Atom(server, "jumpsuit_grey");
+			atom.c.MobInventory.slots.shoes.item = new Bluespess.Atom(server, "shoes_black");
+			atom.c.MobInventory.slots.back.item = new Bluespess.Atom(server, "backpack");
 			atom.c.Mob.client = client;
 			atom.layer = 5;
 		}

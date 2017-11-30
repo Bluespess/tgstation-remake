@@ -40,7 +40,7 @@ Toolbox.template = {
 				throw_speed: 2,
 				throw_range: 7,
 			},
-			"Describe": {
+			"Examine": {
 				desc: "Danger. Very robust."
 			}
 		},

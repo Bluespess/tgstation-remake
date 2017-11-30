@@ -43,7 +43,7 @@ GlassShard.template = {
 			"Tangible": {
 				throw_force: 10
 			},
-			"Describe": {
+			"Examine": {
 				desc: "A nasty looking shard of glass."
 			}
 		},
