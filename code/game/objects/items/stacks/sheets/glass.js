@@ -2,6 +2,43 @@
 const {Component} = require('bluespess');
 const combat_defines = require('../../../../../defines/combat_defines.js');
 
+class GlassSheet extends Component {
+	constructor(atom, template) {
+		super(atom, template);
+	}
+}
+
+GlassSheet.depends = ["Stack"];
+GlassSheet.loadBefore = ["Stack"];
+
+GlassSheet.template = {
+	vars: {
+		components: {
+			"Stack": {
+				full_size: 3,
+				singular_name: "glass sheet",
+				merge_type: "GlassSheet",
+				novariants: false
+			},
+			"Item": {
+				inhand_lhand_icon: 'icons/mob/inhands/misc/sheets_lefthand.png',
+				inhand_rhand_icon: 'icons/mob/inhands/misc/sheets_righthand.png',
+				force: 5,
+				attack_verb: ["bashed", "battered", "bludgeoned", "thrashed", "smashed"],
+				inhand_icon_state: "sheet-glass"
+			},
+			"Tangible": {
+				throw_force: 5,
+				throw_speed: 1,
+				throw_range: 3
+			}
+		},
+		name: "glass",
+		desc: "HOLY SHEET! That is a lot of glass.",
+		icon_state: "sheet-glass",
+	}
+};
+
 class GlassShard extends Component {
 	constructor(atom, template) {
 		super(atom, template);
@@ -54,10 +91,23 @@ GlassShard.template = {
 };
 
 module.exports.templates = {
+	"glass_sheet": {
+		components: ["GlassSheet"],
+		variants: [
+			{
+				type: "single",
+				var_path: ["components", "Stack", "amount"],
+				values: [1, 5, 10, 20, 30, 40, 50],
+				label: true,
+				orientation: "vertical"
+			}
+		],
+		tree_paths: ["items/stack/sheet/glass"]
+	},
 	"glass_shard": {
 		components: ["GlassShard"],
 		tree_paths: ["items/shard"]
 	}
 };
 
-module.exports.components = {GlassShard};
+module.exports.components = {GlassShard, GlassSheet};

@@ -807,7 +807,7 @@
 				"y": -2
 			},
 			{
-				"template_name": "window",
+				"template_name": "r_window",
 				"x": -11,
 				"y": -2
 			}
@@ -1062,7 +1062,7 @@
 				"y": -2
 			},
 			{
-				"template_name": "window",
+				"template_name": "r_window",
 				"x": 11,
 				"y": -2
 			}
@@ -1340,7 +1340,7 @@
 				"y": 0
 			},
 			{
-				"template_name": "window",
+				"template_name": "r_window",
 				"x": -11,
 				"y": 0
 			}
@@ -1600,7 +1600,7 @@
 				"y": 0
 			},
 			{
-				"template_name": "window",
+				"template_name": "r_window",
 				"x": 11,
 				"y": 0
 			}
@@ -2178,6 +2178,14 @@
 				],
 				"x": -3,
 				"y": 3
+			},
+			{
+				"template_name": "glass_sheet",
+				"variant_leaf_path": [
+					50
+				],
+				"x": -3,
+				"y": 3
 			}
 		],
 		"-2,3,0": [
@@ -2252,6 +2260,14 @@
 				],
 				"x": 3,
 				"y": 3
+			},
+			{
+				"template_name": "glass_sheet",
+				"variant_leaf_path": [
+					50
+				],
+				"x": 3,
+				"y": 3
 			}
 		],
 		"4,3,0": [
@@ -2319,7 +2335,7 @@
 				"y": 4
 			},
 			{
-				"template_name": "window",
+				"template_name": "r_window",
 				"x": -5,
 				"y": 4
 			}
@@ -2336,7 +2352,7 @@
 				"y": 4
 			},
 			{
-				"template_name": "window",
+				"template_name": "r_window",
 				"x": -4,
 				"y": 4
 			}
@@ -2353,7 +2369,7 @@
 				"y": 4
 			},
 			{
-				"template_name": "window",
+				"template_name": "r_window",
 				"x": -3,
 				"y": 4
 			}
@@ -2370,7 +2386,7 @@
 				"y": 4
 			},
 			{
-				"template_name": "window",
+				"template_name": "r_window",
 				"x": -2,
 				"y": 4
 			}
@@ -2387,7 +2403,7 @@
 				"y": 4
 			},
 			{
-				"template_name": "window",
+				"template_name": "r_window",
 				"x": -1,
 				"y": 4
 			}
@@ -2404,7 +2420,7 @@
 				"y": 4
 			},
 			{
-				"template_name": "window",
+				"template_name": "r_window",
 				"x": 0,
 				"y": 4
 			}
@@ -2421,7 +2437,7 @@
 				"y": 4
 			},
 			{
-				"template_name": "window",
+				"template_name": "r_window",
 				"x": 1,
 				"y": 4
 			}
@@ -2438,7 +2454,7 @@
 				"y": 4
 			},
 			{
-				"template_name": "window",
+				"template_name": "r_window",
 				"x": 2,
 				"y": 4
 			}
@@ -2455,7 +2471,7 @@
 				"y": 4
 			},
 			{
-				"template_name": "window",
+				"template_name": "r_window",
 				"x": 3,
 				"y": 4
 			}
@@ -2472,7 +2488,7 @@
 				"y": 4
 			},
 			{
-				"template_name": "window",
+				"template_name": "r_window",
 				"x": 4,
 				"y": 4
 			}
@@ -2489,7 +2505,7 @@
 				"y": 4
 			},
 			{
-				"template_name": "window",
+				"template_name": "r_window",
 				"x": 5,
 				"y": 4
 			}

@@ -203,7 +203,8 @@ Stack.template = {
 				max_amount: 50,
 				merge_type: null,
 				novariants: true,
-				singular_name: null
+				singular_name: null,
+				recipes: []
 			}
 		}
 	}

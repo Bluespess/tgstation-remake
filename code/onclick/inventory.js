@@ -89,10 +89,6 @@ class MobInventory extends Component {
 		this.a.c.Eye.screen.health = new Atom(this.a.server, {vars:{
 			icon: 'icons/mob/screen_gen.png', icon_state: "health0", screen_loc_x: 13.875, screen_loc_y: 6.46875, layer: 30
 		}});
-
-		this.a.c.Eye.screen.healthdoll = new Atom(this.a.server, {vars:{
-			icon: 'icons/mob/screen_gen.png', icon_state: "healthdoll_OVERLAY", screen_loc_x: 13.875, screen_loc_y: 5.40625, layer: 30
-		}});
 	}
 
 	add_slot(id, appearance, props) {
@@ -201,6 +197,7 @@ class Slot extends EventEmitter {
 		this.props = props ? props : {};
 		this.visible = true;
 		this.atom.on("clicked", this.clicked.bind(this));
+		this.atom.on("mouse_dropped_by", this.mouse_dropped_by.bind(this));
 	}
 
 	clicked(e) {
@@ -217,6 +214,13 @@ class Slot extends EventEmitter {
 			this.item = this.mob.c.MobInventory.slots[this.mob.c.MobInventory.active_hand].item;
 		} else if(this.item && !this.mob.c.MobInventory.slots[this.mob.c.MobInventory.active_hand].item) {
 			this.item.attack_hand(this.mob, e);
+		}
+	}
+
+	mouse_dropped_by(e) {
+		if(this.props.is_hand_slot && this.can_accept_item(e.from.atom) && e.from.atom.c.Item.slot.mob == this.mob
+		&& !this.mob.c.LivingMob.incapacitated() && !this.item) {
+			this.item = e.from.atom;
 		}
 	}
 
@@ -247,8 +251,10 @@ class Slot extends EventEmitter {
 		this[_visible] = value;
 		if(value) {
 			this.mob.c.Eye.screen[`slot_${this.id}`] = this.atom;
+			this.mob.c.Eye.screen[`item_in_slot_${this.id}`] = this.item;
 		} else {
 			this.mob.c.Eye.screen[`slot_${this.id}`] = undefined;
+			this.mob.c.Eye.screen[`item_in_slot_${this.id}`] = undefined;
 		}
 	}
 	get visible() {return this[_visible];}
@@ -282,7 +288,8 @@ class Slot extends EventEmitter {
 			this[_item].layer = 31;
 			this[_item].screen_loc_x = this.atom.screen_loc_x;
 			this[_item].screen_loc_y = this.atom.screen_loc_y;
-			this.mob.c.Eye.screen[`item_in_slot_${this.id}`] = this[_item];
+			if(this.visible)
+				this.mob.c.Eye.screen[`item_in_slot_${this.id}`] = this[_item];
 			if(this.props.is_hand_slot && this[_item].c.Item.inhand_icon_state) {
 				this.mob.overlays[`inhand_${this.id}`] = {
 					icon: this[_item].c.Item[`inhand_${this.id}_icon`],

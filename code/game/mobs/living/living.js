@@ -1,6 +1,7 @@
 'use strict';
-const {Component, Sound, chain_func, format_html, visible_message} = require('bluespess');
+const {Component, Sound, chain_func, format_html, visible_message, has_component} = require('bluespess');
 const combat_defines = require('../../../defines/combat_defines.js');
+const {random_zone} = require('./carbon/body_parts/helpers.js');
 
 const _stat = Symbol('_stat');
 
@@ -181,9 +182,11 @@ class LivingMob extends Component {
 	}
 
 	attacked_by(item, user) {
-		this.send_item_attack_message(item, user);
+		let zone = random_zone(user.c.MobInteract.zone_sel);
+		let bp = has_component(this.a, "MobBodyParts") && (this.a.c.MobBodyParts.limbs[zone] || this.a.c.MobBodyParts.limbs.chest);
+		this.send_item_attack_message(item, user, bp && bp.name);
 		if(item.c.Item.force) {
-			this.apply_damage(item.c.Item.force, item.c.Item.damage_type);
+			this.apply_damage(item.c.Item.force, item.c.Item.damage_type, zone);
 			return true; // successful attack
 		}
 	}

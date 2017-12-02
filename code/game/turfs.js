@@ -87,8 +87,16 @@ module.exports.templates = {
 		tree_paths: ["basic_structures/floor/plaque"]
 	},
 	"wall": {
-		components: ["BlocksAir"],
+		components: ["BlocksAir", "TGSmooth"],
 		vars: {
+			components: {
+				"Smooth": {
+					smooth_with: "wall"
+				},
+				"SmoothGroup": {
+					groups: ["wall"]
+				}
+			},
 			icon: 'icons/turf/walls/wall.png',
 			icon_state: "wall",
 			layer: 1,
@@ -102,8 +110,16 @@ module.exports.templates = {
 		}
 	},
 	"r-wall": {
-		components: ["BlocksAir"],
+		components: ["BlocksAir", "TGSmooth"],
 		vars: {
+			components: {
+				"Smooth": {
+					smooth_with: "wall"
+				},
+				"SmoothGroup": {
+					groups: ["wall"]
+				}
+			},
 			icon: 'icons/turf/walls/reinforced_wall.png',
 			icon_state: "r_wall",
 			layer: 1,
