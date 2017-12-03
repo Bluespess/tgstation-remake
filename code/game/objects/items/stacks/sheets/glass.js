@@ -1,10 +1,20 @@
 'use strict';
-const {Component} = require('bluespess');
+const {Component, Atom, has_component, chain_func} = require('bluespess');
 const combat_defines = require('../../../../../defines/combat_defines.js');
 
 class GlassSheet extends Component {
 	constructor(atom, template) {
 		super(atom, template);
+		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
+	}
+
+	attack_by(prev, item, user) {
+		if(has_component(item, "StackRod")) {
+			let rglass = new Atom(this.a.server, "rglass_sheet");
+			rglass.loc = user.base_mover.fine_loc;
+			this.a.c.Stack.use(1);
+			item.c.Stack.use(1);
+		}
 	}
 }
 
@@ -18,7 +28,10 @@ GlassSheet.template = {
 				full_size: 3,
 				singular_name: "glass sheet",
 				merge_type: "GlassSheet",
-				novariants: false
+				novariants: false,
+				recipes: [
+					{name: "fulltile window", template_name: "window_construct", cost: 2, time: 200, cant_cross: ["Window"], on_floor: true}
+				]
 			},
 			"Item": {
 				inhand_lhand_icon: 'icons/mob/inhands/misc/sheets_lefthand.png',
@@ -36,6 +49,46 @@ GlassSheet.template = {
 		name: "glass",
 		desc: "HOLY SHEET! That is a lot of glass.",
 		icon_state: "sheet-glass",
+	}
+};
+
+class RGlassSheet extends Component {
+	constructor(atom, template) {
+		super(atom, template);
+	}
+}
+
+RGlassSheet.depends = ["Stack"];
+RGlassSheet.loadBefore = ["Stack"];
+
+RGlassSheet.template = {
+	vars: {
+		components: {
+			"Stack": {
+				full_size: 3,
+				singular_name: "reinforced glass sheet",
+				merge_type: "RGlassSheet",
+				novariants: false,
+				recipes: [
+					{name: "fulltile reinforced window", template_name: "r_window_construct", cost: 2, time: 200, cant_cross: ["Window"], on_floor: true}
+				]
+			},
+			"Item": {
+				inhand_lhand_icon: 'icons/mob/inhands/misc/sheets_lefthand.png',
+				inhand_rhand_icon: 'icons/mob/inhands/misc/sheets_righthand.png',
+				force: 5,
+				attack_verb: ["bashed", "battered", "bludgeoned", "thrashed", "smashed"],
+				inhand_icon_state: "sheet-rglass"
+			},
+			"Tangible": {
+				throw_force: 5,
+				throw_speed: 1,
+				throw_range: 3
+			}
+		},
+		name: "reinforced glass",
+		desc: "Glass which seems to have rods or something stuck in them.",
+		icon_state: "sheet-rglass",
 	}
 };
 
@@ -104,10 +157,23 @@ module.exports.templates = {
 		],
 		tree_paths: ["items/stack/sheet/glass"]
 	},
+	"rglass_sheet": {
+		components: ["RGlassSheet"],
+		variants: [
+			{
+				type: "single",
+				var_path: ["components", "Stack", "amount"],
+				values: [1, 5, 10, 20, 30, 40, 50],
+				label: true,
+				orientation: "vertical"
+			}
+		],
+		tree_paths: ["items/stack/sheet/glass"]
+	},
 	"glass_shard": {
 		components: ["GlassShard"],
 		tree_paths: ["items/shard"]
 	}
 };
 
-module.exports.components = {GlassShard, GlassSheet};
+module.exports.components = {GlassShard, GlassSheet, RGlassSheet};

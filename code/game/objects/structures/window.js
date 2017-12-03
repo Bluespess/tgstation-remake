@@ -3,6 +3,8 @@ const {Component, Atom, Sound, has_component, chain_func, to_chat} = require('bl
 const layers = require('../../../defines/layers.js');
 const sounds = require('../../../defines/sounds.js');
 
+const _state = Symbol('_state');
+
 class Window extends Component {
 	constructor(atom, template) {
 		super(atom, template);
@@ -51,9 +53,6 @@ class Window extends Component {
 						if(!success || this.state != "screwed_to_floor")
 							return;
 						this.state = "unscrewed_from_floor";
-						this.a.c.Tangible.anchored = false;
-						this.a.c.Smooth.enabled = false;
-						this.a.c.SmoothGroup.enabled = false;
 						to_chat`<span class='notice'>You unfasten the window from the floor...</span>`(user);
 					});
 					return true;
@@ -66,9 +65,6 @@ class Window extends Component {
 						if(!success || this.state != "unscrewed_from_floor")
 							return;
 						this.state = "screwed_to_floor";
-						this.a.c.Tangible.anchored = true;
-						this.a.c.Smooth.enabled = true;
-						this.a.c.SmoothGroup.enabled = true;
 						to_chat`<span class='notice'>You fasten the window to the floor...</span>`(user);
 					});
 					return true;
@@ -80,7 +76,7 @@ class Window extends Component {
 							return;
 						new Sound(this.a.server, {path: 'sound/items/Deconstruct.ogg', volume: 0.5, vary: true}).emit_from(this.a);
 						to_chat`<span class='notice'>You successfully disassemble the ${this.a}.</span>`(user);
-						this.a.destroy();
+						this.a.c.Destructible.deconstruct(true);
 					});
 					return true;
 				}
@@ -98,13 +94,35 @@ class Window extends Component {
 	deconstruct(disassembled = true) {
 		if(this.a.destroyed)
 			return;
-		if(!disassembled) {
+		if(disassembled) {
+			let glass = new Atom(this.a.server, this.glass_type);
+			glass.c.Stack.amount = this.glass_amount;
+			glass.loc = this.a.base_mover.fine_loc;
+		} else {
 			new Sound(this.a.server, {path: sounds.shatter(), volume: 0.7, vary: true}).emit_from(this.a);
 			if(!this.a.c.Destructible.no_deconstruct && this.a.base_loc) {
 				this.make_debris();
 			}
 		}
 		this.a.destroy();
+	}
+
+	get state() {
+		return this[_state];
+	}
+	set state(val) {
+		if(val == this[_state])
+			return;
+		this[_state] = val;
+		if(val == "unscrewed_from_floor") {
+			this.a.c.Tangible.anchored = false;
+			this.a.c.Smooth.enabled = false;
+			this.a.c.SmoothGroup.enabled = false;
+		} else {
+			this.a.c.Tangible.anchored = true;
+			this.a.c.Smooth.enabled = true;
+			this.a.c.SmoothGroup.enabled = true;
+		}
 	}
 }
 
@@ -121,7 +139,8 @@ Window.template = {
 				heat_resistance: 800,
 				glass_amount: 2,
 				shard_type: "glass_shard",
-				decon_speed: 3000
+				decon_speed: 3000,
+				glass_type: "glass_sheet"
 			},
 			"Destructible": {
 				max_integrity: 25,
@@ -220,6 +239,7 @@ ReinforcedWindow.template = {
 			"Window": {
 				state: "screwed_to_frame",
 				heat_resistance: 1600,
+				glass_type: "rglass_sheet"
 			},
 			"Destructible": {
 				armor: {"melee": 50, "bullet": 0, "laser": 0, "energy": 0, "bomb": 25, "bio": 100, "rad": 100, "fire": 80, "acid": 100},
@@ -252,6 +272,17 @@ module.exports.templates = {
 		},
 		tree_paths: ["basic_structures/window"]
 	},
+	"window_construct": {
+		parent_template: "window",
+		vars: {
+			components: {
+				"Window": {
+					state: "unscrewed_from_floor"
+				}
+			}
+		},
+		tree_paths: ["basic_structures/window/construct"]
+	},
 	"r_window": {
 		components: ["ReinforcedWindow", "TGSmooth"],
 		vars: {
@@ -267,7 +298,18 @@ module.exports.templates = {
 			icon_state: "r_window"
 		},
 		tree_paths: ["basic_structures/window/reinforced"]
-	}
+	},
+	"r_window_construct": {
+		parent_template: "r_window",
+		vars: {
+			components: {
+				"Window": {
+					state: "unscrewed_from_floor"
+				}
+			}
+		},
+		tree_paths: ["basic_structures/window/reinforced/construct"]
+	},
 };
 
 module.exports.components = {Window, ReinforcedWindow};
