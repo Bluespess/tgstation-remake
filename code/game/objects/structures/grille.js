@@ -101,7 +101,7 @@ class Grille extends Component {
 	}
 }
 
-Grille.one_per_turf = true;
+Grille.one_per_tile = true;
 
 Grille.depends = ["Destructible"];
 Grille.loadBefore = ["Destructible"];

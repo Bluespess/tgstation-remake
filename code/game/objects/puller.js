@@ -25,7 +25,7 @@ class Puller extends Component {
 
 	can_pull(target) {
 		return has_component(target, "Tangible") && !target.c.Tangible.anchored
-			&& this.a.z == target.z && Math.max(Math.abs(this.a.x - target.x), Math.abs(this.a.y - target.y)) <= 1
+			&& this.a.z == target.z && Math.max(Math.abs(this.a.x - target.x), Math.abs(this.a.y - target.y)) <= 1.50001
 			&& this.a.loc && this.a.loc.is_base_loc && target.loc && target.loc.is_base_loc;
 	}
 
@@ -44,7 +44,7 @@ class Puller extends Component {
 			return;
 		}
 		// no diagonal drags if you don't need it
-		if(this[_pulling].x != oldx && this[_pulling].y != oldy && Math.abs(this[_pulling].x - this.a.x) <= 1.00001 && Math.abs(this[_pulling].y - this.a.y) <= 1.00001) {
+		if(this[_pulling].x != oldx && this[_pulling].y != oldy && Math.abs(this[_pulling].x - this.a.x) <= 1.50001 && Math.abs(this[_pulling].y - this.a.y) <= 1.50001) {
 			return;
 		}
 		this.pulling.glide_size = this.a.glide_size;

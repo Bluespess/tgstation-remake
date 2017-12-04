@@ -12,7 +12,7 @@ class Door extends Component {
 		this.shockedby = [];
 		this.operating = false;
 		this.a.layer = this.a.density > 0 ? this.closed_layer : this.open_layer;
-		this.a.opacity = this.a.density > 0;
+		this.a.opacity = this.a.density > 0 && !this.glass;
 		this.a.c.BlocksAir.is_blocking = this.a.density > 0;
 		this.a.on("bumped_by", this.bumped_by.bind(this));
 		this.a.c.RequiresAccess.can_access = chain_func(this.a.c.RequiresAccess.can_access, this.can_access);

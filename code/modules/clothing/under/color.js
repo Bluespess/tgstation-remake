@@ -4,7 +4,8 @@ module.exports.templates = {
 		pick_from: ["jumpsuit_black", "jumpsuit_grey", "jumpsuit_blue", "jumpsuit_green",
 			"jumpsuit_orange", "jumpsuit_pink", "jumpsuit_red", "jumpsuit_white", "jumpsuit_yellow",
 			"jumpsuit_darkblue", "jumpsuit_teal", "jumpsuit_lightpurple", "jumpsuit_darkgreen",
-			"jumpsuit_lightbrown", "jumpsuit_brown", "jumpsuit_maroon", "jumpsuit_rainbow"]
+			"jumpsuit_lightbrown", "jumpsuit_brown", "jumpsuit_maroon", "jumpsuit_rainbow"],
+		tree_paths: ["items/clothing/under/random"]
 	},
 	"jumpsuit_black": {
 		components: ["UniformItem"],
@@ -24,7 +25,8 @@ module.exports.templates = {
 			icon_state: "black"
 			//TODO item_color: "black"
 			//TODO resistance_flags: 0
-		}
+		},
+		tree_paths: ["items/clothing/under/black"]
 	},
 
 	"jumpsuit_grey": {
@@ -44,7 +46,8 @@ module.exports.templates = {
 			name: "grey jumpsuit",
 			icon_state: "grey"
 			//TODO item_color: "grey"
-		}
+		},
+		tree_paths: ["items/clothing/under/grey"]
 	},
 
 	"jumpsuit_blue": {
@@ -64,7 +67,8 @@ module.exports.templates = {
 			name: "blue jumpsuit",
 			icon_state: "blue"
 			//TODO item_color: "blue"
-		}
+		},
+		tree_paths: ["items/clothing/under/blue"]
 	},
 
 	"jumpsuit_green": {
@@ -84,7 +88,8 @@ module.exports.templates = {
 			name: "green jumpsuit",
 			icon_state: "green"
 			//TODO item_color: "green"
-		}
+		},
+		tree_paths: ["items/clothing/under/green"]
 	},
 
 	"jumpsuit_orange": {
@@ -104,7 +109,8 @@ module.exports.templates = {
 			name: "orange jumpsuit",
 			icon_state: "orange"
 			//TODO item_color: "orange"
-		}
+		},
+		tree_paths: ["items/clothing/under/orange"]
 	},
 
 	"jumpsuit_pink": {
@@ -124,7 +130,8 @@ module.exports.templates = {
 			name: "pink jumpsuit",
 			icon_state: "pink"
 			//TODO item_color: "pink"
-		}
+		},
+		tree_paths: ["items/clothing/under/pink"]
 	},
 
 	"jumpsuit_red": {
@@ -144,7 +151,8 @@ module.exports.templates = {
 			name: "red jumpsuit",
 			icon_state: "red"
 			//TODO item_color: "red"
-		}
+		},
+		tree_paths: ["items/clothing/under/red"]
 	},
 
 	"jumpsuit_white": {
@@ -164,7 +172,8 @@ module.exports.templates = {
 			name: "white jumpsuit",
 			icon_state: "white"
 			//TODO item_color: "white"
-		}
+		},
+		tree_paths: ["items/clothing/under/white"]
 	},
 
 	"jumpsuit_yellow": {
@@ -184,7 +193,8 @@ module.exports.templates = {
 			name: "yellow jumpsuit",
 			icon_state: "yellow"
 			//TODO item_color: "yellow"
-		}
+		},
+		tree_paths: ["items/clothing/under/yellow"]
 	},
 
 	"jumpsuit_darkblue": {
@@ -204,7 +214,8 @@ module.exports.templates = {
 			name: "darkblue jumpsuit",
 			icon_state: "darkblue"
 			//TODO item_color: "darkblue"
-		}
+		},
+		tree_paths: ["items/clothing/under/darkblue"]
 	},
 
 	"jumpsuit_teal": {
@@ -224,7 +235,8 @@ module.exports.templates = {
 			name: "teal jumpsuit",
 			icon_state: "teal"
 			//TODO item_color: "teal"
-		}
+		},
+		tree_paths: ["items/clothing/under/teal"]
 	},
 
 	"jumpsuit_lightpurple": {
@@ -244,7 +256,8 @@ module.exports.templates = {
 			name: "purple jumpsuit",
 			icon_state: "lightpurple"
 			//TODO item_color: "lightpurple"
-		}
+		},
+		tree_paths: ["items/clothing/under/lightpurple"]
 	},
 
 	"jumpsuit_darkgreen": {
@@ -264,7 +277,8 @@ module.exports.templates = {
 			name: "darkgreen jumpsuit",
 			icon_state: "darkgreen"
 			//TODO item_color: "darkgreen"
-		}
+		},
+		tree_paths: ["items/clothing/under/darkgreen"]
 	},
 
 	"jumpsuit_lightbrown": {
@@ -284,7 +298,8 @@ module.exports.templates = {
 			name: "lightbrown jumpsuit",
 			icon_state: "lightbrown"
 			//TODO item_color: "lightbrown"
-		}
+		},
+		tree_paths: ["items/clothing/under/lightbrown"]
 	},
 
 	"jumpsuit_brown": {
@@ -304,7 +319,8 @@ module.exports.templates = {
 			name: "brown jumpsuit",
 			icon_state: "brown"
 			//TODO item_color: "brown"
-		}
+		},
+		tree_paths: ["items/clothing/under/brown"]
 	},
 
 	"jumpsuit_maroon": {
@@ -324,7 +340,8 @@ module.exports.templates = {
 			name: "maroon jumpsuit",
 			icon_state: "maroon"
 			//TODO item_color: "maroon"
-		}
+		},
+		tree_paths: ["items/clothing/under/maroon"]
 	},
 
 	"jumpsuit_rainbow": {
@@ -345,6 +362,7 @@ module.exports.templates = {
 			icon_state: "rainbow"
 			//TODO item_color: "rainbow"
 			// TODO can_adjust: 0
-		}
+		},
+		tree_paths: ["items/clothing/under/rainbow"]
 	},
 };

@@ -126,7 +126,7 @@ class Window extends Component {
 	}
 }
 
-Window.one_per_turf = true;
+Window.one_per_tile = true;
 
 Window.depends = ["Destructible", "BlocksAir"];
 Window.loadBefore = ["Destructible", "BlocksAir"];

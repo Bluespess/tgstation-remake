@@ -35,7 +35,7 @@ class MobInteract extends Component {
 			return;
 		}
 
-		if(Math.abs(e.atom.x - this.a.x) <= 1 && Math.abs(e.atom.y - this.a.y) <= 1) {
+		if(Math.abs(e.atom.x - this.a.x) <= 1.50001 && Math.abs(e.atom.y - this.a.y) <= 1.50001) {
 			if(active_item) {
 				active_item.c.Item.melee_attack_chain(this.a, e.atom, e);
 			} else {

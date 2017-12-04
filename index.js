@@ -21,6 +21,7 @@ server.importModule(require('./code/game/mobs/living/carbon/body_parts/health_do
 server.importModule(require('./code/game/mobs/living/carbon/body_parts/zones.js'));
 server.importModule(require('./code/game/mobs/living/carbon/human/human.js'));
 server.importModule(require('./code/game/mobs/living/carbon/human/human_parts.js'));
+server.importModule(require('./code/game/objects/doors/airlock_variants.js'));
 server.importModule(require('./code/game/objects/doors/airlock.js'));
 server.importModule(require('./code/game/objects/doors/door.js'));
 server.importModule(require('./code/game/objects/items/stacks/sheets/glass.js'));
@@ -32,6 +33,7 @@ server.importModule(require('./code/game/objects/items/emag.js'));
 server.importModule(require('./code/game/objects/items/storage.js'));
 server.importModule(require('./code/game/objects/items/tools.js'));
 server.importModule(require('./code/game/objects/structures/grille.js'));
+server.importModule(require('./code/game/objects/structures/table.js'));
 server.importModule(require('./code/game/objects/structures/window.js'));
 server.importModule(require('./code/game/objects/destructible.js'));
 server.importModule(require('./code/game/objects/items.js'));

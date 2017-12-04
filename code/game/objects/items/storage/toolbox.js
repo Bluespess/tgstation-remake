@@ -26,6 +26,9 @@ Toolbox.template = {
 			"Toolbox": {
 				has_latches: true
 			},
+			"StorageItem": {
+				rustle_jimmies: false
+			},
 			"Item": {
 				inhand_lhand_icon: 'icons/mob/inhands/equipment/toolbox_lefthand.png',
 				inhand_rhand_icon: 'icons/mob/inhands/equipment/toolbox_righthand.png',

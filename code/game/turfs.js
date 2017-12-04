@@ -19,9 +19,27 @@ module.exports.templates = {
 			{
 				type: "single",
 				var_path: ["icon_state"],
-				values: ["floor", "white", "dark", "bar", "floorgrime", "delivery", "bot", "barber", "whitebot", "whitedelivery", "cmo"],
+				values: ["floor", "white", "dark", "bar", "floorgrime", "delivery", "bot", "barber", "whitebot", "whitedelivery", "cmo", "grimy", "freezerfloor"],
 				label: true,
 				orientation: "vertical"
+			}
+		]
+	},
+	"floor_ss13": {
+		components: ["SimulatedTurf"],
+		vars: {
+			icon: 'icons/turf/floors.png'
+		},
+		tree_paths: ["basic_structures/floor/ss13"],
+		variants: [
+			{
+				type: "single",
+				var_path: ["icon_state"],
+				values: [
+					"L1", "L3", "L5", "L7", "L2", "L4", "L6", "L8", "L9", "L11", "L13", "L7", "L10", "L12", "L14", "L8"
+				],
+				orientation: "horizontal",
+				wrap: 4
 			}
 		]
 	},
@@ -86,6 +104,30 @@ module.exports.templates = {
 		},
 		tree_paths: ["basic_structures/floor/plaque"]
 	},
+	"floor_wood": {
+		components: ["SimulatedTurf"],
+		vars: {
+			icon: 'icons/turf/floors.png',
+			icon_state: "wood"
+		},
+		tree_paths: ["basic_structures/floor/wood"]
+	},
+	"floor_carpet": {
+		components: ["SimulatedTurf", "TGSmooth"],
+		vars: {
+			components: {
+				"Smooth": {
+					smooth_with: "carpet"
+				},
+				"SmoothGroup": {
+					groups: ["carpet"]
+				}
+			},
+			icon: 'icons/turf/floors/carpet.png',
+			icon_state: "carpet"
+		},
+		tree_paths: ["basic_structures/floor/carpet"]
+	},
 	"wall": {
 		components: ["BlocksAir", "TGSmooth"],
 		vars: {
@@ -142,18 +184,61 @@ module.exports.templates = {
 		}
 	},
 	"light": {
-		components: ["LightSource", "Tangible", "Item"],
+		components: ["LightSource", "Tangible"],
 		vars: {
+			name: "light fixture",
 			layer: 2.9,
 			icon: 'icons/obj/lighting.png',
-			icon_state: "flashlight-on",
+			icon_state: "tube1",
 			components: {
 				"LightSource": {
 					on: true,
 					radius: 8,
 					color: "#ffffff"
+				},
+				"Tangible": {
+					anchored: true
 				}
 			}
-		}
+		},
+		variants: [
+			{
+				type: "single",
+				var_path: ["dir"],
+				values: [
+					2, 1, 4, 8
+				],
+				orientation: "horizontal",
+			}
+		]
+	},
+	"light_small": {
+		components: ["LightSource", "Tangible"],
+		vars: {
+			name: "light fixture",
+			layer: 2.9,
+			icon: 'icons/obj/lighting.png',
+			icon_state: "bulb1",
+			components: {
+				"LightSource": {
+					on: true,
+					radius: 4,
+					color: "#ccbbaa"
+				},
+				"Tangible": {
+					anchored: true
+				}
+			}
+		},
+		variants: [
+			{
+				type: "single",
+				var_path: ["dir"],
+				values: [
+					2, 1, 4, 8
+				],
+				orientation: "horizontal",
+			}
+		]
 	}
 };

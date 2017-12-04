@@ -6,6 +6,9 @@ class Airlock extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 
+		if(this.a.c.Door.glass)
+			this.airlock_material = "glass";
+
 		if(this.airlock_material) {
 			this.a.overlays.airlock_filling = {icon: this.overlays_file, icon_state: `${this.airlock_material}_[parent]`};
 		} else {
@@ -186,6 +189,8 @@ class Airlock extends Component {
 	}
 }
 
+Airlock.one_per_tile = true;
+
 Airlock.template = {
 	vars: {
 		components: {
@@ -217,7 +222,7 @@ Airlock.template = {
 				air_tight: false // true means density will be set as soon as the door begins to close
 			}
 		},
-		icon: 'icons/obj/doors/airlocks/station/public.dmi',
+		icon: 'icons/obj/doors/airlocks/station/public.png',
 		icon_state: "closed"
 	}
 };
@@ -225,13 +230,23 @@ Airlock.template = {
 Airlock.depends = ["Door", "Emaggable"];
 Airlock.loadBefore = ["Door", "Emaggable"];
 
+Airlock.update_map_instance = function(instobj) {
+	let airlock_material = instobj.computed_vars.components.Airlock.airlock_material;
+	if(instobj.computed_vars.components.Door.glass)
+		airlock_material = "glass";
+
+	if(airlock_material) {
+		instobj.client_atom.set_overlay("airlock_filling", {icon: instobj.computed_vars.components.Airlock.overlays_file, icon_state: `${airlock_material}_[parent]`});
+	} else {
+		instobj.client_atom.set_overlay("airlock_filling", {icon_state: "fill_[parent]"});
+	}
+};
+
 module.exports.templates = {
 	"airlock": {
 		components: ["Airlock"],
-		vars: {
-			icon: 'icons/obj/doors/airlocks/station/public.png'
-		}
-	}
+		tree_paths: ["basic_structures/airlock"]
+	},
 };
 
 module.exports.components = {Airlock};

@@ -168,7 +168,7 @@ module.exports.templates = {
 				orientation: "vertical"
 			}
 		],
-		tree_paths: ["items/stack/sheet/glass"]
+		tree_paths: ["items/stack/sheet/rglass"]
 	},
 	"glass_shard": {
 		components: ["GlassShard"],
