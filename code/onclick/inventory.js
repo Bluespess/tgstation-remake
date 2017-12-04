@@ -7,6 +7,7 @@ const {_slot} = require('../game/objects/items.js').symbols;
 const _visible = Symbol('_can_see');
 const _item = Symbol('_item');
 const _active_hand = Symbol('_active_hand');
+const _nohold_counter = Symbol('_nohold_counter');
 
 class MobInventory extends Component {
 	constructor(atom, template) {
@@ -126,6 +127,22 @@ class MobInventory extends Component {
 		return false;
 	}
 
+	get nohold_counter() {
+		return this[_nohold_counter];
+	}
+	set nohold_counter(val) {
+		let old = this[_nohold_counter];
+		if(val == old)
+			return;
+		this[_nohold_counter] = val;
+		if(val && !old) {
+			for(let slot of Object.values(this.slots)) {
+				if(slot.props.is_hand_slot && slot.can_unequip())
+					slot.item = null;
+			}
+		}
+	}
+
 	do_after({delay, needhand = true, target = null, progress = true, extra_checks = null} = {}) {
 		return new Promise((resolve) => {
 			if(!delay)
@@ -234,9 +251,10 @@ class Slot extends EventEmitter {
 		if(this.props.special_slot) { // This slot has autism.
 			return false;
 		}
-		if(this.props.clothing_slot) {
-			return has_component(item, this.props.clothing_slot);
-		}
+		if(this.props.is_hand_slot && this.mob.c.MobInventory.nohold_counter)
+			return false;
+		if(this.props.clothing_slot && !has_component(item, this.props.clothing_slot))
+			return false;
 		return true;
 	}
 

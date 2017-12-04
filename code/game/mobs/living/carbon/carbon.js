@@ -1,5 +1,5 @@
 'use strict';
-const {Component, Atom, chain_func} = require('bluespess');
+const {Component, Atom, chain_func, has_component} = require('bluespess');
 const combat_defines = require('../../../../defines/combat_defines.js');
 
 const _lying_counter = Symbol('_lying_counter');
@@ -165,12 +165,21 @@ class CarbonMob extends Component.Networked {
 		return this[_lying_counter];
 	}
 	set lying_counter(val) {
+		let old = this[_lying_counter];
+		if(old == val)
+			return;
 		this[_lying_counter] = val;
-		this.update_lying();
+		this.update_lying(old, val);
 	}
 
-	update_lying() {
+	update_lying(old, val) {
 		this.lying = !!this[_lying_counter];
+		if(has_component(this.a, "MobInventory")) {
+			if(val && !old)
+				this.a.c.MobInventory.nohold_counter++;
+			else if(!old && val)
+				this.a.c.MobInventory.nohold_counter--;
+		}
 	}
 }
 CarbonMob.depends = ["LivingMob"];

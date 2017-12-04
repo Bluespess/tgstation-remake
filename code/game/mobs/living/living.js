@@ -24,6 +24,10 @@ class LivingMob extends Component {
 		this.a.can_be_crossed = chain_func(this.a.can_be_crossed, this.can_be_crossed.bind(this));
 		this.a.move = chain_func(this.a.move, this.move.bind(this));
 		this.on("health_changed", this.health_changed.bind(this));
+		this.life_timeout = null;
+		if(this.stat != combat_defines.DEAD) {
+			this.life_timeout = setTimeout(this.run_life.bind(this), 2000);
+		}
 	}
 
 	add_damage_type(name) {
@@ -99,6 +103,12 @@ class LivingMob extends Component {
 		} else if(val < combat_defines.UNCONSCIOUS && oldstat >= combat_defines.UNCONSCIOUS) {
 			this.nomove_counter--;
 		}
+		if(val == combat_defines.DEAD && this.life_timeout) {
+			clearTimeout(this.life_timeout);
+			this.life_timeout = null;
+		} else if(val != combat_defines.DEAD && !this.life_timeout) {
+			this.life_timeout = setTimeout(this.run_life.bind(this), 2000);
+		}
 	}
 
 	get in_crit() {
@@ -135,8 +145,14 @@ class LivingMob extends Component {
 		return true;
 	}
 
-	life() {
+	run_life() {
+		this.life_timeout = null;
+		this.life();
+		if(this.stat != combat_defines.DEAD && !this.life_timeout)
+			this.life_timeout = setTimeout(this.run_life.bind(this), 2000);
+	}
 
+	life() {
 	}
 
 	movement_delay() {
