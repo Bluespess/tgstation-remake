@@ -1,8 +1,12 @@
 'use strict';
 const {Component, Atom, chain_func, has_component} = require('bluespess');
 const combat_defines = require('../../../../defines/combat_defines.js');
+const atmos_defines = require('../../../../defines/atmos_defines.js');
 
 const _lying_counter = Symbol('_lying_counter');
+
+const HUMAN_MAX_OXYLOSS = 3;
+const HUMAN_CRIT_MAX_OXYLOSS = 2/3;
 
 class CarbonMob extends Component.Networked {
 	constructor(atom, template) {
@@ -12,6 +16,7 @@ class CarbonMob extends Component.Networked {
 		this.a.c.LivingMob.on("stat_changed", this.stat_changed.bind(this));
 		this.a.c.LivingMob.update_stat = this.update_stat.bind(this);
 		this.a.c.LivingMob.movement_delay = chain_func(this.a.c.LivingMob.movement_delay, this.movement_delay.bind(this));
+		this.a.c.LivingMob.life = chain_func(this.a.c.LivingMob.life, this.life.bind(this));
 
 		this.add_networked_var("lying", (newval) => {
 			if(newval) {
@@ -21,6 +26,9 @@ class CarbonMob extends Component.Networked {
 			}
 			return true;
 		});
+
+		this.organs = {};
+		new Atom(this.a.server, 'organ_lungs').c.Organ.insert(this.a);
 	}
 
 	stat_changed(oldstat, newstat) {
@@ -181,6 +189,47 @@ class CarbonMob extends Component.Networked {
 				this.a.c.MobInventory.nohold_counter--;
 		}
 	}
+
+	life(prev, cycle) {
+		prev();
+		this.breathe(cycle);
+	}
+
+	breathe() {
+		let lungs = this.organs.lungs;
+
+		if(this.a.c.LivingMob.in_full_crit)
+			this.losebreath++;
+		else if(this.a.c.LivingMob.in_crit)
+			this.losebreath += 0.25;
+		let environment;
+		if(this.a.base_loc && this.a.base_loc.turf) {
+			environment = this.a.base_loc.turf.c.Turf.air;
+			this.a.server.air_controller.add_to_active(this.a.base_loc.turf);
+		}
+		let breath;
+		if(this.losebreath >= 1) {
+			this.losebreath--;
+		} else {
+			if(!breath && environment) {
+				let percentage = Math.min(atmos_defines.BREATH_VOLUME / environment.volume, 1);
+				breath = environment.remove_ratio(percentage);
+				breath.volume = atmos_defines.BREATH_VOLUME;
+			}
+		}
+
+		if(lungs && has_component(lungs, "OrganLungs")) {
+			lungs.c.OrganLungs.breathe(breath);
+		} else {
+			if(!this.a.c.LivingMob.in_crit)
+				this.a.c.LivingMob.adjust_damage("oxy", HUMAN_MAX_OXYLOSS);
+			else
+				this.a.c.LivingMob.adjust_damage("oxy", HUMAN_CRIT_MAX_OXYLOSS);
+		}
+
+		if(environment)
+			environment.merge(breath);
+	}
 }
 CarbonMob.depends = ["LivingMob"];
 CarbonMob.loadBefore = ["LivingMob"];
@@ -189,7 +238,8 @@ CarbonMob.template = {
 	vars: {
 		components: {
 			CarbonMob: {
-				lying_counter: 0
+				lying_counter: 0,
+				losebreath: 0
 			}
 		}
 	}
@@ -222,7 +272,16 @@ module.exports.templates = {
 			mouse_opacity: 0,
 			layer: 20.8
 		}
-	}
+	},
+	"screen_oxy": {
+		vars: {
+			icon: 'icons/mob/screen_full.png',
+			screen_loc_x: 0,
+			screen_loc_y: 14,
+			mouse_opacity: 0,
+			layer: 20.9
+		}
+	},
 };
 
 module.exports.components = {CarbonMob};

@@ -28,6 +28,7 @@ class LivingMob extends Component {
 		if(this.stat != combat_defines.DEAD) {
 			this.life_timeout = setTimeout(this.run_life.bind(this), 2000);
 		}
+		this.life_cycle_num = 0;
 	}
 
 	add_damage_type(name) {
@@ -147,7 +148,8 @@ class LivingMob extends Component {
 
 	run_life() {
 		this.life_timeout = null;
-		this.life();
+		this.life_cycle_num++;
+		this.life(this.life_cycle_num);
 		if(this.stat != combat_defines.DEAD && !this.life_timeout)
 			this.life_timeout = setTimeout(this.run_life.bind(this), 2000);
 	}

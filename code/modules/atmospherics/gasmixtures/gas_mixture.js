@@ -2,6 +2,8 @@
 const atmos_defines = require('../../../defines/atmos_defines.js');
 const gas_metas = require('./gas_types.js');
 
+const debug_nan = false; // Set this to true to debug instances of NaN
+
 function quantize(val) {
 	return Math.round(val * 10000000)/10000000;
 }
@@ -15,6 +17,20 @@ class Gas {
 		// guarantees one virtual class
 		Object.seal(this);
 	}
+}
+
+if(debug_nan) {
+	const _moles = Symbol('_moles');
+	Object.defineProperty(Gas.prototype, "moles", {
+		get() {
+			return this[_moles];
+		},
+		set(val) {
+			if(typeof val != "number" || val != val)
+				throw new Error(`Invalid number: ${val}`);
+			this[_moles] = val;
+		}
+	});
 }
 
 class GasMixture {
