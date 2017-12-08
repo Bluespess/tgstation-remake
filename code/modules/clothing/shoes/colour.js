@@ -29,5 +29,20 @@ module.exports.templates = {
 			name: "brown shoes",
 			icon_state: "brown"
 		}
-	}
-};
+	},"shoes_white": {
+		components: ["FootItem"],
+		vars: {
+			components: {
+				"Item": {
+					inhand_icon_state: "white"
+				},
+				"Examine": {
+					desc: "A pair of white shoes."
+				}
+			},
+			name: "white shoes",
+			icon_state: "white"
+			}
+		}
+	};
+
