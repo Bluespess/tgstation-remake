@@ -29,7 +29,8 @@ module.exports.templates = {
 			name: "brown shoes",
 			icon_state: "brown"
 		}
-	},"shoes_white": {
+	},
+	"shoes_white": {
 		components: ["FootItem"],
 		vars: {
 			components: {
@@ -42,7 +43,9 @@ module.exports.templates = {
 			},
 			name: "white shoes",
 			icon_state: "white"
-			}
-		}
-	};
 
+		}
+	}
+};
+
+		
