@@ -6437,6 +6437,14 @@
 				"y": -7
 			},
 			{
+				"template_name": "decal_blood_old",
+				"variant_leaf_path": [
+					"floor7-old"
+				],
+				"x": 0,
+				"y": -7
+			},
+			{
 				"template_name": "light",
 				"variant_leaf_path": [
 					2
@@ -7452,6 +7460,14 @@
 				],
 				"x": -1,
 				"y": -5
+			},
+			{
+				"template_name": "decal_blood_old",
+				"variant_leaf_path": [
+					"floor5-old"
+				],
+				"x": -1,
+				"y": -5
 			}
 		],
 		"0,-5,0": [
@@ -7469,6 +7485,14 @@
 				"template_name": "floor",
 				"variant_leaf_path": [
 					"dark"
+				],
+				"x": 1,
+				"y": -5
+			},
+			{
+				"template_name": "decal_blood_old",
+				"variant_leaf_path": [
+					"floor1-old"
 				],
 				"x": 1,
 				"y": -5
@@ -7937,6 +7961,14 @@
 				],
 				"x": 0,
 				"y": -4
+			},
+			{
+				"template_name": "decal_blood_old",
+				"variant_leaf_path": [
+					"floor3-old"
+				],
+				"x": 0,
+				"y": -4
 			}
 		],
 		"1,-4,0": [
@@ -7944,6 +7976,14 @@
 				"template_name": "floor",
 				"variant_leaf_path": [
 					"dark"
+				],
+				"x": 1,
+				"y": -4
+			},
+			{
+				"template_name": "decal_blood_old",
+				"variant_leaf_path": [
+					"floor4-old"
 				],
 				"x": 1,
 				"y": -4

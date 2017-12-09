@@ -12,6 +12,14 @@ class OrganLungs extends Component {
 	breathe(breath) {
 		let mob = this.a.c.Organ.mob;
 		if(!breath || breath.total_moles() == 0) {
+			for(let key of Object.keys(this.gas_reqs)) {
+				let reqs = this.gas_reqs[key];
+				if(reqs.min != null) {
+					let alert_name = `not_enough_${key}`;
+					if(this.a.server.templates[`alert_${alert_name}`])
+						this.a.c.Organ.mob.c.MobHud.throw_alert(alert_name, `alert_${alert_name}`);	
+				}
+			}
 			if(!mob.c.LivingMob.in_crit)
 				mob.c.LivingMob.adjust_damage("oxy", HUMAN_MAX_OXYLOSS);
 			else
@@ -33,17 +41,28 @@ class OrganLungs extends Component {
 			let partial_pressure = moles / total_moles * pressure;
 			if(reqs.min != null) {
 				let breathed = 0;
+				let alert_name = `not_enough_${key}`;
 				if(partial_pressure <= reqs.min) {
 					breathed = this.handle_gas_shortage(key, moles, partial_pressure, breath);
+					if(this.a.server.templates[`alert_${alert_name}`])
+						this.a.c.Organ.mob.c.MobHud.throw_alert(alert_name, `alert_${alert_name}`);
 				} else {
 					breathed = this.handle_enough_gas(key, moles, partial_pressure, breath);
+					this.a.c.Organ.mob.c.MobHud.clear_alert(alert_name);
 				}
 				breath.gases[key].moles -= breathed;
 				if(reqs.breath_convert)
 					breath.gases[reqs.breath_convert].moles += breathed;
 			}
-			if(reqs.max != null && partial_pressure >= reqs.max) {
-				this.handle_gas_excess(key, moles, partial_pressure, breath);
+			if(reqs.max != null) {
+				let alert_name = `too_much_${key}`;
+				if(partial_pressure >= reqs.max) {
+					this.handle_gas_excess(key, moles, partial_pressure, breath);
+					if(this.a.server.templates[`alert_${alert_name}`])
+						this.a.c.Organ.mob.c.MobHud.throw_alert(alert_name, `alert_${alert_name}`);
+				} else {
+					this.a.c.Organ.mob.c.MobHud.clear_alert(alert_name);
+				}
 			}
 		}
 	}

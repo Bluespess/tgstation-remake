@@ -23,6 +23,8 @@ server.importModule(require('./code/game/mobs/living/carbon/human/human.js'));
 server.importModule(require('./code/game/mobs/living/carbon/human/human_parts.js'));
 server.importModule(require('./code/game/mobs/living/carbon/organs/lungs.js'));
 server.importModule(require('./code/game/mobs/living/carbon/organs/organ.js'));
+server.importModule(require('./code/game/objects/cleanable/blood.js'));
+server.importModule(require('./code/game/objects/cleanable/cleanable.js'));
 server.importModule(require('./code/game/objects/doors/airlock_variants.js'));
 server.importModule(require('./code/game/objects/doors/airlock.js'));
 server.importModule(require('./code/game/objects/doors/door.js'));
