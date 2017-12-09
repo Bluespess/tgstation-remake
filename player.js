@@ -11,20 +11,20 @@ class Player extends Component {
 		this.atom.c.Mob.on("keydown", (e) => {
 			if(!e)
 				return;
-			if(e.which == 37){this.intended_walk_dir |= 8; this.last_axis = 12;}
-			if(e.which == 39){this.intended_walk_dir |= 4; this.last_axis = 12;}
-			if(e.which == 40){this.intended_walk_dir |= 2; this.last_axis = 3;}
-			if(e.which == 38){this.intended_walk_dir |= 1; this.last_axis = 3;}
+			if(e.which == 65){this.intended_walk_dir |= 8; this.last_axis = 12;}
+			if(e.which == 68){this.intended_walk_dir |= 4; this.last_axis = 12;}
+			if(e.which == 83){this.intended_walk_dir |= 2; this.last_axis = 3;}
+			if(e.which == 87){this.intended_walk_dir |= 1; this.last_axis = 3;}
 			this.update_walk();
 		});
 
 		this.atom.c.Mob.on("keyup", (e) => {
 			if(!e)
 				return;
-			if(e.which == 37){this.intended_walk_dir &= ~8;}
-			if(e.which == 39){this.intended_walk_dir &= ~4;}
-			if(e.which == 40){this.intended_walk_dir &= ~2;}
-			if(e.which == 38){this.intended_walk_dir &= ~1;}
+			if(e.which == 65){this.intended_walk_dir &= ~8;}
+			if(e.which == 68){this.intended_walk_dir &= ~4;}
+			if(e.which == 83){this.intended_walk_dir &= ~2;}
+			if(e.which == 87){this.intended_walk_dir &= ~1;}
 			this.update_walk();
 		});
 
