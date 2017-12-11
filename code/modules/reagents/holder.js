@@ -1,7 +1,7 @@
 'use strict';
 const {Component} = require('bluespess');
 
-let reagent_metas = {};
+let reagent_types = {};
 let reagent_reactions = [];
 
 class ReagentHolder extends Component {
@@ -25,11 +25,11 @@ ReagentHolder.template = {
 };
 
 function add_items(mod) {
-	if(mod.reagent_metas) {
-		for(let key of Object.keys(mod.reagent_metas)) {
-			if(reagent_metas[key])
+	if(mod.reagents) {
+		for(let key of Object.keys(mod.reagents)) {
+			if(reagent_types[key])
 				throw new Error(`Reagent meta '${key}' defined more than once!`);
-			reagent_metas[key] = mod.reagent_metas[key];
+			reagent_types[key] = mod.reagents[key];
 		}
 	}
 	if(mod.reagent_reactions) {
@@ -39,4 +39,24 @@ function add_items(mod) {
 	}
 }
 
+// Import the reagents and recipes
+add_items(require('./reagents/other.js'));
+
+// Cache the reactions for the reagents
+
+for(let reaction of reagent_reactions) {
+	let to_cache = {};
+	for(let req of Object.keys(reaction.required_reagents)) {
+		if(!to_cache[req])
+			to_cache[req] = 0;
+		to_cache[req] = Math.max(to_cache[req], reaction.required_reagents[req]);
+	}
+	for(let reagent_name of Object.keys(to_cache)) {
+		let amount = to_cache[reagent_name];
+		let reagent_type = reagent_types[reagent_name];
+		
+	}
+}
+
 module.exports.components = {ReagentHolder};
+module.exports.reagent_types = reagent_types;
