@@ -9,7 +9,7 @@ Object.assign(Reagent.prototype, {
 	description: "",
 	taste_description: "metaphorical salt",
 	taste_mult: 1,
-	glass_name: "glas off ...what?",
+	glass_name: "glass off ...what?",
 	glass_desc: "You can't really tell what this is.",
 	glass_icon_state: null,
 	shot_glass_icon_state: null,

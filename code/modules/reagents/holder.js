@@ -46,15 +46,18 @@ add_items(require('./reagents/other.js'));
 
 for(let reaction of reagent_reactions) {
 	let to_cache = {};
-	for(let req of Object.keys(reaction.required_reagents)) {
+	for(let [req, amount] of Object.entries(reaction.required_reagents)) {
 		if(!to_cache[req])
 			to_cache[req] = 0;
-		to_cache[req] = Math.max(to_cache[req], reaction.required_reagents[req]);
+		to_cache[req] = Math.max(to_cache[req], amount);
 	}
-	for(let reagent_name of Object.keys(to_cache)) {
-		let amount = to_cache[reagent_name];
+	for(let [reagent_name, amount] of Object.entries(to_cache)) {
 		let reagent_type = reagent_types[reagent_name];
-		
+		if(!reagent_type)
+			throw new Error(``);
+		if(!reagent_type.reactions)
+			reagent_type.reactions = new Map();
+		reagent_type.reactions.set(reaction, amount);
 	}
 }
 
