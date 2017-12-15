@@ -54,6 +54,7 @@ server.importModule(require('./code/modules/clothing/shoes/_shoes.js'));
 server.importModule(require('./code/modules/clothing/shoes/colour.js'));
 server.importModule(require('./code/modules/effect_system/sparks.js'));
 server.importModule(require('./code/modules/jobs/access.js'));
+server.importModule(require('./code/modules/reagents/holder.js'));
 server.importModule(require('./code/modules/smoothing/smoothing.js'));
 server.importModule(require('./code/onclick/hud.js'));
 server.importModule(require('./code/onclick/interact.js'));
