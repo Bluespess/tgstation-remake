@@ -10273,6 +10273,11 @@
 				],
 				"x": -5,
 				"y": 0
+			},
+			{
+				"template_name": "beaker",
+				"x": -5,
+				"y": 0
 			}
 		],
 		"-4,0,0": [
@@ -10286,6 +10291,11 @@
 			}
 		],
 		"-3,0,0": [
+			{
+				"template_name": "beaker_large",
+				"x": -3,
+				"y": 0
+			},
 			{
 				"template_name": "floor",
 				"variant_leaf_path": [

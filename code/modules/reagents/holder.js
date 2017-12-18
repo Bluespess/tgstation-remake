@@ -146,7 +146,7 @@ class ReagentHolder extends Component {
 		if(!has_component(target, "ReagentHolder"))
 			return 0;
 		percent = Math.min(percent, 1);
-		percent = Math.min(percent, (target.c.ReagentHolder.maximum_volume - target.c.ReagentHolder.total_volume) / (this.maximum_volume - this.total_volume));
+		percent = Math.min(percent, (this.maximum_volume - this.total_volume) / (target.c.ReagentHolder.maximum_volume - target.c.ReagentHolder.total_volume));
 		if(percent <= 0)
 			return 0;
 		let amount_transferred = 0;
@@ -157,7 +157,7 @@ class ReagentHolder extends Component {
 	}
 
 	transfer_to(target, amount) {
-		let percent = amount / this.maximum_volume;
+		let percent = amount / this.total_volume;
 		return this.transfer_percent_to(target, percent);
 	}
 
@@ -171,6 +171,16 @@ class ReagentHolder extends Component {
 			reagent[react_function](atom, {method, volume: reagent.volume * volume_modifier, show_message});
 		}
 	}
+
+	can_be_injected() {
+		return this.injectable;
+	}
+	can_be_drawn() {
+		return this.drawable;
+	}
+	can_see_reagents() {
+		return this.reagents_visible;
+	}
 }
 
 ReagentHolder.template = {
@@ -180,7 +190,9 @@ ReagentHolder.template = {
 				maximum_volume: 100,
 				temperature: 150,
 				react: true,
-				init_reagents: null
+				init_reagents: null,
+				injectable: false,
+				drawable: false,
 			}
 		}
 	}
