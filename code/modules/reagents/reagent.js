@@ -21,6 +21,8 @@ class Reagent extends EventEmitter {
 		if(reagent) {
 			amount = reagent.remove(amount);
 		}
+		if(this.holder)
+			this.holder.c.ReagentHolder.temperature = (this.holder.c.ReagentHolder.temperature * this.holder.c.ReagentHolder.total_volume + amount * temp) / (this.holder.c.ReagentHolder.total_volume + temp);
 		this.volume += amount;
 		this.emit("added", amount);
 		if(this.holder)

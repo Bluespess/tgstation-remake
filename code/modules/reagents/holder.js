@@ -14,6 +14,12 @@ class ReagentHolder extends Component {
 		this.on("added", this.added.bind(this));
 		this.on("removed", this.removed.bind(this));
 		this.on("temperature_changed", this.update_reactions.bind(this));
+
+		if(this.init_reagents) {
+			for(let [reagent, amount] of Object.entries(this.init_reagents)) {
+				this.add(reagent, amount);
+			}
+		}
 	}
 
 	add(reagent, amount, {temp} = {}) {
