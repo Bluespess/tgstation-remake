@@ -76,7 +76,7 @@ class ReagentReaction {
 			max_temp: null,
 
 			mix_message: "The solution begins to bubble.",
-			mix_sound: 'sounds/effects/bubbles.ogg'
+			mix_sound: 'sound/effects/bubbles.ogg'
 		}, obj);
 	}
 

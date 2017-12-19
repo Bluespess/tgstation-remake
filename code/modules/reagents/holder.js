@@ -215,6 +215,19 @@ function add_items(mod) {
 
 // Import the reagents and recipes
 add_items(require('./reagents/other.js'));
+add_items(require('./reagents/alcohol.js'));
+add_items(require('./reagents/blob.js'));
+add_items(require('./reagents/drink.js'));
+add_items(require('./reagents/drug.js'));
+add_items(require('./reagents/food.js'));
+add_items(require('./reagents/medicine.js'));
+add_items(require('./reagents/pyrotechnic.js'));
+add_items(require('./reagents/toxin.js'));
+add_items(require('./recipes/others.js'));
+add_items(require('./recipes/drugs.js'));
+add_items(require('./recipes/medicine.js'));
+add_items(require('./recipes/pyrotechnics.js'));
+add_items(require('./recipes/toxins.js'));
 
 // Cache the reactions for the reagents
 

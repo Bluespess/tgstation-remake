@@ -112,7 +112,7 @@ GlassBeaker.loadBefore = ["OpenReagentContainer"];
 GlassBeaker.template = {
 	vars: {
 		components: {
-			"ReagentHolder" {
+			"ReagentHolder": {
 				maximum_volume: 50
 			},
 			"Item": {
