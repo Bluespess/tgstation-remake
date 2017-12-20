@@ -22,7 +22,7 @@ class Reagent extends EventEmitter {
 			amount = reagent.remove(amount);
 		}
 		if(this.holder)
-			this.holder.c.ReagentHolder.temperature = (this.holder.c.ReagentHolder.temperature * this.holder.c.ReagentHolder.total_volume + amount * temp) / (this.holder.c.ReagentHolder.total_volume + temp);
+			this.holder.c.ReagentHolder.temperature = (this.holder.c.ReagentHolder.temperature * this.holder.c.ReagentHolder.total_volume + amount * temp) / (this.holder.c.ReagentHolder.total_volume + amount);
 		this.volume += amount;
 		this.emit("added", amount);
 		if(this.holder)
@@ -107,17 +107,25 @@ class ReagentReaction {
 			return;
 		}
 
-		let multiplier;
+		let multiplier = Infinity;
 		let single_result_volume = 0;
+		let req_volume = 0;
 		for(let v of Object.values(this.results))
 			single_result_volume += v;
-		multiplier = (container.c.ReagentHolder.maximum_volume - container.c.ReagentHolder.total_volume) / single_result_volume;
+		//multiplier = (container.c.ReagentHolder.maximum_volume - container.c.ReagentHolder.total_volume) / single_result_volume;
 		for(let [reagent, req] of Object.entries(this.required_reagents)) {
 			multiplier = Math.min(multiplier, container.c.ReagentHolder.volume_of(reagent) / req);
+			req_volume += req;
+		}
+		let dv = single_result_volume - req_volume;
+		if(dv > 0) {
+			multiplier = Math.min(multiplier, (container.c.ReagentHolder.maximum_volume - container.c.ReagentHolder.total_volume) / dv);
 		}
 		multiplier = Math.floor(multiplier);
-		if(multiplier < 1)
-			throw new Error(`Oi, wtf is going on? Multiplier is ${multiplier}. This should never happen.`);
+		if(multiplier < 1) {
+			container.c.ReagentHolder.held_reactions.add(this);
+			return;
+		}
 		for(let [reagent, req] of Object.entries(this.required_reagents)) {
 			container.c.ReagentHolder.remove(reagent, req * multiplier);
 		}
