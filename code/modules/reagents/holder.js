@@ -146,7 +146,7 @@ class ReagentHolder extends Component {
 		if(!has_component(target, "ReagentHolder"))
 			return 0;
 		percent = Math.min(percent, 1);
-		percent = Math.min(percent, (this.maximum_volume - this.total_volume) / (target.c.ReagentHolder.maximum_volume - target.c.ReagentHolder.total_volume));
+		percent = Math.min(percent, (target.c.ReagentHolder.maximum_volume - target.c.ReagentHolder.total_volume) / this.total_volume);
 		if(percent <= 0)
 			return 0;
 		let amount_transferred = 0;

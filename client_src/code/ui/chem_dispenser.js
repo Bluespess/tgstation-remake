@@ -5,9 +5,15 @@ class ChemDispenserPanel {
 		this.panel = panel;
 		this.panel.on("message", this.handle_message.bind(this));
 
+		this.dispense_list_container = document.createElement('div');
+		this.dispense_list_container.classList.add("status-display");
+		this.panel.content_obj.appendChild(this.dispense_list_container);
+
+		this.dispense_amounts = document.createElement('div');
+		this.dispense_list_container.appendChild(this.dispense_amounts);
+
 		this.dispense_list = document.createElement('div');
-		this.dispense_list.classList.add("status-display");
-		this.panel.content_obj.appendChild(this.dispense_list);
+		this.dispense_list_container.appendChild(this.dispense_list);
 
 		this.beaker_status = document.createElement('div');
 		this.beaker_status.classList.add("status-display");
@@ -31,23 +37,26 @@ class ChemDispenserPanel {
 		this.reagents_list = document.createElement('div');
 		this.reagents_list_container.appendChild(this.reagents_list);
 
-		/*var amount_elem = document.createElement('div');
-		amount_elem.appendChild(document.createTextNode('amount: '));
-		amount_elem.appendChild(this.amount_node = document.createTextNode(''));
-		this.panel.content_obj.appendChild(amount_elem);
-		this.recipes_elem = document.createElement('div');
-		this.panel.content_obj.appendChild(this.recipes_elem);*/
+		for(let amt of [1, 5, 10, 15, 20, 25, 30, 40, 50, 75, 100, 150, 300]) {
+			let button = document.createElement('div');
+			button.classList.add("button");
+			button.dataset.radioGroup = "dispense_amount";
+			button.dataset.radioValue = amt;
+			button.innerText = amt;
+			this.dispense_amounts.appendChild(button);
+		}
 	}
 
 	handle_message(message) {
 		if(message.dispensable_reagents) {
 			this.dispense_list.innerHTML = "";
-			for(let reagent of message.dispensable_reagents) {
+			message.dispensable_reagents.sort();
+			for(let [reagent, name] of message.dispensable_reagents) {
 				let button = document.createElement("div");
 				button.classList.add("button");
 				button.style.width = "125px";
 				button.style.margin = "2px 0px";
-				button.innerText = reagent;
+				button.innerText = name;
 				button.dataset.message = JSON.stringify({dispense: reagent});
 				this.dispense_list.appendChild(button);
 			}
@@ -73,11 +82,24 @@ class ChemDispenserPanel {
 		}
 		if(message.beaker !== undefined) {
 			if(message.beaker) {
+				this.beaker = Object.assign(this.beaker || {}, message.beaker);
 				this.reagents_list_container.style.display = "block";
 				this.nobeaker.style.display = "none";
 			} else {
+				this.beaker = null;
 				this.reagents_list_container.style.display = "none";
 				this.nobeaker.style.display = "block";
+			}
+		}
+		if(message.dispense_amount) {
+			if(message.dispense_amount != this.dispense_amount) {
+				this.dispense_amount = message.dispense_amount;
+				for(let child of this.dispense_amounts.childNodes) {
+					if(child.dataset.radioValue == this.dispense_amount)
+						child.classList.add("selected");
+					else
+						child.classList.remove("selected");
+				}
 			}
 		}
 	}

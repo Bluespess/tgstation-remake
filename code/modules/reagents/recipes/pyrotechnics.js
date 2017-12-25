@@ -137,19 +137,32 @@ module.exports.reagent_reactions.push(new ReagentReaction({
 	required_reagents: {"Oil": 1, "WeldingFuel": 1, "Ethanol": 1 }
 }));
 
+class TemperatureReaction extends ReagentReaction {
+	constructor(instobj) {
+		super(instobj);
+	}
+
+	react(container, multiplier) {
+		container.c.ReagentHolder.temperature += this.temp_adjust * multiplier;
+		super.react(container, multiplier);
+	}
+}
+
 module.exports.reagent_reactions.push(new ReagentReaction({
 	results: {"Cryostylane": 3},
 	required_reagents: {"Water": 1, "StablePlasma": 1, "Nitrogen": 1}
 }));
 
-module.exports.reagent_reactions.push(new ReagentReaction({
+module.exports.reagent_reactions.push(new TemperatureReaction({
 	results: {"Cryostylane": 1},
-	required_reagents: {"Cryostylane": 1, "Oxygen": 1}
+	required_reagents: {"Cryostylane": 1, "Oxygen": 1},
+	temp_adjust: -10
 }));
 
-module.exports.reagent_reactions.push(new ReagentReaction({
+module.exports.reagent_reactions.push(new TemperatureReaction({
 	results: {"Pyrosium": 1},
-	required_reagents: {"Pyrosium": 1, "Oxygen": 1}
+	required_reagents: {"Pyrosium": 1, "Oxygen": 1},
+	temp_adjust: 10
 }));
 
 module.exports.reagent_reactions.push(new ReagentReaction({
@@ -184,4 +197,3 @@ module.exports.reagent_reactions.push(new ReagentReaction({
 	min_temp: 575,
 	modifier: 1
 }));
-

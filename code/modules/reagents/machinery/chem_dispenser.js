@@ -1,7 +1,9 @@
 'use strict';
 const {Component, chain_func, has_component, to_chat, Panel} = require('bluespess');
+const {reagent_types} = require('../holder.js');
 
 const _beaker = Symbol('_beaker');
+const _dispense_amount = Symbol('_dispense_amount');
 
 class ChemDispenser extends Component {
 	constructor(atom, template) {
@@ -32,7 +34,7 @@ class ChemDispenser extends Component {
 		if(user.c.Mob.get_panel(this.a, ChemDispenserPanel) || !user.c.Mob.can_read_panel(this.a, ChemDispenserPanel)) {
 			return prev();
 		}
-		var panel = new ChemDispenserPanel(user.c.Mob.client, {title: `${this.a.name}`});
+		var panel = new ChemDispenserPanel(user.c.Mob.client, {title: `${this.a.name}`, width:600, height:600});
 		user.c.Mob.bind_panel(this.a, panel);
 		panel.open();
 	}
@@ -55,6 +57,17 @@ class ChemDispenser extends Component {
 			old.loc = this.a.base_mover.fine_loc;
 	}
 
+	get dispense_amount() {
+		return this[_dispense_amount];
+	}
+	set dispense_amount(val) {
+		let old = this[_dispense_amount];
+		if(old == val)
+			return;
+		this[_dispense_amount] = val;
+		this.emit("dispense_amount_changed", old, val);
+	}
+
 	exited(e) {
 		if(e.atom == this.beaker)
 			this.beaker = null;
@@ -68,7 +81,7 @@ ChemDispenser.template = {
 	vars: {
 		components: {
 			"ChemDispenser": {
-				amount: 30,
+				dispense_amount: 30,
 				dispensable_reagents: [
 					"Hydrogen", "Lithium", "Carbon", "Nitrogen", "Oxygen", "Fluorine",
 					"Sodium", "Aluminium", "Silicon", "Phosphorus", "Sulfur","Chlorine",
@@ -104,6 +117,7 @@ class ChemDispenserPanel extends Panel {
 
 		this.beaker_changed = this.beaker_changed.bind(this);
 		this.reagent_changed = this.reagents_changed.bind(this);
+		this.dispense_amount_changed = this.dispense_amount_changed.bind(this);
 	}
 
 	beaker_changed(old_beaker, new_beaker) {
@@ -131,17 +145,31 @@ class ChemDispenserPanel extends Panel {
 		this.send_message({reagents: {[reagent.constructor.name]: reagent.volume}});
 	}
 
-	opened() {
+	dispense_amount_changed(old, val) {
+		this.send_message({dispense_amount: val});
+	}
 
-		this.send_message({dispensable_reagents: this.bound_atom.c.ChemDispenser.dispensable_reagents});
+	opened() {
+		this.send_dispensable();
 		this.bound_atom.c.ChemDispenser.on("beaker_changed", this.beaker_changed);
+		this.bound_atom.c.ChemDispenser.on("dispense_amount_changed", this.dispense_amount_changed);
+		this.dispense_amount_changed(null, this.bound_atom.c.ChemDispenser.dispense_amount);
 		if(this.bound_atom.c.ChemDispenser.beaker) {
 			this.beaker_changed(null, this.bound_atom.c.ChemDispenser.beaker);
 		}
 	}
 
+	send_dispensable() {
+		let d = [];
+		for(let item of this.bound_atom.c.ChemDispenser.dispensable_reagents) {
+			d.push([item, reagent_types[item].prototype.name]);
+		}
+		this.send_message({dispensable_reagents: d});
+	}
+
 	closed() {
 		this.bound_atom.c.ChemDispenser.removeListener("beaker_changed", this.beaker_changed);
+		this.bound_atom.c.ChemDispenser.removeListener("dispense_amount_changed", this.dispense_amount_changed);
 		if(this.bound_atom.c.ChemDispenser.beaker) {
 			let beaker = this.bound_atom.c.ChemDispenser.beaker;
 			beaker.c.ReagentHolder.removeListener("added", this.reagent_changed);
@@ -151,10 +179,18 @@ class ChemDispenserPanel extends Panel {
 
 	message_handler(msg) {
 		if(msg.dispense != null && this.bound_atom.c.ChemDispenser.dispensable_reagents.includes(msg.dispense) && this.bound_atom.c.ChemDispenser.beaker) {
-			this.bound_atom.c.ChemDispenser.beaker.c.ReagentHolder.add(msg.dispense, this.bound_atom.c.ChemDispenser.amount);
+			this.bound_atom.c.ChemDispenser.beaker.c.ReagentHolder.add(msg.dispense, this.bound_atom.c.ChemDispenser.dispense_amount);
 		}
 		if(msg.eject) {
 			this.bound_atom.c.ChemDispenser.beaker = null;
+		}
+		if(msg.dispense_amount) {
+			let da = msg.dispense_amount;
+			if(da % 5 != 0 && da != 1)
+				return;
+			if(da < 1)
+				return;
+			this.bound_atom.c.ChemDispenser.dispense_amount = da;
 		}
 	}
 }
