@@ -1,5 +1,6 @@
 'use strict';
 
+const {has_component} = require('bluespess');
 const {Reagent} = require('../reagent.js');
 const {Synaptizine, Omnizine} = require('./medicine.js').reagents;
 module.exports.reagents = {};
@@ -481,7 +482,13 @@ Object.assign(Radium.prototype, {
 	taste_description: "the colour blue and regret"
 });
 
-class SpaceCleaner extends Reagent {} // /datum/reagent/space_cleaner
+class SpaceCleaner extends Reagent {
+	reaction_obj(atom) {
+		if(has_component(atom, "CleanableDecal")) {
+			atom.destroy();
+		}
+	}
+} // /datum/reagent/space_cleaner
 module.exports.reagents.SpaceCleaner = SpaceCleaner;
 Object.assign(SpaceCleaner.prototype, {
 	name: "Space cleaner",

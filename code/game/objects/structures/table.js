@@ -57,7 +57,7 @@ Table.template = {
 		name: "table",
 		icon: 'icons/obj/smooth_structures/table.png',
 		icon_state: "table",
-		let_pass_flags: pass_flags.LETPASSTHROW & pass_flags.PASSTABLE,
+		let_pass_flags: pass_flags.LETPASSTHROW | pass_flags.PASSTABLE,
 		layer: layers.TABLE_LAYER,
 		density: 1
 	}

@@ -11106,16 +11106,16 @@
 		],
 		"-6,1,0": [
 			{
-				"template_name": "chem_dispenser",
-				"x": -6,
-				"y": 1
-			},
-			{
 				"template_name": "floor_edge",
 				"variant_leaf_path": [
 					"red",
 					6
 				],
+				"x": -6,
+				"y": 1
+			},
+			{
+				"template_name": "chem_dispenser",
 				"x": -6,
 				"y": 1
 			}
@@ -11182,6 +11182,11 @@
 			}
 		],
 		"0,1,0": [
+			{
+				"template_name": "spray_spacecleaner",
+				"x": 0,
+				"y": 1
+			},
 			{
 				"template_name": "floor",
 				"variant_leaf_path": [
@@ -11753,7 +11758,7 @@
 				"y": 2
 			},
 			{
-				"template_name": "stack_rods",
+				"template_name": "glass_sheet",
 				"variant_leaf_path": [
 					50
 				],
@@ -11761,7 +11766,7 @@
 				"y": 2
 			},
 			{
-				"template_name": "glass_sheet",
+				"template_name": "stack_rods",
 				"variant_leaf_path": [
 					50
 				],

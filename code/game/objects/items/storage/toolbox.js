@@ -63,6 +63,7 @@ module.exports.templates = {
 					populate_contents() {
 						new Atom(this.a.server, "screwdriver", this.a);
 						new Atom(this.a.server, "wrench", this.a);
+						new Atom(this.a.server, "welding_tool", this.a);
 						new Atom(this.a.server, "crowbar", this.a);
 						new Atom(this.a.server, "wirecutters", this.a);
 					}

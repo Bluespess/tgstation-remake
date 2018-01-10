@@ -76,31 +76,7 @@ class GlassBeaker extends Component {
 			this.a.overlays.reagent_filling = {icon_state: "[parent]100"};
 		}
 		this.a.overlays.reagent_filling.icon = 'icons/obj/reagentfillings.png';
-		let r = 0;
-		let g = 0;
-		let b = 0;
-		let total = 0;
-		let a = 0;
-		let atotal = 0;
-		for(let reagent of this.a.c.ReagentHolder.reagents.values()) {
-			let rr = reagent.color[0];
-			let rg = reagent.color[1];
-			let rb = reagent.color[2];
-			let ra = reagent.color[3];
-			if(ra == null)
-				ra = 1;
-			let m = ra * reagent.volume;
-			r += rr * m;
-			g += rg * m;
-			b += rb * m;
-			a += ra * reagent.volume;
-			total += m;
-			atotal += reagent.volume;
-		}
-		r /= total;
-		g /= total;
-		b /= total;
-		a /= atotal;
+		let [r,g,b,a] = this.a.c.ReagentHolder.get_reagents_color();
 		this.a.overlays.reagent_filling.color = `rgb(${Math.round(r * 255)}, ${Math.round(g * 255)}, ${Math.round(b * 255)})`;
 		this.a.overlays.reagent_filling.alpha = a;
 	}

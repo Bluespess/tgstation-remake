@@ -45,6 +45,23 @@ class Window extends Component {
 
 	attack_by(prev, item, user) {
 		if(has_component(item, "Tool")) {
+			if(item.c.Tool.can_use("WeldingTool")) {
+				if(this.a.c.Destructible.obj_integrity >= this.a.c.Destructible.max_integrity) {
+					to_chat`<span class='warning'>The ${this.a} is already in good condition!</span>`(user);
+					return true;
+				}
+				item.c.Tool.used("WeldingTool");
+				to_chat`<span class='notice'>You begin repairing the ${this.a}</span>`(user);
+				user.c.MobInventory.do_after({delay: 4000 * item.c.Tool.toolspeed, target: this.a}).then((success) => {
+					if(!success)
+						return;
+					new Sound(this.a.server, {path: 'sound/items/Welder2.ogg', volume: 0.5, vary: true}).emit_from(this.a);
+					this.a.c.Destructible.obj_integrity = this.a.c.Destructible.max_integrity;
+					this.update_damage_overlay();
+					to_chat`<span class='notice'>You repair the ${this.a}</span>`(user);
+				});
+				return true;
+			}
 			if(this.state == "screwed_to_floor") {
 				if(item.c.Tool.can_use("Screwdriver", user)) {
 					item.c.Tool.used("Screwdriver");

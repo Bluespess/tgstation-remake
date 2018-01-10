@@ -1,5 +1,5 @@
 'use strict';
-const {Component, has_component} = require('bluespess');
+const {Component, has_component, to_chat, chain_func} = require('bluespess');
 
 const _temperature = Symbol('_temperature');
 
@@ -19,6 +19,10 @@ class ReagentHolder extends Component {
 			for(let [reagent, amount] of Object.entries(this.init_reagents)) {
 				this.add(reagent, amount);
 			}
+		}
+
+		if(has_component(this.a, "Examine")) {
+			this.a.c.Examine.examine = chain_func(this.a.c.Examine.examine, this.examine.bind(this));
 		}
 	}
 
@@ -178,10 +182,48 @@ class ReagentHolder extends Component {
 	can_be_drawn() {
 		return this.drawable;
 	}
-	can_see_reagents() {
+	can_see_reagents() { // Whether or not the contents of this container are visible. Not if the individual reagents can be identified.
 		return this.reagents_visible;
 	}
+	examine(prev, user) {
+		prev();
+		if(this.can_see_reagents(user)) {
+			to_chat`It contains:`(user);
+			to_chat`${this.total_volume} units of various reagents`(user);
+		}
+	}
+
+	get_reagents_color() {
+		let r = 0;
+		let g = 0;
+		let b = 0;
+		let total = 0;
+		let a = 0;
+		let atotal = 0;
+		for(let reagent of this.a.c.ReagentHolder.reagents.values()) {
+			let rr = reagent.color[0];
+			let rg = reagent.color[1];
+			let rb = reagent.color[2];
+			let ra = reagent.color[3];
+			if(ra == null)
+				ra = 1;
+			let m = ra * reagent.volume;
+			r += rr * m;
+			g += rg * m;
+			b += rb * m;
+			a += ra * reagent.volume;
+			total += m;
+			atotal += reagent.volume;
+		}
+		r /= total;
+		g /= total;
+		b /= total;
+		a /= atotal;
+		return [r,g,b,a];
+	}
 }
+
+ReagentHolder.loadBefore = ["Examine"];
 
 ReagentHolder.template = {
 	vars: {
@@ -193,6 +235,7 @@ ReagentHolder.template = {
 				init_reagents: null,
 				injectable: false,
 				drawable: false,
+				reagents_visible: true
 			}
 		}
 	}
