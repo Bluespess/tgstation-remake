@@ -1,6 +1,6 @@
 'use strict';
-
 const {Component} = require('bluespess');
+const layers = require('../../defines/layers.js');
 
 class Plating extends Component {
 	constructor(atom, template) {
@@ -16,7 +16,8 @@ Plating.template = {
 	vars: {
 		name: "plating",
 		icon: 'icons/turf/floors.png',
-		icon_state: "plating"
+		icon_state: "plating",
+		layer: layers.TURF_LAYER
 	}
 };
 
