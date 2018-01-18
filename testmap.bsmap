@@ -2,12 +2,22 @@
 	"locs": {
 		"14,-26,0": [
 			{
+				"template_name": "plating",
+				"x": 14,
+				"y": -26
+			},
+			{
 				"template_name": "wall",
 				"x": 14,
 				"y": -26
 			}
 		],
 		"15,-26,0": [
+			{
+				"template_name": "plating",
+				"x": 15,
+				"y": -26
+			},
 			{
 				"template_name": "wall",
 				"x": 15,
@@ -16,12 +26,22 @@
 		],
 		"16,-26,0": [
 			{
+				"template_name": "plating",
+				"x": 16,
+				"y": -26
+			},
+			{
 				"template_name": "wall",
 				"x": 16,
 				"y": -26
 			}
 		],
 		"17,-26,0": [
+			{
+				"template_name": "plating",
+				"x": 17,
+				"y": -26
+			},
 			{
 				"template_name": "wall",
 				"x": 17,
@@ -30,12 +50,22 @@
 		],
 		"18,-26,0": [
 			{
+				"template_name": "plating",
+				"x": 18,
+				"y": -26
+			},
+			{
 				"template_name": "wall",
 				"x": 18,
 				"y": -26
 			}
 		],
 		"-18,-25,0": [
+			{
+				"template_name": "plating",
+				"x": -18,
+				"y": -25
+			},
 			{
 				"template_name": "wall",
 				"x": -18,
@@ -56,12 +86,22 @@
 		],
 		"-16,-25,0": [
 			{
+				"template_name": "plating",
+				"x": -16,
+				"y": -25
+			},
+			{
 				"template_name": "wall",
 				"x": -16,
 				"y": -25
 			}
 		],
 		"-15,-25,0": [
+			{
+				"template_name": "plating",
+				"x": -15,
+				"y": -25
+			},
 			{
 				"template_name": "wall",
 				"x": -15,
@@ -70,12 +110,22 @@
 		],
 		"-14,-25,0": [
 			{
+				"template_name": "plating",
+				"x": -14,
+				"y": -25
+			},
+			{
 				"template_name": "wall",
 				"x": -14,
 				"y": -25
 			}
 		],
 		"-13,-25,0": [
+			{
+				"template_name": "plating",
+				"x": -13,
+				"y": -25
+			},
 			{
 				"template_name": "wall",
 				"x": -13,
@@ -84,12 +134,22 @@
 		],
 		"-12,-25,0": [
 			{
+				"template_name": "plating",
+				"x": -12,
+				"y": -25
+			},
+			{
 				"template_name": "wall",
 				"x": -12,
 				"y": -25
 			}
 		],
 		"-11,-25,0": [
+			{
+				"template_name": "plating",
+				"x": -11,
+				"y": -25
+			},
 			{
 				"template_name": "wall",
 				"x": -11,
@@ -98,12 +158,22 @@
 		],
 		"-10,-25,0": [
 			{
+				"template_name": "plating",
+				"x": -10,
+				"y": -25
+			},
+			{
 				"template_name": "wall",
 				"x": -10,
 				"y": -25
 			}
 		],
 		"-9,-25,0": [
+			{
+				"template_name": "plating",
+				"x": -9,
+				"y": -25
+			},
 			{
 				"template_name": "wall",
 				"x": -9,
@@ -112,12 +182,22 @@
 		],
 		"-8,-25,0": [
 			{
+				"template_name": "plating",
+				"x": -8,
+				"y": -25
+			},
+			{
 				"template_name": "wall",
 				"x": -8,
 				"y": -25
 			}
 		],
 		"-7,-25,0": [
+			{
+				"template_name": "plating",
+				"x": -7,
+				"y": -25
+			},
 			{
 				"template_name": "wall",
 				"x": -7,
@@ -126,12 +206,22 @@
 		],
 		"-6,-25,0": [
 			{
+				"template_name": "plating",
+				"x": -6,
+				"y": -25
+			},
+			{
 				"template_name": "wall",
 				"x": -6,
 				"y": -25
 			}
 		],
 		"-5,-25,0": [
+			{
+				"template_name": "plating",
+				"x": -5,
+				"y": -25
+			},
 			{
 				"template_name": "wall",
 				"x": -5,
@@ -140,6 +230,11 @@
 		],
 		"-4,-25,0": [
 			{
+				"template_name": "plating",
+				"x": -4,
+				"y": -25
+			},
+			{
 				"template_name": "wall",
 				"x": -4,
 				"y": -25
@@ -147,12 +242,22 @@
 		],
 		"-3,-25,0": [
 			{
+				"template_name": "plating",
+				"x": -3,
+				"y": -25
+			},
+			{
 				"template_name": "wall",
 				"x": -3,
 				"y": -25
 			}
 		],
 		"-2,-25,0": [
+			{
+				"template_name": "plating",
+				"x": -2,
+				"y": -25
+			},
 			{
 				"template_name": "wall",
 				"x": -2,
@@ -206,12 +311,22 @@
 		],
 		"2,-25,0": [
 			{
+				"template_name": "plating",
+				"x": 2,
+				"y": -25
+			},
+			{
 				"template_name": "wall",
 				"x": 2,
 				"y": -25
 			}
 		],
 		"3,-25,0": [
+			{
+				"template_name": "plating",
+				"x": 3,
+				"y": -25
+			},
 			{
 				"template_name": "wall",
 				"x": 3,
@@ -220,6 +335,11 @@
 		],
 		"4,-25,0": [
 			{
+				"template_name": "plating",
+				"x": 4,
+				"y": -25
+			},
+			{
 				"template_name": "wall",
 				"x": 4,
 				"y": -25
@@ -227,12 +347,22 @@
 		],
 		"5,-25,0": [
 			{
+				"template_name": "plating",
+				"x": 5,
+				"y": -25
+			},
+			{
 				"template_name": "wall",
 				"x": 5,
 				"y": -25
 			}
 		],
 		"6,-25,0": [
+			{
+				"template_name": "plating",
+				"x": 6,
+				"y": -25
+			},
 			{
 				"template_name": "wall",
 				"x": 6,
@@ -256,12 +386,22 @@
 		],
 		"8,-25,0": [
 			{
+				"template_name": "plating",
+				"x": 8,
+				"y": -25
+			},
+			{
 				"template_name": "wall",
 				"x": 8,
 				"y": -25
 			}
 		],
 		"9,-25,0": [
+			{
+				"template_name": "plating",
+				"x": 9,
+				"y": -25
+			},
 			{
 				"template_name": "wall",
 				"x": 9,
@@ -270,6 +410,11 @@
 		],
 		"10,-25,0": [
 			{
+				"template_name": "plating",
+				"x": 10,
+				"y": -25
+			},
+			{
 				"template_name": "wall",
 				"x": 10,
 				"y": -25
@@ -277,12 +422,22 @@
 		],
 		"11,-25,0": [
 			{
+				"template_name": "plating",
+				"x": 11,
+				"y": -25
+			},
+			{
 				"template_name": "wall",
 				"x": 11,
 				"y": -25
 			}
 		],
 		"12,-25,0": [
+			{
+				"template_name": "plating",
+				"x": 12,
+				"y": -25
+			},
 			{
 				"template_name": "wall",
 				"x": 12,
@@ -302,6 +457,11 @@
 			}
 		],
 		"14,-25,0": [
+			{
+				"template_name": "plating",
+				"x": 14,
+				"y": -25
+			},
 			{
 				"template_name": "wall",
 				"x": 14,
@@ -340,12 +500,22 @@
 		],
 		"18,-25,0": [
 			{
+				"template_name": "plating",
+				"x": 18,
+				"y": -25
+			},
+			{
 				"template_name": "wall",
 				"x": 18,
 				"y": -25
 			}
 		],
 		"-18,-24,0": [
+			{
+				"template_name": "plating",
+				"x": -18,
+				"y": -24
+			},
 			{
 				"template_name": "wall",
 				"x": -18,
@@ -729,12 +899,22 @@
 		],
 		"18,-24,0": [
 			{
+				"template_name": "plating",
+				"x": 18,
+				"y": -24
+			},
+			{
 				"template_name": "wall",
 				"x": 18,
 				"y": -24
 			}
 		],
 		"-18,-23,0": [
+			{
+				"template_name": "plating",
+				"x": -18,
+				"y": -23
+			},
 			{
 				"template_name": "wall",
 				"x": -18,
@@ -1094,12 +1274,22 @@
 		],
 		"18,-23,0": [
 			{
+				"template_name": "plating",
+				"x": 18,
+				"y": -23
+			},
+			{
 				"template_name": "wall",
 				"x": 18,
 				"y": -23
 			}
 		],
 		"-18,-22,0": [
+			{
+				"template_name": "plating",
+				"x": -18,
+				"y": -22
+			},
 			{
 				"template_name": "wall",
 				"x": -18,
@@ -1478,12 +1668,22 @@
 		],
 		"18,-22,0": [
 			{
+				"template_name": "plating",
+				"x": 18,
+				"y": -22
+			},
+			{
 				"template_name": "wall",
 				"x": 18,
 				"y": -22
 			}
 		],
 		"-18,-21,0": [
+			{
+				"template_name": "plating",
+				"x": -18,
+				"y": -21
+			},
 			{
 				"template_name": "wall",
 				"x": -18,
@@ -1532,12 +1732,22 @@
 		],
 		"-14,-21,0": [
 			{
+				"template_name": "plating",
+				"x": -14,
+				"y": -21
+			},
+			{
 				"template_name": "wall",
 				"x": -14,
 				"y": -21
 			}
 		],
 		"-13,-21,0": [
+			{
+				"template_name": "plating",
+				"x": -13,
+				"y": -21
+			},
 			{
 				"template_name": "wall",
 				"x": -13,
@@ -1546,12 +1756,22 @@
 		],
 		"-12,-21,0": [
 			{
+				"template_name": "plating",
+				"x": -12,
+				"y": -21
+			},
+			{
 				"template_name": "r-wall",
 				"x": -12,
 				"y": -21
 			}
 		],
 		"-11,-21,0": [
+			{
+				"template_name": "plating",
+				"x": -11,
+				"y": -21
+			},
 			{
 				"template_name": "r-wall",
 				"x": -11,
@@ -1560,6 +1780,11 @@
 		],
 		"-10,-21,0": [
 			{
+				"template_name": "plating",
+				"x": -10,
+				"y": -21
+			},
+			{
 				"template_name": "r-wall",
 				"x": -10,
 				"y": -21
@@ -1567,12 +1792,22 @@
 		],
 		"-9,-21,0": [
 			{
+				"template_name": "plating",
+				"x": -9,
+				"y": -21
+			},
+			{
 				"template_name": "r-wall",
 				"x": -9,
 				"y": -21
 			}
 		],
 		"-8,-21,0": [
+			{
+				"template_name": "plating",
+				"x": -8,
+				"y": -21
+			},
 			{
 				"template_name": "r-wall",
 				"x": -8,
@@ -1595,6 +1830,11 @@
 			}
 		],
 		"-6,-21,0": [
+			{
+				"template_name": "plating",
+				"x": -6,
+				"y": -21
+			},
 			{
 				"template_name": "r-wall",
 				"x": -6,
@@ -1654,12 +1894,22 @@
 		],
 		"-2,-21,0": [
 			{
+				"template_name": "plating",
+				"x": -2,
+				"y": -21
+			},
+			{
 				"template_name": "wall",
 				"x": -2,
 				"y": -21
 			}
 		],
 		"-1,-21,0": [
+			{
+				"template_name": "plating",
+				"x": -1,
+				"y": -21
+			},
 			{
 				"template_name": "wall",
 				"x": -1,
@@ -1683,12 +1933,22 @@
 		],
 		"1,-21,0": [
 			{
+				"template_name": "plating",
+				"x": 1,
+				"y": -21
+			},
+			{
 				"template_name": "wall",
 				"x": 1,
 				"y": -21
 			}
 		],
 		"2,-21,0": [
+			{
+				"template_name": "plating",
+				"x": 2,
+				"y": -21
+			},
 			{
 				"template_name": "wall",
 				"x": 2,
@@ -1748,12 +2008,22 @@
 		],
 		"6,-21,0": [
 			{
+				"template_name": "plating",
+				"x": 6,
+				"y": -21
+			},
+			{
 				"template_name": "r-wall",
 				"x": 6,
 				"y": -21
 			}
 		],
 		"7,-21,0": [
+			{
+				"template_name": "plating",
+				"x": 7,
+				"y": -21
+			},
 			{
 				"template_name": "r-wall",
 				"x": 7,
@@ -1762,12 +2032,22 @@
 		],
 		"8,-21,0": [
 			{
+				"template_name": "plating",
+				"x": 8,
+				"y": -21
+			},
+			{
 				"template_name": "r-wall",
 				"x": 8,
 				"y": -21
 			}
 		],
 		"9,-21,0": [
+			{
+				"template_name": "plating",
+				"x": 9,
+				"y": -21
+			},
 			{
 				"template_name": "r-wall",
 				"x": 9,
@@ -1776,12 +2056,22 @@
 		],
 		"10,-21,0": [
 			{
+				"template_name": "plating",
+				"x": 10,
+				"y": -21
+			},
+			{
 				"template_name": "r-wall",
 				"x": 10,
 				"y": -21
 			}
 		],
 		"11,-21,0": [
+			{
+				"template_name": "plating",
+				"x": 11,
+				"y": -21
+			},
 			{
 				"template_name": "r-wall",
 				"x": 11,
@@ -1790,6 +2080,11 @@
 		],
 		"12,-21,0": [
 			{
+				"template_name": "plating",
+				"x": 12,
+				"y": -21
+			},
+			{
 				"template_name": "r-wall",
 				"x": 12,
 				"y": -21
@@ -1797,12 +2092,22 @@
 		],
 		"13,-21,0": [
 			{
+				"template_name": "plating",
+				"x": 13,
+				"y": -21
+			},
+			{
 				"template_name": "r-wall",
 				"x": 13,
 				"y": -21
 			}
 		],
 		"14,-21,0": [
+			{
+				"template_name": "plating",
+				"x": 14,
+				"y": -21
+			},
 			{
 				"template_name": "r-wall",
 				"x": 14,
@@ -1841,12 +2146,22 @@
 		],
 		"18,-21,0": [
 			{
+				"template_name": "plating",
+				"x": 18,
+				"y": -21
+			},
+			{
 				"template_name": "wall",
 				"x": 18,
 				"y": -21
 			}
 		],
 		"-18,-20,0": [
+			{
+				"template_name": "plating",
+				"x": -18,
+				"y": -20
+			},
 			{
 				"template_name": "wall",
 				"x": -18,
@@ -1906,6 +2221,11 @@
 			}
 		],
 		"-12,-20,0": [
+			{
+				"template_name": "plating",
+				"x": -12,
+				"y": -20
+			},
 			{
 				"template_name": "r-wall",
 				"x": -12,
@@ -1969,12 +2289,22 @@
 		],
 		"-6,-20,0": [
 			{
+				"template_name": "plating",
+				"x": -6,
+				"y": -20
+			},
+			{
 				"template_name": "r-wall",
 				"x": -6,
 				"y": -20
 			}
 		],
 		"-2,-20,0": [
+			{
+				"template_name": "plating",
+				"x": -2,
+				"y": -20
+			},
 			{
 				"template_name": "wall",
 				"x": -2,
@@ -2013,12 +2343,22 @@
 		],
 		"2,-20,0": [
 			{
+				"template_name": "plating",
+				"x": 2,
+				"y": -20
+			},
+			{
 				"template_name": "wall",
 				"x": 2,
 				"y": -20
 			}
 		],
 		"6,-20,0": [
+			{
+				"template_name": "plating",
+				"x": 6,
+				"y": -20
+			},
 			{
 				"template_name": "wall",
 				"x": 6,
@@ -2085,6 +2425,11 @@
 		],
 		"14,-20,0": [
 			{
+				"template_name": "plating",
+				"x": 14,
+				"y": -20
+			},
+			{
 				"template_name": "r-wall",
 				"x": 14,
 				"y": -20
@@ -2121,6 +2466,11 @@
 			}
 		],
 		"18,-20,0": [
+			{
+				"template_name": "plating",
+				"x": 18,
+				"y": -20
+			},
 			{
 				"template_name": "wall",
 				"x": 18,
@@ -2205,6 +2555,11 @@
 		],
 		"-12,-19,0": [
 			{
+				"template_name": "plating",
+				"x": -12,
+				"y": -19
+			},
+			{
 				"template_name": "r-wall",
 				"x": -12,
 				"y": -19
@@ -2267,12 +2622,22 @@
 		],
 		"-6,-19,0": [
 			{
+				"template_name": "plating",
+				"x": -6,
+				"y": -19
+			},
+			{
 				"template_name": "r-wall",
 				"x": -6,
 				"y": -19
 			}
 		],
 		"-2,-19,0": [
+			{
+				"template_name": "plating",
+				"x": -2,
+				"y": -19
+			},
 			{
 				"template_name": "wall",
 				"x": -2,
@@ -2319,12 +2684,22 @@
 		],
 		"2,-19,0": [
 			{
+				"template_name": "plating",
+				"x": 2,
+				"y": -19
+			},
+			{
 				"template_name": "wall",
 				"x": 2,
 				"y": -19
 			}
 		],
 		"6,-19,0": [
+			{
+				"template_name": "plating",
+				"x": 6,
+				"y": -19
+			},
 			{
 				"template_name": "wall",
 				"x": 6,
@@ -2403,6 +2778,11 @@
 		],
 		"14,-19,0": [
 			{
+				"template_name": "plating",
+				"x": 14,
+				"y": -19
+			},
+			{
 				"template_name": "r-wall",
 				"x": 14,
 				"y": -19
@@ -2440,6 +2820,11 @@
 			}
 		],
 		"18,-19,0": [
+			{
+				"template_name": "plating",
+				"x": 18,
+				"y": -19
+			},
 			{
 				"template_name": "wall",
 				"x": 18,
@@ -2523,6 +2908,11 @@
 		],
 		"-12,-18,0": [
 			{
+				"template_name": "plating",
+				"x": -12,
+				"y": -18
+			},
+			{
 				"template_name": "r-wall",
 				"x": -12,
 				"y": -18
@@ -2598,6 +2988,11 @@
 		],
 		"-6,-18,0": [
 			{
+				"template_name": "plating",
+				"x": -6,
+				"y": -18
+			},
+			{
 				"template_name": "r-wall",
 				"x": -6,
 				"y": -18
@@ -2605,12 +3000,22 @@
 		],
 		"-2,-18,0": [
 			{
+				"template_name": "plating",
+				"x": -2,
+				"y": -18
+			},
+			{
 				"template_name": "r-wall",
 				"x": -2,
 				"y": -18
 			}
 		],
 		"-1,-18,0": [
+			{
+				"template_name": "plating",
+				"x": -1,
+				"y": -18
+			},
 			{
 				"template_name": "r-wall",
 				"x": -1,
@@ -2634,6 +3039,11 @@
 		],
 		"1,-18,0": [
 			{
+				"template_name": "plating",
+				"x": 1,
+				"y": -18
+			},
+			{
 				"template_name": "r-wall",
 				"x": 1,
 				"y": -18
@@ -2641,12 +3051,22 @@
 		],
 		"2,-18,0": [
 			{
+				"template_name": "plating",
+				"x": 2,
+				"y": -18
+			},
+			{
 				"template_name": "r-wall",
 				"x": 2,
 				"y": -18
 			}
 		],
 		"6,-18,0": [
+			{
+				"template_name": "plating",
+				"x": 6,
+				"y": -18
+			},
 			{
 				"template_name": "wall",
 				"x": 6,
@@ -2920,6 +3340,11 @@
 		],
 		"-6,-17,0": [
 			{
+				"template_name": "plating",
+				"x": -6,
+				"y": -17
+			},
+			{
 				"template_name": "r-wall",
 				"x": -6,
 				"y": -17
@@ -2927,12 +3352,22 @@
 		],
 		"-3,-17,0": [
 			{
+				"template_name": "plating",
+				"x": -3,
+				"y": -17
+			},
+			{
 				"template_name": "r-wall",
 				"x": -3,
 				"y": -17
 			}
 		],
 		"-2,-17,0": [
+			{
+				"template_name": "plating",
+				"x": -2,
+				"y": -17
+			},
 			{
 				"template_name": "r-wall",
 				"x": -2,
@@ -2971,6 +3406,11 @@
 		],
 		"2,-17,0": [
 			{
+				"template_name": "plating",
+				"x": 2,
+				"y": -17
+			},
+			{
 				"template_name": "r-wall",
 				"x": 2,
 				"y": -17
@@ -2978,12 +3418,22 @@
 		],
 		"3,-17,0": [
 			{
+				"template_name": "plating",
+				"x": 3,
+				"y": -17
+			},
+			{
 				"template_name": "r-wall",
 				"x": 3,
 				"y": -17
 			}
 		],
 		"6,-17,0": [
+			{
+				"template_name": "plating",
+				"x": 6,
+				"y": -17
+			},
 			{
 				"template_name": "wall",
 				"x": 6,
@@ -3079,6 +3529,11 @@
 			}
 		],
 		"14,-17,0": [
+			{
+				"template_name": "plating",
+				"x": 14,
+				"y": -17
+			},
 			{
 				"template_name": "r-wall",
 				"x": 14,
@@ -3266,12 +3721,22 @@
 		],
 		"-6,-16,0": [
 			{
+				"template_name": "plating",
+				"x": -6,
+				"y": -16
+			},
+			{
 				"template_name": "r-wall",
 				"x": -6,
 				"y": -16
 			}
 		],
 		"-3,-16,0": [
+			{
+				"template_name": "plating",
+				"x": -3,
+				"y": -16
+			},
 			{
 				"template_name": "r-wall",
 				"x": -3,
@@ -3335,12 +3800,22 @@
 		],
 		"3,-16,0": [
 			{
+				"template_name": "plating",
+				"x": 3,
+				"y": -16
+			},
+			{
 				"template_name": "r-wall",
 				"x": 3,
 				"y": -16
 			}
 		],
 		"6,-16,0": [
+			{
+				"template_name": "plating",
+				"x": 6,
+				"y": -16
+			},
 			{
 				"template_name": "r-wall",
 				"x": 6,
@@ -3349,12 +3824,22 @@
 		],
 		"7,-16,0": [
 			{
+				"template_name": "plating",
+				"x": 7,
+				"y": -16
+			},
+			{
 				"template_name": "r-wall",
 				"x": 7,
 				"y": -16
 			}
 		],
 		"8,-16,0": [
+			{
+				"template_name": "plating",
+				"x": 8,
+				"y": -16
+			},
 			{
 				"template_name": "r-wall",
 				"x": 8,
@@ -3363,12 +3848,22 @@
 		],
 		"9,-16,0": [
 			{
+				"template_name": "plating",
+				"x": 9,
+				"y": -16
+			},
+			{
 				"template_name": "r-wall",
 				"x": 9,
 				"y": -16
 			}
 		],
 		"10,-16,0": [
+			{
+				"template_name": "plating",
+				"x": 10,
+				"y": -16
+			},
 			{
 				"template_name": "r-wall",
 				"x": 10,
@@ -3377,12 +3872,22 @@
 		],
 		"11,-16,0": [
 			{
+				"template_name": "plating",
+				"x": 11,
+				"y": -16
+			},
+			{
 				"template_name": "r-wall",
 				"x": 11,
 				"y": -16
 			}
 		],
 		"12,-16,0": [
+			{
+				"template_name": "plating",
+				"x": 12,
+				"y": -16
+			},
 			{
 				"template_name": "r-wall",
 				"x": 12,
@@ -3402,6 +3907,11 @@
 			}
 		],
 		"14,-16,0": [
+			{
+				"template_name": "plating",
+				"x": 14,
+				"y": -16
+			},
 			{
 				"template_name": "r-wall",
 				"x": 14,
@@ -3439,6 +3949,11 @@
 			}
 		],
 		"18,-16,0": [
+			{
+				"template_name": "plating",
+				"x": 18,
+				"y": -16
+			},
 			{
 				"template_name": "wall",
 				"x": 18,
@@ -3580,12 +4095,22 @@
 		],
 		"-6,-15,0": [
 			{
+				"template_name": "plating",
+				"x": -6,
+				"y": -15
+			},
+			{
 				"template_name": "r-wall",
 				"x": -6,
 				"y": -15
 			}
 		],
 		"-3,-15,0": [
+			{
+				"template_name": "plating",
+				"x": -3,
+				"y": -15
+			},
 			{
 				"template_name": "r-wall",
 				"x": -3,
@@ -3644,12 +4169,22 @@
 		],
 		"3,-15,0": [
 			{
+				"template_name": "plating",
+				"x": 3,
+				"y": -15
+			},
+			{
 				"template_name": "r-wall",
 				"x": 3,
 				"y": -15
 			}
 		],
 		"6,-15,0": [
+			{
+				"template_name": "plating",
+				"x": 6,
+				"y": -15
+			},
 			{
 				"template_name": "wall",
 				"x": 6,
@@ -3692,6 +4227,11 @@
 		],
 		"10,-15,0": [
 			{
+				"template_name": "plating",
+				"x": 10,
+				"y": -15
+			},
+			{
 				"template_name": "wall",
 				"x": 10,
 				"y": -15
@@ -3709,6 +4249,11 @@
 		],
 		"12,-15,0": [
 			{
+				"template_name": "plating",
+				"x": 12,
+				"y": -15
+			},
+			{
 				"template_name": "wall",
 				"x": 12,
 				"y": -15
@@ -3722,6 +4267,11 @@
 			}
 		],
 		"14,-15,0": [
+			{
+				"template_name": "plating",
+				"x": 14,
+				"y": -15
+			},
 			{
 				"template_name": "wall",
 				"x": 14,
@@ -3767,6 +4317,11 @@
 			}
 		],
 		"18,-15,0": [
+			{
+				"template_name": "plating",
+				"x": 18,
+				"y": -15
+			},
 			{
 				"template_name": "wall",
 				"x": 18,
@@ -3824,12 +4379,22 @@
 		],
 		"-14,-14,0": [
 			{
+				"template_name": "plating",
+				"x": -14,
+				"y": -14
+			},
+			{
 				"template_name": "r-wall",
 				"x": -14,
 				"y": -14
 			}
 		],
 		"-13,-14,0": [
+			{
+				"template_name": "plating",
+				"x": -13,
+				"y": -14
+			},
 			{
 				"template_name": "r-wall",
 				"x": -13,
@@ -3838,10 +4403,7 @@
 		],
 		"-12,-14,0": [
 			{
-				"template_name": "floor",
-				"variant_leaf_path": [
-					"floor"
-				],
+				"template_name": "plating",
 				"x": -12,
 				"y": -14
 			},
@@ -3903,12 +4465,22 @@
 		],
 		"-6,-14,0": [
 			{
+				"template_name": "plating",
+				"x": -6,
+				"y": -14
+			},
+			{
 				"template_name": "r-wall",
 				"x": -6,
 				"y": -14
 			}
 		],
 		"-3,-14,0": [
+			{
+				"template_name": "plating",
+				"x": -3,
+				"y": -14
+			},
 			{
 				"template_name": "r-wall",
 				"x": -3,
@@ -4000,12 +4572,22 @@
 		],
 		"3,-14,0": [
 			{
+				"template_name": "plating",
+				"x": 3,
+				"y": -14
+			},
+			{
 				"template_name": "r-wall",
 				"x": 3,
 				"y": -14
 			}
 		],
 		"6,-14,0": [
+			{
+				"template_name": "plating",
+				"x": 6,
+				"y": -14
+			},
 			{
 				"template_name": "wall",
 				"x": 6,
@@ -4040,6 +4622,11 @@
 		],
 		"10,-14,0": [
 			{
+				"template_name": "plating",
+				"x": 10,
+				"y": -14
+			},
+			{
 				"template_name": "wall",
 				"x": 10,
 				"y": -14
@@ -4057,6 +4644,11 @@
 		],
 		"12,-14,0": [
 			{
+				"template_name": "plating",
+				"x": 12,
+				"y": -14
+			},
+			{
 				"template_name": "wall",
 				"x": 12,
 				"y": -14
@@ -4070,6 +4662,11 @@
 			}
 		],
 		"14,-14,0": [
+			{
+				"template_name": "plating",
+				"x": 14,
+				"y": -14
+			},
 			{
 				"template_name": "wall",
 				"x": 14,
@@ -4108,12 +4705,22 @@
 		],
 		"18,-14,0": [
 			{
+				"template_name": "plating",
+				"x": 18,
+				"y": -14
+			},
+			{
 				"template_name": "wall",
 				"x": 18,
 				"y": -14
 			}
 		],
 		"-18,-13,0": [
+			{
+				"template_name": "plating",
+				"x": -18,
+				"y": -13
+			},
 			{
 				"template_name": "wall",
 				"x": -18,
@@ -4161,6 +4768,11 @@
 		],
 		"-14,-13,0": [
 			{
+				"template_name": "plating",
+				"x": -14,
+				"y": -13
+			},
+			{
 				"template_name": "r-wall",
 				"x": -14,
 				"y": -13
@@ -4175,12 +4787,22 @@
 		],
 		"-12,-13,0": [
 			{
+				"template_name": "plating",
+				"x": -12,
+				"y": -13
+			},
+			{
 				"template_name": "wall",
 				"x": -12,
 				"y": -13
 			}
 		],
 		"-11,-13,0": [
+			{
+				"template_name": "plating",
+				"x": -11,
+				"y": -13
+			},
 			{
 				"template_name": "wall",
 				"x": -11,
@@ -4189,6 +4811,11 @@
 		],
 		"-10,-13,0": [
 			{
+				"template_name": "plating",
+				"x": -10,
+				"y": -13
+			},
+			{
 				"template_name": "wall",
 				"x": -10,
 				"y": -13
@@ -4196,12 +4823,22 @@
 		],
 		"-9,-13,0": [
 			{
+				"template_name": "plating",
+				"x": -9,
+				"y": -13
+			},
+			{
 				"template_name": "wall",
 				"x": -9,
 				"y": -13
 			}
 		],
 		"-8,-13,0": [
+			{
+				"template_name": "plating",
+				"x": -8,
+				"y": -13
+			},
 			{
 				"template_name": "wall",
 				"x": -8,
@@ -4222,12 +4859,22 @@
 		],
 		"-6,-13,0": [
 			{
+				"template_name": "plating",
+				"x": -6,
+				"y": -13
+			},
+			{
 				"template_name": "r-wall",
 				"x": -6,
 				"y": -13
 			}
 		],
 		"-3,-13,0": [
+			{
+				"template_name": "plating",
+				"x": -3,
+				"y": -13
+			},
 			{
 				"template_name": "r-wall",
 				"x": -3,
@@ -4302,12 +4949,22 @@
 		],
 		"3,-13,0": [
 			{
+				"template_name": "plating",
+				"x": 3,
+				"y": -13
+			},
+			{
 				"template_name": "r-wall",
 				"x": 3,
 				"y": -13
 			}
 		],
 		"6,-13,0": [
+			{
+				"template_name": "plating",
+				"x": 6,
+				"y": -13
+			},
 			{
 				"template_name": "wall",
 				"x": 6,
@@ -4370,6 +5027,11 @@
 		],
 		"12,-13,0": [
 			{
+				"template_name": "plating",
+				"x": 12,
+				"y": -13
+			},
+			{
 				"template_name": "wall",
 				"x": 12,
 				"y": -13
@@ -4383,6 +5045,11 @@
 			}
 		],
 		"14,-13,0": [
+			{
+				"template_name": "plating",
+				"x": 14,
+				"y": -13
+			},
 			{
 				"template_name": "wall",
 				"x": 14,
@@ -4420,6 +5087,11 @@
 			}
 		],
 		"18,-13,0": [
+			{
+				"template_name": "plating",
+				"x": 18,
+				"y": -13
+			},
 			{
 				"template_name": "wall",
 				"x": 18,
@@ -4516,6 +5188,11 @@
 		],
 		"-9,-12,0": [
 			{
+				"template_name": "plating",
+				"x": -9,
+				"y": -12
+			},
+			{
 				"template_name": "wall",
 				"x": -9,
 				"y": -12
@@ -4537,12 +5214,22 @@
 		],
 		"-6,-12,0": [
 			{
+				"template_name": "plating",
+				"x": -6,
+				"y": -12
+			},
+			{
 				"template_name": "r-wall",
 				"x": -6,
 				"y": -12
 			}
 		],
 		"-3,-12,0": [
+			{
+				"template_name": "plating",
+				"x": -3,
+				"y": -12
+			},
 			{
 				"template_name": "r-wall",
 				"x": -3,
@@ -4601,6 +5288,11 @@
 		],
 		"3,-12,0": [
 			{
+				"template_name": "plating",
+				"x": 3,
+				"y": -12
+			},
+			{
 				"template_name": "r-wall",
 				"x": 3,
 				"y": -12
@@ -4608,12 +5300,22 @@
 		],
 		"6,-12,0": [
 			{
+				"template_name": "plating",
+				"x": 6,
+				"y": -12
+			},
+			{
 				"template_name": "r-wall",
 				"x": 6,
 				"y": -12
 			}
 		],
 		"7,-12,0": [
+			{
+				"template_name": "plating",
+				"x": 7,
+				"y": -12
+			},
 			{
 				"template_name": "r-wall",
 				"x": 7,
@@ -4634,12 +5336,22 @@
 		],
 		"9,-12,0": [
 			{
+				"template_name": "plating",
+				"x": 9,
+				"y": -12
+			},
+			{
 				"template_name": "r-wall",
 				"x": 9,
 				"y": -12
 			}
 		],
 		"10,-12,0": [
+			{
+				"template_name": "plating",
+				"x": 10,
+				"y": -12
+			},
 			{
 				"template_name": "r-wall",
 				"x": 10,
@@ -4648,12 +5360,22 @@
 		],
 		"11,-12,0": [
 			{
+				"template_name": "plating",
+				"x": 11,
+				"y": -12
+			},
+			{
 				"template_name": "r-wall",
 				"x": 11,
 				"y": -12
 			}
 		],
 		"12,-12,0": [
+			{
+				"template_name": "plating",
+				"x": 12,
+				"y": -12
+			},
 			{
 				"template_name": "r-wall",
 				"x": 12,
@@ -4673,6 +5395,11 @@
 			}
 		],
 		"14,-12,0": [
+			{
+				"template_name": "plating",
+				"x": 14,
+				"y": -12
+			},
 			{
 				"template_name": "r-wall",
 				"x": 14,
@@ -4710,6 +5437,11 @@
 			}
 		],
 		"18,-12,0": [
+			{
+				"template_name": "plating",
+				"x": 18,
+				"y": -12
+			},
 			{
 				"template_name": "wall",
 				"x": 18,
@@ -4765,6 +5497,11 @@
 		],
 		"-14,-11,0": [
 			{
+				"template_name": "plating",
+				"x": -14,
+				"y": -11
+			},
+			{
 				"template_name": "r-wall",
 				"x": -14,
 				"y": -11
@@ -4800,6 +5537,11 @@
 		],
 		"-9,-11,0": [
 			{
+				"template_name": "plating",
+				"x": -9,
+				"y": -11
+			},
+			{
 				"template_name": "wall",
 				"x": -9,
 				"y": -11
@@ -4821,6 +5563,11 @@
 		],
 		"-6,-11,0": [
 			{
+				"template_name": "plating",
+				"x": -6,
+				"y": -11
+			},
+			{
 				"template_name": "r-wall",
 				"x": -6,
 				"y": -11
@@ -4828,12 +5575,22 @@
 		],
 		"-5,-11,0": [
 			{
+				"template_name": "plating",
+				"x": -5,
+				"y": -11
+			},
+			{
 				"template_name": "r-wall",
 				"x": -5,
 				"y": -11
 			}
 		],
 		"-3,-11,0": [
+			{
+				"template_name": "plating",
+				"x": -3,
+				"y": -11
+			},
 			{
 				"template_name": "r-wall",
 				"x": -3,
@@ -4892,6 +5649,11 @@
 		],
 		"3,-11,0": [
 			{
+				"template_name": "plating",
+				"x": 3,
+				"y": -11
+			},
+			{
 				"template_name": "r-wall",
 				"x": 3,
 				"y": -11
@@ -4899,12 +5661,22 @@
 		],
 		"5,-11,0": [
 			{
+				"template_name": "plating",
+				"x": 5,
+				"y": -11
+			},
+			{
 				"template_name": "r-wall",
 				"x": 5,
 				"y": -11
 			}
 		],
 		"6,-11,0": [
+			{
+				"template_name": "plating",
+				"x": 6,
+				"y": -11
+			},
 			{
 				"template_name": "r-wall",
 				"x": 6,
@@ -4962,6 +5734,11 @@
 		],
 		"14,-11,0": [
 			{
+				"template_name": "plating",
+				"x": 14,
+				"y": -11
+			},
+			{
 				"template_name": "r-wall",
 				"x": 14,
 				"y": -11
@@ -5000,12 +5777,22 @@
 		],
 		"18,-11,0": [
 			{
+				"template_name": "plating",
+				"x": 18,
+				"y": -11
+			},
+			{
 				"template_name": "wall",
 				"x": 18,
 				"y": -11
 			}
 		],
 		"-49,-10,0": [
+			{
+				"template_name": "plating",
+				"x": -49,
+				"y": -10
+			},
 			{
 				"template_name": "wall",
 				"x": -49,
@@ -5014,12 +5801,22 @@
 		],
 		"-48,-10,0": [
 			{
+				"template_name": "plating",
+				"x": -48,
+				"y": -10
+			},
+			{
 				"template_name": "wall",
 				"x": -48,
 				"y": -10
 			}
 		],
 		"-47,-10,0": [
+			{
+				"template_name": "plating",
+				"x": -47,
+				"y": -10
+			},
 			{
 				"template_name": "wall",
 				"x": -47,
@@ -5028,6 +5825,11 @@
 		],
 		"-46,-10,0": [
 			{
+				"template_name": "plating",
+				"x": -46,
+				"y": -10
+			},
+			{
 				"template_name": "wall",
 				"x": -46,
 				"y": -10
@@ -5035,12 +5837,22 @@
 		],
 		"-45,-10,0": [
 			{
+				"template_name": "plating",
+				"x": -45,
+				"y": -10
+			},
+			{
 				"template_name": "wall",
 				"x": -45,
 				"y": -10
 			}
 		],
 		"-44,-10,0": [
+			{
+				"template_name": "plating",
+				"x": -44,
+				"y": -10
+			},
 			{
 				"template_name": "wall",
 				"x": -44,
@@ -5098,6 +5910,11 @@
 		],
 		"-14,-10,0": [
 			{
+				"template_name": "plating",
+				"x": -14,
+				"y": -10
+			},
+			{
 				"template_name": "r-wall",
 				"x": -14,
 				"y": -10
@@ -5115,12 +5932,22 @@
 		],
 		"-12,-10,0": [
 			{
+				"template_name": "plating",
+				"x": -12,
+				"y": -10
+			},
+			{
 				"template_name": "wall",
 				"x": -12,
 				"y": -10
 			}
 		],
 		"-11,-10,0": [
+			{
+				"template_name": "plating",
+				"x": -11,
+				"y": -10
+			},
 			{
 				"template_name": "wall",
 				"x": -11,
@@ -5129,12 +5956,22 @@
 		],
 		"-10,-10,0": [
 			{
+				"template_name": "plating",
+				"x": -10,
+				"y": -10
+			},
+			{
 				"template_name": "wall",
 				"x": -10,
 				"y": -10
 			}
 		],
 		"-9,-10,0": [
+			{
+				"template_name": "plating",
+				"x": -9,
+				"y": -10
+			},
 			{
 				"template_name": "wall",
 				"x": -9,
@@ -5164,12 +6001,22 @@
 		],
 		"-5,-10,0": [
 			{
+				"template_name": "plating",
+				"x": -5,
+				"y": -10
+			},
+			{
 				"template_name": "r-wall",
 				"x": -5,
 				"y": -10
 			}
 		],
 		"-3,-10,0": [
+			{
+				"template_name": "plating",
+				"x": -3,
+				"y": -10
+			},
 			{
 				"template_name": "r-wall",
 				"x": -3,
@@ -5228,12 +6075,22 @@
 		],
 		"3,-10,0": [
 			{
+				"template_name": "plating",
+				"x": 3,
+				"y": -10
+			},
+			{
 				"template_name": "r-wall",
 				"x": 3,
 				"y": -10
 			}
 		],
 		"5,-10,0": [
+			{
+				"template_name": "plating",
+				"x": 5,
+				"y": -10
+			},
 			{
 				"template_name": "r-wall",
 				"x": 5,
@@ -5303,6 +6160,11 @@
 		],
 		"14,-10,0": [
 			{
+				"template_name": "plating",
+				"x": 14,
+				"y": -10
+			},
+			{
 				"template_name": "r-wall",
 				"x": 14,
 				"y": -10
@@ -5341,12 +6203,22 @@
 		],
 		"18,-10,0": [
 			{
+				"template_name": "plating",
+				"x": 18,
+				"y": -10
+			},
+			{
 				"template_name": "wall",
 				"x": 18,
 				"y": -10
 			}
 		],
 		"-49,-9,0": [
+			{
+				"template_name": "plating",
+				"x": -49,
+				"y": -9
+			},
 			{
 				"template_name": "wall",
 				"x": -49,
@@ -5408,12 +6280,22 @@
 		],
 		"-44,-9,0": [
 			{
+				"template_name": "plating",
+				"x": -44,
+				"y": -9
+			},
+			{
 				"template_name": "wall",
 				"x": -44,
 				"y": -9
 			}
 		],
 		"-18,-9,0": [
+			{
+				"template_name": "plating",
+				"x": -18,
+				"y": -9
+			},
 			{
 				"template_name": "wall",
 				"x": -18,
@@ -5454,6 +6336,11 @@
 		],
 		"-14,-9,0": [
 			{
+				"template_name": "plating",
+				"x": -14,
+				"y": -9
+			},
+			{
 				"template_name": "r-wall",
 				"x": -14,
 				"y": -9
@@ -5470,6 +6357,11 @@
 			}
 		],
 		"-12,-9,0": [
+			{
+				"template_name": "plating",
+				"x": -12,
+				"y": -9
+			},
 			{
 				"template_name": "wall",
 				"x": -12,
@@ -5528,12 +6420,22 @@
 		],
 		"-5,-9,0": [
 			{
+				"template_name": "plating",
+				"x": -5,
+				"y": -9
+			},
+			{
 				"template_name": "r-wall",
 				"x": -5,
 				"y": -9
 			}
 		],
 		"-3,-9,0": [
+			{
+				"template_name": "plating",
+				"x": -3,
+				"y": -9
+			},
 			{
 				"template_name": "r-wall",
 				"x": -3,
@@ -5592,12 +6494,22 @@
 		],
 		"3,-9,0": [
 			{
+				"template_name": "plating",
+				"x": 3,
+				"y": -9
+			},
+			{
 				"template_name": "r-wall",
 				"x": 3,
 				"y": -9
 			}
 		],
 		"5,-9,0": [
+			{
+				"template_name": "plating",
+				"x": 5,
+				"y": -9
+			},
 			{
 				"template_name": "r-wall",
 				"x": 5,
@@ -5672,6 +6584,11 @@
 		],
 		"14,-9,0": [
 			{
+				"template_name": "plating",
+				"x": 14,
+				"y": -9
+			},
+			{
 				"template_name": "r-wall",
 				"x": 14,
 				"y": -9
@@ -5710,12 +6627,22 @@
 		],
 		"18,-9,0": [
 			{
+				"template_name": "plating",
+				"x": 18,
+				"y": -9
+			},
+			{
 				"template_name": "wall",
 				"x": 18,
 				"y": -9
 			}
 		],
 		"-49,-8,0": [
+			{
+				"template_name": "plating",
+				"x": -49,
+				"y": -8
+			},
 			{
 				"template_name": "wall",
 				"x": -49,
@@ -5724,12 +6651,22 @@
 		],
 		"-48,-8,0": [
 			{
+				"template_name": "plating",
+				"x": -48,
+				"y": -8
+			},
+			{
 				"template_name": "wall",
 				"x": -48,
 				"y": -8
 			}
 		],
 		"-47,-8,0": [
+			{
+				"template_name": "plating",
+				"x": -47,
+				"y": -8
+			},
 			{
 				"template_name": "wall",
 				"x": -47,
@@ -5758,12 +6695,22 @@
 		],
 		"-44,-8,0": [
 			{
+				"template_name": "plating",
+				"x": -44,
+				"y": -8
+			},
+			{
 				"template_name": "wall",
 				"x": -44,
 				"y": -8
 			}
 		],
 		"-18,-8,0": [
+			{
+				"template_name": "plating",
+				"x": -18,
+				"y": -8
+			},
 			{
 				"template_name": "wall",
 				"x": -18,
@@ -5803,6 +6750,11 @@
 			}
 		],
 		"-14,-8,0": [
+			{
+				"template_name": "plating",
+				"x": -14,
+				"y": -8
+			},
 			{
 				"template_name": "r-wall",
 				"x": -14,
@@ -6096,6 +7048,11 @@
 		],
 		"14,-8,0": [
 			{
+				"template_name": "plating",
+				"x": 14,
+				"y": -8
+			},
+			{
 				"template_name": "r-wall",
 				"x": 14,
 				"y": -8
@@ -6134,12 +7091,22 @@
 		],
 		"18,-8,0": [
 			{
+				"template_name": "plating",
+				"x": 18,
+				"y": -8
+			},
+			{
 				"template_name": "wall",
 				"x": 18,
 				"y": -8
 			}
 		],
 		"-49,-7,0": [
+			{
+				"template_name": "plating",
+				"x": -49,
+				"y": -7
+			},
 			{
 				"template_name": "wall",
 				"x": -49,
@@ -6201,12 +7168,22 @@
 		],
 		"-44,-7,0": [
 			{
+				"template_name": "plating",
+				"x": -44,
+				"y": -7
+			},
+			{
 				"template_name": "wall",
 				"x": -44,
 				"y": -7
 			}
 		],
 		"-40,-7,0": [
+			{
+				"template_name": "plating",
+				"x": -40,
+				"y": -7
+			},
 			{
 				"template_name": "wall",
 				"x": -40,
@@ -6215,6 +7192,11 @@
 		],
 		"-39,-7,0": [
 			{
+				"template_name": "plating",
+				"x": -39,
+				"y": -7
+			},
+			{
 				"template_name": "wall",
 				"x": -39,
 				"y": -7
@@ -6222,12 +7204,22 @@
 		],
 		"-38,-7,0": [
 			{
+				"template_name": "plating",
+				"x": -38,
+				"y": -7
+			},
+			{
 				"template_name": "wall",
 				"x": -38,
 				"y": -7
 			}
 		],
 		"-37,-7,0": [
+			{
+				"template_name": "plating",
+				"x": -37,
+				"y": -7
+			},
 			{
 				"template_name": "wall",
 				"x": -37,
@@ -6248,12 +7240,22 @@
 		],
 		"-35,-7,0": [
 			{
+				"template_name": "plating",
+				"x": -35,
+				"y": -7
+			},
+			{
 				"template_name": "wall",
 				"x": -35,
 				"y": -7
 			}
 		],
 		"-18,-7,0": [
+			{
+				"template_name": "plating",
+				"x": -18,
+				"y": -7
+			},
 			{
 				"template_name": "wall",
 				"x": -18,
@@ -6575,6 +7577,11 @@
 		],
 		"14,-7,0": [
 			{
+				"template_name": "plating",
+				"x": 14,
+				"y": -7
+			},
+			{
 				"template_name": "r-wall",
 				"x": 14,
 				"y": -7
@@ -6636,6 +7643,11 @@
 		],
 		"-49,-6,0": [
 			{
+				"template_name": "plating",
+				"x": -49,
+				"y": -6
+			},
+			{
 				"template_name": "wall",
 				"x": -49,
 				"y": -6
@@ -6643,12 +7655,22 @@
 		],
 		"-48,-6,0": [
 			{
+				"template_name": "plating",
+				"x": -48,
+				"y": -6
+			},
+			{
 				"template_name": "wall",
 				"x": -48,
 				"y": -6
 			}
 		],
 		"-47,-6,0": [
+			{
+				"template_name": "plating",
+				"x": -47,
+				"y": -6
+			},
 			{
 				"template_name": "wall",
 				"x": -47,
@@ -6685,12 +7707,22 @@
 		],
 		"-44,-6,0": [
 			{
+				"template_name": "plating",
+				"x": -44,
+				"y": -6
+			},
+			{
 				"template_name": "wall",
 				"x": -44,
 				"y": -6
 			}
 		],
 		"-43,-6,0": [
+			{
+				"template_name": "plating",
+				"x": -43,
+				"y": -6
+			},
 			{
 				"template_name": "wall",
 				"x": -43,
@@ -6699,6 +7731,11 @@
 		],
 		"-42,-6,0": [
 			{
+				"template_name": "plating",
+				"x": -42,
+				"y": -6
+			},
+			{
 				"template_name": "wall",
 				"x": -42,
 				"y": -6
@@ -6706,12 +7743,22 @@
 		],
 		"-41,-6,0": [
 			{
+				"template_name": "plating",
+				"x": -41,
+				"y": -6
+			},
+			{
 				"template_name": "wall",
 				"x": -41,
 				"y": -6
 			}
 		],
 		"-40,-6,0": [
+			{
+				"template_name": "plating",
+				"x": -40,
+				"y": -6
+			},
 			{
 				"template_name": "wall",
 				"x": -40,
@@ -6768,12 +7815,22 @@
 		],
 		"-35,-6,0": [
 			{
+				"template_name": "plating",
+				"x": -35,
+				"y": -6
+			},
+			{
 				"template_name": "wall",
 				"x": -35,
 				"y": -6
 			}
 		],
 		"-18,-6,0": [
+			{
+				"template_name": "plating",
+				"x": -18,
+				"y": -6
+			},
 			{
 				"template_name": "wall",
 				"x": -18,
@@ -7075,6 +8132,11 @@
 		],
 		"14,-6,0": [
 			{
+				"template_name": "plating",
+				"x": 14,
+				"y": -6
+			},
+			{
 				"template_name": "r-wall",
 				"x": 14,
 				"y": -6
@@ -7127,6 +8189,11 @@
 			}
 		],
 		"-49,-5,0": [
+			{
+				"template_name": "plating",
+				"x": -49,
+				"y": -5
+			},
 			{
 				"template_name": "wall",
 				"x": -49,
@@ -7188,6 +8255,11 @@
 		],
 		"-44,-5,0": [
 			{
+				"template_name": "plating",
+				"x": -44,
+				"y": -5
+			},
+			{
 				"template_name": "wall",
 				"x": -44,
 				"y": -5
@@ -7232,6 +8304,11 @@
 			}
 		],
 		"-40,-5,0": [
+			{
+				"template_name": "plating",
+				"x": -40,
+				"y": -5
+			},
 			{
 				"template_name": "wall",
 				"x": -40,
@@ -7279,6 +8356,11 @@
 			}
 		],
 		"-35,-5,0": [
+			{
+				"template_name": "plating",
+				"x": -35,
+				"y": -5
+			},
 			{
 				"template_name": "wall",
 				"x": -35,
@@ -7602,6 +8684,11 @@
 		],
 		"14,-5,0": [
 			{
+				"template_name": "plating",
+				"x": 14,
+				"y": -5
+			},
+			{
 				"template_name": "r-wall",
 				"x": 14,
 				"y": -5
@@ -7655,6 +8742,11 @@
 		],
 		"-49,-4,0": [
 			{
+				"template_name": "plating",
+				"x": -49,
+				"y": -4
+			},
+			{
 				"template_name": "wall",
 				"x": -49,
 				"y": -4
@@ -7662,12 +8754,22 @@
 		],
 		"-48,-4,0": [
 			{
+				"template_name": "plating",
+				"x": -48,
+				"y": -4
+			},
+			{
 				"template_name": "wall",
 				"x": -48,
 				"y": -4
 			}
 		],
 		"-47,-4,0": [
+			{
+				"template_name": "plating",
+				"x": -47,
+				"y": -4
+			},
 			{
 				"template_name": "wall",
 				"x": -47,
@@ -7695,6 +8797,11 @@
 			}
 		],
 		"-44,-4,0": [
+			{
+				"template_name": "plating",
+				"x": -44,
+				"y": -4
+			},
 			{
 				"template_name": "wall",
 				"x": -44,
@@ -7732,6 +8839,11 @@
 			}
 		],
 		"-40,-4,0": [
+			{
+				"template_name": "plating",
+				"x": -40,
+				"y": -4
+			},
 			{
 				"template_name": "wall",
 				"x": -40,
@@ -7779,6 +8891,11 @@
 			}
 		],
 		"-35,-4,0": [
+			{
+				"template_name": "plating",
+				"x": -35,
+				"y": -4
+			},
 			{
 				"template_name": "wall",
 				"x": -35,
@@ -7832,6 +8949,11 @@
 			}
 		],
 		"-14,-4,0": [
+			{
+				"template_name": "plating",
+				"x": -14,
+				"y": -4
+			},
 			{
 				"template_name": "r-wall",
 				"x": -14,
@@ -8088,6 +9210,11 @@
 		],
 		"14,-4,0": [
 			{
+				"template_name": "plating",
+				"x": 14,
+				"y": -4
+			},
+			{
 				"template_name": "r-wall",
 				"x": 14,
 				"y": -4
@@ -8126,12 +9253,22 @@
 		],
 		"18,-4,0": [
 			{
+				"template_name": "plating",
+				"x": 18,
+				"y": -4
+			},
+			{
 				"template_name": "wall",
 				"x": 18,
 				"y": -4
 			}
 		],
 		"-49,-3,0": [
+			{
+				"template_name": "plating",
+				"x": -49,
+				"y": -3
+			},
 			{
 				"template_name": "wall",
 				"x": -49,
@@ -8193,6 +9330,11 @@
 		],
 		"-44,-3,0": [
 			{
+				"template_name": "plating",
+				"x": -44,
+				"y": -3
+			},
+			{
 				"template_name": "wall",
 				"x": -44,
 				"y": -3
@@ -8229,6 +9371,11 @@
 			}
 		],
 		"-40,-3,0": [
+			{
+				"template_name": "plating",
+				"x": -40,
+				"y": -3
+			},
 			{
 				"template_name": "wall",
 				"x": -40,
@@ -8277,12 +9424,22 @@
 		],
 		"-35,-3,0": [
 			{
+				"template_name": "plating",
+				"x": -35,
+				"y": -3
+			},
+			{
 				"template_name": "wall",
 				"x": -35,
 				"y": -3
 			}
 		],
 		"-18,-3,0": [
+			{
+				"template_name": "plating",
+				"x": -18,
+				"y": -3
+			},
 			{
 				"template_name": "wall",
 				"x": -18,
@@ -8322,6 +9479,11 @@
 		],
 		"-14,-3,0": [
 			{
+				"template_name": "plating",
+				"x": -14,
+				"y": -3
+			},
+			{
 				"template_name": "r-wall",
 				"x": -14,
 				"y": -3
@@ -8329,12 +9491,22 @@
 		],
 		"-13,-3,0": [
 			{
+				"template_name": "plating",
+				"x": -13,
+				"y": -3
+			},
+			{
 				"template_name": "r-wall",
 				"x": -13,
 				"y": -3
 			}
 		],
 		"-12,-3,0": [
+			{
+				"template_name": "plating",
+				"x": -12,
+				"y": -3
+			},
 			{
 				"template_name": "r-wall",
 				"x": -12,
@@ -8593,6 +9765,11 @@
 		],
 		"12,-3,0": [
 			{
+				"template_name": "plating",
+				"x": 12,
+				"y": -3
+			},
+			{
 				"template_name": "r-wall",
 				"x": 12,
 				"y": -3
@@ -8600,12 +9777,22 @@
 		],
 		"13,-3,0": [
 			{
+				"template_name": "plating",
+				"x": 13,
+				"y": -3
+			},
+			{
 				"template_name": "r-wall",
 				"x": 13,
 				"y": -3
 			}
 		],
 		"14,-3,0": [
+			{
+				"template_name": "plating",
+				"x": 14,
+				"y": -3
+			},
 			{
 				"template_name": "r-wall",
 				"x": 14,
@@ -8645,12 +9832,22 @@
 		],
 		"18,-3,0": [
 			{
+				"template_name": "plating",
+				"x": 18,
+				"y": -3
+			},
+			{
 				"template_name": "wall",
 				"x": 18,
 				"y": -3
 			}
 		],
 		"-49,-2,0": [
+			{
+				"template_name": "plating",
+				"x": -49,
+				"y": -2
+			},
 			{
 				"template_name": "wall",
 				"x": -49,
@@ -8659,6 +9856,11 @@
 		],
 		"-48,-2,0": [
 			{
+				"template_name": "plating",
+				"x": -48,
+				"y": -2
+			},
+			{
 				"template_name": "wall",
 				"x": -48,
 				"y": -2
@@ -8666,12 +9868,22 @@
 		],
 		"-47,-2,0": [
 			{
+				"template_name": "plating",
+				"x": -47,
+				"y": -2
+			},
+			{
 				"template_name": "wall",
 				"x": -47,
 				"y": -2
 			}
 		],
 		"-46,-2,0": [
+			{
+				"template_name": "plating",
+				"x": -46,
+				"y": -2
+			},
 			{
 				"template_name": "wall",
 				"x": -46,
@@ -8694,6 +9906,11 @@
 			}
 		],
 		"-44,-2,0": [
+			{
+				"template_name": "plating",
+				"x": -44,
+				"y": -2
+			},
 			{
 				"template_name": "wall",
 				"x": -44,
@@ -8782,12 +9999,22 @@
 		],
 		"-35,-2,0": [
 			{
+				"template_name": "plating",
+				"x": -35,
+				"y": -2
+			},
+			{
 				"template_name": "wall",
 				"x": -35,
 				"y": -2
 			}
 		],
 		"-18,-2,0": [
+			{
+				"template_name": "plating",
+				"x": -18,
+				"y": -2
+			},
 			{
 				"template_name": "wall",
 				"x": -18,
@@ -9234,12 +10461,22 @@
 		],
 		"-49,-1,0": [
 			{
+				"template_name": "plating",
+				"x": -49,
+				"y": -1
+			},
+			{
 				"template_name": "wall",
 				"x": -49,
 				"y": -1
 			}
 		],
 		"-48,-1,0": [
+			{
+				"template_name": "plating",
+				"x": -48,
+				"y": -1
+			},
 			{
 				"template_name": "wall",
 				"x": -48,
@@ -9368,12 +10605,22 @@
 		],
 		"-35,-1,0": [
 			{
+				"template_name": "plating",
+				"x": -35,
+				"y": -1
+			},
+			{
 				"template_name": "wall",
 				"x": -35,
 				"y": -1
 			}
 		],
 		"-24,-1,0": [
+			{
+				"template_name": "plating",
+				"x": -24,
+				"y": -1
+			},
 			{
 				"template_name": "wall",
 				"x": -24,
@@ -9382,12 +10629,22 @@
 		],
 		"-23,-1,0": [
 			{
+				"template_name": "plating",
+				"x": -23,
+				"y": -1
+			},
+			{
 				"template_name": "wall",
 				"x": -23,
 				"y": -1
 			}
 		],
 		"-22,-1,0": [
+			{
+				"template_name": "plating",
+				"x": -22,
+				"y": -1
+			},
 			{
 				"template_name": "wall",
 				"x": -22,
@@ -9396,12 +10653,22 @@
 		],
 		"-21,-1,0": [
 			{
+				"template_name": "plating",
+				"x": -21,
+				"y": -1
+			},
+			{
 				"template_name": "wall",
 				"x": -21,
 				"y": -1
 			}
 		],
 		"-20,-1,0": [
+			{
+				"template_name": "plating",
+				"x": -20,
+				"y": -1
+			},
 			{
 				"template_name": "wall",
 				"x": -20,
@@ -9410,12 +10677,22 @@
 		],
 		"-19,-1,0": [
 			{
+				"template_name": "plating",
+				"x": -19,
+				"y": -1
+			},
+			{
 				"template_name": "wall",
 				"x": -19,
 				"y": -1
 			}
 		],
 		"-18,-1,0": [
+			{
+				"template_name": "plating",
+				"x": -18,
+				"y": -1
+			},
 			{
 				"template_name": "wall",
 				"x": -18,
@@ -9823,12 +11100,22 @@
 		],
 		"18,-1,0": [
 			{
+				"template_name": "plating",
+				"x": 18,
+				"y": -1
+			},
+			{
 				"template_name": "wall",
 				"x": 18,
 				"y": -1
 			}
 		],
 		"-48,0,0": [
+			{
+				"template_name": "plating",
+				"x": -48,
+				"y": 0
+			},
 			{
 				"template_name": "wall",
 				"x": -48,
@@ -9972,12 +11259,22 @@
 		],
 		"-35,0,0": [
 			{
+				"template_name": "plating",
+				"x": -35,
+				"y": 0
+			},
+			{
 				"template_name": "wall",
 				"x": -35,
 				"y": 0
 			}
 		],
 		"-34,0,0": [
+			{
+				"template_name": "plating",
+				"x": -34,
+				"y": 0
+			},
 			{
 				"template_name": "wall",
 				"x": -34,
@@ -9986,12 +11283,22 @@
 		],
 		"-33,0,0": [
 			{
+				"template_name": "plating",
+				"x": -33,
+				"y": 0
+			},
+			{
 				"template_name": "wall",
 				"x": -33,
 				"y": 0
 			}
 		],
 		"-32,0,0": [
+			{
+				"template_name": "plating",
+				"x": -32,
+				"y": 0
+			},
 			{
 				"template_name": "wall",
 				"x": -32,
@@ -10000,12 +11307,22 @@
 		],
 		"-31,0,0": [
 			{
+				"template_name": "plating",
+				"x": -31,
+				"y": 0
+			},
+			{
 				"template_name": "wall",
 				"x": -31,
 				"y": 0
 			}
 		],
 		"-29,0,0": [
+			{
+				"template_name": "plating",
+				"x": -29,
+				"y": 0
+			},
 			{
 				"template_name": "wall",
 				"x": -29,
@@ -10014,12 +11331,22 @@
 		],
 		"-28,0,0": [
 			{
+				"template_name": "plating",
+				"x": -28,
+				"y": 0
+			},
+			{
 				"template_name": "wall",
 				"x": -28,
 				"y": 0
 			}
 		],
 		"-27,0,0": [
+			{
+				"template_name": "plating",
+				"x": -27,
+				"y": 0
+			},
 			{
 				"template_name": "wall",
 				"x": -27,
@@ -10028,6 +11355,11 @@
 		],
 		"-26,0,0": [
 			{
+				"template_name": "plating",
+				"x": -26,
+				"y": 0
+			},
+			{
 				"template_name": "wall",
 				"x": -26,
 				"y": 0
@@ -10035,12 +11367,22 @@
 		],
 		"-25,0,0": [
 			{
+				"template_name": "plating",
+				"x": -25,
+				"y": 0
+			},
+			{
 				"template_name": "wall",
 				"x": -25,
 				"y": 0
 			}
 		],
 		"-24,0,0": [
+			{
+				"template_name": "plating",
+				"x": -24,
+				"y": 0
+			},
 			{
 				"template_name": "wall",
 				"x": -24,
@@ -10547,12 +11889,22 @@
 		],
 		"-62,1,0": [
 			{
+				"template_name": "plating",
+				"x": -62,
+				"y": 1
+			},
+			{
 				"template_name": "wall",
 				"x": -62,
 				"y": 1
 			}
 		],
 		"-61,1,0": [
+			{
+				"template_name": "plating",
+				"x": -61,
+				"y": 1
+			},
 			{
 				"template_name": "wall",
 				"x": -61,
@@ -10561,12 +11913,22 @@
 		],
 		"-60,1,0": [
 			{
+				"template_name": "plating",
+				"x": -60,
+				"y": 1
+			},
+			{
 				"template_name": "wall",
 				"x": -60,
 				"y": 1
 			}
 		],
 		"-59,1,0": [
+			{
+				"template_name": "plating",
+				"x": -59,
+				"y": 1
+			},
 			{
 				"template_name": "wall",
 				"x": -59,
@@ -10575,12 +11937,22 @@
 		],
 		"-58,1,0": [
 			{
+				"template_name": "plating",
+				"x": -58,
+				"y": 1
+			},
+			{
 				"template_name": "wall",
 				"x": -58,
 				"y": 1
 			}
 		],
 		"-57,1,0": [
+			{
+				"template_name": "plating",
+				"x": -57,
+				"y": 1
+			},
 			{
 				"template_name": "wall",
 				"x": -57,
@@ -10589,12 +11961,22 @@
 		],
 		"-56,1,0": [
 			{
+				"template_name": "plating",
+				"x": -56,
+				"y": 1
+			},
+			{
 				"template_name": "wall",
 				"x": -56,
 				"y": 1
 			}
 		],
 		"-55,1,0": [
+			{
+				"template_name": "plating",
+				"x": -55,
+				"y": 1
+			},
 			{
 				"template_name": "wall",
 				"x": -55,
@@ -10603,12 +11985,22 @@
 		],
 		"-54,1,0": [
 			{
+				"template_name": "plating",
+				"x": -54,
+				"y": 1
+			},
+			{
 				"template_name": "wall",
 				"x": -54,
 				"y": 1
 			}
 		],
 		"-53,1,0": [
+			{
+				"template_name": "plating",
+				"x": -53,
+				"y": 1
+			},
 			{
 				"template_name": "wall",
 				"x": -53,
@@ -10617,12 +12009,22 @@
 		],
 		"-52,1,0": [
 			{
+				"template_name": "plating",
+				"x": -52,
+				"y": 1
+			},
+			{
 				"template_name": "wall",
 				"x": -52,
 				"y": 1
 			}
 		],
 		"-48,1,0": [
+			{
+				"template_name": "plating",
+				"x": -48,
+				"y": 1
+			},
 			{
 				"template_name": "wall",
 				"x": -48,
@@ -10792,6 +12194,11 @@
 		],
 		"-35,1,0": [
 			{
+				"template_name": "plating",
+				"x": -35,
+				"y": 1
+			},
+			{
 				"template_name": "wall",
 				"x": -35,
 				"y": 1
@@ -10844,12 +12251,22 @@
 		],
 		"-31,1,0": [
 			{
+				"template_name": "plating",
+				"x": -31,
+				"y": 1
+			},
+			{
 				"template_name": "wall",
 				"x": -31,
 				"y": 1
 			}
 		],
 		"-29,1,0": [
+			{
+				"template_name": "plating",
+				"x": -29,
+				"y": 1
+			},
 			{
 				"template_name": "wall",
 				"x": -29,
@@ -10893,6 +12310,11 @@
 			}
 		],
 		"-24,1,0": [
+			{
+				"template_name": "plating",
+				"x": -24,
+				"y": 1
+			},
 			{
 				"template_name": "wall",
 				"x": -24,
@@ -11032,6 +12454,11 @@
 			}
 		],
 		"-12,1,0": [
+			{
+				"template_name": "plating",
+				"x": -12,
+				"y": 1
+			},
 			{
 				"template_name": "wall",
 				"x": -12,
@@ -11183,15 +12610,15 @@
 		],
 		"0,1,0": [
 			{
-				"template_name": "spray_spacecleaner",
-				"x": 0,
-				"y": 1
-			},
-			{
 				"template_name": "floor",
 				"variant_leaf_path": [
 					"floor"
 				],
+				"x": 0,
+				"y": 1
+			},
+			{
+				"template_name": "spray_spacecleaner",
 				"x": 0,
 				"y": 1
 			}
@@ -11336,6 +12763,11 @@
 		],
 		"12,1,0": [
 			{
+				"template_name": "plating",
+				"x": 12,
+				"y": 1
+			},
+			{
 				"template_name": "wall",
 				"x": 12,
 				"y": 1
@@ -11407,6 +12839,11 @@
 			}
 		],
 		"18,1,0": [
+			{
+				"template_name": "plating",
+				"x": 18,
+				"y": 1
+			},
 			{
 				"template_name": "wall",
 				"x": 18,
@@ -11520,12 +12957,22 @@
 		],
 		"-52,2,0": [
 			{
+				"template_name": "plating",
+				"x": -52,
+				"y": 2
+			},
+			{
 				"template_name": "wall",
 				"x": -52,
 				"y": 2
 			}
 		],
 		"-48,2,0": [
+			{
+				"template_name": "plating",
+				"x": -48,
+				"y": 2
+			},
 			{
 				"template_name": "wall",
 				"x": -48,
@@ -11654,6 +13101,11 @@
 		],
 		"-35,2,0": [
 			{
+				"template_name": "plating",
+				"x": -35,
+				"y": 2
+			},
+			{
 				"template_name": "wall",
 				"x": -35,
 				"y": 2
@@ -11696,12 +13148,22 @@
 		],
 		"-31,2,0": [
 			{
+				"template_name": "plating",
+				"x": -31,
+				"y": 2
+			},
+			{
 				"template_name": "wall",
 				"x": -31,
 				"y": 2
 			}
 		],
 		"-29,2,0": [
+			{
+				"template_name": "plating",
+				"x": -29,
+				"y": 2
+			},
 			{
 				"template_name": "wall",
 				"x": -29,
@@ -11738,6 +13200,11 @@
 		],
 		"-24,2,0": [
 			{
+				"template_name": "plating",
+				"x": -24,
+				"y": 2
+			},
+			{
 				"template_name": "wall",
 				"x": -24,
 				"y": 2
@@ -11758,7 +13225,7 @@
 				"y": 2
 			},
 			{
-				"template_name": "glass_sheet",
+				"template_name": "stack_rods",
 				"variant_leaf_path": [
 					50
 				],
@@ -11766,7 +13233,7 @@
 				"y": 2
 			},
 			{
-				"template_name": "stack_rods",
+				"template_name": "glass_sheet",
 				"variant_leaf_path": [
 					50
 				],
@@ -12022,6 +13489,11 @@
 				"variant_leaf_path": [
 					"floor"
 				],
+				"x": 0,
+				"y": 2
+			},
+			{
+				"template_name": "mop",
 				"x": 0,
 				"y": 2
 			}
@@ -12317,12 +13789,22 @@
 		],
 		"-52,3,0": [
 			{
+				"template_name": "plating",
+				"x": -52,
+				"y": 3
+			},
+			{
 				"template_name": "wall",
 				"x": -52,
 				"y": 3
 			}
 		],
 		"-48,3,0": [
+			{
+				"template_name": "plating",
+				"x": -48,
+				"y": 3
+			},
 			{
 				"template_name": "wall",
 				"x": -48,
@@ -12451,6 +13933,11 @@
 		],
 		"-35,3,0": [
 			{
+				"template_name": "plating",
+				"x": -35,
+				"y": 3
+			},
+			{
 				"template_name": "wall",
 				"x": -35,
 				"y": 3
@@ -12501,6 +13988,11 @@
 		],
 		"-31,3,0": [
 			{
+				"template_name": "plating",
+				"x": -31,
+				"y": 3
+			},
+			{
 				"template_name": "wall",
 				"x": -31,
 				"y": 3
@@ -12508,12 +14000,22 @@
 		],
 		"-29,3,0": [
 			{
+				"template_name": "plating",
+				"x": -29,
+				"y": 3
+			},
+			{
 				"template_name": "wall",
 				"x": -29,
 				"y": 3
 			}
 		],
 		"-28,3,0": [
+			{
+				"template_name": "plating",
+				"x": -28,
+				"y": 3
+			},
 			{
 				"template_name": "wall",
 				"x": -28,
@@ -12534,12 +14036,22 @@
 		],
 		"-26,3,0": [
 			{
+				"template_name": "plating",
+				"x": -26,
+				"y": 3
+			},
+			{
 				"template_name": "wall",
 				"x": -26,
 				"y": 3
 			}
 		],
 		"-25,3,0": [
+			{
+				"template_name": "plating",
+				"x": -25,
+				"y": 3
+			},
 			{
 				"template_name": "wall",
 				"x": -25,
@@ -12548,12 +14060,22 @@
 		],
 		"-24,3,0": [
 			{
+				"template_name": "plating",
+				"x": -24,
+				"y": 3
+			},
+			{
 				"template_name": "wall",
 				"x": -24,
 				"y": 3
 			}
 		],
 		"-23,3,0": [
+			{
+				"template_name": "plating",
+				"x": -23,
+				"y": 3
+			},
 			{
 				"template_name": "wall",
 				"x": -23,
@@ -12594,6 +14116,11 @@
 		],
 		"-20,3,0": [
 			{
+				"template_name": "plating",
+				"x": -20,
+				"y": 3
+			},
+			{
 				"template_name": "wall",
 				"x": -20,
 				"y": 3
@@ -12601,12 +14128,22 @@
 		],
 		"-19,3,0": [
 			{
+				"template_name": "plating",
+				"x": -19,
+				"y": 3
+			},
+			{
 				"template_name": "wall",
 				"x": -19,
 				"y": 3
 			}
 		],
 		"-18,3,0": [
+			{
+				"template_name": "plating",
+				"x": -18,
+				"y": 3
+			},
 			{
 				"template_name": "wall",
 				"x": -18,
@@ -12896,6 +14433,11 @@
 		],
 		"18,3,0": [
 			{
+				"template_name": "plating",
+				"x": 18,
+				"y": 3
+			},
+			{
 				"template_name": "wall",
 				"x": 18,
 				"y": 3
@@ -12975,6 +14517,11 @@
 		],
 		"-56,4,0": [
 			{
+				"template_name": "plating",
+				"x": -56,
+				"y": 4
+			},
+			{
 				"template_name": "wall",
 				"x": -56,
 				"y": 4
@@ -13012,6 +14559,11 @@
 		],
 		"-52,4,0": [
 			{
+				"template_name": "plating",
+				"x": -52,
+				"y": 4
+			},
+			{
 				"template_name": "wall",
 				"x": -52,
 				"y": 4
@@ -13019,12 +14571,22 @@
 		],
 		"-51,4,0": [
 			{
+				"template_name": "plating",
+				"x": -51,
+				"y": 4
+			},
+			{
 				"template_name": "wall",
 				"x": -51,
 				"y": 4
 			}
 		],
 		"-50,4,0": [
+			{
+				"template_name": "plating",
+				"x": -50,
+				"y": 4
+			},
 			{
 				"template_name": "wall",
 				"x": -50,
@@ -13045,12 +14607,22 @@
 		],
 		"-48,4,0": [
 			{
+				"template_name": "plating",
+				"x": -48,
+				"y": 4
+			},
+			{
 				"template_name": "wall",
 				"x": -48,
 				"y": 4
 			}
 		],
 		"-47,4,0": [
+			{
+				"template_name": "plating",
+				"x": -47,
+				"y": 4
+			},
 			{
 				"template_name": "wall",
 				"x": -47,
@@ -13059,12 +14631,22 @@
 		],
 		"-46,4,0": [
 			{
+				"template_name": "plating",
+				"x": -46,
+				"y": 4
+			},
+			{
 				"template_name": "wall",
 				"x": -46,
 				"y": 4
 			}
 		],
 		"-45,4,0": [
+			{
+				"template_name": "plating",
+				"x": -45,
+				"y": 4
+			},
 			{
 				"template_name": "wall",
 				"x": -45,
@@ -13073,12 +14655,22 @@
 		],
 		"-44,4,0": [
 			{
+				"template_name": "plating",
+				"x": -44,
+				"y": 4
+			},
+			{
 				"template_name": "wall",
 				"x": -44,
 				"y": 4
 			}
 		],
 		"-43,4,0": [
+			{
+				"template_name": "plating",
+				"x": -43,
+				"y": 4
+			},
 			{
 				"template_name": "wall",
 				"x": -43,
@@ -13107,12 +14699,22 @@
 		],
 		"-40,4,0": [
 			{
+				"template_name": "plating",
+				"x": -40,
+				"y": 4
+			},
+			{
 				"template_name": "wall",
 				"x": -40,
 				"y": 4
 			}
 		],
 		"-39,4,0": [
+			{
+				"template_name": "plating",
+				"x": -39,
+				"y": 4
+			},
 			{
 				"template_name": "wall",
 				"x": -39,
@@ -13121,12 +14723,22 @@
 		],
 		"-38,4,0": [
 			{
+				"template_name": "plating",
+				"x": -38,
+				"y": 4
+			},
+			{
 				"template_name": "wall",
 				"x": -38,
 				"y": 4
 			}
 		],
 		"-37,4,0": [
+			{
+				"template_name": "plating",
+				"x": -37,
+				"y": 4
+			},
 			{
 				"template_name": "wall",
 				"x": -37,
@@ -13135,12 +14747,22 @@
 		],
 		"-36,4,0": [
 			{
+				"template_name": "plating",
+				"x": -36,
+				"y": 4
+			},
+			{
 				"template_name": "wall",
 				"x": -36,
 				"y": 4
 			}
 		],
 		"-35,4,0": [
+			{
+				"template_name": "plating",
+				"x": -35,
+				"y": 4
+			},
 			{
 				"template_name": "wall",
 				"x": -35,
@@ -13198,6 +14820,11 @@
 		],
 		"-31,4,0": [
 			{
+				"template_name": "plating",
+				"x": -31,
+				"y": 4
+			},
+			{
 				"template_name": "wall",
 				"x": -31,
 				"y": 4
@@ -13216,6 +14843,11 @@
 			}
 		],
 		"-29,4,0": [
+			{
+				"template_name": "plating",
+				"x": -29,
+				"y": 4
+			},
 			{
 				"template_name": "wall",
 				"x": -29,
@@ -13324,12 +14956,22 @@
 		],
 		"-19,4,0": [
 			{
+				"template_name": "plating",
+				"x": -19,
+				"y": 4
+			},
+			{
 				"template_name": "wall",
 				"x": -19,
 				"y": 4
 			}
 		],
 		"-18,4,0": [
+			{
+				"template_name": "plating",
+				"x": -18,
+				"y": 4
+			},
 			{
 				"template_name": "wall",
 				"x": -18,
@@ -13883,6 +15525,11 @@
 		],
 		"18,4,0": [
 			{
+				"template_name": "plating",
+				"x": 18,
+				"y": 4
+			},
+			{
 				"template_name": "wall",
 				"x": 18,
 				"y": 4
@@ -13957,6 +15604,11 @@
 			}
 		],
 		"-56,5,0": [
+			{
+				"template_name": "plating",
+				"x": -56,
+				"y": 5
+			},
 			{
 				"template_name": "wall",
 				"x": -56,
@@ -14753,6 +16405,11 @@
 		],
 		"18,5,0": [
 			{
+				"template_name": "plating",
+				"x": 18,
+				"y": 5
+			},
+			{
 				"template_name": "wall",
 				"x": 18,
 				"y": 5
@@ -14835,6 +16492,11 @@
 			}
 		],
 		"-56,6,0": [
+			{
+				"template_name": "plating",
+				"x": -56,
+				"y": 6
+			},
 			{
 				"template_name": "wall",
 				"x": -56,
@@ -15575,6 +17237,11 @@
 		],
 		"18,6,0": [
 			{
+				"template_name": "plating",
+				"x": 18,
+				"y": 6
+			},
+			{
 				"template_name": "wall",
 				"x": 18,
 				"y": 6
@@ -15653,6 +17320,11 @@
 			}
 		],
 		"-56,7,0": [
+			{
+				"template_name": "plating",
+				"x": -56,
+				"y": 7
+			},
 			{
 				"template_name": "wall",
 				"x": -56,
@@ -16428,6 +18100,11 @@
 		],
 		"18,7,0": [
 			{
+				"template_name": "plating",
+				"x": 18,
+				"y": 7
+			},
+			{
 				"template_name": "wall",
 				"x": 18,
 				"y": 7
@@ -16532,6 +18209,11 @@
 		],
 		"-52,8,0": [
 			{
+				"template_name": "plating",
+				"x": -52,
+				"y": 8
+			},
+			{
 				"template_name": "wall",
 				"x": -52,
 				"y": 8
@@ -16588,12 +18270,22 @@
 		],
 		"-48,8,0": [
 			{
+				"template_name": "plating",
+				"x": -48,
+				"y": 8
+			},
+			{
 				"template_name": "wall",
 				"x": -48,
 				"y": 8
 			}
 		],
 		"-47,8,0": [
+			{
+				"template_name": "plating",
+				"x": -47,
+				"y": 8
+			},
 			{
 				"template_name": "wall",
 				"x": -47,
@@ -16651,12 +18343,22 @@
 		],
 		"-43,8,0": [
 			{
+				"template_name": "plating",
+				"x": -43,
+				"y": 8
+			},
+			{
 				"template_name": "wall",
 				"x": -43,
 				"y": 8
 			}
 		],
 		"-42,8,0": [
+			{
+				"template_name": "plating",
+				"x": -42,
+				"y": 8
+			},
 			{
 				"template_name": "wall",
 				"x": -42,
@@ -16665,12 +18367,22 @@
 		],
 		"-41,8,0": [
 			{
+				"template_name": "plating",
+				"x": -41,
+				"y": 8
+			},
+			{
 				"template_name": "wall",
 				"x": -41,
 				"y": 8
 			}
 		],
 		"-40,8,0": [
+			{
+				"template_name": "plating",
+				"x": -40,
+				"y": 8
+			},
 			{
 				"template_name": "wall",
 				"x": -40,
@@ -16727,6 +18439,11 @@
 			}
 		],
 		"-36,8,0": [
+			{
+				"template_name": "plating",
+				"x": -36,
+				"y": 8
+			},
 			{
 				"template_name": "r-wall",
 				"x": -36,
@@ -16881,6 +18598,11 @@
 		],
 		"-26,8,0": [
 			{
+				"template_name": "plating",
+				"x": -26,
+				"y": 8
+			},
+			{
 				"template_name": "r-wall",
 				"x": -26,
 				"y": 8
@@ -16899,6 +18621,11 @@
 			}
 		],
 		"-24,8,0": [
+			{
+				"template_name": "plating",
+				"x": -24,
+				"y": 8
+			},
 			{
 				"template_name": "r-wall",
 				"x": -24,
@@ -16921,6 +18648,11 @@
 			}
 		],
 		"-22,8,0": [
+			{
+				"template_name": "plating",
+				"x": -22,
+				"y": 8
+			},
 			{
 				"template_name": "r-wall",
 				"x": -22,
@@ -16959,6 +18691,11 @@
 		],
 		"-19,8,0": [
 			{
+				"template_name": "plating",
+				"x": -19,
+				"y": 8
+			},
+			{
 				"template_name": "r-wall",
 				"x": -19,
 				"y": 8
@@ -16966,12 +18703,22 @@
 		],
 		"-18,8,0": [
 			{
+				"template_name": "plating",
+				"x": -18,
+				"y": 8
+			},
+			{
 				"template_name": "r-wall",
 				"x": -18,
 				"y": 8
 			}
 		],
 		"-17,8,0": [
+			{
+				"template_name": "plating",
+				"x": -17,
+				"y": 8
+			},
 			{
 				"template_name": "wall",
 				"x": -17,
@@ -16992,6 +18739,11 @@
 		],
 		"-15,8,0": [
 			{
+				"template_name": "plating",
+				"x": -15,
+				"y": 8
+			},
+			{
 				"template_name": "wall",
 				"x": -15,
 				"y": 8
@@ -16999,12 +18751,22 @@
 		],
 		"-14,8,0": [
 			{
+				"template_name": "plating",
+				"x": -14,
+				"y": 8
+			},
+			{
 				"template_name": "wall",
 				"x": -14,
 				"y": 8
 			}
 		],
 		"-13,8,0": [
+			{
+				"template_name": "plating",
+				"x": -13,
+				"y": 8
+			},
 			{
 				"template_name": "wall",
 				"x": -13,
@@ -17062,6 +18824,11 @@
 		],
 		"-9,8,0": [
 			{
+				"template_name": "plating",
+				"x": -9,
+				"y": 8
+			},
+			{
 				"template_name": "wall",
 				"x": -9,
 				"y": 8
@@ -17069,12 +18836,22 @@
 		],
 		"-8,8,0": [
 			{
+				"template_name": "plating",
+				"x": -8,
+				"y": 8
+			},
+			{
 				"template_name": "wall",
 				"x": -8,
 				"y": 8
 			}
 		],
 		"-7,8,0": [
+			{
+				"template_name": "plating",
+				"x": -7,
+				"y": 8
+			},
 			{
 				"template_name": "wall",
 				"x": -7,
@@ -17257,6 +19034,11 @@
 		],
 		"7,8,0": [
 			{
+				"template_name": "plating",
+				"x": 7,
+				"y": 8
+			},
+			{
 				"template_name": "wall",
 				"x": 7,
 				"y": 8
@@ -17294,12 +19076,22 @@
 		],
 		"11,8,0": [
 			{
+				"template_name": "plating",
+				"x": 11,
+				"y": 8
+			},
+			{
 				"template_name": "wall",
 				"x": 11,
 				"y": 8
 			}
 		],
 		"12,8,0": [
+			{
+				"template_name": "plating",
+				"x": 12,
+				"y": 8
+			},
 			{
 				"template_name": "wall",
 				"x": 12,
@@ -17308,12 +19100,22 @@
 		],
 		"13,8,0": [
 			{
+				"template_name": "plating",
+				"x": 13,
+				"y": 8
+			},
+			{
 				"template_name": "wall",
 				"x": 13,
 				"y": 8
 			}
 		],
 		"14,8,0": [
+			{
+				"template_name": "plating",
+				"x": 14,
+				"y": 8
+			},
 			{
 				"template_name": "wall",
 				"x": 14,
@@ -17322,12 +19124,22 @@
 		],
 		"15,8,0": [
 			{
+				"template_name": "plating",
+				"x": 15,
+				"y": 8
+			},
+			{
 				"template_name": "wall",
 				"x": 15,
 				"y": 8
 			}
 		],
 		"16,8,0": [
+			{
+				"template_name": "plating",
+				"x": 16,
+				"y": 8
+			},
 			{
 				"template_name": "wall",
 				"x": 16,
@@ -17336,12 +19148,22 @@
 		],
 		"17,8,0": [
 			{
+				"template_name": "plating",
+				"x": 17,
+				"y": 8
+			},
+			{
 				"template_name": "wall",
 				"x": 17,
 				"y": 8
 			}
 		],
 		"18,8,0": [
+			{
+				"template_name": "plating",
+				"x": 18,
+				"y": 8
+			},
 			{
 				"template_name": "wall",
 				"x": 18,
@@ -17455,12 +19277,22 @@
 		],
 		"-52,9,0": [
 			{
+				"template_name": "plating",
+				"x": -52,
+				"y": 9
+			},
+			{
 				"template_name": "wall",
 				"x": -52,
 				"y": 9
 			}
 		],
 		"-47,9,0": [
+			{
+				"template_name": "plating",
+				"x": -47,
+				"y": 9
+			},
 			{
 				"template_name": "wall",
 				"x": -47,
@@ -17593,6 +19425,11 @@
 			}
 		],
 		"-36,9,0": [
+			{
+				"template_name": "plating",
+				"x": -36,
+				"y": 9
+			},
 			{
 				"template_name": "r-wall",
 				"x": -36,
@@ -17771,6 +19608,11 @@
 		],
 		"7,9,0": [
 			{
+				"template_name": "plating",
+				"x": 7,
+				"y": 9
+			},
+			{
 				"template_name": "wall",
 				"x": 7,
 				"y": 9
@@ -17816,6 +19658,11 @@
 		],
 		"11,9,0": [
 			{
+				"template_name": "plating",
+				"x": 11,
+				"y": 9
+			},
+			{
 				"template_name": "wall",
 				"x": 11,
 				"y": 9
@@ -17823,12 +19670,22 @@
 		],
 		"-62,10,0": [
 			{
+				"template_name": "plating",
+				"x": -62,
+				"y": 10
+			},
+			{
 				"template_name": "wall",
 				"x": -62,
 				"y": 10
 			}
 		],
 		"-61,10,0": [
+			{
+				"template_name": "plating",
+				"x": -61,
+				"y": 10
+			},
 			{
 				"template_name": "wall",
 				"x": -61,
@@ -17901,12 +19758,22 @@
 		],
 		"-56,10,0": [
 			{
+				"template_name": "plating",
+				"x": -56,
+				"y": 10
+			},
+			{
 				"template_name": "wall",
 				"x": -56,
 				"y": 10
 			}
 		],
 		"-55,10,0": [
+			{
+				"template_name": "plating",
+				"x": -55,
+				"y": 10
+			},
 			{
 				"template_name": "wall",
 				"x": -55,
@@ -17915,12 +19782,22 @@
 		],
 		"-54,10,0": [
 			{
+				"template_name": "plating",
+				"x": -54,
+				"y": 10
+			},
+			{
 				"template_name": "wall",
 				"x": -54,
 				"y": 10
 			}
 		],
 		"-53,10,0": [
+			{
+				"template_name": "plating",
+				"x": -53,
+				"y": 10
+			},
 			{
 				"template_name": "wall",
 				"x": -53,
@@ -17929,12 +19806,22 @@
 		],
 		"-52,10,0": [
 			{
+				"template_name": "plating",
+				"x": -52,
+				"y": 10
+			},
+			{
 				"template_name": "wall",
 				"x": -52,
 				"y": 10
 			}
 		],
 		"-47,10,0": [
+			{
+				"template_name": "plating",
+				"x": -47,
+				"y": 10
+			},
 			{
 				"template_name": "wall",
 				"x": -47,
@@ -18058,12 +19945,22 @@
 		],
 		"-36,10,0": [
 			{
+				"template_name": "plating",
+				"x": -36,
+				"y": 10
+			},
+			{
 				"template_name": "r-wall",
 				"x": -36,
 				"y": 10
 			}
 		],
 		"-32,10,0": [
+			{
+				"template_name": "plating",
+				"x": -32,
+				"y": 10
+			},
 			{
 				"template_name": "r-wall",
 				"x": -32,
@@ -18087,12 +19984,22 @@
 		],
 		"-30,10,0": [
 			{
+				"template_name": "plating",
+				"x": -30,
+				"y": 10
+			},
+			{
 				"template_name": "r-wall",
 				"x": -30,
 				"y": 10
 			}
 		],
 		"-4,10,0": [
+			{
+				"template_name": "plating",
+				"x": -4,
+				"y": 10
+			},
 			{
 				"template_name": "wall",
 				"x": -4,
@@ -18112,6 +20019,11 @@
 			}
 		],
 		"-2,10,0": [
+			{
+				"template_name": "plating",
+				"x": -2,
+				"y": 10
+			},
 			{
 				"template_name": "wall",
 				"x": -2,
@@ -18167,6 +20079,11 @@
 		],
 		"2,10,0": [
 			{
+				"template_name": "plating",
+				"x": 2,
+				"y": 10
+			},
+			{
 				"template_name": "wall",
 				"x": 2,
 				"y": 10
@@ -18186,6 +20103,11 @@
 		],
 		"4,10,0": [
 			{
+				"template_name": "plating",
+				"x": 4,
+				"y": 10
+			},
+			{
 				"template_name": "wall",
 				"x": 4,
 				"y": 10
@@ -18193,12 +20115,22 @@
 		],
 		"7,10,0": [
 			{
+				"template_name": "plating",
+				"x": 7,
+				"y": 10
+			},
+			{
 				"template_name": "wall",
 				"x": 7,
 				"y": 10
 			}
 		],
 		"8,10,0": [
+			{
+				"template_name": "plating",
+				"x": 8,
+				"y": 10
+			},
 			{
 				"template_name": "wall",
 				"x": 8,
@@ -18237,12 +20169,22 @@
 		],
 		"11,10,0": [
 			{
+				"template_name": "plating",
+				"x": 11,
+				"y": 10
+			},
+			{
 				"template_name": "wall",
 				"x": 11,
 				"y": 10
 			}
 		],
 		"-62,11,0": [
+			{
+				"template_name": "plating",
+				"x": -62,
+				"y": 11
+			},
 			{
 				"template_name": "wall",
 				"x": -62,
@@ -18332,12 +20274,22 @@
 		],
 		"-55,11,0": [
 			{
+				"template_name": "plating",
+				"x": -55,
+				"y": 11
+			},
+			{
 				"template_name": "wall",
 				"x": -55,
 				"y": 11
 			}
 		],
 		"-47,11,0": [
+			{
+				"template_name": "plating",
+				"x": -47,
+				"y": 11
+			},
 			{
 				"template_name": "wall",
 				"x": -47,
@@ -18482,12 +20434,22 @@
 		],
 		"-36,11,0": [
 			{
+				"template_name": "plating",
+				"x": -36,
+				"y": 11
+			},
+			{
 				"template_name": "r-wall",
 				"x": -36,
 				"y": 11
 			}
 		],
 		"-62,12,0": [
+			{
+				"template_name": "plating",
+				"x": -62,
+				"y": 12
+			},
 			{
 				"template_name": "wall",
 				"x": -62,
@@ -18557,6 +20519,11 @@
 			}
 		],
 		"-55,12,0": [
+			{
+				"template_name": "plating",
+				"x": -55,
+				"y": 12
+			},
 			{
 				"template_name": "wall",
 				"x": -55,
@@ -18680,12 +20647,22 @@
 		],
 		"-36,12,0": [
 			{
+				"template_name": "plating",
+				"x": -36,
+				"y": 12
+			},
+			{
 				"template_name": "r-wall",
 				"x": -36,
 				"y": 12
 			}
 		],
 		"-62,13,0": [
+			{
+				"template_name": "plating",
+				"x": -62,
+				"y": 13
+			},
 			{
 				"template_name": "wall",
 				"x": -62,
@@ -18768,12 +20745,22 @@
 		],
 		"-55,13,0": [
 			{
+				"template_name": "plating",
+				"x": -55,
+				"y": 13
+			},
+			{
 				"template_name": "wall",
 				"x": -55,
 				"y": 13
 			}
 		],
 		"-47,13,0": [
+			{
+				"template_name": "plating",
+				"x": -47,
+				"y": 13
+			},
 			{
 				"template_name": "wall",
 				"x": -47,
@@ -18927,12 +20914,22 @@
 		],
 		"-36,13,0": [
 			{
+				"template_name": "plating",
+				"x": -36,
+				"y": 13
+			},
+			{
 				"template_name": "r-wall",
 				"x": -36,
 				"y": 13
 			}
 		],
 		"-62,14,0": [
+			{
+				"template_name": "plating",
+				"x": -62,
+				"y": 14
+			},
 			{
 				"template_name": "wall",
 				"x": -62,
@@ -18941,12 +20938,22 @@
 		],
 		"-61,14,0": [
 			{
+				"template_name": "plating",
+				"x": -61,
+				"y": 14
+			},
+			{
 				"template_name": "wall",
 				"x": -61,
 				"y": 14
 			}
 		],
 		"-60,14,0": [
+			{
+				"template_name": "plating",
+				"x": -60,
+				"y": 14
+			},
 			{
 				"template_name": "wall",
 				"x": -60,
@@ -18955,6 +20962,11 @@
 		],
 		"-59,14,0": [
 			{
+				"template_name": "plating",
+				"x": -59,
+				"y": 14
+			},
+			{
 				"template_name": "wall",
 				"x": -59,
 				"y": 14
@@ -18962,12 +20974,22 @@
 		],
 		"-58,14,0": [
 			{
+				"template_name": "plating",
+				"x": -58,
+				"y": 14
+			},
+			{
 				"template_name": "wall",
 				"x": -58,
 				"y": 14
 			}
 		],
 		"-57,14,0": [
+			{
+				"template_name": "plating",
+				"x": -57,
+				"y": 14
+			},
 			{
 				"template_name": "wall",
 				"x": -57,
@@ -18988,6 +21010,11 @@
 		],
 		"-55,14,0": [
 			{
+				"template_name": "plating",
+				"x": -55,
+				"y": 14
+			},
+			{
 				"template_name": "wall",
 				"x": -55,
 				"y": 14
@@ -18995,12 +21022,22 @@
 		],
 		"-47,14,0": [
 			{
+				"template_name": "plating",
+				"x": -47,
+				"y": 14
+			},
+			{
 				"template_name": "wall",
 				"x": -47,
 				"y": 14
 			}
 		],
 		"-46,14,0": [
+			{
+				"template_name": "plating",
+				"x": -46,
+				"y": 14
+			},
 			{
 				"template_name": "wall",
 				"x": -46,
@@ -19021,12 +21058,22 @@
 		],
 		"-44,14,0": [
 			{
+				"template_name": "plating",
+				"x": -44,
+				"y": 14
+			},
+			{
 				"template_name": "wall",
 				"x": -44,
 				"y": 14
 			}
 		],
 		"-43,14,0": [
+			{
+				"template_name": "plating",
+				"x": -43,
+				"y": 14
+			},
 			{
 				"template_name": "wall",
 				"x": -43,
@@ -19035,12 +21082,22 @@
 		],
 		"-42,14,0": [
 			{
+				"template_name": "plating",
+				"x": -42,
+				"y": 14
+			},
+			{
 				"template_name": "wall",
 				"x": -42,
 				"y": 14
 			}
 		],
 		"-41,14,0": [
+			{
+				"template_name": "plating",
+				"x": -41,
+				"y": 14
+			},
 			{
 				"template_name": "wall",
 				"x": -41,
@@ -19049,12 +21106,22 @@
 		],
 		"-40,14,0": [
 			{
+				"template_name": "plating",
+				"x": -40,
+				"y": 14
+			},
+			{
 				"template_name": "wall",
 				"x": -40,
 				"y": 14
 			}
 		],
 		"-39,14,0": [
+			{
+				"template_name": "plating",
+				"x": -39,
+				"y": 14
+			},
 			{
 				"template_name": "wall",
 				"x": -39,
@@ -19063,6 +21130,11 @@
 		],
 		"-38,14,0": [
 			{
+				"template_name": "plating",
+				"x": -38,
+				"y": 14
+			},
+			{
 				"template_name": "wall",
 				"x": -38,
 				"y": 14
@@ -19070,12 +21142,22 @@
 		],
 		"-37,14,0": [
 			{
+				"template_name": "plating",
+				"x": -37,
+				"y": 14
+			},
+			{
 				"template_name": "wall",
 				"x": -37,
 				"y": 14
 			}
 		],
 		"-36,14,0": [
+			{
+				"template_name": "plating",
+				"x": -36,
+				"y": 14
+			},
 			{
 				"template_name": "r-wall",
 				"x": -36,

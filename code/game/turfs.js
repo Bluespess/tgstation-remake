@@ -1,14 +1,6 @@
 'use strict';
 
 module.exports.templates = {
-	"plating": {
-		components: ["SimulatedTurf"],
-		vars: {
-			icon: 'icons/turf/floors.png',
-			icon_state: "plating"
-		},
-		tree_paths: ["basic_structures/plating"]
-	},
 	"floor": {
 		components: ["SimulatedTurf"],
 		vars: {
@@ -146,9 +138,9 @@ module.exports.templates = {
 			opacity: true
 		},
 		tree_paths: ["basic_structures/wall"],
-		require_under: {
-			component: "Turf",
-			default: "floor"
+		requires_under: {
+			component: "FloorBase",
+			default: "plating"
 		}
 	},
 	"r-wall": {
@@ -169,9 +161,9 @@ module.exports.templates = {
 			opacity: true
 		},
 		tree_paths: ["basic_structures/wall/reinforced"],
-		require_under: {
-			component: "Turf",
-			default: "floor"
+		requires_under: {
+			component: "FloorBase",
+			default: "plating"
 		}
 	},
 	"crate": {

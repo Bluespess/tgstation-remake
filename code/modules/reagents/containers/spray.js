@@ -110,8 +110,8 @@ SprayBottle.template = {
 			"Item": {
 				no_bludgeon: true,
 				inhand_icon_state: "cleaner",
-				inhand_lhand_icon: 'icons/mob/inhands/equipment/custodial_lefthand.dmi',
-				inhand_rhand_icon: 'icons/mob/inhands/equipment/custodial_righthand.dmi',
+				inhand_lhand_icon: 'icons/mob/inhands/equipment/custodial_lefthand.png',
+				inhand_rhand_icon: 'icons/mob/inhands/equipment/custodial_righthand.png',
 				size: 2
 			},
 			"Tangible": {

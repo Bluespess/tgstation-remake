@@ -25,6 +25,7 @@ class Table extends Component {
 			let dy = Math.min(Math.max(e.y - 0.5, -0.5), 0.5);
 			item.glide_size = 0;
 			item.move(dx, dy, "placement");
+			return true;
 		}
 	}
 }

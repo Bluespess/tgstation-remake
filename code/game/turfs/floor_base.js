@@ -8,4 +8,17 @@ class FloorBase extends Component {
 	}
 }
 
+FloorBase.depends = ["Tangible"];
+FloorBase.loadBefore = ["Tangible"];
+
+FloorBase.template = {
+	vars: {
+		components: {
+			"Tangible": {
+				anchored: true
+			}
+		}
+	}
+};
+
 module.exports.components = {FloorBase};
