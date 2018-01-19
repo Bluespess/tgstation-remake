@@ -143,6 +143,16 @@ class MobInventory extends Component {
 		}
 	}
 
+	accident() {
+		for(let slot of Object.values(this.slots)) {
+			if(!slot.props.is_hand_slot || !slot.can_unequip())
+				return;
+			if(!slot.item)
+				continue;
+			slot.item = null;
+		}
+	}
+
 	do_after({delay, needhand = true, target = null, progress = true, extra_checks = null} = {}) {
 		return new Promise((resolve) => {
 			if(!delay)

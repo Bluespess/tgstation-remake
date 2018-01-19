@@ -14,6 +14,7 @@ server.importModule(require('./player.js'));
 server.importModule(require('./code/game/mobs/new_player.js'));
 server.importModule(require('./code/game/mobs/living/living.js'));
 server.importModule(require('./code/game/mobs/living/carbon/carbon.js'));
+server.importModule(require('./code/game/mobs/living/carbon/slip.js'));
 server.importModule(require('./code/game/mobs/living/carbon/body_parts/body_parts.js'));
 server.importModule(require('./code/game/mobs/living/carbon/body_parts/components.js'));
 server.importModule(require('./code/game/mobs/living/carbon/body_parts/head.js'));

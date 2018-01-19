@@ -230,6 +230,10 @@ class CarbonMob extends Component.Networked {
 		if(environment)
 			environment.merge(breath);
 	}
+
+	slip(obj) {
+		this.a.c.LivingMob.apply_effect("Knockdown", {delay: obj.c.Slippery.knockdown_amount});
+	}
 }
 CarbonMob.depends = ["LivingMob"];
 CarbonMob.loadBefore = ["LivingMob"];
