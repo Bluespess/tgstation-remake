@@ -5,11 +5,14 @@ const {random_zone} = require('./carbon/body_parts/helpers.js');
 
 const _stat = Symbol('_stat');
 
+const status_effects = {};
+
 class LivingMob extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 
 		this.damages = {};
+		this.effects = {};
 
 		this.add_damage_type("brute");
 		this.add_damage_type("burn");
@@ -228,6 +231,10 @@ class LivingMob extends Component {
 			.emit_from(this.a);
 		return true;
 	}
+
+	apply_effect(name, props = {}) {
+		(new (status_effects[name])()).apply_to(this.a, props);
+	}
 }
 
 LivingMob.depends = ["Mob", "Tangible", "MobInteract", "MobHud"];
@@ -246,5 +253,13 @@ LivingMob.template = {
 		density: 1
 	}
 };
+
+function add_effects(mod = {}) {
+	if(mod.status_effects) {
+		Object.assign(status_effects, mod.status_effects);
+	}
+}
+
+add_effects(require('./effects/incapacitating.js'));
 
 module.exports.components = {LivingMob};
