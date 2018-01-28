@@ -2,9 +2,9 @@
 
 const {Atom, chain_func} = require('bluespess-client');
 
-function create_mask(ctx, timestamp) {
+function create_mask(ctx, timestamp) {return;
 	this.parallax_mask = new Path2D();
-	var eye = this.eyes[""];
+	var eye = this.eyes[""].origin;
 	if(eye instanceof Atom)
 		eye.update_glide(timestamp);
 	ctx.fillStyle = "#ffffff";

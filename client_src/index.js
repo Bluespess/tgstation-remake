@@ -1,5 +1,6 @@
 'use strict';
 const BluespessClient = require('bluespess-client');
+const {Eye, Plane} = BluespessClient;
 
 var client = new BluespessClient();
 global.client = client;
@@ -16,6 +17,13 @@ if(global.is_bs_editor_env) {
 	module.exports = client;
 } else {
 	window.addEventListener("load", () => {
+		let eye = new Eye(client, "");
+		let main_plane = new Plane.World(eye, "");
+		main_plane.z_index = 0;
+		//let ui_plane = new Plane(eye, "ui");
+		//ui_plane.z_index = 10000;
+
+		eye.canvas = document.getElementById("mainlayer");
 		client.login();
 	});
 }
