@@ -2,7 +2,7 @@
 
 const {Atom, chain_func} = require('bluespess-client');
 
-function create_mask(ctx, timestamp) {return;
+function create_mask(ctx, timestamp) {
 	this.parallax_mask = new Path2D();
 	var eye = this.eyes[""].origin;
 	if(eye instanceof Atom)
@@ -18,7 +18,7 @@ function create_mask(ctx, timestamp) {return;
 module.exports.now = (client) => {
 	if(global.is_bs_editor_env)
 		return;
-	client.on("before_draw", create_mask.bind(client));
+	//client.on("before_draw", create_mask.bind(client));
 	for(let x = 0; x < 2; x++) {
 		for(let y = 0; y < 2; y++) {
 			for(let layer = 1; layer <= 2; layer++) {

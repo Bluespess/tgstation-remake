@@ -20,8 +20,8 @@ if(global.is_bs_editor_env) {
 		let eye = new Eye(client, "");
 		let main_plane = new Plane.World(eye, "");
 		main_plane.z_index = 0;
-		//let ui_plane = new Plane(eye, "ui");
-		//ui_plane.z_index = 10000;
+		let ui_plane = new Plane(eye, "ui");
+		ui_plane.z_index = 10000;
 
 		eye.canvas = document.getElementById("mainlayer");
 		client.login();
