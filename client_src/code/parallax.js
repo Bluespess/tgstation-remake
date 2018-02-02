@@ -1,6 +1,6 @@
 'use strict';
 
-const {Atom, chain_func} = require('bluespess-client');
+const {Atom, chain_func, Plane} = require('bluespess-client');
 
 function create_mask(ctx, timestamp) {
 	this.parallax_mask = new Path2D();
@@ -15,43 +15,60 @@ function create_mask(ctx, timestamp) {
 	}
 }
 
-module.exports.now = (client) => {
-	if(global.is_bs_editor_env)
-		return;
-	//client.on("before_draw", create_mask.bind(client));
-	for(let x = 0; x < 2; x++) {
-		for(let y = 0; y < 2; y++) {
-			for(let layer = 1; layer <= 2; layer++) {
-				var parallax_atom = new Atom(client, {
-					icon: 'icons/effects/parallax.png',
-					icon_state: `layer${layer}`,
-					layer: -10 + layer
-				});
-				parallax_atom.get_displacement = function get_displacement() {
-					return {dispx: 0, dispy: 0};
-				};
-				parallax_atom.draw = chain_func(parallax_atom.draw, function (prev, ctx, timestamp) {
-					var eye = client.eyes[""];
-					if(!eye)
-						return {dispx: 0, dispy: 0};
-					if(eye instanceof Atom)
-						eye.update_glide(timestamp);
-					let dispx = (-eye.x - (eye.glide?eye.glide.x:0)) * layer;
-					let dispy = (+eye.y + (eye.glide?eye.glide.y:0)) * layer;
-					dispx = ((dispx % 480) - 480) % 480;
-					dispy = ((dispy % 480) - 480) % 480;
-					dispx += x*480;
-					dispy += y*480;
-					ctx.save();
-					if(client.parallax_mask)
-						ctx.clip(client.parallax_mask);
-					ctx.translate(dispx, dispy);
-					ctx.globalCompositeOperation = "lighten";
-					prev();
-					ctx.globalCompositeOperation = "source-over";
-					ctx.restore();
-				});
+module.exports.ParallaxPlane = class ParallaxPlane extends Plane {
+	constructor(eye, id) {
+		super(eye, id);
+
+		for(let x = 0; x < 2; x++) {
+			for(let y = 0; y < 2; y++) {
+				for(let layer = 1; layer <= 2; layer++) {
+					var parallax_atom = new Atom(this.client, {
+						icon: 'icons/effects/parallax.png',
+						icon_state: `layer${layer}`,
+						layer: -10 + layer,
+						eye_id: eye.id
+					});
+					parallax_atom.get_plane_id = ()=>{return "parallax";};
+					parallax_atom.get_displacement = function get_displacement(timestamp) {
+						let origin_disp = this.eye && this.eye.origin && this.eye.origin.get_displacement && this.eye.origin.get_displacement(timestamp);
+						let dispx = 0;
+						let dispy = 0;
+						if(origin_disp) {
+							dispx = -origin_disp.dispx * layer;
+							dispy = -origin_disp.dispy * layer;
+						}
+						dispx = ((dispx % 480) - 480) % 480;
+						dispy = ((dispy % 480) + 480) % 480;
+						dispx += x*480;
+						dispy += y*480;
+						dispx /= 32;
+						dispy /= 32;
+						return {dispx, dispy};
+					};
+					parallax_atom.draw = chain_func(parallax_atom.draw, function (prev, ctx) {
+						ctx.globalCompositeOperation = "lighten";
+						prev();
+						ctx.globalCompositeOperation = "source-over";
+					});
+				}
 			}
 		}
+	}
+
+	composite_plane(eye_ctx, timestamp) {
+		let mctx = this.mask_canvas.getContext('2d');
+		mctx.clearRect(0, 0, eye_ctx.canvas.width, eye_ctx.canvas.height);
+		mctx.fillStyle = "#ffffff";
+		let {dispx, dispy} = (this.eye.origin && this.eye.origin.get_displacement && this.eye.origin.get_displacement(timestamp)) || {dispx:0,dispy:0};
+		for(let tile of this.client.visible_tiles) {
+			let [x,y] = JSON.parse(tile);
+			mctx.fillRect((x-dispx+7)*32, -(y-dispy-7)*32, 32, 32);
+		}
+		mctx.globalCompositeOperation = "source-in";
+		super.composite_plane(mctx, timestamp);
+		mctx.globalCompositeOperation = "source-over";
+		eye_ctx.globalCompositeOperation = "destination-over";
+		eye_ctx.drawImage(this.mask_canvas, 0, 0);
+		eye_ctx.globalCompositeOperation = "source-over";
 	}
 };
