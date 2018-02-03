@@ -18,6 +18,7 @@ function create_mask(ctx, timestamp) {
 module.exports.ParallaxPlane = class ParallaxPlane extends Plane {
 	constructor(eye, id) {
 		super(eye, id);
+		this.no_click = true;
 
 		for(let x = 0; x < 2; x++) {
 			for(let y = 0; y < 2; y++) {

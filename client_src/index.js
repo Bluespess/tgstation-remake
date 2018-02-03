@@ -26,9 +26,9 @@ if(global.is_bs_editor_env) {
 		lighting_plane.z_index = 5000;
 		let parallax_plane = new ParallaxPlane(eye, "parallax");
 		parallax_plane.z_index = 9999;
+		eye.canvas = document.getElementById("mainlayer");
 		eye.create_click_handlers();
 
-		eye.canvas = document.getElementById("mainlayer");
 		client.login();
 	});
 }
