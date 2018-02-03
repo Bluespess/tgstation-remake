@@ -2,19 +2,6 @@
 
 const {Atom, chain_func, Plane} = require('bluespess-client');
 
-function create_mask(ctx, timestamp) {
-	this.parallax_mask = new Path2D();
-	var eye = this.eyes[""].origin;
-	if(eye instanceof Atom)
-		eye.update_glide(timestamp);
-	ctx.fillStyle = "#ffffff";
-	for(let tile of this.visible_tiles) {
-		tile = JSON.parse(tile);
-		let [x,y] = tile;
-		this.parallax_mask.rect(Math.round((x-eye.x-(eye.glide?eye.glide.x:0)+7)*32), -Math.round((y-eye.y-(eye.glide?eye.glide.y:0)-7)*32), 32, 32);
-	}
-}
-
 module.exports.ParallaxPlane = class ParallaxPlane extends Plane {
 	constructor(eye, id) {
 		super(eye, id);
