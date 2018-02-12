@@ -25,7 +25,7 @@ module.exports.templates = {
 			default: "plating"
 		}
 	},
-	"r-wall": {
+	"r_wall": {
 		components: ["BlocksAir", "TGSmooth"],
 		vars: {
 			components: {
