@@ -36,6 +36,10 @@ class Tangible extends Component {
 		}
 	}
 
+	drop_location() {
+		return this.a.loc;
+	}
+
 	ex_act() {
 
 	}

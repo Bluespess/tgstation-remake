@@ -1,6 +1,7 @@
 'use strict';
 const {Component, Sound, chain_func, format_html, visible_message, has_component} = require('bluespess');
 const combat_defines = require('../../../defines/combat_defines.js');
+const mob_defines = require('../../../defines/mob_defines.js');
 const {random_zone} = require('./carbon/body_parts/helpers.js');
 
 const _stat = Symbol('_stat');
@@ -247,7 +248,8 @@ LivingMob.template = {
 				status_flags: combat_defines.CANSTUN|combat_defines.CANWEAKEN|combat_defines.CANPARALYSE|combat_defines.CANPUSH,
 				max_health: 100,
 				stat: combat_defines.CONSCIOUS,
-				nomove_counter: 0
+				nomove_counter: 0,
+				mob_size: mob_defines.MOB_SIZE_HUMAN
 			}
 		},
 		density: 1
