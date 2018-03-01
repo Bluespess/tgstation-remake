@@ -81,6 +81,7 @@ if(global.is_bs_editor_env) {
 		//turf.icon = 'icons/turf/floors.png';
 		//turf.icon_state = 'floor';
 	}*/
+	console.log("Loading maps..");
 	server.instance_map(JSON.parse(fs.readFileSync('convert_test.bsmap', 'utf8')), 0, 0, 0);
 
 	server.on("client_login", (client) => {
