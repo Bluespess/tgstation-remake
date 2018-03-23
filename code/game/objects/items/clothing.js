@@ -10,11 +10,11 @@ class WearableItem extends Component {
 WearableItem.template = {
 	vars: {
 		components: {
-			WearableItem: {
+			"WearableItem": {
 				put_on_delay: 2000,
 				strip_delay: 4000
 			},
-			Item: {
+			"Item": {
 				inhand_lhand_icon: 'icons/mob/inhands/clothing_lefthand.png',
 				inhand_rhand_icon: 'icons/mob/inhands/clothing_righthand.png',
 			}
