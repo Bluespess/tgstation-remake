@@ -7,6 +7,7 @@ class LargeContainer extends Component {
 		super(atom, template);
 
 		this.a.attack_hand = chain_func(this.a.attack_hand, this.attack_hand.bind(this));
+		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
 		this.a.c.Examine.examine = chain_func(this.a.c.Examine.examine, this.examine.bind(this));
 
 		let do_close = false;
@@ -71,7 +72,7 @@ class LargeContainer extends Component {
 	}
 
 	take_contents() {
-		for(let atom of this.a.crosses()) {
+		for(let atom of [...this.a.crosses()]) {
 			if(this.insert(atom) == -1)
 				break;
 		}
@@ -141,6 +142,18 @@ class LargeContainer extends Component {
 	attack_hand(prev, user) {
 		prev();
 		this.toggle(user);
+	}
+
+	attack_by(prev, item, user) {
+		if(user.loc == this.a)
+			return;
+		if(this.opened) {
+			if(item.c.Item.slot && item.c.Item.slot.can_unequip()) {
+				item.loc = this.a.fine_loc;
+				return true;
+			}
+		}
+		return prev();
 	}
 }
 

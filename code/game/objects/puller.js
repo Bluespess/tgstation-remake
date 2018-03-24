@@ -39,12 +39,16 @@ class Puller extends Component {
 			return;
 		var oldx = this.a.x - movement.offset.x;
 		var oldy = this.a.y - movement.offset.y;
-		if(Math.abs(this[_pulling].x - this.x) > 2.00001 || Math.abs(this[_pulling].y - this.y) > 2.00001) {
+		if(Math.abs(this[_pulling].x - this.a.x) > 2.00001 || Math.abs(this[_pulling].y - this.a.y) > 2.00001) {
 			this.pulling = null;
 			return;
 		}
 		// no diagonal drags if you don't need it
 		if(this[_pulling].x != oldx && this[_pulling].y != oldy && Math.abs(this[_pulling].x - this.a.x) <= 1.50001 && Math.abs(this[_pulling].y - this.a.y) <= 1.50001) {
+			return;
+		}
+		// No pulls if moving toward object
+		if((Math.abs(this[_pulling].x - this.a.x) + Math.abs(this[_pulling].y - this.a.y)) < (Math.abs(this[_pulling].x - oldx) + Math.abs(this[_pulling].y - oldy))) {
 			return;
 		}
 		this.pulling.glide_size = this.a.glide_size;
