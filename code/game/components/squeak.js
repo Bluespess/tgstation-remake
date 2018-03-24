@@ -19,7 +19,7 @@ class Squeak extends Component {
 
 	play_squeak(prev) {
 		if(Math.random() < this.squeak_chance)
-			new Sound(this.a.server, {path: this.squeak_sounds[Math.floor(Math.random() * this.squeak_sounds.length)], vary: true, volume: this.volume});
+			new Sound(this.a.server, {path: this.squeak_sounds[Math.floor(Math.random() * this.squeak_sounds.length)], vary: true, volume: this.volume}).emit_from(this.a);
 		if(typeof prev == "function")
 			return prev();
 	}
