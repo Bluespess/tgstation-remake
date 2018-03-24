@@ -17,13 +17,13 @@ class LargeContainer extends Component {
 			this.opened = false;
 		}
 		process.nextTick(() => {
-			if(!do_close)
+			if(!do_close && !this.start_empty)
 				this.populate_contents();
 			if(do_close)
 				this.close();
 			else
 				this.open();
-			if(do_close)
+			if(do_close && !this.start_empty)
 				this.populate_contents();
 		});
 	}
@@ -163,16 +163,15 @@ LargeContainer.template = {
 				allow_objects: false,
 				allow_dense: false,
 				breakout_time: 120000,
-				opened: false
+				opened: false,
+				start_empty: false
 			},
 			"Destructible": {
 				max_integrity: 200,
 				integrity_failure: 50,
 				armor: {melee: 20, bullet: 10, laser: 10, energy: 0, bomb: 10, bio: 0, rad: 0, fire: 70, acid: 60}
 			}
-		},
-		density: true,
-
+		}
 	}
 };
 
