@@ -25,13 +25,17 @@ class RequiresAccess extends Component {
 			match = re.exec(this.access_expression);
 			if(match) {
 				if(match[1]) {
-					expression += `access_checker("${match[1]}")`;
+					expression += `access_checker(${JSON.stringify(match[1])})`;
 				} else {
 					expression += match[0];
 				}
 			}
 		} while(match);
-		this[_access_function] = new Function("access_checker", `return ${expression};`);
+		try {
+			this[_access_function] = new Function("access_checker", `return ${expression};`);
+		} catch(e) {
+			this[_access_function] = ()=>{return false;};
+		}
 	}
 
 	can_access(target) {

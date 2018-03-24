@@ -1,5 +1,5 @@
 'use strict';
-const {Atom, Component, Sound, chain_func, has_component, to_chat} = require('bluespess');
+const {Atom, Component, Sound, chain_func, has_component, is_atom, to_chat} = require('bluespess');
 const sounds = require('../../../defines/sounds.js');
 
 const _current_storage_item = Symbol('_current_storage_item');
@@ -259,6 +259,12 @@ class StorageItem extends Component {
 			if(this.rustle_jimmies)
 				new Sound(this.a.server, {path: sounds.rustle(), volume: 1, vary: true}).emit_from(this.a.base_mover);
 		}
+		return true;
+	}
+
+	insert_item_or_del(item, user, prevent_warning = false) {
+		if(!this.insert_item(item, user, prevent_warning) && is_atom(item))
+			item.destroy();
 	}
 
 	is_showing_to(user) {
@@ -313,29 +319,5 @@ StorageItem.template = {
 
 StorageItem.depends = ["Item"];
 StorageItem.loadBefore = ["Item"];
-
-module.exports.templates = {
-	"backpack": {
-		components: ["BackItem", "StorageItem"],
-		vars: {
-			components: {
-				"StorageItem": {
-					max_size: 3,
-					max_combined_size: 21,
-					storage_slots: 21
-				},
-				"Item": {
-					inhand_icon_state: "backpack",
-					inhand_lhand_icon: 'icons/mob/inhands/equipment/backpack_lefthand.png',
-					inhand_rhand_icon: 'icons/mob/inhands/equipment/backpack_righthand.png',
-					size: 4
-				}
-			},
-			name: "backpack",
-			icon_state: "backpack"
-		},
-		tree_paths: ["items/storage/backpack"]
-	}
-};
 
 module.exports.components = {StorageItem};

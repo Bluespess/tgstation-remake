@@ -1,6 +1,6 @@
 'use strict';
 
-const {Component, Atom, has_component} = require('bluespess');
+const {Component, Atom, has_component, chain_func, is_atom} = require('bluespess');
 const EventEmitter = require('events');
 const _slots = Symbol('_slots');
 const {_slot} = require('../game/objects/items.js').symbols;
@@ -13,6 +13,7 @@ class MobInventory extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 
+		this.a.c.HasAccess.has_access = chain_func(this.a.c.HasAccess.has_access, this.has_access.bind(this));
 		this.next_move = 0;
 		this[_slots] = {};
 		this.slots = new Proxy(this[_slots],{set:()=>{},deleteProperty:()=>{},defineProperty:()=>{}});
@@ -38,7 +39,7 @@ class MobInventory extends Component {
 
 		});
 
-		this.add_slot('id', {icon: 'icons/mob/screen_midnight.png', icon_state: "id", screen_loc_x: 3.375, screen_loc_y: 0.15625, layer: 30}, {special_slot:true, worn_layer: 4});
+		this.add_slot('id', {icon: 'icons/mob/screen_midnight.png', icon_state: "id", screen_loc_x: 3.375, screen_loc_y: 0.15625, layer: 30}, {clothing_slot:"IdSlotItem", worn_layer: 4});
 		this.add_slot('belt', {icon: 'icons/mob/screen_midnight.png', icon_state: "belt", screen_loc_x: 4.4375, screen_loc_y: 0.15625, layer: 30}, {clothing_slot:"BeltItem", worn_layer: 10});
 		this.add_slot('back', {icon: 'icons/mob/screen_midnight.png', icon_state: "back", screen_loc_x: 5.4375, screen_loc_y: 0.15625, layer: 30}, {clothing_slot:"BackItem", worn_layer: 13});
 		this.add_slot('storage1', {icon: 'icons/mob/screen_midnight.png', icon_state: "pocket", screen_loc_x: 8.5625, screen_loc_y: 0.15625, layer: 30}, {max_size: 2});
@@ -153,6 +154,21 @@ class MobInventory extends Component {
 		}
 	}
 
+	has_access(prev, access) {
+		if(prev())
+			return true;
+		for(let slotname of ['id', 'lhand', 'rhand']) {
+			let slot = this.slots[slotname];
+			if(!slot)
+				continue;
+			let slotitem = slot.item;
+			if(!has_component(slotitem, "IdSlotItem") || !has_component(slotitem, "HasAccess"))
+				continue;
+			if(slotitem.c.HasAccess.has_access(access))
+				return true;
+		}
+	}
+
 	do_after({delay, needhand = true, target = null, progress = true, extra_checks = null} = {}) {
 		return new Promise((resolve) => {
 			if(!delay)
@@ -254,6 +270,8 @@ class Slot extends EventEmitter {
 	can_accept_item(item) {
 		if(!has_component(item, "Item"))
 			return false;
+		if(this.item)
+			return false;
 		if(item.slot && item.slot.can_unequip())
 			return false;
 		if(this.props.max_size && this.props.max_size < item.c.Item.size)
@@ -270,6 +288,15 @@ class Slot extends EventEmitter {
 
 	can_unequip() {
 		return true;
+	}
+
+	equip_or_del(item) {
+		if(!this.can_accept_item(item)) {
+			if(is_atom(item))
+				item.destroy();
+			return;
+		}
+		this.item = item;
 	}
 
 	set visible(value) {
@@ -328,7 +355,7 @@ class Slot extends EventEmitter {
 			if(this.props.clothing_slot) {
 				this.mob.overlays[`clothing_${this.id}`] = {
 					icon: this[_item].c[this.props.clothing_slot].worn_icon,
-					icon_state: this[_item].c[this.props.clothing_slot].worn_icon_state || this[_item].c.Item.inhand_icon_state,
+					icon_state: this[_item].c[this.props.clothing_slot].worn_icon_state || this[_item].icon_state,
 					overlay_layer: this.props.worn_layer
 				};
 			}
@@ -336,12 +363,16 @@ class Slot extends EventEmitter {
 			if(this.props.is_hand_slot)
 				this.mob.overlays[`inhand_${this.id}`] = undefined;
 		}
+		if(olditem)
+			olditem.c.Item.emit("unequipped", this);
 		this.emit("item_changed", olditem, value);
+		if(value)
+			value.c.Item.emit("equipped", this);
 	}
 }
 
-MobInventory.depends = ["Mob", "MobHud"];
-MobInventory.loadBefore = ["Mob", "MobHud"];
+MobInventory.depends = ["Mob", "MobHud", "HasAccess"];
+MobInventory.loadBefore = ["Mob", "MobHud", "HasAccess"];
 
 MobInventory.template = {
 	vars: {
