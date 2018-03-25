@@ -9009,6 +9009,11 @@
 		],
 		"34,-74,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": 34,
+				"y": -74
+			},
+			{
 				"template_name": "plating",
 				"x": 34,
 				"y": -74
@@ -9990,6 +9995,11 @@
 			}
 		],
 		"10,-72,0": [
+			{
+				"template_name": "fire_closet",
+				"x": 10,
+				"y": -72
+			},
 			{
 				"template_name": "plating",
 				"x": 10,
@@ -11570,6 +11580,11 @@
 		],
 		"13,-69,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": 13,
+				"y": -69
+			},
+			{
 				"template_name": "plating",
 				"x": 13,
 				"y": -69
@@ -12047,6 +12062,11 @@
 			}
 		],
 		"15,-68,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": 15,
+				"y": -68
+			},
 			{
 				"template_name": "plating",
 				"x": 15,
@@ -13240,6 +13260,11 @@
 		],
 		"-10,-66,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": -10,
+				"y": -66
+			},
+			{
 				"template_name": "plating",
 				"x": -10,
 				"y": -66
@@ -13934,6 +13959,11 @@
 			}
 		],
 		"-32,-65,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": -32,
+				"y": -65
+			},
 			{
 				"template_name": "plating",
 				"x": -32,
@@ -14642,6 +14672,11 @@
 			}
 		],
 		"66,-65,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": 66,
+				"y": -65
+			},
 			{
 				"template_name": "plating",
 				"x": 66,
@@ -17402,6 +17437,11 @@
 		],
 		"16,-62,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": 16,
+				"y": -62
+			},
+			{
 				"template_name": "plating",
 				"x": 16,
 				"y": -62
@@ -19786,6 +19826,11 @@
 			}
 		],
 		"46,-60,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": 46,
+				"y": -60
+			},
 			{
 				"template_name": "plating",
 				"x": 46,
@@ -22467,6 +22512,11 @@
 		],
 		"69,-58,0": [
 			{
+				"template_name": "tool_closet",
+				"x": 69,
+				"y": -58
+			},
+			{
 				"template_name": "plating",
 				"x": 69,
 				"y": -58
@@ -22808,6 +22858,11 @@
 			}
 		],
 		"-28,-57,0": [
+			{
+				"template_name": "fire_closet",
+				"x": -28,
+				"y": -57
+			},
 			{
 				"template_name": "plating",
 				"x": -28,
@@ -25739,6 +25794,11 @@
 		],
 		"-18,-55,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": -18,
+				"y": -55
+			},
+			{
 				"template_name": "plating",
 				"x": -18,
 				"y": -55
@@ -27279,6 +27339,11 @@
 		],
 		"8,-54,0": [
 			{
+				"template_name": "fire_closet",
+				"x": 8,
+				"y": -54
+			},
+			{
 				"template_name": "plating",
 				"x": 8,
 				"y": -54
@@ -27731,6 +27796,11 @@
 		],
 		"44,-54,0": [
 			{
+				"template_name": "fire_closet",
+				"x": 44,
+				"y": -54
+			},
+			{
 				"template_name": "plating",
 				"x": 44,
 				"y": -54
@@ -28089,6 +28159,11 @@
 		],
 		"83,-54,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": 83,
+				"y": -54
+			},
+			{
 				"template_name": "plating",
 				"x": 83,
 				"y": -54
@@ -28254,6 +28329,11 @@
 			}
 		],
 		"-34,-53,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": -34,
+				"y": -53
+			},
 			{
 				"template_name": "plating",
 				"x": -34,
@@ -28688,6 +28768,11 @@
 			}
 		],
 		"8,-53,0": [
+			{
+				"template_name": "fire_closet",
+				"x": 8,
+				"y": -53
+			},
 			{
 				"template_name": "plating",
 				"x": 8,
@@ -29596,6 +29681,11 @@
 			}
 		],
 		"87,-53,0": [
+			{
+				"template_name": "fire_closet",
+				"x": 87,
+				"y": -53
+			},
 			{
 				"template_name": "plating",
 				"x": 87,
@@ -31559,6 +31649,11 @@
 		],
 		"10,-51,0": [
 			{
+				"template_name": "fire_closet",
+				"x": 10,
+				"y": -51
+			},
+			{
 				"template_name": "plating",
 				"x": 10,
 				"y": -51
@@ -33079,6 +33174,11 @@
 		],
 		"10,-50,0": [
 			{
+				"template_name": "fire_closet",
+				"x": 10,
+				"y": -50
+			},
+			{
 				"template_name": "plating",
 				"x": 10,
 				"y": -50
@@ -33442,6 +33542,11 @@
 			}
 		],
 		"38,-50,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": 38,
+				"y": -50
+			},
 			{
 				"template_name": "plating",
 				"x": 38,
@@ -35258,6 +35363,11 @@
 			}
 		],
 		"66,-49,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": 66,
+				"y": -49
+			},
 			{
 				"template_name": "plating",
 				"x": 66,
@@ -39247,6 +39357,11 @@
 		],
 		"-5,-46,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": -5,
+				"y": -46
+			},
+			{
 				"template_name": "plating",
 				"x": -5,
 				"y": -46
@@ -41507,6 +41622,11 @@
 			}
 		],
 		"47,-45,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": 47,
+				"y": -45
+			},
 			{
 				"template_name": "plating",
 				"x": 47,
@@ -46839,12 +46959,12 @@
 				"y": -42
 			},
 			{
-				"template_name": "wrench",
+				"template_name": "crowbar",
 				"x": 70,
 				"y": -42
 			},
 			{
-				"template_name": "crowbar",
+				"template_name": "wrench",
 				"x": 70,
 				"y": -42
 			}
@@ -47167,6 +47287,11 @@
 			}
 		],
 		"-35,-41,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": -35,
+				"y": -41
+			},
 			{
 				"template_name": "plating",
 				"x": -35,
@@ -50617,6 +50742,11 @@
 			}
 		],
 		"-15,-39,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": -15,
+				"y": -39
+			},
 			{
 				"template_name": "plating",
 				"x": -15,
@@ -55419,6 +55549,11 @@
 		],
 		"-28,-36,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": -28,
+				"y": -36
+			},
+			{
 				"template_name": "plating",
 				"x": -28,
 				"y": -36
@@ -56626,6 +56761,11 @@
 			}
 		],
 		"66,-36,0": [
+			{
+				"template_name": "bomb_closet",
+				"x": 66,
+				"y": -36
+			},
 			{
 				"template_name": "plating",
 				"x": 66,
@@ -58855,6 +58995,11 @@
 		],
 		"-4,-34,0": [
 			{
+				"template_name": "tool_closet",
+				"x": -4,
+				"y": -34
+			},
+			{
 				"template_name": "plating",
 				"x": -4,
 				"y": -34
@@ -58869,6 +59014,11 @@
 			}
 		],
 		"-3,-34,0": [
+			{
+				"template_name": "tool_closet",
+				"x": -3,
+				"y": -34
+			},
 			{
 				"template_name": "plating",
 				"x": -3,
@@ -59526,6 +59676,11 @@
 			}
 		],
 		"42,-34,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": 42,
+				"y": -34
+			},
 			{
 				"template_name": "plating",
 				"x": 42,
@@ -62128,6 +62283,11 @@
 		],
 		"2,-32,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": 2,
+				"y": -32
+			},
+			{
 				"template_name": "plating",
 				"x": 2,
 				"y": -32
@@ -63477,6 +63637,11 @@
 			}
 		],
 		"-28,-31,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": -28,
+				"y": -31
+			},
 			{
 				"template_name": "plating",
 				"x": -28,
@@ -65128,6 +65293,11 @@
 			}
 		],
 		"-19,-30,0": [
+			{
+				"template_name": "fire_closet",
+				"x": -19,
+				"y": -30
+			},
 			{
 				"template_name": "plating",
 				"x": -19,
@@ -72263,12 +72433,12 @@
 				"y": -26
 			},
 			{
-				"template_name": "wirecutters",
+				"template_name": "screwdriver",
 				"x": -8,
 				"y": -26
 			},
 			{
-				"template_name": "screwdriver",
+				"template_name": "wirecutters",
 				"x": -8,
 				"y": -26
 			}
@@ -73410,6 +73580,11 @@
 		],
 		"71,-26,0": [
 			{
+				"template_name": "bomb_closet",
+				"x": 71,
+				"y": -26
+			},
+			{
 				"template_name": "plating",
 				"x": 71,
 				"y": -26
@@ -73424,6 +73599,11 @@
 			}
 		],
 		"72,-26,0": [
+			{
+				"template_name": "bomb_closet",
+				"x": 72,
+				"y": -26
+			},
 			{
 				"template_name": "plating",
 				"x": 72,
@@ -78038,12 +78218,12 @@
 				"y": -23
 			},
 			{
-				"template_name": "wrench",
+				"template_name": "crowbar",
 				"x": -87,
 				"y": -23
 			},
 			{
-				"template_name": "crowbar",
+				"template_name": "wrench",
 				"x": -87,
 				"y": -23
 			},
@@ -80657,6 +80837,11 @@
 				"y": -22
 			},
 			{
+				"template_name": "plating",
+				"x": -50,
+				"y": -22
+			},
+			{
 				"template_name": "floor",
 				"variant_leaf_path": [
 					"floor"
@@ -80716,6 +80901,11 @@
 			}
 		],
 		"-46,-22,0": [
+			{
+				"template_name": "plating",
+				"x": -46,
+				"y": -22
+			},
 			{
 				"template_name": "plating",
 				"x": -46,
@@ -93734,12 +93924,12 @@
 				"y": -17
 			},
 			{
-				"template_name": "spray_spacecleaner",
+				"template_name": "crowbar",
 				"x": 19,
 				"y": -17
 			},
 			{
-				"template_name": "crowbar",
+				"template_name": "spray_spacecleaner",
 				"x": 19,
 				"y": -17
 			}
@@ -97062,6 +97252,11 @@
 		],
 		"83,-16,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": 83,
+				"y": -16
+			},
+			{
 				"template_name": "plating",
 				"x": 83,
 				"y": -16
@@ -99793,6 +99988,11 @@
 		],
 		"-71,-14,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": -71,
+				"y": -14
+			},
+			{
 				"template_name": "plating",
 				"x": -71,
 				"y": -14
@@ -99815,6 +100015,11 @@
 			}
 		],
 		"-70,-14,0": [
+			{
+				"template_name": "fire_closet",
+				"x": -70,
+				"y": -14
+			},
 			{
 				"template_name": "plating",
 				"x": -70,
@@ -102391,6 +102596,11 @@
 		],
 		"-41,-13,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": -41,
+				"y": -13
+			},
+			{
 				"template_name": "plating",
 				"x": -41,
 				"y": -13
@@ -102405,6 +102615,11 @@
 			}
 		],
 		"-40,-13,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": -40,
+				"y": -13
+			},
 			{
 				"template_name": "plating",
 				"x": -40,
@@ -103771,12 +103986,12 @@
 				"y": -13
 			},
 			{
-				"template_name": "crowbar",
+				"template_name": "toolbox_mechanical",
 				"x": 54,
 				"y": -13
 			},
 			{
-				"template_name": "toolbox_mechanical",
+				"template_name": "crowbar",
 				"x": 54,
 				"y": -13
 			}
@@ -106278,6 +106493,11 @@
 		],
 		"66,-12,0": [
 			{
+				"template_name": "fire_closet",
+				"x": 66,
+				"y": -12
+			},
+			{
 				"template_name": "plating",
 				"x": 66,
 				"y": -12
@@ -106428,12 +106648,12 @@
 				"y": -12
 			},
 			{
-				"template_name": "beaker_large",
+				"template_name": "beaker",
 				"x": 75,
 				"y": -12
 			},
 			{
-				"template_name": "beaker",
+				"template_name": "beaker_large",
 				"x": 75,
 				"y": -12
 			}
@@ -108449,6 +108669,11 @@
 			}
 		],
 		"66,-11,0": [
+			{
+				"template_name": "fire_closet",
+				"x": 66,
+				"y": -11
+			},
 			{
 				"template_name": "plating",
 				"x": 66,
@@ -110481,6 +110706,11 @@
 		],
 		"66,-10,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": 66,
+				"y": -10
+			},
+			{
 				"template_name": "plating",
 				"x": 66,
 				"y": -10
@@ -110801,6 +111031,11 @@
 		],
 		"-73,-9,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": -73,
+				"y": -9
+			},
+			{
 				"template_name": "plating",
 				"x": -73,
 				"y": -9
@@ -110815,6 +111050,11 @@
 			}
 		],
 		"-72,-9,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": -72,
+				"y": -9
+			},
 			{
 				"template_name": "plating",
 				"x": -72,
@@ -114503,6 +114743,11 @@
 		],
 		"45,-8,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": 45,
+				"y": -8
+			},
+			{
 				"template_name": "plating",
 				"x": 45,
 				"y": -8
@@ -115008,6 +115253,11 @@
 		],
 		"79,-8,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": 79,
+				"y": -8
+			},
+			{
 				"template_name": "plating",
 				"x": 79,
 				"y": -8
@@ -115022,6 +115272,11 @@
 			}
 		],
 		"80,-8,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": 80,
+				"y": -8
+			},
 			{
 				"template_name": "plating",
 				"x": 80,
@@ -115138,6 +115393,11 @@
 			}
 		],
 		"93,-8,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": 93,
+				"y": -8
+			},
 			{
 				"template_name": "plating",
 				"x": 93,
@@ -118138,6 +118398,11 @@
 		],
 		"-54,-6,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": -54,
+				"y": -6
+			},
+			{
 				"template_name": "plating",
 				"x": -54,
 				"y": -6
@@ -120228,6 +120493,11 @@
 			}
 		],
 		"93,-6,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": 93,
+				"y": -6
+			},
 			{
 				"template_name": "plating",
 				"x": 93,
@@ -122994,6 +123264,11 @@
 			}
 		],
 		"-65,-4,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": -65,
+				"y": -4
+			},
 			{
 				"template_name": "plating",
 				"x": -65,
@@ -128843,6 +129118,11 @@
 		],
 		"-8,-2,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": -8,
+				"y": -2
+			},
+			{
 				"template_name": "plating",
 				"x": -8,
 				"y": -2
@@ -129075,6 +129355,11 @@
 			}
 		],
 		"8,-2,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": 8,
+				"y": -2
+			},
 			{
 				"template_name": "plating",
 				"x": 8,
@@ -132984,6 +133269,11 @@
 		],
 		"-65,0,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": -65,
+				"y": 0
+			},
+			{
 				"template_name": "plating",
 				"x": -65,
 				"y": 0
@@ -133538,6 +133828,11 @@
 		],
 		"-23,0,0": [
 			{
+				"template_name": "tool_closet",
+				"x": -23,
+				"y": 0
+			},
+			{
 				"template_name": "plating",
 				"x": -23,
 				"y": 0
@@ -133552,6 +133847,11 @@
 			}
 		],
 		"-22,0,0": [
+			{
+				"template_name": "tool_closet",
+				"x": -22,
+				"y": 0
+			},
 			{
 				"template_name": "plating",
 				"x": -22,
@@ -143004,6 +143304,11 @@
 		],
 		"-78,4,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": -78,
+				"y": 4
+			},
+			{
 				"template_name": "plating",
 				"x": -78,
 				"y": 4
@@ -143770,6 +144075,11 @@
 			}
 		],
 		"-24,4,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": -24,
+				"y": 4
+			},
 			{
 				"template_name": "plating",
 				"x": -24,
@@ -145722,6 +146032,11 @@
 		],
 		"-71,5,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": -71,
+				"y": 5
+			},
+			{
 				"template_name": "plating",
 				"x": -71,
 				"y": 5
@@ -145736,6 +146051,11 @@
 			}
 		],
 		"-70,5,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": -70,
+				"y": 5
+			},
 			{
 				"template_name": "plating",
 				"x": -70,
@@ -150714,6 +151034,11 @@
 		],
 		"95,6,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": 95,
+				"y": 6
+			},
+			{
 				"template_name": "plating",
 				"x": 95,
 				"y": 6
@@ -152561,12 +152886,12 @@
 				"y": 7
 			},
 			{
-				"template_name": "wrench",
+				"template_name": "wirecutters",
 				"x": 42,
 				"y": 7
 			},
 			{
-				"template_name": "wirecutters",
+				"template_name": "wrench",
 				"x": 42,
 				"y": 7
 			}
@@ -153305,6 +153630,11 @@
 			}
 		],
 		"-76,8,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": -76,
+				"y": 8
+			},
 			{
 				"template_name": "plating",
 				"x": -76,
@@ -168432,6 +168762,11 @@
 		],
 		"-73,15,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": -73,
+				"y": 15
+			},
+			{
 				"template_name": "plating",
 				"x": -73,
 				"y": 15
@@ -168446,6 +168781,11 @@
 			}
 		],
 		"-72,15,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": -72,
+				"y": 15
+			},
 			{
 				"template_name": "plating",
 				"x": -72,
@@ -170823,6 +171163,11 @@
 		],
 		"-37,16,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": -37,
+				"y": 16
+			},
+			{
 				"template_name": "plating",
 				"x": -37,
 				"y": 16
@@ -172601,6 +172946,11 @@
 		],
 		"-44,17,0": [
 			{
+				"template_name": "fire_closet",
+				"x": -44,
+				"y": 17
+			},
+			{
 				"template_name": "plating",
 				"x": -44,
 				"y": 17
@@ -174239,6 +174589,11 @@
 			}
 		],
 		"-78,18,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": -78,
+				"y": 18
+			},
 			{
 				"template_name": "plating",
 				"x": -78,
@@ -181582,6 +181937,11 @@
 		],
 		"-23,22,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": -23,
+				"y": 22
+			},
+			{
 				"template_name": "plating",
 				"x": -23,
 				"y": 22
@@ -182395,6 +182755,11 @@
 			}
 		],
 		"44,22,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": 44,
+				"y": 22
+			},
 			{
 				"template_name": "plating",
 				"x": 44,
@@ -184700,6 +185065,11 @@
 			}
 		],
 		"-53,24,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": -53,
+				"y": 24
+			},
 			{
 				"template_name": "plating",
 				"x": -53,
@@ -187151,6 +187521,11 @@
 		],
 		"51,25,0": [
 			{
+				"template_name": "emergency_closet",
+				"x": 51,
+				"y": 25
+			},
+			{
 				"template_name": "plating",
 				"x": 51,
 				"y": 25
@@ -187217,6 +187592,11 @@
 			}
 		],
 		"58,25,0": [
+			{
+				"template_name": "fire_closet",
+				"x": 58,
+				"y": 25
+			},
 			{
 				"template_name": "plating",
 				"x": 58,
@@ -187440,6 +187820,11 @@
 		],
 		"-67,26,0": [
 			{
+				"template_name": "tool_closet",
+				"x": -67,
+				"y": 26
+			},
+			{
 				"template_name": "plating",
 				"x": -67,
 				"y": 26
@@ -187455,6 +187840,11 @@
 			}
 		],
 		"-66,26,0": [
+			{
+				"template_name": "tool_closet",
+				"x": -66,
+				"y": 26
+			},
 			{
 				"template_name": "plating",
 				"x": -66,
@@ -187702,6 +188092,11 @@
 			}
 		],
 		"-30,26,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": -30,
+				"y": 26
+			},
 			{
 				"template_name": "plating",
 				"x": -30,
@@ -189173,6 +189568,11 @@
 			}
 		],
 		"-19,27,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": -19,
+				"y": 27
+			},
 			{
 				"template_name": "plating",
 				"x": -19,
@@ -202334,12 +202734,12 @@
 				"y": 41
 			},
 			{
-				"template_name": "wrench",
+				"template_name": "screwdriver",
 				"x": -19,
 				"y": 41
 			},
 			{
-				"template_name": "screwdriver",
+				"template_name": "wrench",
 				"x": -19,
 				"y": 41
 			}
@@ -203897,6 +204297,11 @@
 			}
 		],
 		"22,42,0": [
+			{
+				"template_name": "emergency_closet",
+				"x": 22,
+				"y": 42
+			},
 			{
 				"template_name": "plating",
 				"x": 22,
@@ -208813,6 +209218,11 @@
 			}
 		],
 		"7,48,0": [
+			{
+				"template_name": "bomb_closet",
+				"x": 7,
+				"y": 48
+			},
 			{
 				"template_name": "plating",
 				"x": 7,
