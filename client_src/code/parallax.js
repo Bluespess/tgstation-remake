@@ -7,6 +7,10 @@ module.exports.ParallaxPlane = class ParallaxPlane extends Plane {
 		super(eye, id);
 		this.no_click = true;
 
+		this.parallax_velocity = [0,0];
+		this.parallax_offset = [0,0];
+		this.parallax_velocity_lasttimestamp = -1;
+
 		for(let x = 0; x < 2; x++) {
 			for(let y = 0; y < 2; y++) {
 				for(let layer = 1; layer <= 2; layer++) {
@@ -22,8 +26,8 @@ module.exports.ParallaxPlane = class ParallaxPlane extends Plane {
 						let dispx = 0;
 						let dispy = 0;
 						if(origin_disp) {
-							dispx = -origin_disp.dispx * layer;
-							dispy = -origin_disp.dispy * layer;
+							dispx = -(origin_disp.dispx + this.get_plane().parallax_offset[0]) * layer;
+							dispy = -(origin_disp.dispy + this.get_plane().parallax_offset[1]) * layer;
 						}
 						dispx = ((dispx % 480) - 480) % 480;
 						dispy = ((dispy % 480) + 480) % 480;
@@ -41,6 +45,16 @@ module.exports.ParallaxPlane = class ParallaxPlane extends Plane {
 				}
 			}
 		}
+	}
+
+	draw_objects(timestamp) {
+		if(this.parallax_velocity_lasttimestamp != -1) {
+			let diff = (timestamp - this.parallax_velocity_lasttimestamp) / 1000;
+			this.parallax_offset[0] += this.parallax_velocity[0] * diff;
+			this.parallax_offset[1] += this.parallax_velocity[1] * diff;
+		}
+		this.parallax_velocity_lasttimestamp = timestamp;
+		super.draw_objects(timestamp);
 	}
 
 	composite_plane(eye_ctx, timestamp) {

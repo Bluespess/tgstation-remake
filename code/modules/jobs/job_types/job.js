@@ -10,6 +10,7 @@ class JobType {
 			access: [],
 
 			department_head: [],
+			departments: [],
 
 			total_positions: 0,
 			spawn_positions: 0,

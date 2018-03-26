@@ -1,6 +1,5 @@
 #gamewindow {
 	display: grid;
-	display: -ms-grid;
 
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 13px;
@@ -27,7 +26,6 @@
 
 	#mapwindow {
 		display: grid;
-		display: -ms-grid;
 		justify-items: center;
 		align-items: center;
 		grid-area: m;
@@ -44,12 +42,10 @@
 
 	#chatwindow {
 		grid-area: c;
-		-ms-grid-area: c;
 	}
 
 	#linkwindow {
 		grid-area: l;
-		-ms-grid-area: l;
 		background-color: #eee;
 		display: flex;
 		justify-content: space-evenly;
@@ -81,7 +77,6 @@ body {
 	image-rendering: -webkit-optimize-contrast;
 	image-rendering: pixelated;
 	image-rendering: optimize-contrast;
-	-ms-interpolation-mode: nearest-neighbor;
 }
 
 /* Fancy scrollbars on chrome! */

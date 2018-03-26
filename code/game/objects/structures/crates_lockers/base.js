@@ -10,6 +10,8 @@ class LargeContainer extends Component {
 		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
 		this.a.c.Examine.examine = chain_func(this.a.c.Examine.examine, this.examine.bind(this));
 
+		this.a.c.MovementProxy.on("child_moved", this.child_moved.bind(this));
+
 		let do_close = false;
 		if(!this.opened) {
 			do_close = true;
@@ -155,10 +157,17 @@ class LargeContainer extends Component {
 		}
 		return prev();
 	}
+
+	child_moved(child) {
+		this.open(child);
+		if(this.opened) {
+			child.loc = this.a.fine_loc;
+		}
+	}
 }
 
-LargeContainer.depends = ["Destructible"];
-LargeContainer.loadBefore = ["Destructible"];
+LargeContainer.depends = ["Destructible", "MovementProxy"];
+LargeContainer.loadBefore = ["Destructible", "MovementProxy"];
 
 LargeContainer.template = {
 	vars: {

@@ -97,7 +97,8 @@ if(global.is_bs_editor_env) {
 
 	server.on("client_login", (client) => {
 		if(!client.mob) {
-			let mob = server.job_controller.jobs.assistant.instance(server, server.location(0, 0, 0));
+			//let mob = server.job_controller.jobs.assistant.instance(server, server.location(0, 0, 0));
+			let mob = new Bluespess.Atom(server, {components: ["NewPlayer"]});
 			mob.c.Mob.client = client;
 		}
 	});

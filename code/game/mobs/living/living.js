@@ -174,6 +174,10 @@ class LivingMob extends Component {
 
 		this.a.walk_delay = this.movement_delay();
 
+		if(has_component(this.a.loc, "MovementProxy")) {
+			this.a.loc.c.MovementProxy.emit("child_moved", this.a, dx, dy);
+			return;
+		}
 		return prev();
 	}
 
@@ -256,6 +260,8 @@ LivingMob.template = {
 	}
 };
 
+class MovementProxy extends Component {}
+
 function add_effects(mod = {}) {
 	if(mod.status_effects) {
 		Object.assign(status_effects, mod.status_effects);
@@ -264,4 +270,4 @@ function add_effects(mod = {}) {
 
 add_effects(require('./effects/incapacitating.js'));
 
-module.exports.components = {LivingMob};
+module.exports.components = {LivingMob, MovementProxy};

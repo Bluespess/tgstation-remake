@@ -9,8 +9,8 @@ class NewPlayerPanel {
 
 	handle_message(message) {
 		if(message.latejoin != undefined) {
-			this.panel.content_obj.getElementsByClassName("pregame")[0].style.display = message.latejoin ? "none" : "block";
-			this.panel.content_obj.getElementsByClassName("latejoin")[0].style.display = message.latejoin ? "visible" : "none";
+			[...this.panel.content_obj.getElementsByClassName("pregame")].forEach(item => item.style.display = message.latejoin ? "none" : "block");
+			[...this.panel.content_obj.getElementsByClassName("latejoin")].forEach(item => item.style.display = message.latejoin ? "visible" : "none");
 		}
 	}
 
@@ -22,9 +22,10 @@ class NewPlayerPanel {
 			<div class="pregame vertical-margins">
 				<div class='button' data-radio-group='ready' data-radio-value='1'>Ready</div>
 				<div class='button selected' data-radio-group='ready' data-radio-value='0'>Not Ready</div>
+				<div class='button' data-radio-group='ready' data-radio-value='2'>Observe</div>
 			</div>
 			<div class="latejoin vertical-margins"><div class='button' data-message='{"latejoin":true}'>Join Game</div></div>
-			<div class="vertical-margins"><div class='button' data-message='{"observe":true}'>Observe</div></div>
+			<div class="latejoin vertical-margins"><div class='button' data-message='{"observe":true}'>Observe</div></div>
 		`;
 	}
 }
