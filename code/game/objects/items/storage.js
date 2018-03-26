@@ -275,7 +275,6 @@ class StorageItem extends Component {
 		this.hide_from(e.mob);
 	}
 	grid_clicked(e) {
-		console.log(e.x + ", " + e.y);
 		if(!e.mob)return;
 		var slot = (this.rows - Math.floor(e.y)) * 7 + Math.floor(e.x);
 		var target_atom;

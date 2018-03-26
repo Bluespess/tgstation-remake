@@ -17,7 +17,7 @@ class NewPlayer extends Component {
 			return;
 		}
 		if(new_client) {
-			to_chat(this.a, `<div class="motd"><h1>Welcome to Bluespess, a Space Station 13 remake!</h1><i>This is still extremely unfinished.</i></div>`);
+			to_chat(this.a, `<div class="motd"><h1>Welcome to Bluespess, a Space Station 13 remake!</h1><b>An ss13 remake so good, it just as laggy as the original!</b><br><i>This is still extremely unfinished.</i></div>`);
 
 			this.new_player_panel = new NewPlayerPanel(new_client);
 			this.new_player_panel.open();
