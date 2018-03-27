@@ -20,10 +20,10 @@ class Table extends Component {
 
 	attack_by(prev, item, user, e) {
 		if(item.c.Item.slot && item.c.Item.slot.can_unequip()) {
+			item.glide_size = 0;
 			item.loc = this.a.base_mover.fine_loc;
 			let dx = Math.min(Math.max(e.x - 0.5, -0.5), 0.5);
 			let dy = Math.min(Math.max(e.y - 0.5, -0.5), 0.5);
-			item.glide_size = 0;
 			item.move(dx, dy, "placement");
 			return true;
 		}
@@ -83,7 +83,7 @@ module.exports.templates = {
 					max_integrity: 70
 				},
 				"Examine": {
-					desc: "Do not apply fire to this. Romour says it burns easily."
+					desc: "Do not apply fire to this. Rumour says it burns easily."
 				}
 			},
 			name: "wooden table",

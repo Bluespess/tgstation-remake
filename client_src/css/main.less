@@ -7,21 +7,15 @@
 	width: 100vw;
 	height: 100vh;
 
-	grid-template-rows: 50px auto 50px;
-	grid-template-columns: auto minmax(33vw,~"calc(100vw - 100vh + 50px)");
-	-ms-grid-template-rows: 50px auto 50px;
-	-ms-grid-template-columns: auto minmax(33vw,~"calc(100vw - 100vh + 50px)");
+	grid-template-rows: 50px auto 30px;
+	grid-template-columns: auto minmax(33vw,~"calc(100vw - 100vh + 30px)");
 
 	grid-template-areas: "m l" "m c" "i i";
-	-ms-grid-template-areas: "m l" "m c" "i i";
 
 	@media (max-aspect-ratio: 1/1) {
-		grid-template-rows: 50px auto minmax(33vh,~"calc(100vh - 100vw - 100px)") 50px;
+		grid-template-rows: 50px auto minmax(33vh,~"calc(100vh - 100vw - 80px)") 30px;
 		grid-template-columns: auto;
 		grid-template-areas: "l" "m" "c" "i";
-		-ms-grid-template-rows: 50px auto minmax(33vh,~"calc(100vh - 100vw - 100px)") 50px;
-		-ms-grid-template-columns: auto;
-		-ms-grid-template-areas: "l" "m" "c" "i";
 	}
 
 	#mapwindow {
@@ -29,7 +23,6 @@
 		justify-items: center;
 		align-items: center;
 		grid-area: m;
-		-ms-grid-area: m;
 		background-color: black;
 		#mainlayer {
 			width: 100%;
@@ -61,8 +54,28 @@
 
 	#inputwindow {
 		grid-area: i;
-		-ms-grid-area: i;
+		display: flex;
+
+		#main-text-input {
+			margin: 0px;
+			flex: 1;
+			font-size:20px;
+			border: 1px solid black;
+			&[data-inputting="ooc"] {
+				animation: ooc-text-input 1s;
+				animation-direction: alternate;
+				animation-iteration-count: infinite;
+			}
+			&:disabled {
+				background-color: #d2b4b4;
+			}
+		}
 	}
+}
+
+@keyframes ooc-text-input {
+	from { background-color: #fff; }
+	to { background-color: #88f; }
 }
 
 body {

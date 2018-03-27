@@ -9,6 +9,7 @@ global.client = client;
 client.importModule(require('./code/carbon_mob.js'));
 client.importModule(require('./code/hud.js'));
 client.importModule(require('./code/progress_bar.js'));
+client.importModule(require('./code/text_input.js'));
 client.importModule(require('./code/ui/chem_dispenser.js'));
 client.importModule(require('./code/ui/latejoin.js'));
 client.importModule(require('./code/ui/new_player.js'));

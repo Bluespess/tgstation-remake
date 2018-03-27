@@ -6,6 +6,7 @@ class Plating extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 		this.floor = this.a;
+		this.icon_groups = {};
 	}
 }
 

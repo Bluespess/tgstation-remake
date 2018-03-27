@@ -151,6 +151,7 @@ class LargeContainer extends Component {
 			return;
 		if(this.opened) {
 			if(item.c.Item.slot && item.c.Item.slot.can_unequip()) {
+				item.glide_size = 0;
 				item.loc = this.a.fine_loc;
 				return true;
 			}
