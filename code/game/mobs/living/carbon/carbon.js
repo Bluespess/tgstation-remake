@@ -180,12 +180,13 @@ class CarbonMob extends Component.Networked {
 		this.update_lying(old, val);
 	}
 
-	update_lying(old, val) {
+	update_lying() {
+		let old = this.lying;
 		this.lying = !!this[_lying_counter];
 		if(has_component(this.a, "MobInventory")) {
-			if(val && !old)
+			if(this.lying && !old)
 				this.a.c.MobInventory.nohold_counter++;
-			else if(!old && val)
+			else if(!old && this.lying)
 				this.a.c.MobInventory.nohold_counter--;
 		}
 	}

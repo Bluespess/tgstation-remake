@@ -1,6 +1,6 @@
 'use strict';
 
-const {Component, Atom, has_component, chain_func, is_atom} = require('bluespess');
+const {Component, Atom, has_component, chain_func, is_atom, visible_message} = require('bluespess');
 const EventEmitter = require('events');
 const _slots = Symbol('_slots');
 const {_slot} = require('../game/objects/items.js').symbols;
@@ -8,11 +8,13 @@ const _visible = Symbol('_can_see');
 const _item = Symbol('_item');
 const _active_hand = Symbol('_active_hand');
 const _nohold_counter = Symbol('_nohold_counter');
+const _throw_mode = Symbol('_throw_mode');
 
 class MobInventory extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 
+		this.a.c.Mob.on("keydown", this.keydown.bind(this));
 		this.a.c.HasAccess.has_access = chain_func(this.a.c.HasAccess.has_access, this.has_access.bind(this));
 		this.next_move = 0;
 		this[_slots] = {};
@@ -24,11 +26,7 @@ class MobInventory extends Component {
 			icon: 'icons/mob/screen_midnight.png', icon_state: "swap", screen_loc_x: 6.5, screen_loc_y: 1.15625, layer: 30
 		}});
 		this.a.c.Eye.screen.swap_hands.on("clicked", () => {
-			if(this.active_hand == "lhand") {
-				this.active_hand = "rhand";
-			} else {
-				this.active_hand = "lhand";
-			}
+			this.swap_hands();
 		});
 		this.active_hand = "rhand";
 
@@ -76,6 +74,10 @@ class MobInventory extends Component {
 			icon: 'icons/mob/screen_midnight.png', icon_state: "act_throw_off", screen_loc_x: 13.875, screen_loc_y: 1.21875, layer: 30
 		}});
 
+		this.a.c.Eye.screen.throw_item.on("clicked", () => {
+			this.throw_mode = !this.throw_mode;
+		});
+
 		this.a.c.Eye.screen.resist = new Atom(this.a.server, {vars:{
 			icon: 'icons/mob/screen_midnight.png', icon_state: "act_resist", screen_loc_x: 12.8125, screen_loc_y: 1.21875, layer: 30
 		}});
@@ -109,6 +111,56 @@ class MobInventory extends Component {
 	}
 	get active_hand() {
 		return this[_active_hand];
+	}
+
+	keydown(e) {
+		if(e.which == 88) { // x
+			this.swap_hands();
+		}
+		if(e.which == 90) { // z
+			if(this.active_hand && this.slots[this.active_hand] && this.slots[this.active_hand].item) {
+				this.slots[this.active_hand].item.c.Item.attack_self(this.a);
+			}
+		}
+		if(e.which == 81) { // q
+			this.slots[this.active_hand].item = undefined;
+		}
+		if(e.which == 82) {
+			this.throw_mode = !this.throw_mode;
+		}
+	}
+
+	get throw_mode() {
+		return !!this[_throw_mode];
+	}
+	set throw_mode(val) {
+		val = !!val;
+		if(this[_throw_mode] == val)
+			return;
+		this[_throw_mode] = val;
+		this.a.c.Eye.screen.throw_item.icon_state = val ? "act_throw_on" : "act_throw_off";
+	}
+
+	throw_item(target) {
+		this.throw_mode = false;
+		if(!this.slots[this.active_hand].can_unequip())
+			return;
+		if(!this.slots[this.active_hand].item)
+			return;
+		let item = this.slots[this.active_hand].item;
+		this.slots[this.active_hand].item = undefined;
+		visible_message(`<span class='danger'>The ${this.a} has thrown the ${item}</span class='danger'>`).emit_from(this.a);
+		this.a.server.once("post_net_tick", () => {
+			item.c.Tangible.throw_at({target});
+		});
+	}
+
+	swap_hands() {
+		if(this.active_hand == "lhand") {
+			this.active_hand = "rhand";
+		} else {
+			this.active_hand = "lhand";
+		}
 	}
 
 	put_in_hands(item) {

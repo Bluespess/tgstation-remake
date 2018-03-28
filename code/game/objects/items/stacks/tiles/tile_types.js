@@ -124,7 +124,7 @@ PlasteelTile.template = {
 				armor: {melee: 0, bullet: 0, laser: 0, energy: 0, bomb: 0, bio: 0, rad: 0, fire: 100, acid: 70}
 			},
 			"Tangible": {
-				throwforce: 10
+				throw_force: 10
 			},
 			"Examine": {
 				desc: "These could work as a pretty decent throwing weapon"

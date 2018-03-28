@@ -66,7 +66,7 @@ module.exports.templates = {
 			icon_state: "tube1",
 			components: {
 				"LightSource": {
-					on: true,
+					enabled: true,
 					radius: 8,
 					color: "#ffffff"
 				},
@@ -95,7 +95,7 @@ module.exports.templates = {
 			icon_state: "bulb1",
 			components: {
 				"LightSource": {
-					on: true,
+					enabled: true,
 					radius: 4,
 					color: "#ccbbaa"
 				},

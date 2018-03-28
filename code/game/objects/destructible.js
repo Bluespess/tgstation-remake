@@ -76,7 +76,7 @@ Destructible.template = {
 	vars: {
 		components: {
 			"Destructible": {
-				crit_fal: false,
+				crit_fail: false,
 				armor: null,
 				obj_integrity: null,
 				max_integrity: 500,

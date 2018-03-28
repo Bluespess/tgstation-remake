@@ -28,6 +28,10 @@ class MobInteract extends Component {
 		if(isliving && this.a.c.LivingMob.incapacitated({ignore_restraints: true}))
 			return;
 
+		if(hasinv && this.a.c.MobInventory.throw_mode) {
+			this.a.c.MobInventory.throw_item({x: e.atom.x + e.x - 0.5, y: e.atom.y + e.y - 0.5});
+		}
+
 		var active_item = hasinv ? this.a.c.MobInventory.slots[this.a.c.MobInventory.active_hand].item : null;
 
 		if(active_item == e.atom) {

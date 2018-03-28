@@ -24,6 +24,8 @@ class LivingMob extends Component {
 		this.a.c.Mob.can_interact_with_panel = this.can_interact_with_panel.bind(this);
 		this.a.c.Tangible.experience_pressure_difference = chain_func(this.a.c.Tangible.experience_pressure_difference, this.experience_pressure_difference.bind(this));
 		this.a.c.Tangible.attacked_by = this.attacked_by.bind(this);
+		this.a.c.Tangible.on("throw_finished", this.throw_finished.bind(this));
+		this.a.c.Tangible.on("throw_impacted_by", this.throw_impacted_by.bind(this));
 		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
 		this.a.can_be_crossed = chain_func(this.a.can_be_crossed, this.can_be_crossed.bind(this));
 		this.a.move = chain_func(this.a.move, this.move.bind(this));
@@ -196,15 +198,45 @@ class LivingMob extends Component {
 		prev();
 	}
 
-	can_be_crossed(prev, mover) {
-		if(mover.density < 1 || this.a.density < 1)
+	can_be_crossed(prev, mover, dx, dy, reason) {
+		if((mover.density < 1 || this.a.density < 1) && reason != "throw")
 			return true;
 		return prev();
+	}
+
+	throw_finished() {
+		this.a.x = Math.round(this.a.x);
+		this.a.y = Math.round(this.a.y);
 	}
 
 	attack_by(prev, item, user) {
 		user.c.MobInteract.change_next_move(combat_defines.CLICK_CD_MELEE);
 		return prev() || item.c.Item.attack(this.a, user);
+	}
+
+	throw_impacted_by(item) {
+		if(!has_component(item, "Item")) {
+			new Sound(this.a.server, {path: 'sound/weapons/genhit.ogg', volume: 0.5, vary: true}).emit_from(this.a);
+			return;
+		}
+		let zone = random_zone("chest", 65);
+		let volume = 0;
+		if(item.c.Tangible.throw_force && item.c.Item.size)
+			volume = Math.min(Math.max((item.c.Tangible.throw_force + item.c.Item.size) * 0.05, 0.3), 1);
+		else if(item.c.Item.size)
+			volume = Math.min(Math.max((item.c.Item.size) * 0.08, 0.2), 1);
+		else
+			return;
+		if(item.c.Tangible.throw_force > 0) {
+			let sound = item.c.Tangible.throwhitsound || item.c.Item.hitsound || 'sound/weapons/genhit.ogg';
+			if(!item.c.Tangible.throw_force)
+				sound = 'sound/weapons/throwtap.ogg';
+			new Sound(this.a.server, {path: sound, volume, vary: true}).emit_from(this.a);
+		}
+		visible_message`<span class='danger'>The ${this.a} has been hit by the ${item}.</span class='danger'>`
+			.self`<span class='userdanger'>The ${this.a} been hit by the ${item}.</span>`
+			.emit_from(this.a);
+		this.apply_damage(item.c.Tangible.throw_force, item.c.Item.damage_type, zone);
 	}
 
 	attacked_by(item, user) {
