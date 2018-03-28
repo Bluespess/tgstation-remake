@@ -3894,12 +3894,12 @@
 				"y": -87
 			},
 			{
-				"template_name": "crowbar",
+				"template_name": "wrench",
 				"x": 42,
 				"y": -87
 			},
 			{
-				"template_name": "wrench",
+				"template_name": "crowbar",
 				"x": 42,
 				"y": -87
 			}
@@ -5741,12 +5741,12 @@
 				"y": -81
 			},
 			{
-				"template_name": "wrench",
+				"template_name": "crowbar",
 				"x": 32,
 				"y": -81
 			},
 			{
-				"template_name": "crowbar",
+				"template_name": "wrench",
 				"x": 32,
 				"y": -81
 			}
@@ -6249,6 +6249,11 @@
 				"variant_leaf_path": [
 					"dark"
 				],
+				"x": 6,
+				"y": -80
+			},
+			{
+				"template_name": "flashlight",
 				"x": 6,
 				"y": -80
 			},
@@ -15040,6 +15045,16 @@
 				"y": -64
 			},
 			{
+				"template_name": "flashlight",
+				"x": -10,
+				"y": -64
+			},
+			{
+				"template_name": "flashlight",
+				"x": -10,
+				"y": -64
+			},
+			{
 				"template_name": "toolbox_mechanical",
 				"x": -10,
 				"y": -64
@@ -17132,6 +17147,11 @@
 			},
 			{
 				"template_name": "table",
+				"x": -3,
+				"y": -62
+			},
+			{
+				"template_name": "flashlight",
 				"x": -3,
 				"y": -62
 			},
@@ -42173,6 +42193,11 @@
 				"template_name": "table",
 				"x": 85,
 				"y": -45
+			},
+			{
+				"template_name": "desk_lamp",
+				"x": 85,
+				"y": -45
 			}
 		],
 		"86,-45,0": [
@@ -46959,12 +46984,12 @@
 				"y": -42
 			},
 			{
-				"template_name": "crowbar",
+				"template_name": "wrench",
 				"x": 70,
 				"y": -42
 			},
 			{
-				"template_name": "wrench",
+				"template_name": "crowbar",
 				"x": 70,
 				"y": -42
 			}
@@ -50959,12 +50984,12 @@
 				"y": -39
 			},
 			{
-				"template_name": "wrench",
+				"template_name": "crowbar",
 				"x": 2,
 				"y": -39
 			},
 			{
-				"template_name": "crowbar",
+				"template_name": "wrench",
 				"x": 2,
 				"y": -39
 			}
@@ -52441,6 +52466,11 @@
 			},
 			{
 				"template_name": "table",
+				"x": -4,
+				"y": -38
+			},
+			{
+				"template_name": "flashlight",
 				"x": -4,
 				"y": -38
 			}
@@ -61804,6 +61834,11 @@
 				"template_name": "plating",
 				"x": 115,
 				"y": -33
+			},
+			{
+				"template_name": "desk_lamp",
+				"x": 115,
+				"y": -33
 			}
 		],
 		"116,-33,0": [
@@ -68363,12 +68398,12 @@
 				"y": -29
 			},
 			{
-				"template_name": "wrench",
+				"template_name": "screwdriver",
 				"x": 75,
 				"y": -29
 			},
 			{
-				"template_name": "screwdriver",
+				"template_name": "wrench",
 				"x": 75,
 				"y": -29
 			}
@@ -68619,6 +68654,11 @@
 		"115,-29,0": [
 			{
 				"template_name": "plating",
+				"x": 115,
+				"y": -29
+			},
+			{
+				"template_name": "desk_lamp",
 				"x": 115,
 				"y": -29
 			}
@@ -72399,6 +72439,16 @@
 				"template_name": "table",
 				"x": -10,
 				"y": -26
+			},
+			{
+				"template_name": "flashlight",
+				"x": -10,
+				"y": -26
+			},
+			{
+				"template_name": "flashlight",
+				"x": -10,
+				"y": -26
 			}
 		],
 		"-9,-26,0": [
@@ -72433,12 +72483,12 @@
 				"y": -26
 			},
 			{
-				"template_name": "screwdriver",
+				"template_name": "wirecutters",
 				"x": -8,
 				"y": -26
 			},
 			{
-				"template_name": "wirecutters",
+				"template_name": "screwdriver",
 				"x": -8,
 				"y": -26
 			}
@@ -78218,17 +78268,17 @@
 				"y": -23
 			},
 			{
+				"template_name": "wirecutters",
+				"x": -87,
+				"y": -23
+			},
+			{
 				"template_name": "crowbar",
 				"x": -87,
 				"y": -23
 			},
 			{
 				"template_name": "wrench",
-				"x": -87,
-				"y": -23
-			},
-			{
-				"template_name": "wirecutters",
 				"x": -87,
 				"y": -23
 			}
@@ -93924,12 +93974,12 @@
 				"y": -17
 			},
 			{
-				"template_name": "crowbar",
+				"template_name": "spray_spacecleaner",
 				"x": 19,
 				"y": -17
 			},
 			{
-				"template_name": "spray_spacecleaner",
+				"template_name": "crowbar",
 				"x": 19,
 				"y": -17
 			}
@@ -100990,6 +101040,11 @@
 				"template_name": "wood_table",
 				"x": 9,
 				"y": -14
+			},
+			{
+				"template_name": "desk_lamp_green",
+				"x": 9,
+				"y": -14
 			}
 		],
 		"10,-14,0": [
@@ -103986,12 +104041,12 @@
 				"y": -13
 			},
 			{
-				"template_name": "toolbox_mechanical",
+				"template_name": "crowbar",
 				"x": 54,
 				"y": -13
 			},
 			{
-				"template_name": "crowbar",
+				"template_name": "toolbox_mechanical",
 				"x": 54,
 				"y": -13
 			}
@@ -104762,6 +104817,16 @@
 			},
 			{
 				"template_name": "crowbar",
+				"x": -70,
+				"y": -12
+			},
+			{
+				"template_name": "flashlight",
+				"x": -70,
+				"y": -12
+			},
+			{
+				"template_name": "flashlight",
 				"x": -70,
 				"y": -12
 			}
@@ -114267,6 +114332,11 @@
 				"template_name": "wood_table",
 				"x": 9,
 				"y": -8
+			},
+			{
+				"template_name": "desk_lamp_green",
+				"x": 9,
+				"y": -8
 			}
 		],
 		"10,-8,0": [
@@ -121366,6 +121436,11 @@
 				"template_name": "wood_table",
 				"x": -21,
 				"y": -5
+			},
+			{
+				"template_name": "desk_lamp_green",
+				"x": -21,
+				"y": -5
 			}
 		],
 		"-20,-5,0": [
@@ -127606,6 +127681,11 @@
 				"template_name": "wood_table",
 				"x": 62,
 				"y": -3
+			},
+			{
+				"template_name": "desk_lamp_green",
+				"x": 62,
+				"y": -3
 			}
 		],
 		"63,-3,0": [
@@ -130932,6 +131012,11 @@
 				"template_name": "wood_table",
 				"x": -59,
 				"y": -1
+			},
+			{
+				"template_name": "desk_lamp",
+				"x": -59,
+				"y": -1
 			}
 		],
 		"-58,-1,0": [
@@ -130959,6 +131044,11 @@
 			},
 			{
 				"template_name": "wood_table",
+				"x": -57,
+				"y": -1
+			},
+			{
+				"template_name": "desk_lamp_green",
 				"x": -57,
 				"y": -1
 			}
@@ -137695,6 +137785,11 @@
 				"template_name": "wood_table",
 				"x": 61,
 				"y": 1
+			},
+			{
+				"template_name": "desk_lamp_green",
+				"x": 61,
+				"y": 1
 			}
 		],
 		"62,1,0": [
@@ -143631,6 +143726,11 @@
 			},
 			{
 				"template_name": "wood_table",
+				"x": -57,
+				"y": 4
+			},
+			{
+				"template_name": "desk_lamp_green",
 				"x": -57,
 				"y": 4
 			}
@@ -150214,6 +150314,16 @@
 				"template_name": "floor_wood",
 				"x": 32,
 				"y": 6
+			},
+			{
+				"template_name": "desk_lamp",
+				"x": 32,
+				"y": 6
+			},
+			{
+				"template_name": "desk_lamp_green",
+				"x": 32,
+				"y": 6
 			}
 		],
 		"33,6,0": [
@@ -151393,6 +151503,11 @@
 			},
 			{
 				"template_name": "wood_table",
+				"x": -57,
+				"y": 7
+			},
+			{
+				"template_name": "desk_lamp_green",
 				"x": -57,
 				"y": 7
 			}
@@ -152886,12 +153001,12 @@
 				"y": 7
 			},
 			{
-				"template_name": "wirecutters",
+				"template_name": "wrench",
 				"x": 42,
 				"y": 7
 			},
 			{
-				"template_name": "wrench",
+				"template_name": "wirecutters",
 				"x": 42,
 				"y": 7
 			}
@@ -158030,6 +158145,11 @@
 				"template_name": "wood_table",
 				"x": 64,
 				"y": 9
+			},
+			{
+				"template_name": "desk_lamp",
+				"x": 64,
+				"y": 9
 			}
 		],
 		"65,9,0": [
@@ -162144,6 +162264,11 @@
 				"template_name": "wood_table",
 				"x": 21,
 				"y": 11
+			},
+			{
+				"template_name": "desk_lamp_banana",
+				"x": 21,
+				"y": 11
 			}
 		],
 		"22,11,0": [
@@ -165392,6 +165517,11 @@
 			},
 			{
 				"template_name": "table",
+				"x": -44,
+				"y": 13
+			},
+			{
+				"template_name": "flashlight",
 				"x": -44,
 				"y": 13
 			},
@@ -173348,6 +173478,26 @@
 				"variant_leaf_path": [
 					1
 				],
+				"x": -13,
+				"y": 17
+			},
+			{
+				"template_name": "flashlight",
+				"x": -13,
+				"y": 17
+			},
+			{
+				"template_name": "flashlight",
+				"x": -13,
+				"y": 17
+			},
+			{
+				"template_name": "flashlight",
+				"x": -13,
+				"y": 17
+			},
+			{
+				"template_name": "flashlight",
 				"x": -13,
 				"y": 17
 			}
@@ -185350,6 +185500,11 @@
 				"template_name": "wood_table",
 				"x": -13,
 				"y": 24
+			},
+			{
+				"template_name": "desk_lamp",
+				"x": -13,
+				"y": 24
 			}
 		],
 		"-12,24,0": [
@@ -185487,6 +185642,11 @@
 			},
 			{
 				"template_name": "wood_table",
+				"x": -3,
+				"y": 24
+			},
+			{
+				"template_name": "desk_lamp_green",
 				"x": -3,
 				"y": 24
 			}
@@ -201055,6 +201215,11 @@
 				"template_name": "table",
 				"x": -13,
 				"y": 39
+			},
+			{
+				"template_name": "desk_lamp",
+				"x": -13,
+				"y": 39
 			}
 		],
 		"-12,39,0": [
@@ -204601,6 +204766,11 @@
 				],
 				"x": -20,
 				"y": 43
+			},
+			{
+				"template_name": "flashlight",
+				"x": -20,
+				"y": 43
 			}
 		],
 		"-19,43,0": [
@@ -205547,6 +205717,11 @@
 			},
 			{
 				"template_name": "table",
+				"x": -20,
+				"y": 44
+			},
+			{
+				"template_name": "desk_lamp",
 				"x": -20,
 				"y": 44
 			}
@@ -208643,6 +208818,11 @@
 			},
 			{
 				"template_name": "wood_table",
+				"x": 13,
+				"y": 47
+			},
+			{
+				"template_name": "desk_lamp_green",
 				"x": 13,
 				"y": 47
 			}

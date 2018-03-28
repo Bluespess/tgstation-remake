@@ -7,6 +7,7 @@ class Flashlight extends Component {
 		super(atom, template);
 		this.a.c.LightSource.on("enabled_changed", this.enabled_changed.bind(this));
 		this.a.c.Item.attack_self = this.attack_self.bind(this);
+		this.enabled_changed();
 	}
 
 	enabled_changed() {
@@ -43,6 +44,35 @@ Flashlight.template = {
 	}
 };
 
+class DeskLamp extends Component {}
+
+DeskLamp.depends = ["Flashlight", "BeltItem"];
+DeskLamp.loadBefore = ["Flashlight", "BeltItem"];
+
+DeskLamp.template = {
+	vars: {
+		components: {
+			"LightSource": {
+				radius: 5,
+				enabled: true,
+				color: "#ffeedd"
+			},
+			"Item": {
+				inhand_icon_state: "lamp",
+				inhand_lhand_icon: 'icons/mob/inhands/items_lefthand.png',
+				inhand_rhand_icon: 'icons/mob/inhands/items_righthand.png',
+				force: 10,
+				size: 4
+			},
+			"Examine": {
+				desc: "A desk lamp with an adjustable mount."
+			}
+		},
+		name: "desk lamp",
+		icon_state: "lamp"
+	}
+};
+
 module.exports.templates = {
 	"flashlight": {
 		components: ["Flashlight", "BeltItem"],
@@ -59,7 +89,41 @@ module.exports.templates = {
 			icon_state: "flashlight"
 		},
 		tree_paths: ["items/flashlight"]
-	}
+	},
+	"desk_lamp": {
+		components: ["DeskLamp"],
+		tree_paths: ["items/flashlight/lamp"]
+	},
+	"desk_lamp_green": {
+		components: ["DeskLamp"],
+		vars: {
+			components: {
+				"Item": {
+					inhand_icon_state: "lampgreen"
+				},
+				"Examine": {
+					desc: "A classic green-shaded desk lamp."
+				}
+			},
+			icon_state: "lampgreen"
+		},
+		tree_paths: ["items/flashlight/lamp/green"]
+	},
+	"desk_lamp_banana": {
+		components: ["DeskLamp"],
+		vars: {
+			components: {
+				"Item": {
+					inhand_icon_state: "bananalamp"
+				},
+				"Examine": {
+					desc: "Only a clown would think to make a ghetto banana-shaped lamp. Even has a goofy pullstring."
+				}
+			},
+			icon_state: "bananalamp"
+		},
+		tree_paths: ["items/flashlight/lamp/banana"]
+	},
 };
 
-module.exports.components = {Flashlight};
+module.exports.components = {Flashlight, DeskLamp};

@@ -53,11 +53,6 @@ let rules = [
 			tname = "airlock";
 		return {template_name: tname};
 	}],
-	["/obj/machinery/light", (inst) => {
-		if(inst.type.path == "/obj/machinery/light_switch")
-			return;
-		return {template_name: inst.type.path == "/obj/machinery/light/small" ? "light_small" : "light", variant_leaf_path: [inst_dir(inst)]};
-	}],
 	["/obj/structure/table", () => {return {template_name: "table"};}],
 	["/obj/structure/table/wood", () => {return {template_name: "wood_table"};}],
 
@@ -75,6 +70,18 @@ let rules = [
 	["/obj/item/weldingtool", () => {return {template_name: "weldingtool"};}, {pixel_offsets: true}],
 	["/obj/item/wirecutters", () => {return {template_name: "wirecutters"};}, {pixel_offsets: true}],
 	["/obj/item/wrench", () => {return {template_name: "wrench"};}, {pixel_offsets: true}],
+
+	// LAMPS AND LIGHTS
+
+	["/obj/machinery/light", (inst) => {
+		if(inst.type.path == "/obj/machinery/light_switch")
+			return;
+		return {template_name: inst.type.path == "/obj/machinery/light/small" ? "light_small" : "light", variant_leaf_path: [inst_dir(inst)]};
+	}],
+	["/obj/item/device/flashlight", () => {return {template_name: "flashlight"};}, {pixel_offsets: true}],
+	["/obj/item/device/flashlight/lamp", () => {return {template_name: "desk_lamp"};}, {pixel_offsets: true}],
+	["/obj/item/device/flashlight/lamp/green", () => {return {template_name: "desk_lamp_green"};}, {pixel_offsets: true}],
+	["/obj/item/device/flashlight/lamp/bananalamp", () => {return {template_name: "desk_lamp_banana"};}, {pixel_offsets: true}],
 
 	// JANITORIAL
 

@@ -3,6 +3,7 @@
 // BASED OFF OF tgstation COMMIT 910be9f4e29270e3a0a36ed8042310ed4bee1845
 
 const Bluespess = require('bluespess');
+const read_config = require('./code/config.js');
 
 console.log("Loading game..");
 
@@ -87,6 +88,8 @@ if(global.is_bs_editor_env) {
 } else { // Load these packages within this if statement because they throw errors in atom.io
 	const finalhandler = require('finalhandler');
 	const http = require('http');
+	const net = require('net');
+	const https = require('https');
 	const serveStatic = require('serve-static');
 	const fs = require('fs');
 
@@ -106,13 +109,42 @@ if(global.is_bs_editor_env) {
 		}
 	});
 	console.log("Starting server..");
+	let server_config = read_config('server.cson');
+	for(let [key, file] of Object.entries(server_config.http_opts.files)) {
+		server_config.http_opts[key] = fs.readFileSync(file, 'utf8');
+	}
 	var serve = serveStatic(server.resRoot, {'index': ['index.html']});
 
-	var httpServer = http.createServer((req, res) => {
+	let http_handler = (req, res) => {
 		serve(req, res, finalhandler(req, res));
-	});
+	};
+	let http_server;
+	if(server_config.https) {
+		let proxies = {
+			http: http.createServer((req, res) => {
+				res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
+				res.end();
+			}),
+			https: https.createServer(server_config.http_opts, http_handler)
+		};
+		net.createServer((socket) => {
+			socket.once('data', (buffer) => {
+				socket.pause();
+				let byte = buffer[0];
+				let protocol = byte == 22 ? 'https' : 'http';
+				let proxy = proxies[protocol];
+				socket.unshift(buffer);
+				proxy.emit('connection', socket);
+				socket.resume();
+			});
+		}).listen(server_config.port);
 
-	httpServer.listen(8080);
-	server.startServer({websocket:{server: httpServer}});
+		http_server = proxies.https;
+	} else {
+		http_server = http.createServer(http_handler);
+		http_server.listen(server_config.port);
+	}
+
+	server.startServer({websocket:{server: http_server}});
 	console.log("Server started.");
 }
