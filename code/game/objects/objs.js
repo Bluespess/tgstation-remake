@@ -94,11 +94,9 @@ class Tangible extends Component {
 				last_move = this.a.server.now();
 				this.a.glide_size = speed * 10;
 				let to_move = speed * delta * 0.01;
-				console.log(to_move);
 				if(dist_traveled < range - 0.001) {
 					to_move = Math.min(to_move, range - dist_traveled);
 				}
-				console.log(`${dx}, ${dy}, ${to_move}`);
 				let [oldx, oldy] = [this.a.x, this.a.y];
 				this.a.move(dx*to_move, dy*to_move, "throw");
 				let this_dx = this.a.x - oldx;
