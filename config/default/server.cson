@@ -4,3 +4,9 @@ http_opts:
 		key: null
 		cert: null
 https: false
+
+gh_login:
+	enabled: false
+	client_id: null
+	client_secret: null
+	user_agent: 'Bluespess'

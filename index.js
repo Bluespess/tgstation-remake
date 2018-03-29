@@ -92,6 +92,8 @@ if(global.is_bs_editor_env) {
 	const https = require('https');
 	const serveStatic = require('serve-static');
 	const fs = require('fs');
+	const url = require('url');
+	const querystring = require('querystring');
 
 	/*for(var x = -7; x <= 7; x++) for(var y = -7; y <= 7; y++) {
 		var turf = new Bluespess.Atom(server, server.templates["floor"], x, y, 0);
@@ -113,16 +115,116 @@ if(global.is_bs_editor_env) {
 	for(let [key, file] of Object.entries(server_config.http_opts.files)) {
 		server_config.http_opts[key] = fs.readFileSync(file, 'utf8');
 	}
+
+	if(server_config.gh_login.enabled) {
+		let authorization = 'Basic ' + Buffer.from(`${server_config.gh_login.client_id}:${server_config.gh_login.client_secret}`).toString('base64');
+		let invalid_tokens = new Set();
+		server.handle_login = function(ws) {
+			ws.send(JSON.stringify({login_type:"github", client_id: server_config.gh_login.client_id}));
+			let id = null;
+			let name = null;
+			let token = null;
+			let message_handler = (msg) => {
+				let obj = JSON.parse(msg);
+				if(obj.access_token) {
+					obj.access_token = ""+obj.access_token;
+					let req = https.request({
+						hostname: 'api.github.com',
+						path: `/applications/${server_config.gh_login.client_id}/tokens/${querystring.escape(obj.access_token)}`,
+						method: "GET",
+						headers: {
+							'User-Agent': server_config.gh_login.user_agent,
+							'Authorization': authorization
+						}
+					}, (res) => {
+						res.setEncoding('utf8');
+						let data = "";
+						res.on("data", chunk => {data += chunk;});
+						res.on("end", () => {
+							let obj2 = JSON.parse(data);
+							if(!obj2.user || !obj2.scopes || !obj2.scopes.includes('user:email')) {
+								ws.send(JSON.stringify({valid: false}));
+							} else {
+								name = obj2.user.login;
+								id = obj2.user.id;
+								token = obj.access_token;
+								ws.send(JSON.stringify({valid: true, logged_in_as: obj2.user.login}));
+							}
+						});
+					});
+					req.on('error', (err)=>{
+						ws.send(JSON.stringify({valid: false}));
+						console.error(err);
+					});
+					req.end();
+				} else if(obj.login) {
+					if(!id || !name || invalid_tokens.has(token))
+						return;
+					ws.removeListener("message", message_handler);
+					this.login(ws, id, name);
+				} else if(obj.logout) {
+					if(!token)
+						return;
+					invalid_tokens.add(token);
+					let req = https.request({
+						hostname: 'api.github.com',
+						path: `/applications/${server_config.gh_login.client_id}/grants/${querystring.escape(token)}`,
+						method: "DELETE",
+						headers: {
+							'User-Agent': server_config.gh_login.user_agent,
+							'Authorization': authorization
+						}
+					});
+					req.on("error", (err) => {
+						console.error(err);
+					});
+					req.end();
+				}
+			};
+			ws.on("message", message_handler);
+		};
+	}
+
 	var serve = serveStatic(server.resRoot, {'index': ['index.html']});
 
 	let http_handler = (req, res) => {
-		serve(req, res, finalhandler(req, res));
+		let done = finalhandler(req, res);
+		let url_obj = url.parse(req.url, true);
+		if(url_obj.pathname == "/gh-oauth" && server_config.gh_login.enabled) {
+			let req2 = https.request({
+				hostname: 'github.com',
+				path: '/login/oauth/access_token',
+				method: "POST",
+				headers: {'User-Agent': server_config.gh_login.user_agent}
+			}, (res2) => {
+				res2.setEncoding('utf8');
+				let data = "";
+				res2.on("data", chunk => {data += chunk;});
+				res2.on("end", () => {
+					let obj = querystring.parse(data);
+					if(!obj.access_token) {
+						console.error(obj);
+						return done();
+					}
+					res.writeHead(200, {'Content-Type': 'text/html'});
+					res.write(`<html><head><script>localStorage.setItem("gh_access_token", ${JSON.stringify(obj.access_token)}); window.location.href="/";</script></head><body></body></html>`);
+				});
+			});
+			req2.on('error', (err) => {
+				console.error(err);
+				done();
+			});
+			req2.write(querystring.stringify({client_id: server_config.gh_login.client_id, client_secret: server_config.gh_login.client_secret, code: url_obj.query.code}));
+			req2.end();
+		} else {
+			serve(req, res, done);
+		}
 	};
 	let http_server;
 	if(server_config.https) {
 		let proxies = {
 			http: http.createServer((req, res) => {
-				res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
+				res.writeHead(301, {"Location": "https://" + req.headers['host'] + req.url});
 				res.end();
 			}),
 			https: https.createServer(server_config.http_opts, http_handler)

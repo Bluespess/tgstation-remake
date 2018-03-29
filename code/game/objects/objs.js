@@ -103,7 +103,6 @@ class Tangible extends Component {
 				let this_dy = this.a.y - oldy;
 				dist_traveled += Math.sqrt(this_dx*this_dx + this_dy*this_dy);
 				let dist_covered_delay = (range > dist_traveled) ? (range - dist_traveled) * 100 / (speed) : 123456789;
-				console.log(dist_covered_delay);
 				await sleep(Math.max(Math.min(dist_covered_delay, 50), 1));
 				if(dist_traveled >= range - 0.001) {
 					this.stop_throw();
