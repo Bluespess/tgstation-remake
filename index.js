@@ -13,9 +13,10 @@ global.server = server; // So the debugger can access it. No, you are not allowe
 global.require = require;
 server.resRoot = "./res/";
 
-server.importModule(require('./player.js'));
 server.importModule(require('./code/game/components/squeak.js'));
+server.importModule(require('./code/game/mobs/mob_movement.js'));
 server.importModule(require('./code/game/mobs/new_player.js'));
+server.importModule(require('./code/game/mobs/dead/ghost.js'));
 server.importModule(require('./code/game/mobs/living/living.js'));
 server.importModule(require('./code/game/mobs/living/carbon/carbon.js'));
 server.importModule(require('./code/game/mobs/living/carbon/slip.js'));
@@ -105,7 +106,6 @@ if(global.is_bs_editor_env) {
 
 	server.on("client_login", (client) => {
 		if(!client.mob) {
-			//let mob = server.job_controller.jobs.assistant.instance(server, server.location(0, 0, 0));
 			let mob = new Bluespess.Atom(server, {components: ["NewPlayer"]});
 			mob.c.Mob.client = client;
 		}

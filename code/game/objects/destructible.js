@@ -1,5 +1,5 @@
 'use strict';
-const {Component, Sound, chain_func, visible_message} = require('bluespess');
+const {Component, Sound, has_component, chain_func, visible_message} = require('bluespess');
 
 class Destructible extends Component {
 	constructor(atom, template) {
@@ -8,6 +8,7 @@ class Destructible extends Component {
 			this.obj_integrity = this.max_integrity;
 		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
 		this.a.c.Tangible.attacked_by = this.attacked_by.bind(this);
+		this.a.c.Tangible.on("throw_impacted_by", this.throw_impacted_by.bind(this));
 	}
 
 	take_damage(damage_amount, damage_type = "brute", damage_flag, sound_effect = true, attack_dir) {
@@ -69,6 +70,12 @@ class Destructible extends Component {
 			visible_message`<span class='danger'>The ${user} has hit the ${this.a} with the ${item}!</span>`.emit_from(this.a);
 
 		this.take_damage(item.c.Item.force, item.c.Item.damtype, "melee", true);
+	}
+
+	throw_impacted_by(obj) {
+		if(!has_component(obj, "Tangible"))
+			return;
+		this.take_damage(obj.c.Tangible.throw_force, "brute", "melee", true);
 	}
 }
 

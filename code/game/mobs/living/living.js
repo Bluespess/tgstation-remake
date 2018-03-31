@@ -1,5 +1,6 @@
 'use strict';
-const {Component, Sound, chain_func, format_html, visible_message, has_component} = require('bluespess');
+const {Component, Sound, Atom, chain_func, format_html, visible_message, has_component} = require('bluespess');
+const Mind = require('../mind/mind.js');
 const combat_defines = require('../../../defines/combat_defines.js');
 const mob_defines = require('../../../defines/mob_defines.js');
 const {random_zone} = require('./carbon/body_parts/helpers.js');
@@ -21,6 +22,9 @@ class LivingMob extends Component {
 		this.add_damage_type("tox");
 		this.add_damage_type("clone");
 
+		this.mind = null;
+
+		this.a.c.Mob.on("client_changed", this.client_changed.bind(this));
 		this.a.c.Mob.can_interact_with_panel = this.can_interact_with_panel.bind(this);
 		this.a.c.Tangible.experience_pressure_difference = chain_func(this.a.c.Tangible.experience_pressure_difference, this.experience_pressure_difference.bind(this));
 		this.a.c.Tangible.attacked_by = this.attacked_by.bind(this);
@@ -167,9 +171,31 @@ class LivingMob extends Component {
 		return 150;
 	}
 
+	client_changed(old_client, new_client) {
+		if(new_client) {
+			if(!this.mind) {
+				let mind = new Mind(new_client.key);
+				mind.transfer_to(this.a);
+			}
+		}
+	}
+
+	ghostize(can_reenter_corpse = true) {
+		let ghost = new Atom(this.a.server, {components: ["Ghost"]});
+		ghost.loc = this.a.base_mover.fine_loc;
+		ghost.c.Ghost.mind = this.mind;
+		ghost.c.Mob.key = this.a.c.Mob.key;
+		ghost.c.Ghost.can_reenter_corpse = can_reenter_corpse;
+	}
+
 	move(prev, dx, dy, reason) {
 		if(reason != "walking")
 			return prev();
+
+		if(this.stat == combat_defines.DEAD) {
+			this.ghostize(true);
+			return;
+		}
 
 		if(this.incapacitated())
 			return;
@@ -286,6 +312,9 @@ LivingMob.template = {
 				stat: combat_defines.CONSCIOUS,
 				nomove_counter: 0,
 				mob_size: mob_defines.MOB_SIZE_HUMAN
+			},
+			"Tangible": {
+				throw_force: 10
 			}
 		},
 		density: 1

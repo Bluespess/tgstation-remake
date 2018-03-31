@@ -34,7 +34,7 @@ class JobType {
 	}
 
 	instance(server, loc) {
-		let template = {"components": ["Player", "MobInventory", "HumanMob"], vars: {layer: 5}};
+		let template = {"components": ["MobMovement", "MobInventory", "HumanMob"], vars: {layer: 5}};
 		let mob = new Atom(server, template);
 		this.equip(mob);
 		mob.loc = loc;
