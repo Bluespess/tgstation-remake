@@ -36,6 +36,7 @@ server.importModule(require('./code/game/objects/doors/airlock.js'));
 server.importModule(require('./code/game/objects/doors/door.js'));
 server.importModule(require('./code/game/objects/items/devices/flashlight.js'));
 server.importModule(require('./code/game/objects/items/stacks/sheets/glass.js'));
+server.importModule(require('./code/game/objects/items/stacks/tiles/tile_mineral.js'));
 server.importModule(require('./code/game/objects/items/stacks/tiles/tile_types.js'));
 server.importModule(require('./code/game/objects/items/stacks/rods.js'));
 server.importModule(require('./code/game/objects/items/stacks/stack.js'));

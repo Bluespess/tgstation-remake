@@ -48,6 +48,32 @@ module.exports.templates = {
 			default: "plating"
 		}
 	},
+	"wall_titanium": {
+		components: ["BlocksAir", "TGSmooth"],
+		vars: {
+			components: {
+				"TGSmooth": {
+					diagonal: true
+				},
+				"Smooth": {
+					smooth_with: "titanium_wall"
+				},
+				"SmoothGroup": {
+					groups: ["titanium_wall"]
+				}
+			},
+			icon: 'icons/turf/walls/shuttle_wall.png',
+			icon_state: "map-shuttle",
+			layer: layers.WALL_LAYER,
+			density: 1,
+			opacity: true
+		},
+		tree_paths: ["basic_structures/wall/titanium"],
+		requires_under: {
+			component: "FloorBase",
+			default: "plating"
+		}
+	},
 	"crate": {
 		components: ["Tangible"],
 		vars: {

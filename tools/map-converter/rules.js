@@ -13,7 +13,7 @@ function inst_dir(inst) {
 let rules = [
 	["/turf/open/floor", (inst) => {
 		let templates = {
-			floor: ["floor", "white", "dark", "bar", "floorgrime", "delivery", "bot", "barber", "whitebot", "whitedelivery", "cmo", "grimy", "freezerfloor"],
+			floor: ["floor", "white", "dark", "bar", "floorgrime", "delivery", "bot", "barber", "whitebot", "whitedelivery", "cmo", "grimy", "freezerfloor", "cafeteria"],
 			floor_ss13: ["L1", "L3", "L5", "L7", "L2", "L4", "L6", "L8", "L9", "L11", "L13", "L7", "L10", "L12", "L14", "L8"],
 			floor_edge: ["red", "whitered", "blue", "whiteblue", "green", "whitegreen", "yellow", "whiteyellow", "orange", "whitehall", "arrival", "escape", "purple", "whitepurple", "brownold", "brown", "redyellow", "redblue", "bluered", "redgreen", "greenyellow", "greenblue", "blueyellow", "darkpurple", "darkred", "darkblue", "darkgreen", "darkyellow", "darkbrown"],
 			floor_corner: ["redcorner", "whiteredcorner", "bluecorner", "whitebluecorner", "greencorner", "whitegreencorner", "yellowcorner", "whiteyellowcorner", "orangecorner", "arrivalcorner", "escapecorner", "purplecorner", "whitepurplecorner", "browncorner"]
@@ -32,14 +32,30 @@ let rules = [
 	}, {put_plating: true}],
 	["/turf/open/floor/wood", () => {return {template_name: "floor_wood"};}, {put_plating: true}],
 	["/turf/open/floor/carpet", () => {return {template_name: "floor_carpet"};}, {put_plating: true}],
+	["/turf/open/floor/mineral/titanium", (inst) => {
+		let state = JSON.parse(inst.vars.icon_state);
+		let variants = ["shuttlefloor", "shuttlefloor2", "shuttlefloor3", "shuttlefloor5"];
+		if(!variants.includes(state)) state = variants[0];
+		return {template_name: "floor_titanium", variant_leaf_path: [state]};
+	}, {put_plating: true}],
 	["/turf/closed/wall", () => {return {template_name: "wall"};}, {put_plating: true}],
 	["/turf/closed/wall/r_wall", () => {return {template_name: "r_wall"};}, {put_plating: true}],
+	["/turf/closed/wall/mineral/titanium", () => {return {template_name: "wall_titanium"};}, {put_plating: true}],
 	["/turf/open/floor/plating", () => {return {template_name: "plating"};}],
 	["/obj/structure/grille", () => {return {template_name: "grille"};}],
 	["/obj/effect/spawner/structure/window/reinforced", () => {return [{template_name: "r_window"}, {template_name: "grille"}];}],
 	["/obj/effect/spawner/structure/window", () => {return [{template_name: "window"}, {template_name: "grille"}];}],
+	["/obj/effect/spawner/structure/window/shuttle", () => {return [{template_name: "shuttle_window"}, {template_name: "grille"}];}],
+	["/obj/structure/window/shuttle", () => {return [{template_name: "shuttle_window"}];}],
 	["/obj/machinery/door/airlock", (inst) => {
-		let valid = ["airlock_command","airlock_security","airlock_engineering","airlock_medical","airlock_maintenance","airlock_mining","airlock_atmos","airlock_research","airlock_freezer","airlock_science","airlock_virology","airlock_command_glass","airlock_engineering_glass","airlock_security_glass","airlock_medical_glass","airlock_research_glass","airlock_mining_glass","airlock_atmos_glass","airlock_science_glass","airlock_virology_glass","airlock_maintenance_glass","airlock_glass","airlock"];
+		let valid = ["airlock_command","airlock_security","airlock_engineering","airlock_medical",
+			"airlock_maintenance","airlock_mining","airlock_atmos","airlock_research",
+			"airlock_freezer","airlock_science","airlock_virology","airlock_command_glass",
+			"airlock_engineering_glass","airlock_security_glass","airlock_medical_glass",
+			"airlock_research_glass","airlock_mining_glass","airlock_atmos_glass",
+			"airlock_science_glass","airlock_virology_glass","airlock_maintenance_glass",
+			"airlock_glass","airlock","airlock_titanium","airlock_titanium_glass",
+			"airlock_external","airlock_external_glass"];
 		let path = inst.type.path;
 		let path_type = path.substr(28);
 		let tname = "airlock";
@@ -56,6 +72,7 @@ let rules = [
 	["/obj/structure/table", () => {return {template_name: "table"};}],
 	["/obj/structure/table/wood", () => {return {template_name: "wood_table"};}],
 
+	["/obj/structure/closet", () => {return {template_name: "closet"};}],
 	["/obj/structure/closet/emcloset", () => {return {template_name: "emergency_closet"};}],
 	["/obj/structure/closet/firecloset", () => {return {template_name: "fire_closet"};}],
 	["/obj/structure/closet/toolcloset", () => {return {template_name: "tool_closet"};}],

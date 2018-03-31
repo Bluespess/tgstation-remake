@@ -157,6 +157,48 @@ class TGSmooth extends Component {
 
 	redraw_smoothing() {
 		let adjacent = this.a.c.Smooth.adjacent;
+
+		if(this.diagonal) {
+			// why TG why why why would you do this to me.
+			let diag_a = null;
+			let diag_b = null;
+			for(let corner of [9,5,10,6]) {
+				let corner_valid = true;
+				for(let dir of [1,2,4,8]) {
+					if((corner & dir) && !(adjacent & (1 << dir))) {
+						corner_valid = false;
+						break;
+					}
+					if(!(corner & dir) && (adjacent & (1 << dir))) {
+						corner_valid = false;
+						break;
+					}
+				}
+				if(!corner_valid)
+					continue;
+				let dir_string = "";
+				if((corner & 1) && (adjacent & (1 << 1))) // Yes that's right it's OPPOSITE. Thanks, TG!
+					dir_string += "s";
+				if((corner & 2) && (adjacent & (1 << 2)))
+					dir_string += "n";
+				if((corner & 4) && (adjacent & (1 << 4)))
+					dir_string += "w";
+				if((corner & 8) && (adjacent & (1 << 8)))
+					dir_string += "e";
+				diag_a = `d-${dir_string}`;
+				diag_b = `d-${dir_string}-${adjacent & (1 << corner) ? 1 : 0}`;
+			}
+			if(diag_a) {
+				for(let i of [1,2,3,4]) this.a.overlays[`smoothing_corner_${i}`] = undefined;
+				this.a.overlays['smoothing_diag_a'] = {icon_state: diag_a};
+				this.a.overlays['smoothing_diag_b'] = {icon_state: diag_b};
+				return;
+			} else {
+				this.a.overlays['smoothing_diag_a'] = undefined;
+				this.a.overlays['smoothing_diag_b'] = undefined;
+			}
+		}
+
 		for(let i of [1,2,3,4]) {
 			let corner = [9,5,10,6][i-1];
 			let dir_string = "";
@@ -178,6 +220,16 @@ class TGSmooth extends Component {
 		}
 	}
 }
+
+TGSmooth.template = {
+	vars: {
+		components: {
+			"TGSmooth": {
+				diagonal: false
+			}
+		}
+	}
+};
 
 TGSmooth.depends = ["Smooth"];
 TGSmooth.loadBefore = ["Smooth"];
