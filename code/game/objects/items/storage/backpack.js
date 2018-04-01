@@ -1,4 +1,5 @@
 'use strict';
+const {Component, Atom} = require('bluespess');
 
 module.exports.templates = {
 	"backpack": {
@@ -8,7 +9,10 @@ module.exports.templates = {
 				"StorageItem": {
 					max_size: 3,
 					max_combined_size: 21,
-					storage_slots: 21
+					storage_slots: 21,
+					populate_contents() {
+						new Atom(this.a.server, "survivalbox", this.a);
+					}
 				},
 				"Item": {
 					inhand_icon_state: "backpack",

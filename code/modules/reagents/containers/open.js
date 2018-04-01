@@ -92,7 +92,8 @@ GlassBeaker.template = {
 				maximum_volume: 50
 			},
 			"Item": {
-				inhand_icon_state: "beaker"
+				inhand_icon_state: "beaker",
+				size: 1
 			},
 			"Examine": {
 				desc: "A beaker. It can hold up to 50 units."
@@ -118,7 +119,10 @@ module.exports.templates = {
 				},
 				"Examine": {
 					desc: "A large beaker. It can hold up to 100 units."
-				}
+				},
+				"Item": {
+					size: 2
+				},
 			},
 			name: "large beaker",
 			icon: 'icons/obj/chemical.png',
