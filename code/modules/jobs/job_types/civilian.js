@@ -11,7 +11,8 @@ module.exports.jobs.clown = new JobType({
 	selection_color: "#dddddd",
 	department_head: ["hop"],
 	access: ["theatre"],
-	minimal_access: ["theatre"]
+	minimal_access: ["theatre"],
+	name_override: "clown"
 });
 
 let clown_outfit = new JobType.Outfit({

@@ -14,6 +14,8 @@ global.require = require;
 server.resRoot = "./res/";
 
 server.importModule(require('./code/game/components/squeak.js'));
+server.importModule(require('./code/game/area/area_components.js'));
+server.importModule(require('./code/game/area/area.js'));
 server.importModule(require('./code/game/mobs/mob_movement.js'));
 server.importModule(require('./code/game/mobs/new_player.js'));
 server.importModule(require('./code/game/mobs/dead/ghost.js'));
@@ -80,6 +82,7 @@ server.importModule(require('./code/modules/reagents/containers/spray.js'));
 server.importModule(require('./code/modules/reagents/machinery/chem_dispenser.js'));
 server.importModule(require('./code/modules/reagents/holder.js'));
 server.importModule(require('./code/modules/smoothing/smoothing.js'));
+server.importModule(require('./code/modules/speech/speech.js'));
 server.importModule(require('./code/onclick/hud.js'));
 server.importModule(require('./code/onclick/interact.js'));
 server.importModule(require('./code/onclick/inventory.js'));

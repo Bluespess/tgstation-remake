@@ -64,7 +64,7 @@ module.exports.ParallaxPlane = class ParallaxPlane extends Plane {
 		let {dispx, dispy} = (this.eye.origin && this.eye.origin.get_displacement && this.eye.origin.get_displacement(timestamp)) || {dispx:0,dispy:0};
 		for(let tile of this.client.visible_tiles) {
 			let [x,y] = JSON.parse(tile);
-			mctx.fillRect((x-dispx+7)*32, -(y-dispy-7)*32, 32, 32);
+			mctx.fillRect(Math.round((x-dispx+7)*32), Math.round(-(y-dispy-7)*32), 32, 32);
 		}
 		mctx.globalCompositeOperation = "source-in";
 		super.composite_plane(mctx, timestamp);

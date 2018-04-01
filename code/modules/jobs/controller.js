@@ -21,6 +21,17 @@ class JobController {
 			}
 		}
 	}
+
+	send_to_atom(mob, atom) {
+		if(atom.is_base_loc || atom.is_fine_loc)
+			mob.loc = atom;
+		else
+			mob.loc = atom.base_mover.fine_loc;
+	}
+
+	send_to_late_join(mob, buckle = true) {
+		this.send_to_atom(mob, this.server.location(0,0,0), buckle);
+	}
 }
 
 module.exports.now = function(server) {

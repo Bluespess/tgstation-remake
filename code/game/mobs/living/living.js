@@ -300,8 +300,8 @@ class LivingMob extends Component {
 	}
 }
 
-LivingMob.depends = ["Mob", "Tangible", "MobInteract", "MobHud"];
-LivingMob.loadBefore = ["Mob", "Tangible", "MobInteract", "MobHud"];
+LivingMob.depends = ["Mob", "Tangible", "MobInteract", "MobHud", "SpeechHearer", "SpeechEmitter"];
+LivingMob.loadBefore = ["Mob", "Tangible", "MobInteract", "MobHud", "SpeechHearer", "SpeechEmitter"];
 
 LivingMob.template = {
 	vars: {
@@ -317,6 +317,7 @@ LivingMob.template = {
 				throw_force: 10
 			}
 		},
+		name: "",
 		density: 1
 	}
 };

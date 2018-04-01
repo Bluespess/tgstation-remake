@@ -66,8 +66,19 @@
 				animation-direction: alternate;
 				animation-iteration-count: infinite;
 			}
+			&[data-inputting="say"] {
+				animation: say-text-input 1s;
+				animation-direction: alternate;
+				animation-iteration-count: infinite;
+				&.radio {
+					animation: say-text-input-radio 1s;
+					animation-direction: alternate;
+					animation-iteration-count: infinite;
+				}
+			}
 			&:disabled {
 				background-color: #d2b4b4;
+				pointer-events: none;
 			}
 		}
 	}
@@ -76,6 +87,16 @@
 @keyframes ooc-text-input {
 	from { background-color: #fff; }
 	to { background-color: #88f; }
+}
+
+@keyframes say-text-input {
+	from { background-color: #fff; }
+	to { background-color: #888; }
+}
+
+@keyframes say-text-input-radio {
+	from { background-color: #fff; }
+	to { background-color: #8f8; }
 }
 
 body {

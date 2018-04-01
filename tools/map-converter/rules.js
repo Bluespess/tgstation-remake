@@ -8,6 +8,8 @@ function inst_dir(inst) {
 	return dir;
 }
 
+let areas = {};
+
 // Careful! There's a difference between returning null and undefined.
 // (undefined means "keep going, find a different rule" and null means "spawn nothing")
 let rules = [
@@ -111,6 +113,45 @@ let rules = [
 	["/obj/item/reagent_containers/glass/beaker", () => {return {template_name: "beaker"};}, {pixel_offsets: true}],
 	["/obj/item/reagent_containers/glass/beaker/large", () => {return {template_name: "beaker_large"};}, {pixel_offsets: true}],
 	["/obj/item/reagent_containers/spray/cleaner", () => {return {template_name: "spray_spacecleaner"};}, {pixel_offsets: true}],
+
+	// AREAS
+
+	["/area", (inst) => {
+		let id = inst.type.path.substr(6).replace(/\//g, "_");
+		let brush_inst = {template_name: "area_brush", instance_vars: {components: {"AreaBrush": {map_id: id}}}};
+		let insts = [brush_inst];
+		if(!areas[id]) {
+			areas[id] = true;
+			let name = inst.vars.name.substring(1, inst.vars.name.length - 1);
+			if(name.startsWith("\\improper "))
+				name = name.substring(10);
+
+			let template_name = "area";
+			if(inst.type.path.startsWith("/area/maintenance"))
+				template_name = "area_maintenance";
+			else if(inst.type.path.startsWith("/area/chapel"))
+				template_name = "area_chapel";
+			else if(inst.type.path.startsWith("/area/engine"))
+				template_name = "area_engine";
+			else if(inst.type.path.startsWith("/area/medical/morgue"))
+				template_name = "area_morgue";
+			else if(inst.type.path.startsWith("/area/security/detectivs_office"))
+				template_name = "area_detective";
+
+			let area_inst = {template_name, instance_vars: {
+				components: {
+					"Area": {
+						brush_icon_state: JSON.parse(inst.vars.icon_state),
+						map_id: id
+					}
+				},
+				name
+			}};
+			insts.push(area_inst);
+		}
+		return insts;
+	}],
+	["/area/space", () => {return null;}]
 ];
 
 module.exports = rules;

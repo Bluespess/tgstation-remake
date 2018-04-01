@@ -33,74 +33,6 @@
 		},
 		"tile_size": 32
 	},
-	"layer1_horizontal": {
-		"dir_count": 1,
-		"width": 480,
-		"height": 480,
-		"dirs": {
-			"2": {
-				"frames": [
-					{
-						"x": 960,
-						"y": 0,
-						"delay": 100
-					}
-				]
-			}
-		},
-		"tile_size": 32
-	},
-	"layer2_horizontal": {
-		"dir_count": 1,
-		"width": 480,
-		"height": 480,
-		"dirs": {
-			"2": {
-				"frames": [
-					{
-						"x": 0,
-						"y": 480,
-						"delay": 100
-					}
-				]
-			}
-		},
-		"tile_size": 32
-	},
-	"layer1_vertical": {
-		"dir_count": 1,
-		"width": 480,
-		"height": 480,
-		"dirs": {
-			"2": {
-				"frames": [
-					{
-						"x": 480,
-						"y": 480,
-						"delay": 100
-					}
-				]
-			}
-		},
-		"tile_size": 32
-	},
-	"layer2_vertical": {
-		"dir_count": 1,
-		"width": 480,
-		"height": 480,
-		"dirs": {
-			"2": {
-				"frames": [
-					{
-						"x": 960,
-						"y": 480,
-						"delay": 100
-					}
-				]
-			}
-		},
-		"tile_size": 32
-	},
 	"layer3": {
 		"dir_count": 1,
 		"width": 480,
@@ -110,7 +42,7 @@
 				"frames": [
 					{
 						"x": 0,
-						"y": 960,
+						"y": 480,
 						"delay": 100
 					}
 				]
@@ -118,7 +50,7 @@
 		},
 		"tile_size": 32
 	},
-	"layer3_vertical": {
+	"planet": {
 		"dir_count": 1,
 		"width": 480,
 		"height": 480,
@@ -127,24 +59,7 @@
 				"frames": [
 					{
 						"x": 480,
-						"y": 960,
-						"delay": 100
-					}
-				]
-			}
-		},
-		"tile_size": 32
-	},
-	"layer3_horizontal": {
-		"dir_count": 1,
-		"width": 480,
-		"height": 480,
-		"dirs": {
-			"2": {
-				"frames": [
-					{
-						"x": 960,
-						"y": 960,
+						"y": 480,
 						"delay": 100
 					}
 				]

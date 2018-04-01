@@ -213,7 +213,8 @@ module.exports.templates = {
 			},
 			name: "shuttle airlock",
 			icon: 'icons/obj/doors/airlocks/shuttle/shuttle.png'
-		}
+		},
+		tree_paths: ["basic_structures/airlock/titanium"]
 	},
 	"airlock_titanium_glass": {
 		components: ["Airlock"],
@@ -228,7 +229,8 @@ module.exports.templates = {
 			},
 			name: "shuttle airlock",
 			icon: 'icons/obj/doors/airlocks/shuttle/shuttle.png'
-		}
+		},
+		tree_paths: ["basic_structures/airlock/titanium/glass"]
 	},
 
 	// Station2
@@ -261,7 +263,8 @@ module.exports.templates = {
 			},
 			name: "external airlock",
 			icon: 'icons/obj/doors/airlocks/external/external.png'
-		}
+		},
+		tree_paths: ["basic_structures/airlock/external"]
 	},
 	"airlock_external_glass": {
 		components: ["Airlock"],
@@ -276,6 +279,7 @@ module.exports.templates = {
 			},
 			name: "external airlock",
 			icon: 'icons/obj/doors/airlocks/external/external.png'
-		}
+		},
+		tree_paths: ["basic_structures/airlock/external/glass"]
 	}
 };

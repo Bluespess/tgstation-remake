@@ -73,7 +73,7 @@ Ghost.template = {
 	}
 };
 
-Ghost.depends = ["MobMovement", "Hearer", "Mob", "Examine"];
-Ghost.loadBefore = ["Mob", "Examine"];
+Ghost.depends = ["MobMovement", "Hearer", "Mob", "Examine", "SpeechHearer"];
+Ghost.loadBefore = ["Mob", "Examine", "SpeechHearer"];
 
 module.exports.components = {Ghost};
