@@ -210,7 +210,7 @@ module.exports.templates = {
 			{
 				type: "single",
 				var_path: ["icon_state"],
-				values: ["shuttlefloor3", "shuttlefloor", "shuttlefloor3", "shuttlefloor5"],
+				values: ["shuttlefloor3", "shuttlefloor", "shuttlefloor2", "shuttlefloor5"],
 				label: true,
 				orientation: "vertical"
 			}
