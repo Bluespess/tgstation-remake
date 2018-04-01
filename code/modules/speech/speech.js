@@ -129,7 +129,7 @@ class SpeechHearer extends Component {
 		let freqpart = message.radio_freq ? `[Common]` : "";
 		let namepart = message.speaker.name; // for now
 		let endspanpart = `</span>`;
-		let messagepart = ` <span class='message'>${message.speaker.c.SpeechEmitter.verb_say}, "${message.message}"</span></span>`;
+		let messagepart = format_html` <span class='message'>${message.speaker.c.SpeechEmitter.verb_say}, "${message.message}"</span></span>`;
 		let languageicon = '';
 		return `${spanpart1}${spanpart2}${freqpart}${languageicon}${namepart}${endspanpart}${messagepart}`;
 	}

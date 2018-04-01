@@ -117,6 +117,8 @@ if(global.is_bs_editor_env) {
 	console.log("Starting server..");
 	let server_config = read_config('server.cson');
 	for(let [key, file] of Object.entries(server_config.http_opts.files)) {
+		if(!key || !file)
+			continue;
 		server_config.http_opts[key] = fs.readFileSync(file, 'utf8');
 	}
 
