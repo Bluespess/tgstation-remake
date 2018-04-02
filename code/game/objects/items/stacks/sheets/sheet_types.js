@@ -38,7 +38,8 @@ MetalSheet.template = {
 				recipes: [
 					{name: "closet", template_name: "closet", cost: 2, time: 1500, cant_cross: ["Closet"], on_floor: true},
 					{name: "floor tiles", template_name: "plasteel_tile", cost: 1, res_amount: 4, time: 2000},
-					{name: "metal rods", template_name: "stack_rods", cost: 1, res_amount: 2, time: 6000}
+					{name: "metal rods", template_name: "stack_rods", cost: 1, res_amount: 2, time: 6000},
+					{name: "wall girders", template_name: "girder", cost: 2, time: 4000, cant_cross: ["Girder"], on_floor: true}
 				]
 			},
 			"Item": {

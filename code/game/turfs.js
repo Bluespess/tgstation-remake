@@ -1,9 +1,70 @@
 'use strict';
 const layers = require('../defines/layers.js');
+const {Component, has_component, Atom, chain_func, to_chat} = require('bluespess');
+
+class Wall extends Component {
+	constructor(atom, template) {
+		super(atom, template);
+
+		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
+		this.a.c.Destructible.deconstruct = chain_func(this.a.c.Destructible.deconstruct, this.deconstruct.bind(this));
+	}
+
+	attack_by(prev, item, user) {
+		if(has_component(item, "Tool")) {
+			if(item.c.Tool.can_use("WeldingTool", user)) {
+				item.c.Tool.used("WeldingTool");
+				to_chat`<span class='notice'>You begin slicing through the outer plating...</span>`(user);
+				user.c.MobInventory.do_after({delay: 10000 * item.c.Tool.toolspeed, target: this.a}).then((success) => {
+					if(!success)
+						return;
+					this.a.c.Destructible.deconstruct(true);
+					to_chat`<span class='notice'>You remove the outer plating.</span>`(user);
+				});
+				return true;
+			}
+		}
+		return prev();
+	}
+
+	deconstruct(prev) {
+		if(!this.a.loc)
+			return;
+		if(!this.a.c.Destructible.no_deconstruct) {
+			var girder = new Atom(this.a.server, "girder");
+			girder.loc = this.a.loc
+
+			var sheets = new Atom(this.a.server, "metal_sheet");
+			sheets.c.Stack.amount = 2;
+			sheets.loc = this.a.fine_loc;
+			this.a.destroy();
+		}
+		prev();
+	}
+}
+
+Wall.one_per_tile = true;
+
+Wall.depends = ["Destructible"];
+Wall.loadBefore = ["Destructible"];
+
+Wall.template = {
+	vars: {
+		components: {
+			"Tangible": {
+				anchored: true,
+			},
+			"Examine": {
+				desc: "A huge chunk of metal used to separate rooms."
+			}
+		},
+		name: "wall",
+	}
+};
 
 module.exports.templates = {
 	"wall": {
-		components: ["BlocksAir", "TGSmooth"],
+		components: ["Wall", "BlocksAir", "TGSmooth"],
 		vars: {
 			components: {
 				"Smooth": {
@@ -142,3 +203,5 @@ module.exports.templates = {
 		]
 	}
 };
+
+module.exports.components = {Wall};
