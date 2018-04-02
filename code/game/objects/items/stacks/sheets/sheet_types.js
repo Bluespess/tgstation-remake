@@ -1,6 +1,5 @@
 'use strict';
-const {Component, Atom, has_component, chain_func} = require('bluespess');
-const combat_defines = require('../../../../../defines/combat_defines.js');
+const {Component} = require('bluespess');
 
 class MetalSheet extends Component {
 	constructor(atom, template) {
@@ -21,8 +20,8 @@ MetalSheet.template = {
 				novariants: true,
 				recipes: [
 					{name: "closet", template_name: "closet", cost: 2, time: 1500, cant_cross: ["Closet"], on_floor: true},
-					{name: "floor tiles", template_name: "titanium_tile", cost: 1, res_amount: 4, time: 2000, on_floor: true},
-					{name: "metal rods", template_name: "stack_rods", cost: 1, res_amount: 2, time: 6000, on_floor: true},
+					{name: "floor tiles", template_name: "titanium_tile", cost: 1, res_amount: 4, time: 2000},
+					{name: "metal rods", template_name: "stack_rods", cost: 1, res_amount: 2, time: 6000},
 				]
 			},
 			"Item": {
