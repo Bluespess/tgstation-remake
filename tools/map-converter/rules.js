@@ -126,6 +126,14 @@ let rules = [
 	["/obj/item/stack/sheet/glass", (inst) => {return {template_name: "glass_sheet", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
 	["/obj/item/stack/sheet/rglass", (inst) => {return {template_name: "rglass_sheet", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
 	["/obj/item/stack/rods", (inst) => {return {template_name: "stack_rods", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
+	["/obj/item/stack/sheet/plasteel", (inst) => {return {template_name: "plasteel_sheet", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
+	["/obj/item/stack/sheet/mineral/wood", (inst) => {return {template_name: "wood_sheet", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
+	["/obj/item/stack/sheet/cloth", (inst) => {return {template_name: "cloth_sheet", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
+	["/obj/item/stack/sheet/cardboard", (inst) => {return {template_name: "cardboard_sheet", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
+	["/obj/item/stack/sheet/bone", (inst) => {return {template_name: "bone_sheet", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
+	["/obj/item/stack/sheet/plastic", (inst) => {return {template_name: "plastic_sheet", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
+	["/obj/item/stack/sheet/paperframes", (inst) => {return {template_name: "paperframe_sheet", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
+
 
 	// AREAS
 
