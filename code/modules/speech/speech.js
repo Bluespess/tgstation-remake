@@ -22,11 +22,6 @@ class SpeechEmitter extends Component {
 	}
 	build_message({text = ""} = {}) {
 		let msg = new SpeechMessage({message: text, speaker: this.a});
-		if(msg.message.startsWith(";")) {
-			msg.mode = "radio";
-			msg.range = 1;
-			msg.message = msg.message.substring(1);
-		}
 		if(!msg.message || !msg.message.length)
 			return null;
 		return msg;

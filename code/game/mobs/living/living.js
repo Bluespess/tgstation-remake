@@ -30,6 +30,7 @@ class LivingMob extends Component {
 		this.a.c.Tangible.attacked_by = this.attacked_by.bind(this);
 		this.a.c.Tangible.on("throw_finished", this.throw_finished.bind(this));
 		this.a.c.Tangible.on("throw_impacted_by", this.throw_impacted_by.bind(this));
+		this.a.c.SpeechEmitter.build_message = chain_func(this.a.c.SpeechEmitter.build_message, this.build_message.bind(this));
 		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
 		this.a.can_be_crossed = chain_func(this.a.can_be_crossed, this.can_be_crossed.bind(this));
 		this.a.move = chain_func(this.a.move, this.move.bind(this));
@@ -207,6 +208,22 @@ class LivingMob extends Component {
 			return;
 		}
 		return prev();
+	}
+
+	build_message(prev) {
+		let msg = prev();
+		if(msg.message.startsWith(";")) {
+			msg.mode = "radio";
+			msg.range = 1;
+			msg.message = msg.message.substring(1);
+		}
+
+		if(this.stat >= combat_defines.UNCONSCIOUS)
+			return null;
+
+		if(!msg.message || !msg.message.length)
+			return null;
+		return msg;
 	}
 
 	incapacitated() {
