@@ -43,6 +43,7 @@ server.importModule(require('./code/game/objects/items/stacks/tiles/tile_types.j
 server.importModule(require('./code/game/objects/items/stacks/rods.js'));
 server.importModule(require('./code/game/objects/items/stacks/stack.js'));
 server.importModule(require('./code/game/objects/items/storage/backpack.js'));
+server.importModule(require('./code/game/objects/items/storage/boxes.js'));
 server.importModule(require('./code/game/objects/items/storage/toolbox.js'));
 server.importModule(require('./code/game/objects/items/clothing.js'));
 server.importModule(require('./code/game/objects/items/emag.js'));

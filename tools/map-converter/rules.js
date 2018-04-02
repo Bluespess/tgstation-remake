@@ -114,6 +114,12 @@ let rules = [
 	["/obj/item/reagent_containers/glass/beaker/large", () => {return {template_name: "beaker_large"};}, {pixel_offsets: true}],
 	["/obj/item/reagent_containers/spray/cleaner", () => {return {template_name: "spray_spacecleaner"};}, {pixel_offsets: true}],
 
+	// BOXES
+
+	["/obj/item/storage/box", () => {return {template_name: "box"};}, {pixel_offsets: true}],
+	["/obj/item/storage/box/beakers", () => {return {template_name: "beaker_box"};}, {pixel_offsets: true}],
+	["/obj/item/storage/box/survival", () => {return {template_name: "survival_box"};}, {pixel_offsets: true}],
+	
 	// AREAS
 
 	["/area", (inst) => {
