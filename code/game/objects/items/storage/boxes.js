@@ -4,7 +4,7 @@ const {Component, Atom} = require('bluespess');
 class Box extends Component {
 	constructor(atom, template) {
 		super(atom, template);
-		if(this.has_illustration) {
+		if(this.illustration) {
 			this.a.overlays.illustration = this.illustration;
 		}
 	}
@@ -17,7 +17,6 @@ Box.template = {
 	vars: {
 		components: {
 			"Box": {
-				has_illustration: true,
 				illustration: "writing"
 			},
 			"StorageItem": {
@@ -45,7 +44,7 @@ module.exports.templates = {
 		components: ["Box", "StorageItem"],
 		tree_paths: ["items/storage/box"]
 	},
-	"survivalbox": {
+	"survival_box": {
 		parent_template: "box",
 		vars: {
 			components: {
@@ -57,7 +56,7 @@ module.exports.templates = {
 		},
 		tree_paths: ["items/storage/box/survival"]
 	},
-	"beakerbox": {
+	"beaker_box": {
 		parent_template: "box",
 		vars: {
 			components: {
@@ -69,11 +68,9 @@ module.exports.templates = {
 				},
 				"StorageItem": {
 					populate_contents() {
-						new Atom(this.a.server, "beaker", this.a);
-						new Atom(this.a.server, "beaker", this.a);
-						new Atom(this.a.server, "beaker", this.a);
-						new Atom(this.a.server, "beaker_large", this.a);
-						new Atom(this.a.server, "beaker_large", this.a);
+						for(let i = 0; i < 7; i++) {
+    					new Atom(this.a.server, "beaker", this.a);
+						}
 					}
 				}
 			},

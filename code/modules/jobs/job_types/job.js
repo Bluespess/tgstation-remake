@@ -66,7 +66,7 @@ class JobOutfit extends Outfit {
 			backpack: "backpack",
 			satchel: "backpack",
 			duffelbag: "backpack",
-			box: null,
+			box: "survival_box",
 
 			pda_slot: "belt"
 		});
