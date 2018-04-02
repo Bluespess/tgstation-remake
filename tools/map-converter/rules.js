@@ -119,7 +119,14 @@ let rules = [
 	["/obj/item/storage/box", () => {return {template_name: "box"};}, {pixel_offsets: true}],
 	["/obj/item/storage/box/beakers", () => {return {template_name: "beaker_box"};}, {pixel_offsets: true}],
 	["/obj/item/storage/box/survival", () => {return {template_name: "survival_box"};}, {pixel_offsets: true}],
-	
+
+	// STACKS/SHEETS
+
+	["/obj/item/stack/sheet/metal", (inst) => {return {template_name: "metal_sheet", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
+	["/obj/item/stack/sheet/glass", (inst) => {return {template_name: "glass_sheet", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
+	["/obj/item/stack/sheet/rglass", (inst) => {return {template_name: "rglass_sheet", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
+	["/obj/item/stack/rods", (inst) => {return {template_name: "stack_rods", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
+
 	// AREAS
 
 	["/area", (inst) => {
