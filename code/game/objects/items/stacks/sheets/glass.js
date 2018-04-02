@@ -70,7 +70,7 @@ RGlassSheet.template = {
 				merge_type: "RGlassSheet",
 				novariants: false,
 				recipes: [
-					{name: "fulltile reinforced window", template_name: "r_window_construct", cost: 2, time: 200, cant_cross: ["Window"], on_floor: true}
+					{name: "fulltile reinforced window", template_name: "r_window_construct", cost: 2, time: 2000, cant_cross: ["Window"], on_floor: true}
 				]
 			},
 			"Item": {
