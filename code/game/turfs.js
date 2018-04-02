@@ -35,7 +35,7 @@ class Wall extends Component {
 			girder.loc = this.a.loc
 
 			var sheets = new Atom(this.a.server, "metal_sheet");
-			sheets.c.Stack.amount = "2";
+			sheets.c.Stack.amount = 2;
 			sheets.loc = this.a.fine_loc;
 			this.a.destroy();
 		}

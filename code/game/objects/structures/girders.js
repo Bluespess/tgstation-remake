@@ -67,7 +67,7 @@ class Girder extends Component {
 			return;
 		if(!this.a.c.Destructible.no_deconstruct) {
 			var sheets = new Atom(this.a.server, "metal_sheet");
-			sheets.c.Stack.amount = "2";
+			sheets.c.Stack.amount = 2;
 			sheets.loc = this.a.fine_loc;
 			this.a.destroy();
 		}
