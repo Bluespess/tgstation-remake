@@ -14,7 +14,7 @@
  * TODO: Brass (clockwork cult)
  */
 
- //TODO: Most of the recipe items
+//TODO: Most of the recipe items
 
 const {Component} = require('bluespess');
 
@@ -37,7 +37,7 @@ MetalSheet.template = {
 				novariants: false,
 				recipes: [
 					{name: "closet", template_name: "closet", cost: 2, time: 1500, cant_cross: ["Closet"], on_floor: true},
-					{name: "floor tiles", template_name: "titanium_tile", cost: 1, res_amount: 4, time: 2000},
+					{name: "floor tiles", template_name: "plasteel_tile", cost: 1, res_amount: 4, time: 2000},
 					{name: "metal rods", template_name: "stack_rods", cost: 1, res_amount: 2, time: 6000}
 				]
 			},
@@ -289,7 +289,7 @@ class PaperframeSheet extends Component {
 }
 
 PaperframeSheet.depends = ["Stack"];
-PlasticSheet.loadBefore = ["Stack"];
+PaperframeSheet.loadBefore = ["Stack"];
 
 PaperframeSheet.template = {
 	vars: {
