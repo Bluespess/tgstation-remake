@@ -91,6 +91,31 @@ module.exports.templates = {
 			icon_state: "wood_table"
 		},
 		tree_paths: ["basic_structures/table/wood"]
+	},
+	"reinforced_table": {
+		components: ["TGSmooth", "Table"],
+		vars: {
+			components: {
+				"Smooth": {
+					smooth_with: "table_reinforced"
+				},
+				"SmoothGroup": {
+					groups: ["table_reinforced"]
+				},
+				"Destructible": {
+					max_integrity: 200,
+					integrity_failure: 50,
+					armor: {"melee": 10, "bullet": 30, "laser": 30, "energy": 100, "bomb": 20, "bio": 0, "rad": 0, "fire": 80, "acid": 70}
+				},
+				"Examine": {
+					desc: "A reinforced version of the four legged table."
+				}
+			},
+			name: "reinforced table",
+			icon: 'icons/obj/smooth_structures/reinforced_table.png',
+			icon_state: "r_table"
+		},
+		tree_paths: ["basic_structures/table/reinforced"]
 	}
 };
 
