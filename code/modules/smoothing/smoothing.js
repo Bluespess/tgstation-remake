@@ -12,10 +12,11 @@ class Smooth extends Component {
 	}
 
 	rebuild_smooth(exclude) {
-		this.a.icon_state = "";
 		this.adjacent = 0;
-		if(!this.enabled)
+		if(!this.enabled) {
 			return this.redraw_smoothing();
+		}
+		this.a.icon_state = "";
 		for(let loc of this.a.marginal_locs()) {
 			for(let atom of loc.partial_contents) {
 				if(atom == exclude || atom == this.a)
@@ -156,6 +157,14 @@ class TGSmooth extends Component {
 	}
 
 	redraw_smoothing() {
+		if(!this.a.c.Smooth.enabled) {
+			for(let i of [1,2,3,4]) this.a.overlays[`smoothing_corner_${i}`] = undefined;
+			if(this.diagonal) {
+				this.a.overlays['smoothing_diag_a'] = undefined;
+				this.a.overlays['smoothing_diag_b'] = undefined;
+			}
+			return;
+		}
 		let adjacent = this.a.c.Smooth.adjacent;
 
 		if(this.diagonal) {
