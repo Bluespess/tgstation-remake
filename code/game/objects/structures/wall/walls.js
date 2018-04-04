@@ -32,7 +32,7 @@ class Wall extends Component {
 			return;
 		if(!this.a.c.Destructible.no_deconstruct) {
 			var girder = new Atom(this.a.server, "girder");
-			girder.loc = this.a.loc
+			girder.loc = this.a.loc;
 
 			var sheets = new Atom(this.a.server, "metal_sheet");
 			sheets.c.Stack.amount = 2;
@@ -45,8 +45,8 @@ class Wall extends Component {
 
 Wall.one_per_tile = true;
 
-Wall.depends = ["Destructible"];
-Wall.loadBefore = ["Destructible"];
+Wall.depends = ["Destructible", "BlocksAir"];
+Wall.loadBefore = ["Destructible", "BlocksAir"];
 
 Wall.template = {
 	vars: {
@@ -58,13 +58,16 @@ Wall.template = {
 				desc: "A huge chunk of metal used to separate rooms."
 			}
 		},
-		name: "wall",
+		icon: 'icons/turf/walls/wall.png',
+		layer: layers.WALL_LAYER,
+		density: 1,
+		opacity: true
 	}
 };
 
 module.exports.templates = {
 	"wall": {
-		components: ["Wall", "BlocksAir", "TGSmooth"],
+		components: ["Wall", "TGSmooth"],
 		vars: {
 			components: {
 				"Smooth": {
@@ -74,11 +77,8 @@ module.exports.templates = {
 					groups: ["wall"]
 				}
 			},
-			icon: 'icons/turf/walls/wall.png',
-			icon_state: "wall",
-			layer: layers.WALL_LAYER,
-			density: 1,
-			opacity: true
+			name: "wall",
+			icon_state: "wall"
 		},
 		tree_paths: ["basic_structures/wall"],
 		requires_under: {
@@ -134,73 +134,6 @@ module.exports.templates = {
 			component: "FloorBase",
 			default: "plating"
 		}
-	},
-	"crate": {
-		components: ["Tangible"],
-		vars: {
-			icon: 'icons/obj/crates.png',
-			icon_state: "crate",
-			layer: 2.9,
-			density: 1
-		}
-	},
-	"light": {
-		components: ["LightSource", "Tangible"],
-		vars: {
-			name: "light fixture",
-			layer: 2.9,
-			icon: 'icons/obj/lighting.png',
-			icon_state: "tube1",
-			components: {
-				"LightSource": {
-					enabled: true,
-					radius: 8,
-					color: "#ffffff"
-				},
-				"Tangible": {
-					anchored: true
-				}
-			}
-		},
-		variants: [
-			{
-				type: "single",
-				var_path: ["dir"],
-				values: [
-					2, 1, 4, 8
-				],
-				orientation: "horizontal",
-			}
-		]
-	},
-	"light_small": {
-		components: ["LightSource", "Tangible"],
-		vars: {
-			name: "light fixture",
-			layer: 2.9,
-			icon: 'icons/obj/lighting.png',
-			icon_state: "bulb1",
-			components: {
-				"LightSource": {
-					enabled: true,
-					radius: 4,
-					color: "#ccbbaa"
-				},
-				"Tangible": {
-					anchored: true
-				}
-			}
-		},
-		variants: [
-			{
-				type: "single",
-				var_path: ["dir"],
-				values: [
-					2, 1, 4, 8
-				],
-				orientation: "horizontal",
-			}
-		]
 	}
 };
 

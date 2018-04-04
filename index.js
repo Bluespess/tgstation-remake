@@ -65,7 +65,7 @@ server.importModule(require('./code/game/objects/puller.js'));
 server.importModule(require('./code/game/turfs/floor_base.js'));
 server.importModule(require('./code/game/turfs/floor.js'));
 server.importModule(require('./code/game/turfs/plating.js'));
-server.importModule(require('./code/game/turfs.js'));
+server.importModule(require('./code/game/placeholders.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/block_air.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/controller.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/turf.js'));
