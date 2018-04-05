@@ -47,7 +47,23 @@ AreaAmbience.loadBefore = ["Area"];
 class AreaArrivals extends Component {
 	constructor(atom, template) {
 		super(atom, template);
+		this.a.server.job_controller.arrivals_area = this.a;
+		this.chairs = [];
+		this.a.c.Area.on("start_touch", this.start_touch.bind(this));
+		this.a.c.Area.on("end_touch", this.end_touch.bind(this));
+	}
 
+	start_touch(item) {
+		if(has_component(item, "Chair")) {
+			this.chairs.push(item);
+		}
+	}
+	end_touch(item){
+		if(has_component(item, "Chair")) {
+			let idx = this.chairs.indexOf(item);
+			if(idx != -1)
+				this.chairs.splice(idx, 1);
+		}
 	}
 }
 

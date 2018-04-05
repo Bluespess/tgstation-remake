@@ -205,6 +205,10 @@ module.exports.templates = {
 		},
 		tree_paths: ["areas/engine"]
 	},
+	"area_arrivals": {
+		components: ["Area", "AreaAmbience", "AreaArrivals"],
+		tree_paths: ["areas/shuttle/arrivals"]
+	},
 	"area_brush": {
 		components: ["AreaBrush"],
 		tree_paths: ["areas/brush"]

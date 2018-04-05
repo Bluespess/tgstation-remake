@@ -165,6 +165,8 @@ let rules = [
 				template_name = "area_morgue";
 			else if(inst.type.path.startsWith("/area/security/detectivs_office"))
 				template_name = "area_detective";
+			else if(inst.type.path.startsWith("/area/shuttle/arrival"))
+				template_name = "area_arrivals";
 
 			let area_inst = {template_name, instance_vars: {
 				components: {

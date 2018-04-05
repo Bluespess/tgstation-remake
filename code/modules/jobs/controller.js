@@ -30,6 +30,14 @@ class JobController {
 	}
 
 	send_to_late_join(mob, buckle = true) {
+		if(this.arrivals_area) {
+			let chairs = this.arrivals_area.c.AreaArrivals.chairs;
+			if(chairs && chairs.length) {
+				let chair = chairs[Math.floor(Math.random() * chairs.length)];
+				this.send_to_atom(mob, chair, buckle);
+				return;
+			}
+		}
 		this.send_to_atom(mob, this.server.location(0,0,0), buckle);
 	}
 }
