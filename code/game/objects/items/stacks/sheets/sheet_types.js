@@ -117,7 +117,8 @@ WoodSheet.template = {
 				novariants: true,
 				recipes: [
 					{name: "wood floor tiles", template_name: "wood_tile", cost: 1, res_amount: 4, time: 2000},
-					{name: "baseball bat", template_name: "baseball_bat", cost: 5, time: 1500}
+					{name: "baseball bat", template_name: "baseball_bat", cost: 5, time: 1500},
+					{name: "wood table frame", template_name: "wood_table_frame", cost: 2, time: 10000}
 				]
 			},
 			"Item": { //Wood apparently has no inhands.
