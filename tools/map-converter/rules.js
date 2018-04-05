@@ -75,6 +75,8 @@ let rules = [
 	["/obj/structure/table/wood", () => {return {template_name: "wood_table"};}],
 	["/obj/structure/table/reinforced", () => {return {template_name: "reinforced_table"};}],
 
+	["/obj/structure/chair", (inst) => {return {template_name: "chair", variant_leaf_path: [inst_dir(inst)]};}],
+
 	["/obj/structure/closet", () => {return {template_name: "closet"};}],
 	["/obj/structure/closet/emcloset", () => {return {template_name: "emergency_closet"};}],
 	["/obj/structure/closet/firecloset", () => {return {template_name: "fire_closet"};}],
@@ -92,7 +94,7 @@ let rules = [
 	["/obj/item/wrench", () => {return {template_name: "wrench"};}, {pixel_offsets: true}],
 
 	// WEAPONS
-	
+
 	["/obj/item/melee/baseball_bat", () => {return {template_name: "baseball_bat"};}, {pixel_offsets: true}],
 
 	// LAMPS AND LIGHTS

@@ -51,6 +51,7 @@ server.importModule(require('./code/game/objects/items/emag.js'));
 server.importModule(require('./code/game/objects/items/storage.js'));
 server.importModule(require('./code/game/objects/items/tools.js'));
 server.importModule(require('./code/game/objects/items/weaponry.js'));
+server.importModule(require('./code/game/objects/structures/beds_chairs/chair.js'));
 server.importModule(require('./code/game/objects/structures/crates_lockers/base.js'));
 server.importModule(require('./code/game/objects/structures/crates_lockers/closets.js'));
 server.importModule(require('./code/game/objects/structures/crates_lockers/closets/utility.js'));
