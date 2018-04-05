@@ -15,16 +15,6 @@ class TableFrame extends Component {
 
 		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
 		this.a.c.Destructible.deconstruct = chain_func(this.a.c.Destructible.deconstruct, this.deconstruct.bind(this));
-		this.a.c.Destructible.obj_break = this.obj_break.bind(this);
-	}
-
-	obj_break() {
-		if(this.a.base_loc) {
-			var mat = new Atom(this.a.server, this.frame_material);
-			mat.c.Stack.amount = this.frame_material_amount;
-			mat.loc = this.a.base_mover.loc;
-		}
-		this.broken = true;
 	}
 
 	attack_by(prev, item, user) {
