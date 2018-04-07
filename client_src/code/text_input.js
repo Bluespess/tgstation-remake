@@ -65,6 +65,11 @@ module.exports.now = function(client) {
 			} else {
 				input_elem.classList.remove("radio");
 			}
+			if(text.startsWith("*me ") && input_elem.dataset.inputting == 'say') {
+				input_elem.classList.add("emote");
+			} else {
+				input_elem.classList.remove("emote");
+			}
 		});
 	});
 };
