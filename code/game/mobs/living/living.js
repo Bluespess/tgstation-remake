@@ -169,8 +169,7 @@ class LivingMob extends Component {
 	}
 
 	movement_delay() {
-		let hasinv = has_component(this.a, "MobInventory");
-		if(hasinv && this.a.c.MobInventory.move_mode == mob_defines.MOVE_INTENT_WALK){
+		if(this.a.c.MobInteract.move_mode == mob_defines.MOVE_INTENT_WALK){
 			return 400;
 		}
 		else {

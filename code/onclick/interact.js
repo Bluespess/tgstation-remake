@@ -1,6 +1,7 @@
 'use strict';
 const {Component, Atom, has_component} = require('bluespess');
 const combat_defines = require('../defines/combat_defines.js');
+const mob_defines = require('../defines/mob_defines.js');
 
 class MobInteract extends Component {
 	constructor(atom, template) {
@@ -14,6 +15,16 @@ class MobInteract extends Component {
 			});
 			this.a.c.Eye.screen.zone_sel = zone_sel;
 		}
+
+		this.move_mode = mob_defines.MOVE_INTENT_RUN;
+		this.a.c.Eye.screen.move_intent = new Atom(this.a.server, {vars:{
+			icon: 'icons/mob/screen_midnight.png', icon_state: "running", screen_loc_x: 12.8125, screen_loc_y: .15625, layer: 30
+		}});
+
+		this.a.c.Eye.screen.move_intent.on("clicked", () => {
+			this.move_intent();
+		});
+
 	}
 
 	click_on(e) {
@@ -56,6 +67,17 @@ class MobInteract extends Component {
 			}
 		}
 	}
+
+	move_intent() {
+		if(this.move_mode == mob_defines.MOVE_INTENT_RUN) {
+			this.move_mode = mob_defines.MOVE_INTENT_WALK;
+			this.a.c.Eye.screen.move_intent.icon_state = "walking";
+		} else {
+			this.move_mode = mob_defines.MOVE_INTENT_RUN;
+			this.a.c.Eye.screen.move_intent.icon_state = "running";
+		}
+	}
+
 
 	change_next_move(num) {
 		this.next_move = this.a.server.now() + ((num + this.next_move_adjust) * this.next_move_modifier);
