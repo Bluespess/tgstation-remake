@@ -13,4 +13,4 @@ Welcome! This is my attempt at creating an SS13 remake using node.js.
 
 ## Running
 
-Run `node index.js` in the root directory of the repository. To join the server connect to `localhost:8080` using a web browser.
+Run `launch.bat`. To join the server connect to `localhost:8080` using a web browser.
