@@ -9,11 +9,13 @@ const _item = Symbol('_item');
 const _active_hand = Symbol('_active_hand');
 const _nohold_counter = Symbol('_nohold_counter');
 const _throw_mode = Symbol('_throw_mode');
+const mob_defines = require('../defines/mob_defines.js');
 
 class MobInventory extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 
+		this.move_mode = mob_defines.MOVE_INTENT_RUN;
 		this.a.c.Mob.on("keydown", this.keydown.bind(this));
 		this.a.c.HasAccess.has_access = chain_func(this.a.c.HasAccess.has_access, this.has_access.bind(this));
 		this.next_move = 0;
@@ -86,6 +88,10 @@ class MobInventory extends Component {
 			icon: 'icons/mob/screen_midnight.png', icon_state: "running", screen_loc_x: 12.8125, screen_loc_y: .15625, layer: 30
 		}});
 
+		this.a.c.Eye.screen.move_intent.on("clicked", () => {
+			this.move_intent();
+		});
+
 		this.a.c.Eye.screen.act_intent = new Atom(this.a.server, {vars:{
 			icon: 'icons/mob/screen_gen.png', icon_state: "help", screen_loc_x: 11.75, screen_loc_y: .15625, layer: 30
 		}});
@@ -155,6 +161,15 @@ class MobInventory extends Component {
 		});
 	}
 
+	move_intent() {
+		if(this.move_mode == mob_defines.MOVE_INTENT_RUN) {
+			this.move_mode = mob_defines.MOVE_INTENT_WALK;
+			this.a.c.Eye.screen.move_intent.icon_state = "walking";
+		} else {
+			this.move_mode = mob_defines.MOVE_INTENT_RUN;
+			this.a.c.Eye.screen.move_intent.icon_state = "running";
+		}
+	}
 	swap_hands() {
 		if(this.active_hand == "lhand") {
 			this.active_hand = "rhand";
