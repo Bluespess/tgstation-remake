@@ -32,7 +32,7 @@ class Chair extends Component {
 	}
 }
 
-Chair.loadBefore = ["Destructible", "Item"];
+Chair.loadBefore = ["Destructible", "Item", "Buckle"];
 Chair.depends = ["Destructible", "Buckle"];
 
 Chair.template = {
