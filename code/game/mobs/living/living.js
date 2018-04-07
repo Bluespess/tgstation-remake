@@ -169,7 +169,12 @@ class LivingMob extends Component {
 	}
 
 	movement_delay() {
-		return 150;
+		if(this.a.c.MobInteract.move_mode == mob_defines.MOVE_INTENT_WALK){
+			return 400;
+		}
+		else {
+			return 150;
+		}
 	}
 
 	client_changed(old_client, new_client) {
