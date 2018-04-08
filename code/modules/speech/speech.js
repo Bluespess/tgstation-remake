@@ -126,11 +126,7 @@ class SpeechHearer extends Component {
 		let endspanpart = `</span>`;
 		let messagepart = format_html` <span class='message'>${message.speaker.c.SpeechEmitter.verb_say}, "${message.message}"</span></span>`;
 		let languageicon = '';
-		if(message.mode == "emote") {
-			return `${spanpart2}${namepart}${endspanpart} ${message.message}.`;
-		} else {
-			return `${spanpart1}${spanpart2}${freqpart}${languageicon}${namepart}${endspanpart}${messagepart}`;
-		}
+		return `${spanpart1}${spanpart2}${freqpart}${languageicon}${namepart}${endspanpart}${messagepart}`;
 	}
 }
 

@@ -11,9 +11,10 @@ class Buckle extends Component {
 
 	attack_hand(prev, user) {
 		if(this.can_buckle && this.has_buckled_mobs()) {
-			/*if(this.buckled_mobs.length > 1) {
-				//TODO: implement this
-			}*/
+			if(this.buckled_mobs.length > 1) {
+				//TODO: implement this correctly like on TG
+				this.unbuckle_all_mobs();
+			}
 			if(this.user_unbuckle_mob(this.buckled_mobs[0], user)) {
 				return true;
 			}
@@ -77,7 +78,7 @@ class Buckle extends Component {
 			unbuckling.c.LivingMob.nomove_counter--;
 			unbuckling.c.MobHud.clear_alert('buckled');
 			let idx = this.buckled_mobs.indexOf(unbuckling);
-			if(idx != -1) this.buckled_mobs.splice(unbuckling, 1);
+			if(idx != -1) this.buckled_mobs.splice(idx, 1);
 			this.post_buckle_mob();
 			return true;
 		}

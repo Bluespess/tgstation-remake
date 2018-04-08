@@ -8,6 +8,7 @@ class Knockdown extends StatusEffect.Timed {
 		if(this.mob && !this.lying) {
 			this.lying = true;
 			this.mob.c.LivingMob.nomove_counter++;
+			this.mob.c.LivingMob.nointeraction_counter++;
 			if(has_component(this.mob, "CarbonMob"))
 				this.mob.c.CarbonMob.lying_counter++;
 		}
@@ -17,6 +18,7 @@ class Knockdown extends StatusEffect.Timed {
 		if(this.mob && this.lying) {
 			this.lying = false;
 			this.mob.c.LivingMob.nomove_counter--;
+			this.mob.c.LivingMob.nointeraction_counter--;
 			if(has_component(this.mob, "CarbonMob"))
 				this.mob.c.CarbonMob.lying_counter--;
 		}
