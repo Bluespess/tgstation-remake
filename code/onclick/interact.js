@@ -105,7 +105,8 @@ MobInteract.template = {
 				zone_sel: "chest",
 				zone_sel_template: null,
 				act_intents: ["help", "harm"],
-				act_intent: "help"
+				act_intent: "help",
+				nointeract_counter: 0
 			}
 		}
 	}
