@@ -32,10 +32,12 @@ class Buckle extends Component {
 	}
 
 	has_buckled_mobs() {
-		if(this.buckled_mobs == null)
+		if(this.buckled_mobs == null) {
 			return false;
-		if(this.buckled_mobs.length)
+		}
+		if(this.buckled_mobs.length > 0) {
 			return true;
+		}
 	}
 
 	buckle_mob(buckling, force = false, check_loc = true) {
