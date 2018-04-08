@@ -71,7 +71,7 @@ class Buckle extends Component {
 	//TODO: Handle igniting mobs buckled to flaming things. see /obj/buckle_mob() in TG code
 
 	unbuckle_mob(unbuckling, force = false) {
-		if(has_component(unbuckling, "LivingMob") && unbuckling.c.LivingMob.buckled == this.atom && (unbuckling.can_unbuckle() || force)) {
+		if((has_component(unbuckling, "LivingMob") && unbuckling.c.LivingMob.buckled == this.atom) || force) { //TODO: can_unbuckle() from TG. Irrelevant until slimes are added.
 			unbuckling.c.LivingMob.buckled = null;
 			//unbuckling.a.c.Tangible.anchored = initial(unbuckling.a.c.Tangible.anchored; //TODO: Make this work at some point. initial() isn't a thing.
 			unbuckling.c.LivingMob.nomove_counter++;
