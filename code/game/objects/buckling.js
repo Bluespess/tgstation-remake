@@ -32,12 +32,10 @@ class Buckle extends Component {
 	}
 
 	has_buckled_mobs() {
-		if(this.buckled_mobs == null) {
-			return false;
-		}
 		if(this.buckled_mobs.length > 0) {
 			return true;
 		}
+		return false;
 	}
 
 	buckle_mob(buckling, force = false, check_loc = true) {
@@ -75,12 +73,13 @@ class Buckle extends Component {
 	unbuckle_mob(unbuckling, force = false) {
 		if((has_component(unbuckling, "LivingMob") && unbuckling.c.LivingMob.buckled == this.atom) || force) { //TODO: can_unbuckle() from TG. Irrelevant until slimes are added.
 			unbuckling.c.LivingMob.buckled = null;
-			//unbuckling.a.c.Tangible.anchored = initial(unbuckling.a.c.Tangible.anchored; //TODO: Make this work at some point. initial() isn't a thing.
-			unbuckling.c.LivingMob.nomove_counter++;
+			unbuckling.c.Tangible.anchored = unbuckling.template.vars.components.Tangible.anchored;
+			unbuckling.c.LivingMob.nomove_counter--;
 			unbuckling.c.MobHud.clear_alert('buckled');
 			let idx = this.buckled_mobs.indexOf(unbuckling);
 			if(idx != -1) this.buckled_mobs.splice(unbuckling, 1);
 			this.post_buckle_mob();
+			return true;
 		}
 	}
 
@@ -138,7 +137,7 @@ Buckle.template = {
 				can_buckle: false,
 				buckle_lying: -1, //bed-like behaviour, forces mob.lying = buckle_lying if != -1
 				buckle_requires_restraints: false, //require people to be handcuffed before being able to buckle. eg: pipes
-				buckled_mobs: null,
+				buckled_mobs: [],
 				max_buckled_mobs: 1,
 				buckle_prevents_pull: false
 			}
