@@ -221,9 +221,6 @@ class LivingMob extends Component {
 			msg.mode = "radio";
 			msg.range = 1;
 			msg.message = msg.message.substring(1);
-		} else if(msg.message.startsWith("*me ")) {
-			msg.mode = "emote";
-			msg.message = msg.message.substring(4);
 		}
 
 		if(this.stat >= combat_defines.UNCONSCIOUS)
