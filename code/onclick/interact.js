@@ -69,7 +69,7 @@ class MobInteract extends Component {
 	}
 
 	can_interact() {
-		if(this.nointeraction_counter)
+		if(this.nointeract_counter)
 			return false;
 		return true;
 	}
