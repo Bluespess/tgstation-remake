@@ -310,7 +310,7 @@ class Slot extends EventEmitter {
 
 	mouse_dropped_by(e) {
 		if(this.props.is_hand_slot && this.can_accept_item(e.from.atom) && e.from.atom.c.Item.slot.mob == this.mob
-		&& !this.mob.c.LivingMob.incapacitated() && !this.item) {
+		&& this.mob.c.MobInteract.can_interact() && !this.item) {
 			this.item = e.from.atom;
 		}
 	}
