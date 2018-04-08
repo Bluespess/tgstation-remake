@@ -36,7 +36,7 @@ class MobInteract extends Component {
 		if(this.next_move > this.a.server.now())
 			return;
 
-		if(isliving && this.a.c.LivingMob.incapacitated({ignore_restraints: true}))
+		if(isliving && !this.can_interact())
 			return;
 
 		if(hasinv && this.a.c.MobInventory.throw_mode) {
@@ -66,6 +66,12 @@ class MobInteract extends Component {
 				this.ranged_attack(e.atom, e);
 			}
 		}
+	}
+
+	can_interact() {
+		if(this.nointeract_counter)
+			return false;
+		return true;
 	}
 
 	move_intent() {
@@ -99,7 +105,8 @@ MobInteract.template = {
 				zone_sel: "chest",
 				zone_sel_template: null,
 				act_intents: ["help", "harm"],
-				act_intent: "help"
+				act_intent: "help",
+				nointeract_counter: 0
 			}
 		}
 	}

@@ -6,6 +6,7 @@ class Chair extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 		this.a.c.Destructible.deconstruct = chain_func(this.a.c.Destructible.deconstruct, this.deconstruct.bind(this));
+		this.a.c.Buckle.post_buckle_mob = chain_func(this.a.c.Buckle.post_buckle_mob, this.post_buckle_mob.bind(this));
 	}
 
 	deconstruct(prev) {
@@ -16,10 +17,23 @@ class Chair extends Component {
 		}
 		return prev();
 	}
+
+	handle_layer() {
+		if(this.a.c.Buckle.has_buckled_mobs() && this.a.dir == 1){ //north
+			this.layer = layers.ABOVE_MOB_LAYER;
+		} else {
+			this.layer = layers.OBJ_LAYER;
+		}
+	}
+
+	post_buckle_mob(prev) {
+		this.handle_layer();
+		return prev();
+	}
 }
 
-Chair.loadBefore = ["Destructible", "Item"];
-Chair.depends = ["Destructible"];
+Chair.loadBefore = ["Destructible", "Item", "Buckle"];
+Chair.depends = ["Destructible", "Buckle"];
 
 Chair.template = {
 	vars: {
@@ -31,6 +45,9 @@ Chair.template = {
 			"Destructible": {
 				max_integrity: 250,
 				integrity_failure: 25
+			},
+			"Buckle": {
+				can_buckle: true
 			},
 			"Examine": {
 				desc: "You sit in this. Either by will or force."

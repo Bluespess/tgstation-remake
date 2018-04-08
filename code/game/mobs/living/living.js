@@ -112,8 +112,10 @@ class LivingMob extends Component {
 		this.emit("stat_changed", oldstat, val);
 		if(val >= combat_defines.UNCONSCIOUS && oldstat < combat_defines.UNCONSCIOUS) {
 			this.nomove_counter++;
+			this.a.c.MobInteract.nointeract_counter++;
 		} else if(val < combat_defines.UNCONSCIOUS && oldstat >= combat_defines.UNCONSCIOUS) {
 			this.nomove_counter--;
+			this.a.c.MobInteract.nointeract_counter--;
 		}
 		if(val == combat_defines.DEAD && this.life_timeout) {
 			clearTimeout(this.life_timeout);
