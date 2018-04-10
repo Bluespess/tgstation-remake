@@ -39,7 +39,11 @@ MetalSheet.template = {
 					{name: "closet", template_name: "closet", cost: 2, time: 1500, cant_cross: ["Closet"], on_floor: true},
 					{name: "floor tiles", template_name: "plasteel_tile", cost: 1, res_amount: 4, time: 2000},
 					{name: "metal rods", template_name: "stack_rods", cost: 1, res_amount: 2, time: 6000},
-					{name: "wall girders", template_name: "girder", cost: 2, time: 4000, cant_cross: ["Girder"], on_floor: true}
+					{name: "wall girders", template_name: "girder", cost: 2, time: 4000, cant_cross: ["Girder"], on_floor: true},
+					{name: "stool", template_name: "stool", cost: 1, cant_cross: ["Chair"], on_floor: true},
+					{name: "bar stool", template_name: "bar_stool", cost: 1, cant_cross: ["Chair"], on_floor: true},
+					{name: "chair", template_name: "chair", cost: 1, cant_cross: ["Chair"], on_floor: true},
+					{name: "swivel chair", template_name: "office_chair_dark", cost: 5, cant_cross: ["Chair"], on_floor: true}
 				]
 			},
 			"Item": {
@@ -118,7 +122,9 @@ WoodSheet.template = {
 				recipes: [
 					{name: "wood floor tiles", template_name: "wood_tile", cost: 1, res_amount: 4, time: 2000},
 					{name: "baseball bat", template_name: "baseball_bat", cost: 5, time: 1500},
-					{name: "wood table frame", template_name: "wood_table_frame", cost: 2, time: 10000}
+					{name: "wood table frame", template_name: "wood_table_frame", cost: 2, time: 10000},
+					{name: "wooden chair", template_name: "wooden_chair", cost: 3, cant_cross: ["Chair"], on_floor: true},
+					{name: "winged wooden chair", template_name: "wooden_chair_wings", cost: 3, cant_cross: ["Chair"], on_floor: true}
 				]
 			},
 			"Item": { //Wood apparently has no inhands.
