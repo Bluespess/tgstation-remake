@@ -49,6 +49,9 @@ Chair.template = {
 			"Buckle": {
 				can_buckle: true
 			},
+			"Tangible": {
+				anchored: true
+			},
 			"Examine": {
 				desc: "You sit in this. Either by will or force."
 			}
@@ -74,7 +77,97 @@ module.exports.templates = {
 			}
 		],
 		tree_paths: ["basic_structures/chair"]
-	}
+	},
+	"wooden_chair": {
+		parent_template: "chair",
+		vars: {
+			components: {
+				"Examine": {
+					desc: "Old is never too old to not be in fashion."
+				},
+				"Chair": {
+					stack_type: "wood_sheet",
+					stack_amount: 3
+				},
+				"Destructible": {
+					max_integrity: 70
+				},
+			},
+			name: "wooden chair",
+			icon_state: "wooden_chair"
+		},
+		tree_paths: ["basic_structures/chair/wood"]
+	},
+	"wooden_chair_wings": {
+		parent_template: "wooden_chair",
+		vars: {
+			name: "wooden chair",
+			icon_state: "wooden_chair_wings"
+		},
+		tree_paths: ["basic_structures/chair/wood/wings"]
+	},
+	"office_chair_light": {
+		parent_template: "chair",
+		vars: {
+			components: {
+				"Chair": {
+					stack_amount: 5
+				},
+				"Tangible": {
+					anchored: false
+				}
+			},
+			icon_state: "officechair_white"
+		},
+		tree_paths: ["basic_structures/chair/office/light"]
+	},
+	"office_chair_dark": {
+		parent_template: "chair",
+		vars: {
+			components: {
+				"Chair": {
+					stack_amount: 5
+				},
+				"Tangible": {
+					anchored: false
+				}
+			},
+			icon_state: "officechair_dark"
+		},
+		tree_paths: ["basic_structures/chair/office/dark"]
+	},
+	"stool": {
+		components: ["Chair"],
+		vars: {
+			components: {
+				"Examine": {
+					desc: "Apply butt."
+				},
+				"Chair": {
+					stack_amount: 1
+				},
+				"Buckle": {
+					can_buckle: false
+				},
+			},
+			name: "stool",
+			icon_state: "stool"
+		},
+		tree_paths: ["basic_structures/chair/stool"]
+	},
+	"bar_stool": {
+		parent_template: "stool",
+		vars: {
+			components: {
+				"Examine": {
+					desc: "It has some unsavory stains on it..."
+				},
+			},
+			name: "bar stool",
+			icon_state: "bar"
+		},
+		tree_paths: ["basic_structures/chair/stool/bar"]
+	},
 };
 
 module.exports.components = {Chair};

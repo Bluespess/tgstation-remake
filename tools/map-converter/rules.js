@@ -76,6 +76,12 @@ let rules = [
 	["/obj/structure/table/reinforced", () => {return {template_name: "reinforced_table"};}],
 
 	["/obj/structure/chair", (inst) => {return {template_name: "chair", variant_leaf_path: [inst_dir(inst)]};}],
+	["/obj/structure/chair/wood", (inst) => {return {template_name: "wooden_chair", variant_leaf_path: [inst_dir(inst)]};}],
+	["/obj/structure/chair/wood/wings", (inst) => {return {template_name: "wooden_chair_wings", variant_leaf_path: [inst_dir(inst)]};}],
+	["/obj/structure/chair/stool", () => {return {template_name: "stool"};}],
+	["/obj/structure/chair/stool/bar", () => {return {template_name: "bar_stool"};}],
+	["/obj/structure/chair/office/light", (inst) => {return {template_name: "office_chair_light", variant_leaf_path: [inst_dir(inst)]};}],
+	["/obj/structure/chair/office/dark", (inst) => {return {template_name: "office_chair_dark", variant_leaf_path: [inst_dir(inst)]};}],
 
 	["/obj/structure/closet", () => {return {template_name: "closet"};}],
 	["/obj/structure/closet/emcloset", () => {return {template_name: "emergency_closet"};}],
@@ -89,7 +95,7 @@ let rules = [
 	["/obj/item/storage/toolbox/mechanical", () => {return {template_name: "toolbox_mechanical"};}, {pixel_offsets: true}],
 	["/obj/item/screwdriver", () => {return {template_name: "screwdriver"};}, {pixel_offsets: true}],
 	["/obj/item/crowbar", () => {return {template_name: "crowbar"};}, {pixel_offsets: true}],
-	["/obj/item/weldingtool", () => {return {template_name: "weldingtool"};}, {pixel_offsets: true}],
+	["/obj/item/weldingtool", () => {return {template_name: "welding_tool"};}, {pixel_offsets: true}],
 	["/obj/item/wirecutters", () => {return {template_name: "wirecutters"};}, {pixel_offsets: true}],
 	["/obj/item/wrench", () => {return {template_name: "wrench"};}, {pixel_offsets: true}],
 
