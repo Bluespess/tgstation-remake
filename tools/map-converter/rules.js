@@ -95,7 +95,7 @@ let rules = [
 	["/obj/item/storage/toolbox/mechanical", () => {return {template_name: "toolbox_mechanical"};}, {pixel_offsets: true}],
 	["/obj/item/screwdriver", () => {return {template_name: "screwdriver"};}, {pixel_offsets: true}],
 	["/obj/item/crowbar", () => {return {template_name: "crowbar"};}, {pixel_offsets: true}],
-	["/obj/item/weldingtool", () => {return {template_name: "weldingtool"};}, {pixel_offsets: true}],
+	["/obj/item/weldingtool", () => {return {template_name: "welding_tool"};}, {pixel_offsets: true}],
 	["/obj/item/wirecutters", () => {return {template_name: "wirecutters"};}, {pixel_offsets: true}],
 	["/obj/item/wrench", () => {return {template_name: "wrench"};}, {pixel_offsets: true}],
 
