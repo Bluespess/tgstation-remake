@@ -59,7 +59,8 @@ module.exports.templates = {
 			components: {
 				"Item": {
 					inhand_icon_state: "toolbox_blue"
-				}, "StorageItem": {
+				},
+				"StorageItem": {
 					populate_contents() {
 						new Atom(this.a.server, "screwdriver", this.a);
 						new Atom(this.a.server, "wrench", this.a);

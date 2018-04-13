@@ -46,9 +46,9 @@ rules.sort((a, b) => {
 				if(!oi.type.path.startsWith(rulekey))
 					continue;
 				let result = rule(oi);
-				if(result == undefined)
+				if(result === undefined)
 					continue;
-				else if(result == null)
+				else if(result === null)
 					break;
 				if(!(result instanceof Array)) result = [result];
 				for(let item of result) {

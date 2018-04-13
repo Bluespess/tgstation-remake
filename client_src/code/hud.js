@@ -11,6 +11,8 @@ class GridDisplay extends Component {
 
 	get_bounds(prev) {
 		var bounds = prev();
+		if(!bounds)
+			return bounds;
 		bounds.width += (this.width - 1) * this.offset_x * 32;
 		bounds.height += (this.height - 1) * this.offset_y * 32;
 		return bounds;

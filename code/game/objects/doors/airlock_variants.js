@@ -201,6 +201,38 @@ module.exports.templates = {
 		tree_paths: ["basic_structures/airlock/maintenance/glass"]
 	},
 
+	// Mineral ones
+
+	"airlock_titanium": {
+		components: ["Airlock"],
+		vars: {
+			components: {
+				"Airlock": {
+					overlays_file: 'icons/obj/doors/airlocks/shuttle/overlays.png'
+				}
+			},
+			name: "shuttle airlock",
+			icon: 'icons/obj/doors/airlocks/shuttle/shuttle.png'
+		},
+		tree_paths: ["basic_structures/airlock/titanium"]
+	},
+	"airlock_titanium_glass": {
+		components: ["Airlock"],
+		vars: {
+			components: {
+				"Door": {
+					glass: true
+				},
+				"Airlock": {
+					overlays_file: 'icons/obj/doors/airlocks/shuttle/overlays.png'
+				}
+			},
+			name: "shuttle airlock",
+			icon: 'icons/obj/doors/airlocks/shuttle/shuttle.png'
+		},
+		tree_paths: ["basic_structures/airlock/titanium/glass"]
+	},
+
 	// Station2
 
 	"airlock_glass": {
@@ -217,5 +249,37 @@ module.exports.templates = {
 			icon: 'icons/obj/doors/airlocks/station2/glass.png'
 		},
 		tree_paths: ["basic_structures/airlock/glass"]
+	},
+
+	// External
+
+	"airlock_external": {
+		components: ["Airlock"],
+		vars: {
+			components: {
+				"Airlock": {
+					overlays_file: 'icons/obj/doors/airlocks/external/overlays.png'
+				}
+			},
+			name: "external airlock",
+			icon: 'icons/obj/doors/airlocks/external/external.png'
+		},
+		tree_paths: ["basic_structures/airlock/external"]
+	},
+	"airlock_external_glass": {
+		components: ["Airlock"],
+		vars: {
+			components: {
+				"Door": {
+					glass: true
+				},
+				"Airlock": {
+					overlays_file: 'icons/obj/doors/airlocks/external/overlays.png'
+				}
+			},
+			name: "external airlock",
+			icon: 'icons/obj/doors/airlocks/external/external.png'
+		},
+		tree_paths: ["basic_structures/airlock/external/glass"]
 	}
 };

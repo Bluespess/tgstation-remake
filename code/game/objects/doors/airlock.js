@@ -194,6 +194,9 @@ Airlock.one_per_tile = true;
 Airlock.template = {
 	vars: {
 		components: {
+			"SmoothGroup": {
+				groups: ["titanium_wall"]
+			},
 			"Door": {
 				open_state: "open",
 				closed_state: "closed",
@@ -227,7 +230,7 @@ Airlock.template = {
 	}
 };
 
-Airlock.depends = ["Door", "Emaggable"];
+Airlock.depends = ["Door", "Emaggable", "SmoothGroup"];
 Airlock.loadBefore = ["Door", "Emaggable"];
 
 Airlock.update_map_instance = function(instobj) {

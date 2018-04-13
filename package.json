@@ -10,7 +10,11 @@
   "license": "AGPL-3.0",
   "dependencies": {
     "bluespess": "0.3.0",
+    "cson-parser": "^3.0.0",
     "finalhandler": "^1.0.1",
     "serve-static": "^1.12.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1"
   }
 }

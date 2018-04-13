@@ -1,7 +1,7 @@
 'use strict';
 const {Component} = require('bluespess');
 
-class Player extends Component {
+class MobMovement extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 
@@ -49,6 +49,11 @@ class Player extends Component {
 			if(dir)
 				this.atom.dir = dir;
 		});
+
+		this.a.c.Mob.on("client_changed", () => {
+			this.intended_walk_dir = 0;
+			this.update_walk();
+		});
 	}
 	update_walk() {
 		var walk_dir = this.intended_walk_dir;
@@ -58,7 +63,7 @@ class Player extends Component {
 	}
 }
 
-Player.depends = ["Mob", "Puller", "Hearer"];
-Player.loadBefore = ["Mob", "Puller"];
+MobMovement.depends = ["Mob", "Hearer"];
+MobMovement.loadBefore = ["Mob"];
 
-module.exports.components = {Player};
+module.exports.components = {MobMovement};

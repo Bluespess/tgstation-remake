@@ -162,6 +162,15 @@ GridDisplay.template = {
 };
 
 module.exports.templates = {
+	"alert_buckled": { // TODO click action see code/_onclick/hud/alert.dm line 574
+		components: ["Alert"],
+		vars: {
+			name: 'Buckled',
+			alert_desc: "You've been buckled to something. Click the alert to unbuckle unless you're handcuffed.",
+			icon_state: 'buckled'
+		}
+	},
+
 	"alert_not_enough_o2": {
 		components: ["Alert"],
 		vars: {

@@ -4736,5 +4736,22 @@
 			}
 		},
 		"tile_size": 32
+	},
+	"origin_marker": {
+		"dir_count": 1,
+		"width": 32,
+		"height": 32,
+		"dirs": {
+			"2": {
+				"frames": [
+					{
+						"x": 480,
+						"y": 512,
+						"delay": 100
+					}
+				]
+			}
+		},
+		"tile_size": 32
 	}
 }

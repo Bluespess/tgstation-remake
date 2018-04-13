@@ -1,6 +1,7 @@
 'use strict';
 const Outfit = require('../../outfits/outfit.js');
 const {Atom, weak_deep_assign, has_component} = require('bluespess');
+const clown_names = require('../../../../strings/names/clown.json');
 
 class JobType {
 	constructor(obj) {
@@ -20,6 +21,7 @@ class JobType {
 
 			selection_color: "#ffffff",
 
+			name_override: "",
 			req_admin_notify: false,
 			minimal_player_age: 0,
 			outfit: null,
@@ -33,11 +35,13 @@ class JobType {
 		return this.access;
 	}
 
-	instance(server, loc) {
-		let template = {"components": ["Player", "MobInventory", "HumanMob"], vars: {layer: 5}};
+	instance(server) {
+		let template = {"components": ["MobMovement", "MobInventory", "HumanMob"], vars: {layer: 5}};
+		if(this.name_override == "clown") {
+			template.vars.name = clown_names[Math.floor(Math.random() * clown_names.length)];
+		}
 		let mob = new Atom(server, template);
 		this.equip(mob);
-		mob.loc = loc;
 		return mob;
 	}
 
@@ -62,7 +66,7 @@ class JobOutfit extends Outfit {
 			backpack: "backpack",
 			satchel: "backpack",
 			duffelbag: "backpack",
-			box: null,
+			box: "survival_box",
 
 			pda_slot: "belt"
 		});

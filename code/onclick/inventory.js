@@ -82,10 +82,6 @@ class MobInventory extends Component {
 			icon: 'icons/mob/screen_midnight.png', icon_state: "act_resist", screen_loc_x: 12.8125, screen_loc_y: 1.21875, layer: 30
 		}});
 
-		this.a.c.Eye.screen.move_intent = new Atom(this.a.server, {vars:{
-			icon: 'icons/mob/screen_midnight.png', icon_state: "running", screen_loc_x: 12.8125, screen_loc_y: .15625, layer: 30
-		}});
-
 		this.a.c.Eye.screen.act_intent = new Atom(this.a.server, {vars:{
 			icon: 'icons/mob/screen_gen.png', icon_state: "help", screen_loc_x: 11.75, screen_loc_y: .15625, layer: 30
 		}});
@@ -314,7 +310,7 @@ class Slot extends EventEmitter {
 
 	mouse_dropped_by(e) {
 		if(this.props.is_hand_slot && this.can_accept_item(e.from.atom) && e.from.atom.c.Item.slot.mob == this.mob
-		&& !this.mob.c.LivingMob.incapacitated() && !this.item) {
+		&& this.mob.c.MobInteract.can_interact() && !this.item) {
 			this.item = e.from.atom;
 		}
 	}

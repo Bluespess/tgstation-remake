@@ -86,7 +86,7 @@ module.exports.templates = {
 			{
 				type: "single",
 				var_path: ["icon_state"],
-				values: ["floor", "white", "dark", "bar", "floorgrime", "delivery", "bot", "barber", "whitebot", "whitedelivery", "cmo", "grimy", "freezerfloor"],
+				values: ["floor", "white", "dark", "bar", "floorgrime", "delivery", "bot", "barber", "whitebot", "whitedelivery", "cmo", "grimy", "freezerfloor", "cafeteria"],
 				label: true,
 				orientation: "vertical"
 			}
@@ -193,6 +193,28 @@ module.exports.templates = {
 			icon_state: "carpet"
 		},
 		tree_paths: ["basic_structures/floor/carpet"]
+	},
+	"floor_titanium": {
+		components: ["FloorCover"],
+		vars: {
+			components: {
+				"FloorCover": {
+					floor_tile: "titanium_tile",
+					icon_group: "titanium"
+				}
+			},
+			name: "shuttle floor"
+		},
+		tree_paths: ["basic_structures/floor/titanium"],
+		variants: [
+			{
+				type: "single",
+				var_path: ["icon_state"],
+				values: ["shuttlefloor3", "shuttlefloor", "shuttlefloor2", "shuttlefloor5"],
+				label: true,
+				orientation: "vertical"
+			}
+		]
 	}
 };
 

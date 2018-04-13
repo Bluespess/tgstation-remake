@@ -236,7 +236,7 @@ class CarbonMob extends Component.Networked {
 		this.a.c.LivingMob.apply_effect("Knockdown", {delay: obj.c.Slippery.knockdown_amount});
 	}
 }
-CarbonMob.depends = ["LivingMob"];
+CarbonMob.depends = ["LivingMob", "Puller"];
 CarbonMob.loadBefore = ["LivingMob"];
 
 CarbonMob.template = {

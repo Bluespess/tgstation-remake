@@ -35,7 +35,8 @@ module.exports.templates = {
 			},
 			name: "trophy rack",
 			icon_state: "cultpack"
-		}
+		},
+		tree_paths: ["items/storage/backpack/trophy_rack"]
 	},
 	"backpack_clown": {
 		parent_template: "backpack",
@@ -50,7 +51,8 @@ module.exports.templates = {
 			},
 			name: "Giggles von Honkerton",
 			icon_state: "clownpack"
-		}
+		},
+		tree_paths: ["items/storage/backpack/clown"]
 	},
 	"backpack_explorer": {
 		parent_template: "backpack",
@@ -65,7 +67,8 @@ module.exports.templates = {
 			},
 			name: "explorer bag",
 			icon_state: "explorerpack"
-		}
+		},
+		tree_paths: ["items/storage/backpack/explorer"]
 	},
 	"backpack_mime": {
 		parent_template: "backpack",
@@ -80,7 +83,8 @@ module.exports.templates = {
 			},
 			name: "Parcel Parceaux",
 			icon_state: "mimepack"
-		}
+		},
+		tree_paths: ["items/storage/backpack/mime"]
 	},
 	"backpack_medic": {
 		parent_template: "backpack",
@@ -95,7 +99,8 @@ module.exports.templates = {
 			},
 			name: "medical backpack",
 			icon_state: "medicalpack"
-		}
+		},
+		tree_paths: ["items/storage/backpack/medic"]
 	},
 	"backpack_security": {
 		parent_template: "backpack",
@@ -110,7 +115,8 @@ module.exports.templates = {
 			},
 			name: "security backpack",
 			icon_state: "securitypack"
-		}
+		},
+		tree_paths: ["items/storage/backpack/security"]
 	},
 	"backpack_captain": {
 		parent_template: "backpack",
@@ -126,7 +132,8 @@ module.exports.templates = {
 			name: "captain's backpack",
 			icon_state: "captainpack"
 			// resistance_flags = 0
-		}
+		},
+		tree_paths: ["items/storage/backpack/captain"]
 	},
 	"backpack_industrial": {
 		parent_template: "backpack",
@@ -142,7 +149,8 @@ module.exports.templates = {
 			name: "industrial backpack",
 			icon_state: "engiepack"
 			// resistance_flags = FIRE_PROOF
-		}
+		},
+		tree_paths: ["items/storage/backpack/industrial"]
 	},
 	"backpack_botany": {
 		parent_template: "backpack",
@@ -157,7 +165,8 @@ module.exports.templates = {
 			},
 			name: "botany backpack",
 			icon_state: "botpack"
-		}
+		},
+		tree_paths: ["items/storage/backpack/botany"]
 	},
 	"backpack_chemistry": {
 		parent_template: "backpack",
@@ -172,7 +181,8 @@ module.exports.templates = {
 			},
 			name: "chemistry backpack",
 			icon_state: "chempack"
-		}
+		},
+		tree_paths: ["items/storage/backpack/chemistry"]
 	},
 	"backpack_genetics": {
 		parent_template: "backpack",
@@ -187,7 +197,8 @@ module.exports.templates = {
 			},
 			name: "genetics backpack",
 			icon_state: "genepack"
-		}
+		},
+		tree_paths: ["items/storage/backpack/genetics"]
 	},
 	"backpack_science": {
 		parent_template: "backpack",
@@ -203,7 +214,8 @@ module.exports.templates = {
 			name: "science backpack",
 			icon_state: "toxpack"
 			// resistance_flags = 0
-		}
+		},
+		tree_paths: ["items/storage/backpack/science"]
 	},
 	"backpack_virology": {
 		parent_template: "backpack",
@@ -218,6 +230,7 @@ module.exports.templates = {
 			},
 			name: "virology backpack",
 			icon_state: "viropack"
-		}
+		},
+		tree_paths: ["items/storage/backpack/virology"]
 	}
 };

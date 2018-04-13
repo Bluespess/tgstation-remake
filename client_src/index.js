@@ -12,12 +12,16 @@ client.importModule(require('./code/progress_bar.js'));
 client.importModule(require('./code/text_input.js'));
 client.importModule(require('./code/ui/chem_dispenser.js'));
 client.importModule(require('./code/ui/latejoin.js'));
+client.importModule(require('./code/ui/login.js'));
 client.importModule(require('./code/ui/new_player.js'));
 client.importModule(require('./code/ui/stack_craft.js'));
 
 if(global.is_bs_editor_env) {
 	module.exports = client;
 } else {
+	client.handle_login = function() {
+		this.panel_manager.create_client_panel({title: "Login", can_close: false, content_class: "LoginPanel", width: 250, height: 400});
+	};
 	window.addEventListener("load", () => {
 		let eye = new Eye(client, "");
 		let main_plane = new Plane.World(eye, "");

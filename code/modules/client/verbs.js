@@ -10,7 +10,7 @@ module.exports.now =  function(server) {
 				} else {
 					client.last_ooc_message = server.now();
 					let msg = (""+obj.ooc_message).substring(0, 256);
-					to_chat`<span style='color:#002eb8' class='ooc'><span class='prefix'>OOC:</span> <EM>${client.key}:</EM> <span class='message'>${msg}</span></span>`([...Object.values(server.clients)]);
+					to_chat`<span style='color:#002eb8' class='ooc'><span class='prefix'>OOC:</span> <EM>${client.name}:</EM> <span class='message'>${msg}</span></span>`([...Object.values(server.clients)]);
 				}
 			}
 		});

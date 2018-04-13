@@ -327,6 +327,30 @@ module.exports.templates = {
 		},
 		tree_paths: ["basic_structures/window/reinforced/construct"]
 	},
+	"shuttle_window": {
+		components: ["ReinforcedWindow", "TGSmooth"],
+		vars: {
+			components: {
+				"Smooth": {
+					smooth_with: "shuttle_window"
+				},
+				"SmoothGroup": {
+					groups: ["shuttle_window", "titanium_wall"]
+				},
+				"Destructible": {
+					max_integrity: 100,
+					armor: {"melee": 50, "bullet": 0, "laser": 0, "energy": 0, "bomb": 50, "bio": 100, "rad": 100, "fire": 80, "acid": 100}
+				},
+				"Examine": {
+					desc: "A reinforced, air-locked pod window."
+				}
+			},
+			name: "shuttle window",
+			icon: 'icons/obj/smooth_structures/shuttle_window.png',
+			icon_state: "shuttle_window"
+		},
+		tree_paths: ["basic_structures/window/shuttle"]
+	}
 };
 
 module.exports.components = {Window, ReinforcedWindow};

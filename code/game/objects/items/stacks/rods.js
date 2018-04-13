@@ -33,7 +33,8 @@ StackRod.template = {
 				merge_type: "StackRod",
 				singular_name: "rod",
 				recipes: [
-					{name: "grille", template_name: "grille", cost: 2, time: 1000, cant_cross: ["Grille"], on_floor: true}
+					{name: "grille", template_name: "grille", cost: 2, time: 1000, cant_cross: ["Grille"], on_floor: true},
+					{name: "table frame", template_name: "table_frame", cost: 2, time: 10000, cant_cross: ["TableFrame"], on_floor: true}
 				]
 			},
 			"Tangible": {
