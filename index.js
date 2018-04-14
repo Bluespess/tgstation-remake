@@ -19,6 +19,7 @@ server.importModule(require('./code/game/area/area.js'));
 server.importModule(require('./code/game/mobs/mob_movement.js'));
 server.importModule(require('./code/game/mobs/new_player.js'));
 server.importModule(require('./code/game/mobs/dead/ghost.js'));
+server.importModule(require('./code/game/mobs/living/living_defense.js'));
 server.importModule(require('./code/game/mobs/living/living.js'));
 server.importModule(require('./code/game/mobs/living/carbon/carbon.js'));
 server.importModule(require('./code/game/mobs/living/carbon/slip.js'));

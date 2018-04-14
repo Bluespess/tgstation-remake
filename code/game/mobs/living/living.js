@@ -140,7 +140,7 @@ class LivingMob extends Component {
 	update_stat() {
 	}
 	//DAMAGE
-	apply_damage(damage = 0, damagetype = "brute", def_zone, blocked = 0) {
+	apply_damage(damage = 0, damagetype = "brute", def_zone, blocked = this.run_armor_check(def_zone, "melee")) {
 		var hit_percent = (100-blocked)/100;
 		if(!damage || (hit_percent <= 0))
 			return false;
@@ -323,6 +323,8 @@ class LivingMob extends Component {
 		(new (status_effects[name])()).apply_to(this.a, props);
 	}
 }
+
+Object.assign(LivingMob.prototype, require('./living_defense.js'));
 
 LivingMob.depends = ["Mob", "Tangible", "MobInteract", "MobHud", "SpeechHearer", "SpeechEmitter"];
 LivingMob.loadBefore = ["Mob", "Tangible", "MobInteract", "MobHud", "SpeechHearer", "SpeechEmitter"];

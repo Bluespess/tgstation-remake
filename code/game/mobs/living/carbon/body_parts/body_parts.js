@@ -39,7 +39,7 @@ class MobBodyParts extends Component {
 		this.a.c.Eye.screen.health_doll.c.HealthDoll.bind_mob(this.a);
 	}
 
-	apply_damage(prev, damage, damage_type = "brute", def_zone = null, blocked = 0) {
+	apply_damage(prev, damage, damage_type = "brute", def_zone = null, blocked = this.run_armor_check(def_zone, "melee")) {
 		if(damage_type != "brute" && damage_type != "burn")
 			return prev();
 		let hit_percent = (100 - blocked) / 100;
@@ -59,7 +59,20 @@ class MobBodyParts extends Component {
 		}
 		bp.c.BodyPart.receive_damage(damage_type, damage * hit_percent);
 	}
+
+	get_bodypart(zone) {
+		if(!zone) {
+			zone = "chest";
+		}
+		for(let bp of this.limbs_set) {
+			if(bp.body_zone == zone) {
+				return bp;
+			}
+		}
+	}
 }
+
+Object.assign(MobBodyParts.prototype, require('../../living_defense.js'));
 
 MobBodyParts.template = {
 	vars: {
