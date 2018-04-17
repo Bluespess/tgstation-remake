@@ -1,12 +1,14 @@
 'use strict';
 
-const {Component, has_component, chain_func, to_chat} = require('bluespess');
+const {Component, has_component, chain_func, to_chat, visible_message} = require('bluespess');
 
 // Reagent containers where you can pour from one to another.
 class OpenReagentContainer extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
+		this.a.c.Tangible.on("throw_finished", () => {this.splash();});
+		this.a.c.Tangible.on("throw_impacted", (target) => {this.splash(target);});
 	}
 
 	attack_by(prev, item, user) {
@@ -26,6 +28,24 @@ class OpenReagentContainer extends Component {
 			return true;
 		}
 		return prev();
+	}
+
+	splash(target) {
+		if(this.a.c.ReagentHolder.total_volume <= 0)
+			return;
+		if(!target) {
+			for(let crosser of this.a.crosses()) {
+				if(has_component(crosser, "FloorBase") && (!target || crosser.layer > target.layer))
+					target = crosser;
+			}
+		}
+		if(!target) {
+			this.a.c.ReagentHolder.clear();
+			return;
+		}
+		this.a.c.ReagentHolder.react_atom(target, "touch");
+		visible_message`<span class='notice'>The ${this.a} spills its contents all over the ${target}.</span>`.emit_from(this.a);
+		this.a.c.ReagentHolder.clear();
 	}
 }
 

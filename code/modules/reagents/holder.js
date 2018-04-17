@@ -36,7 +36,17 @@ class ReagentHolder extends Component {
 			return 0;
 		if(typeof reagent == "string")
 			reagent = this.reagents.get(reagent);
+		if(!reagent)
+			return;
 		return reagent.remove(amount);
+	}
+
+	clear() {
+		let removed = 0;
+		for(let reagent of this.reagents.values()) {
+			removed += reagent.remove(reagent.volume);
+		}
+		return removed;
 	}
 
 	assume_reagent(reagent_name) {
@@ -165,7 +175,7 @@ class ReagentHolder extends Component {
 		return this.transfer_percent_to(target, percent);
 	}
 
-	react_atom(atom, method = "touch", {volume_modifier = 1, show_message = true}) {
+	react_atom(atom, method = "touch", {volume_modifier = 1, show_message = true} = {}) {
 		let react_function = "reaction_obj";
 		if(has_component(atom, "LivingMob"))
 			react_function = "reaction_mob";
