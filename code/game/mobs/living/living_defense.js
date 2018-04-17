@@ -4,7 +4,7 @@ const {random_zone} = require('./carbon/body_parts/helpers.js');
 
 module.exports = {
 	//Args were rearranged from TG's to be in the same order as the code
-	run_armor_check(def_zone = null, attack_flag = "melee", armour_penetration, penetrated_text = null, absorb_text = null, soften_text = null) {
+	run_armor_check(def_zone = null, attack_flag = "melee", {armour_penetration, penetrated_text = null, absorb_text = null, soften_text = null} = {}) {
 		let armor = this.get_armor(def_zone, attack_flag);
 
 		if(armor && armour_penetration) {
