@@ -13,7 +13,6 @@ UniformItem.template = {
 			"UniformItem": {
 				worn_icon: 'icons/mob/uniform.png',
 				worn_icon_state: null, // If null, inherits from inhand_icon_state
-				body_parts_covered: ['chest', 'groin', 'l_leg', 'r_leg', 'l_arm', 'r_arm'],
 				fitted: "female_uniform_full"
 			},
 			"WearableItem": {
