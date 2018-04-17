@@ -14,7 +14,7 @@ WearableItem.template = {
 				put_on_delay: 2000,
 				strip_delay: 4000,
 				body_parts_covered: ['chest', 'groin', 'l_leg', 'r_leg', 'l_arm', 'r_arm'],
-				clothing_armor: {melee: 500, bullet: 0, laser: 0, energy: 0, bomb: 0, bio: 0, rad: 0, fire: 0, acid: 0} //500 is a placeholder for testing
+				clothing_armor: {melee: 50, bullet: 0, laser: 0, energy: 0, bomb: 0, bio: 0, rad: 0, fire: 0, acid: 0} //500 is a placeholder for testing
 			},
 			"Item": {
 				inhand_lhand_icon: 'icons/mob/inhands/clothing_lefthand.png',

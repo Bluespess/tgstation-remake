@@ -18,7 +18,7 @@ module.exports = {
 			if(absorb_text){
 				to_chat`<span class='userdanger'>${absorb_text}.</span>`(this.a);
 			} else {
-				to_chat`<span class='userdanger'>Your armor absorbs the blow!.</span>`(this.a);
+				to_chat`<span class='userdanger'>Your armor absorbs the blow!</span>`(this.a);
 			}
 		} else if(armor > 0) {
 			if(soften_text) {
@@ -61,8 +61,8 @@ module.exports = {
 				continue;
 			let item = slot.item;
 			if(has_component(item, "WearableItem")) {
-				if(item.c.WearableItem.body_parts_covered & def_zone) {
-					protection += item.a.c.WearableItem.clothing_armor[d_type];
+				if(item.c.WearableItem.body_parts_covered.includes(def_zone)) {
+					protection += item.c.WearableItem.clothing_armor[d_type];
 				}
 			}
 		}
