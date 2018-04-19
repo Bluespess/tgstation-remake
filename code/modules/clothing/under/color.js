@@ -355,13 +355,13 @@ module.exports.templates = {
 					inhand_icon_state: "rainbow",
 				},
 				"UniformItem": {
-					worn_icon_state: "rainbow"
+					worn_icon_state: "rainbow",
+					can_adjust: false
 				}
 			},
 			name: "rainbow jumpsuit",
 			icon_state: "rainbow"
 			//TODO item_color: "rainbow"
-			// TODO can_adjust: 0
 		},
 		tree_paths: ["items/clothing/under/rainbow"]
 	},

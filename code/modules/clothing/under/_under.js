@@ -6,6 +6,9 @@ class UniformItem extends Component {
 		super(atom, template);
 	}
 }
+//TODO: Alt styles
+//TODO: Sensors
+//TODO: "fitted" probably isn't fully implemented
 
 UniformItem.template = {
 	vars: {
@@ -13,10 +16,13 @@ UniformItem.template = {
 			"UniformItem": {
 				worn_icon: 'icons/mob/uniform.png',
 				worn_icon_state: null, // If null, inherits from inhand_icon_state
-				fitted: "female_uniform_full"
+				fitted: "female_uniform_full",
+				can_adjust: true, //Useless until alt styles are implemented
+				alt_covers_chest: false //Also useless until alt styles
 			},
 			"WearableItem": {
-				permeability_coefficient: 0.9
+				permeability_coefficient: 0.9,
+				body_parts_covered: ['chest', 'groin', 'l_leg', 'r_leg', 'l_arm', 'r_arm']
 			}
 		},
 		icon: 'icons/obj/clothing/uniforms.png',
