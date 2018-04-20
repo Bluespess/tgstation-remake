@@ -77,6 +77,9 @@ server.importModule(require('./code/modules/atmospherics/environmental/controlle
 server.importModule(require('./code/modules/atmospherics/environmental/turf.js'));
 server.importModule(require('./code/modules/client/verbs.js'));
 server.importModule(require('./code/modules/clothing/under/jobs/civilian.js'));
+server.importModule(require('./code/modules/clothing/under/jobs/engineering.js'));
+server.importModule(require('./code/modules/clothing/under/jobs/medsci.js'));
+server.importModule(require('./code/modules/clothing/under/jobs/security.js'));
 server.importModule(require('./code/modules/clothing/under/_under.js'));
 server.importModule(require('./code/modules/clothing/under/color.js'));
 server.importModule(require('./code/modules/clothing/under/miscellaneous.js'));

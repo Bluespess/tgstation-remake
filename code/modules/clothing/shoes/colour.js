@@ -34,6 +34,9 @@ module.exports.templates = {
 		components: ["FootItem"],
 		vars: {
 			components: {
+				"WearableItem": {
+					permeability_coefficient: 0.01
+				},
 				"Item": {
 					inhand_icon_state: "white"
 				},
@@ -43,8 +46,6 @@ module.exports.templates = {
 			},
 			name: "white shoes",
 			icon_state: "white"
-
 		}
 	}
 };
-	
