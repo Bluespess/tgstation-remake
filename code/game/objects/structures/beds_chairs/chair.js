@@ -20,9 +20,9 @@ class Chair extends Component {
 
 	handle_layer() {
 		if(this.a.c.Buckle.has_buckled_mobs() && this.a.dir == 1){ //north
-			this.layer = layers.ABOVE_MOB_LAYER;
+			this.a.layer = layers.ABOVE_MOB_LAYER;
 		} else {
-			this.layer = layers.OBJ_LAYER;
+			this.a.layer = layers.OBJ_LAYER;
 		}
 	}
 

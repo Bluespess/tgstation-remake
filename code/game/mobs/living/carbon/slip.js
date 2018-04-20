@@ -10,7 +10,7 @@ class Slippery extends Component {
 	slip(mob) {
 		if(!has_component(mob, "CarbonMob"))
 			return;
-		if(!this.on)
+		if(!this.enabled)
 			return;
 		mob.c.CarbonMob.slip(this.a);
 	}
@@ -20,7 +20,7 @@ Slippery.template = {
 	vars: {
 		components: {
 			"Slippery": {
-				on: true,
+				enabled: true,
 				knockdown_amount: 6000
 			}
 		}

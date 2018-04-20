@@ -33,7 +33,7 @@ SparkEffect.template = {
 	vars: {
 		components: {
 			"LightSource": {
-				on: true,
+				enabled: true,
 				range: 1,
 				color: "#444444"
 			}
