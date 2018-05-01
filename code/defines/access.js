@@ -20,7 +20,7 @@ const access_types = {
 	"captain": {"name":"Captain","group":"station"},
 	"personal_lockers": {"name":"Personal Lockers","group":"station"},
 
-	//civillian
+	//civilian
 
 	"chapel_office": {"name":"Chapel Office","group":"station"},
 	"crematorium": {"name":"Crematorium","group":"station"},
