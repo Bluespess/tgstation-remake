@@ -3,7 +3,7 @@
 const access_types = {
 	"security": {name: "Security", group: "station"},
 	"brig": {"name":"Brig","group":"station"},
-	"hokding_cells": {"name":"Holding Cells","group":"station"},
+	"holding_cells": {"name":"Holding Cells","group":"station"},
 	"armory": {"name":"Armory","group":"station"},
 	"forensics": {"name":"Forensics","group":"station"},
 	"courtroom": {"name":"Courtroom","group":"station"},
