@@ -7,6 +7,10 @@ class WearableItem extends Component {
 	}
 }
 
+//TODO: Handle flags_inv
+//TODO: Handle flags_cover
+//TODO: Handle dog_fashion
+
 WearableItem.template = {
 	vars: {
 		components: {
@@ -14,7 +18,10 @@ WearableItem.template = {
 				put_on_delay: 2000,
 				strip_delay: 4000,
 				body_parts_covered: [],
-				clothing_armor: {melee: 0, bullet: 0, laser: 0, energy: 0, bomb: 0, bio: 0, rad: 0, fire: 0, acid: 0}
+				clothing_armor: {melee: 0, bullet: 0, laser: 0, energy: 0, bomb: 0, bio: 0, rad: 0, fire: 0, acid: 0},
+				flags_inv: null,
+				flags_cover: null,
+				dog_fashion: null
 			},
 			"Item": {
 				inhand_lhand_icon: 'icons/mob/inhands/clothing_lefthand.png',
@@ -107,26 +114,6 @@ EyeItem.template = {
 EyeItem.depends = ["WearableItem"];
 EyeItem.loadBefore = ["WearableItem"];
 
-class HeadItem extends Component {
-	constructor(atom, template) {
-		super(atom, template);
-	}
-}
-
-HeadItem.template = {
-	vars: {
-		components: {
-			"HeadItem": {
-				worn_icon: 'icons/mob/head.png',
-				worn_icon_state: null // If null, inherits from inhand_icon_state
-			}
-		}
-	}
-};
-
-HeadItem.depends = ["WearableItem"];
-HeadItem.loadBefore = ["WearableItem"];
-
 class HandItem extends Component {
 	constructor(atom, template) {
 		super(atom, template);
@@ -207,4 +194,4 @@ SuitItem.template = {
 SuitItem.depends = ["WearableItem"];
 SuitItem.loadBefore = ["WearableItem"];
 
-module.exports.components = {WearableItem, BackItem, BeltItem, EarItem, EyeItem, HeadItem, HandItem, MaskItem, NeckItem, SuitItem};
+module.exports.components = {WearableItem, BackItem, BeltItem, EarItem, EyeItem, HandItem, MaskItem, NeckItem, SuitItem};
