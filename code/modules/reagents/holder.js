@@ -84,6 +84,7 @@ class ReagentHolder extends Component {
 		}
 		if(reagent.volume <= 0) {
 			this.reagents.delete(reagent.constructor.name);
+			reagent.holder = null;
 		}
 	}
 

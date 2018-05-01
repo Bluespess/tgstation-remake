@@ -122,6 +122,7 @@ let rules = [
 	// CHEMISTRY
 
 	["/obj/machinery/chem_dispenser", () => {return {template_name: "chem_dispenser"};}],
+	["/obj/machinery/chem_heater", () => {return {template_name: "chem_heater"};}],
 
 	["/obj/item/reagent_containers/glass/beaker", () => {return {template_name: "beaker"};}, {pixel_offsets: true}],
 	["/obj/item/reagent_containers/glass/beaker/large", () => {return {template_name: "beaker_large"};}, {pixel_offsets: true}],

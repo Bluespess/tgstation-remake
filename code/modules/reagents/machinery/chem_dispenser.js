@@ -1,6 +1,7 @@
 'use strict';
 const {Component, chain_func, has_component, to_chat, Panel} = require('bluespess');
 const {reagent_types} = require('../holder.js');
+const ReagentBinding = require('../binding.js');
 
 const _beaker = Symbol('_beaker');
 const _dispense_amount = Symbol('_dispense_amount');
@@ -20,7 +21,7 @@ class ChemDispenser extends Component {
 				return true;
 			}
 
-			if(item.slot && !item.slot.can_unequip())
+			if(item.c.Item.slot && !item.c.Item.slot.can_unequip())
 				return true;
 			item.loc = this.a;
 
@@ -114,35 +115,20 @@ class ChemDispenserPanel extends Panel {
 		this.on("open", this.opened.bind(this));
 		this.on("close", this.closed.bind(this));
 		this.on("message", this.message_handler.bind(this));
+		this.container_binding = null;
 
 		this.beaker_changed = this.beaker_changed.bind(this);
-		this.reagent_changed = this.reagents_changed.bind(this);
 		this.dispense_amount_changed = this.dispense_amount_changed.bind(this);
 	}
 
 	beaker_changed(old_beaker, new_beaker) {
-		let msg = {reagents: {}};
-		if(old_beaker) {
-			old_beaker.c.ReagentHolder.removeListener("added", this.reagent_changed);
-			old_beaker.c.ReagentHolder.removeListener("removed", this.reagent_changed);
-			for(let reagentid of old_beaker.c.ReagentHolder.reagents.keys()) {
-				msg.reagents[reagentid] = 0;
-			}
-			msg.beaker = null;
+		if(this.container_binding) {
+			this.container_binding.close();
+			this.container_binding = null;
 		}
 		if(new_beaker) {
-			new_beaker.c.ReagentHolder.on("added", this.reagent_changed);
-			new_beaker.c.ReagentHolder.on("removed", this.reagent_changed);
-			for(let [reagentid, reagent] of new_beaker.c.ReagentHolder.reagents) {
-				msg.reagents[reagentid] = reagent.volume;
-			}
-			msg.beaker = {maximum_volume: new_beaker.c.ReagentHolder.maximum_volume, total_volume: new_beaker.c.ReagentHolder.total_volume};
+			this.container_binding = new ReagentBinding(this, new_beaker);
 		}
-		this.send_message(msg);
-	}
-
-	reagents_changed(reagent) {
-		this.send_message({reagents: {[reagent.constructor.name]: reagent.volume}});
 	}
 
 	dispense_amount_changed(old, val) {
@@ -170,10 +156,9 @@ class ChemDispenserPanel extends Panel {
 	closed() {
 		this.bound_atom.c.ChemDispenser.removeListener("beaker_changed", this.beaker_changed);
 		this.bound_atom.c.ChemDispenser.removeListener("dispense_amount_changed", this.dispense_amount_changed);
-		if(this.bound_atom.c.ChemDispenser.beaker) {
-			let beaker = this.bound_atom.c.ChemDispenser.beaker;
-			beaker.c.ReagentHolder.removeListener("added", this.reagent_changed);
-			beaker.c.ReagentHolder.removeListener("removed", this.reagent_changed);
+		if(this.container_binding) {
+			this.container_binding.close();
+			this.container_binding = null;
 		}
 	}
 

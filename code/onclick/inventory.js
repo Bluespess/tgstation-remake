@@ -320,7 +320,7 @@ class Slot extends EventEmitter {
 			return false;
 		if(this.item)
 			return false;
-		if(item.slot && item.slot.can_unequip())
+		if(item.c.Item.slot && item.c.Item.slot.can_unequip())
 			return false;
 		if(this.props.max_size && this.props.max_size < item.c.Item.size)
 			return false;
