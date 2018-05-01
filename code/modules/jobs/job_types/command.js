@@ -65,13 +65,13 @@ module.exports.jobs.ce = new JobType({
 	total_positions: 1,
 	spawn_positions: 1,
 	supervisors: "the captain",
-	selection_color: "#ddddff",
+	selection_color: "#ffeeaa",
 	department_head: ["captain"],
 	departments: ["eng"],
 	access: ["security","engineering","power_equipment","maint","external_airlocks","ai_upload","teleporter","eva","heads","tech_storage","atmospherics","robotics","construction","vault","ce","mineral_storeroom","minisat","network"],
 	minimal_access: ["security","engineering","power_equipment","maint","external_airlocks","ai_upload","teleporter","eva","heads","tech_storage","atmospherics","robotics","construction","vault","ce","mineral_storeroom","minisat","network"],
 	req_admin_notify: true,
-	minimal_player_age: 10,
+	minimal_player_age: 7,
 	exp_requirements: 180,
 	exp_type: "crew",
 	exp_type_department: "eng"
@@ -93,14 +93,14 @@ module.exports.jobs.hos = new JobType({
 	total_positions: 1,
 	spawn_positions: 1,
 	supervisors: "the captain",
-	selection_color: "#ddddff",
+	selection_color: "#ffdddd",
 	department_head: ["captain"],
 	departments: ["sec"],
 	access: all_access,
 	minimal_access: all_access,
 	req_admin_notify: true,
-	minimal_player_age: 10,
-	exp_requirements: 180,
+	minimal_player_age: 14,
+	exp_requirements: 300,
 	exp_type: "crew",
 	exp_type_department: "sec"
 });
@@ -121,13 +121,13 @@ module.exports.jobs.cmo = new JobType({
 	total_positions: 1,
 	spawn_positions: 1,
 	supervisors: "the captain",
-	selection_color: "#ddddff",
+	selection_color: "#ffddf0",
 	department_head: ["captain"],
 	departments: ["med"],
 	access: ["security", "medical", "genetics", "morgue", "chemistry", "maint", "external_airlocks", "ai_upload", "teleporter", "eva", "heads", "tech_storage", "virology", "cmo", "surgery", "cloning",],
 	minimal_access: ["security", "medical", "genetics", "morgue", "chemistry", "maint", "external_airlocks", "ai_upload", "teleporter", "eva", "heads", "tech_storage", "virology", "cmo", "surgery", "cloning",],
 	req_admin_notify: true,
-	minimal_player_age: 10,
+	minimal_player_age: 7,
 	exp_requirements: 180,
 	exp_type: "crew",
 	exp_type_department: "med"
@@ -149,13 +149,13 @@ module.exports.jobs.rd = new JobType({
 	total_positions: 1,
 	spawn_positions: 1,
 	supervisors: "the captain",
-	selection_color: "#ddddff",
+	selection_color: "#ffddff",
 	department_head: ["captain"],
 	departments: ["sci"],
 	access: ["security","rd","rnd","toxins_lab","maint","external_airlocks","ai_upload","teleporter","eva","heads","tech_storage","robotics","science","xenobiology","rc_announce","keycard_auth","tcomsat","gateway","mineral_storeroom","minisat","network"],
 	minimal_access: ["security","rd","rnd","toxins_lab","maint","external_airlocks","ai_upload","teleporter","eva","heads","tech_storage","robotics","science","xenobiology","rc_announce","keycard_auth","tcomsat","gateway","mineral_storeroom","minisat","network"],
 	req_admin_notify: true,
-	minimal_player_age: 10,
+	minimal_player_age: 7,
 	exp_requirements: 180,
 	exp_type: "crew",
 	exp_type_department: "sci"
@@ -177,16 +177,11 @@ module.exports.jobs.qm = new JobType({
 	total_positions: 1,
 	spawn_positions: 1,
 	supervisors: "the head of personnel",
-	selection_color: "#ddddff",
+	selection_color: "#d7b088",
 	department_head: ["hop"],
 	departments: ["supply"],
 	access: ["maint", "heads", "cargo", "qm", "mineral_storeroom"],
 	minimal_access: ["maint", "heads", "cargo", "qm", "mineral_storeroom"],
-	req_admin_notify: true,
-	minimal_player_age: 10,
-	exp_requirements: 180,
-	exp_type: "crew",
-	exp_type_department: "supply"
 });
 
 let qm_outfit = new JobType.Outfit({
@@ -195,7 +190,6 @@ let qm_outfit = new JobType.Outfit({
 	slots: {
 		iclothing: "jumpsuit_qm",
 		shoes: "shoes_brown",
-		id: "id_silver"
 	},
 });
 module.exports.jobs.qm.outfit = qm_outfit;
