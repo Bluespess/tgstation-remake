@@ -22,7 +22,10 @@ HeadItem.template = {
 			},
 			"WearableItem": {
 				body_parts_covered: ['head']
-			}
+			},
+			"Item": {
+				inhand_icon_state: "that",
+			},
 		},
 		icon: 'icons/obj/clothing/hats.png',
 		name: "head"
