@@ -23,11 +23,9 @@ class Outfit {
 				target.c.MobInventory.slots.iclothing.equip_or_del(new Atom(target.server, this.slots.iclothing));
 			if(this.slots.oclothing && target.c.MobInventory.slots.oclothing)
 				target.c.MobInventory.slots.oclothing.equip_or_del(new Atom(target.server, this.slots.oclothing));
-			if(this.slots.head && target.c.MobInventory.slots.head)
-				target.c.MobInventory.slots.head.equip_or_del(new Atom(target.server, this.slots.head));
 
 			for(let [id, slot] of Object.entries(target.c.MobInventory.slots)) {
-				if(id == "iclothing" || id == "oclothing" || id == "head")
+				if(id == "iclothing" || id == "oclothing")
 					continue;
 				if(this.slots[id])
 					slot.equip_or_del(new Atom(target.server, this.slots[id]));
