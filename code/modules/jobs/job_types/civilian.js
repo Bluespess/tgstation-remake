@@ -10,13 +10,14 @@ module.exports.jobs.clown = new JobType({
 	supervisors: "the head of personnel",
 	selection_color: "#dddddd",
 	department_head: ["hop"],
+	departments: ["misc"],
 	access: ["theatre"],
 	minimal_access: ["theatre"],
 	name_override: "clown"
 });
 
 let clown_outfit = new JobType.Outfit({
-	name: "Assistant",
+	name: "Clown",
 	jobtype: module.exports.jobs.clown,
 	slots: {
 		iclothing: "jumpsuit_clown",
