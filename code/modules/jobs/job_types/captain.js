@@ -26,7 +26,8 @@ let captain_outfit = new JobType.Outfit({
 	slots: {
 		iclothing: "jumpsuit_captain",
 		shoes: "shoes_brown",
-		id: "id_gold"
+		id: "id_gold",
+		head: "caphat"
 	},
 	backpack: "backpack_captain",
 });

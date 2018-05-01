@@ -90,6 +90,8 @@ server.importModule(require('./code/modules/clothing/under/trek.js'));
 server.importModule(require('./code/modules/clothing/shoes/_shoes.js'));
 server.importModule(require('./code/modules/clothing/shoes/colour.js'));
 server.importModule(require('./code/modules/clothing/shoes/misc.js'));
+server.importModule(require('./code/modules/clothing/head/_head.js'));
+server.importModule(require('./code/modules/clothing/head/jobs.js'));
 server.importModule(require('./code/modules/effect_system/sparks.js'));
 server.importModule(require('./code/modules/janitorial/mop.js'));
 server.importModule(require('./code/modules/jobs/access.js'));
