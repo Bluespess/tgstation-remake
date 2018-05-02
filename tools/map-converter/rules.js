@@ -1,11 +1,24 @@
 'use strict';
 
+const access_types = require('./access.json');
+
 function inst_dir(inst) {
 	let dir = +inst.vars.dir || 2;
 	if(inst.vars.dir == "NORTH") dir = 1;
 	if(inst.vars.dir == "WEST") dir = 8;
 	if(inst.vars.dir == "EAST") dir = 4;
 	return dir;
+}
+
+function inst_access(inst) {
+	console.log(inst.vars.req_access_txt + ", " + inst.vars.req_one_acces_txt);
+	let req_access_txt = /"(.+)"/i.exec(inst.vars.req_access_txt)[1];
+	let req_one_access_txt = /"(.+)"/i.exec(inst.vars.req_one_access_txt)[1];
+	if(req_one_access_txt && req_one_access_txt != "0") {
+		return req_one_access_txt.split(";").map(num => {return access_types[num];}).join("||");
+	} else if(req_access_txt && req_access_txt != "0") {
+		return req_access_txt.split(";").map(num => {return access_types[num];}).join("&&");
+	}
 }
 
 let areas = {};
@@ -69,7 +82,14 @@ let rules = [
 			tname = `airlock_${path_type}`;
 		if(!valid.includes(tname))
 			tname = "airlock";
-		return {template_name: tname};
+		let access = inst_access(inst);
+		let instance_vars = {};
+		if(access)
+			instance_vars.components = {"RequiresAccess": {access_expression: access}};
+		if(Object.prototype.hasOwnProperty.call(inst.vars, "name")) {
+			instance_vars.name = JSON.parse(inst.vars.name);
+		}
+		return {template_name: tname, instance_vars};
 	}],
 	["/obj/structure/table", () => {return {template_name: "table"};}],
 	["/obj/structure/table/wood", () => {return {template_name: "wood_table"};}],
