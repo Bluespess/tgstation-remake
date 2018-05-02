@@ -8,6 +8,7 @@ class JobController {
 		this.importModule(require('./job_types/assistant.js'));
 		this.importModule(require('./job_types/command.js'));
 		this.importModule(require('./job_types/civilian.js'));
+		this.importModule(require('./job_types/service.js'));
 	}
 
 	importModule(mod) {
