@@ -70,7 +70,7 @@ module.exports.templates = {
 				}
 			},
 			name: "cargo technician's jumpsuit",
-			icon_state: "cargo"
+			icon_state: "cargotech"
 		},
 		tree_paths: ["items/clothing/under/rank/cargotech"]
 	},
