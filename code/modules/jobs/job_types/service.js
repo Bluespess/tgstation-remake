@@ -67,6 +67,7 @@ let sm_outfit = new JobType.Outfit({
 		iclothing: "jumpsuit_miner",
 		shoes: "shoes_brown",
 	},
+	backpack: "backpack_explorer"
 });
 module.exports.jobs.sm.outfit = sm_outfit;
 
@@ -133,6 +134,7 @@ let hydro_outfit = new JobType.Outfit({
 		iclothing: "jumpsuit_botanist",
 		shoes: "shoes_brown",
 	},
+	backpack: "backpack_botany"
 });
 module.exports.jobs.hydro.outfit = hydro_outfit;
 

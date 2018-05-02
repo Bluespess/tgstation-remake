@@ -47,6 +47,7 @@ let mime_outfit = new JobType.Outfit({
 		iclothing: "jumpsuit_mime",
 		shoes: "shoes_brown"
 	},
+	backpack: "backpack_mime"
 });
 module.exports.jobs.mime.outfit = mime_outfit;
 
