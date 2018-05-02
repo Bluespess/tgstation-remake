@@ -137,7 +137,7 @@ let hydro_outfit = new JobType.Outfit({
 module.exports.jobs.hydro.outfit = hydro_outfit;
 
 module.exports.jobs.janitor = new JobType({
-	title: "Botanist",
+	title: "Janitor",
 	total_positions: 2,
 	spawn_positions: 1,
 	supervisors: "the head of personnel",
@@ -149,7 +149,7 @@ module.exports.jobs.janitor = new JobType({
 });
 
 let janitor_outfit = new JobType.Outfit({
-	name: "Botanist",
+	name: "Janitor",
 	jobtype: module.exports.jobs.janitor,
 	slots: {
 		iclothing: "jumpsuit_janitor",
