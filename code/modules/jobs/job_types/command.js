@@ -86,6 +86,7 @@ let ce_outfit = new JobType.Outfit({
 		shoes: "shoes_black",
 		id: "id_silver"
 	},
+	backpack: "backpack_industrial"
 });
 module.exports.jobs.ce.outfit = ce_outfit;
 
@@ -114,6 +115,7 @@ let hos_outfit = new JobType.Outfit({
 		shoes: "shoes_black",
 		id: "id_silver"
 	},
+	backpack: "backpack_security"
 });
 module.exports.jobs.hos.outfit = hos_outfit;
 
@@ -142,6 +144,7 @@ let cmo_outfit = new JobType.Outfit({
 		shoes: "shoes_white",
 		id: "id_silver"
 	},
+	backpack: "backpack_medic"	
 });
 module.exports.jobs.cmo.outfit = cmo_outfit;
 
@@ -170,27 +173,6 @@ let rd_outfit = new JobType.Outfit({
 		shoes: "shoes_white",
 		id: "id_silver"
 	},
+	backpack: "backpack_science"
 });
 module.exports.jobs.rd.outfit = rd_outfit;
-
-module.exports.jobs.qm = new JobType({
-	title: "Quartermaster",
-	total_positions: 1,
-	spawn_positions: 1,
-	supervisors: "the head of personnel",
-	selection_color: "#d7b088",
-	department_head: ["hop"],
-	departments: ["supply", "command"],
-	access: ["maint", "heads", "cargo", "qm", "mineral_storeroom"],
-	minimal_access: ["maint", "heads", "cargo", "qm", "mineral_storeroom"],
-});
-
-let qm_outfit = new JobType.Outfit({
-	name: "Quartermaster",
-	jobtype: module.exports.jobs.qm,
-	slots: {
-		iclothing: "jumpsuit_qm",
-		shoes: "shoes_brown",
-	},
-});
-module.exports.jobs.qm.outfit = qm_outfit;
