@@ -15,9 +15,9 @@ function inst_access(inst) {
 	let req_access_txt = /"(.+)"/i.exec(inst.vars.req_access_txt)[1];
 	let req_one_access_txt = /"(.+)"/i.exec(inst.vars.req_one_access_txt)[1];
 	if(req_one_access_txt && req_one_access_txt != "0") {
-		return req_one_access_txt.split(";").map(num => {return access_types[num];}).join("||");
+		return req_one_access_txt.split(";").map(num => {return access_types[num.trim()];}).join("||");
 	} else if(req_access_txt && req_access_txt != "0") {
-		return req_access_txt.split(";").map(num => {return access_types[num];}).join("&&");
+		return req_access_txt.split(";").map(num => {return access_types[num.trim()];}).join("&&");
 	}
 }
 
