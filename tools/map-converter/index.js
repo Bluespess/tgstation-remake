@@ -45,7 +45,7 @@ rules.sort((a, b) => {
 				if(!props) props = {};
 				if(!oi.type.path.startsWith(rulekey))
 					continue;
-				let result = rule(oi);
+				let result = rule(oi, env);
 				if(result === undefined)
 					continue;
 				else if(result === null)

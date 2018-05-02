@@ -1,4 +1,5 @@
 'use strict';
+const ReagentBinding = require('./components/reagent_binding.js');
 
 class ChemDispenserPanel {
 	constructor(panel) {
@@ -15,27 +16,18 @@ class ChemDispenserPanel {
 		this.dispense_list = document.createElement('div');
 		this.dispense_list_container.appendChild(this.dispense_list);
 
-		this.beaker_status = document.createElement('div');
-		this.beaker_status.classList.add("status-display");
-		this.panel.content_obj.appendChild(this.beaker_status);
-
 		this.reagents_list_container = document.createElement('div');
-		this.reagents_list_container.style.display = "none";
-		this.beaker_status.appendChild(this.reagents_list_container);
-
-		this.eject_button = document.createElement('div');
-		this.eject_button.classList.add("button", "float-right");
-		this.eject_button.innerText = "Eject";
-		this.eject_button.dataset.message = JSON.stringify({eject: true});
-		this.reagents_list_container.appendChild(this.eject_button);
-
-		this.nobeaker = document.createElement('div');
-		this.nobeaker.innerText = "No container loaded";
-		this.beaker_status.appendChild(this.nobeaker);
-
-		this.reagent_elems = {};
-		this.reagents_list = document.createElement('div');
-		this.reagents_list_container.appendChild(this.reagents_list);
+		this.reagents_list_container.classList.add("status-display");
+		this.reagents_list_container.innerHTML = `
+<div class='has-no-container' style='color:red'>No container loaded</div>
+<div class='has-container'>
+	<div class='button float-right' data-message='{"eject": true}'>Eject</div>
+	<div class='float-right'><span class='total-volume'></span> / <span class='maximum-volume'></span></div>
+	<div class='reagents-list'></div>
+</div>
+`;
+		this.panel.content_obj.appendChild(this.reagents_list_container);
+		this.reagent_binding = new ReagentBinding(this.panel, this.reagents_list_container);
 
 		for(let amt of [1, 5, 10, 15, 20, 25, 30, 40, 50, 75, 100, 150, 300]) {
 			let button = document.createElement('div');
@@ -59,36 +51,6 @@ class ChemDispenserPanel {
 				button.innerText = name;
 				button.dataset.message = JSON.stringify({dispense: reagent});
 				this.dispense_list.appendChild(button);
-			}
-		}
-		if(message.reagents) {
-			for(let [reagent, amt] of Object.entries(message.reagents)) {
-				if(amt <= 0) {
-					if(this.reagent_elems[reagent])
-						this.reagents_list.removeChild(this.reagent_elems[reagent]);
-					delete this.reagent_elems[reagent];
-				} else {
-					let elem = this.reagent_elems[reagent];
-					if(!elem) {
-						elem = document.createElement('div');
-						elem.classList.add("zebrastripe");
-						elem.style.padding = "2px 0px";
-						this.reagent_elems[reagent] = elem;
-						this.reagents_list.appendChild(elem);
-					}
-					elem.textContent = `${+amt.toFixed(2)} units of ${reagent}`;
-				}
-			}
-		}
-		if(message.beaker !== undefined) {
-			if(message.beaker) {
-				this.beaker = Object.assign(this.beaker || {}, message.beaker);
-				this.reagents_list_container.style.display = "block";
-				this.nobeaker.style.display = "none";
-			} else {
-				this.beaker = null;
-				this.reagents_list_container.style.display = "none";
-				this.nobeaker.style.display = "block";
 			}
 		}
 		if(message.dispense_amount) {

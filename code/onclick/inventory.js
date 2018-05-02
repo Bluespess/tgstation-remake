@@ -37,12 +37,12 @@ class MobInventory extends Component {
 
 		});
 
-		this.add_slot('id', {icon: 'icons/mob/screen_midnight.png', icon_state: "id", screen_loc_x: 3.375, screen_loc_y: 0.15625, layer: 30}, {clothing_slot:"IdSlotItem", worn_layer: 4});
+		this.add_slot('id', {icon: 'icons/mob/screen_midnight.png', icon_state: "id", screen_loc_x: 3.375, screen_loc_y: 0.15625, layer: 30}, {clothing_slot:"IdSlotItem", worn_layer: 4, requires_slot: "iclothing"});
 		this.add_slot('belt', {icon: 'icons/mob/screen_midnight.png', icon_state: "belt", screen_loc_x: 4.4375, screen_loc_y: 0.15625, layer: 30}, {clothing_slot:"BeltItem", worn_layer: 10});
 		this.add_slot('back', {icon: 'icons/mob/screen_midnight.png', icon_state: "back", screen_loc_x: 5.4375, screen_loc_y: 0.15625, layer: 30}, {clothing_slot:"BackItem", worn_layer: 13});
-		this.add_slot('storage1', {icon: 'icons/mob/screen_midnight.png', icon_state: "pocket", screen_loc_x: 8.5625, screen_loc_y: 0.15625, layer: 30}, {max_size: 2});
-		this.add_slot('storage2', {icon: 'icons/mob/screen_midnight.png', icon_state: "pocket", screen_loc_x: 9.625, screen_loc_y: 0.15625, layer: 30}, {max_size: 2});
-		this.add_slot('suit_storage', {icon: 'icons/mob/screen_midnight.png', icon_state: "suit_storage", screen_loc_x: 2.3125, screen_loc_y: 0.15625, layer: 30}, {special_slot:true, worn_layer: 11});
+		this.add_slot('storage1', {icon: 'icons/mob/screen_midnight.png', icon_state: "pocket", screen_loc_x: 8.5625, screen_loc_y: 0.15625, layer: 30}, {max_size: 2, requires_slot: "iclothing", requires_slot_prefix: "pocket"});
+		this.add_slot('storage2', {icon: 'icons/mob/screen_midnight.png', icon_state: "pocket", screen_loc_x: 9.625, screen_loc_y: 0.15625, layer: 30}, {max_size: 2, requires_slot: "iclothing", requires_slot_prefix: "pocket"});
+		this.add_slot('suit_storage', {icon: 'icons/mob/screen_midnight.png', icon_state: "suit_storage", screen_loc_x: 2.3125, screen_loc_y: 0.15625, layer: 30}, {special_slot:true, worn_layer: 11, requires_slot: "oclothing"});
 
 		this.a.c.Eye.screen.toggle_clothing = new Atom(this.a.server, {vars:{
 			icon: 'icons/mob/screen_midnight.png', icon_state: "toggle", screen_loc_x: 0.1875, screen_loc_y: 0.15625, layer: 30
@@ -320,7 +320,7 @@ class Slot extends EventEmitter {
 			return false;
 		if(this.item)
 			return false;
-		if(item.slot && item.slot.can_unequip())
+		if(item.c.Item.slot && !item.c.Item.slot.can_unequip())
 			return false;
 		if(this.props.max_size && this.props.max_size < item.c.Item.size)
 			return false;
@@ -331,6 +331,32 @@ class Slot extends EventEmitter {
 			return false;
 		if(this.props.clothing_slot && !has_component(item, this.props.clothing_slot))
 			return false;
+		if(this.props.requires_slot) {
+			let rslot = this.mob.c.MobInventory.slots[this.props.requires_slot];
+			if(!rslot.item)
+				return false;
+			if(rslot.props.clothing_slot) {
+				let whitelist = rslot.item.c[rslot.props.clothing_slot][`${this.props.requires_slot_prefix || this.id}_whitelist`];
+				let blacklist = rslot.item.c[rslot.props.clothing_slot][`${this.props.requires_slot_prefix || this.id}_blacklist`];
+				if(whitelist) {
+					let valid = false;
+					for(let comp of whitelist) {
+						if(has_component(item, comp)) {
+							valid = true;
+							break;
+						}
+					}
+					if(!valid)
+						return false;
+				}
+				if(blacklist) {
+					for(let comp of blacklist) {
+						if(has_component(item, comp))
+							return false;
+					}
+				}
+			}
+		}
 		return true;
 	}
 
@@ -377,6 +403,12 @@ class Slot extends EventEmitter {
 			this[_item].glide_size = 0;
 			this[_item].loc = this.mob.fine_loc;
 			this.mob.c.Eye.screen[`item_in_slot_${this.id}`] = undefined;
+			for(let slot of Object.values(this.mob.c.MobInventory.slots)) {
+				if(slot.props.requires_slot == this.id) {
+					if(slot.can_unequip())
+						slot.item = null;
+				}
+			}
 		}
 		var olditem = this[_item];
 		this[_item] = value;
