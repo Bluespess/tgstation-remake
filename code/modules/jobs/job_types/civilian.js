@@ -45,12 +45,12 @@ let mime_outfit = new JobType.Outfit({
 	jobtype: module.exports.jobs.mime,
 	slots: {
 		iclothing: "jumpsuit_mime",
-		shoes: "shoes_brown"
+		shoes: "shoes_brown",
+		head: "beret"
 	},
 	backpack: "backpack_mime"
 });
 module.exports.jobs.mime.outfit = mime_outfit;
-
 
 module.exports.jobs.curator = new JobType({
 	title: "Curator",

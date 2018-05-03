@@ -25,7 +25,7 @@ let qm_outfit = new JobType.Outfit({
 });
 module.exports.jobs.qm.outfit = qm_outfit;
 
-module.exports.jobs.ct = new JobType({
+module.exports.jobs.cargo_tech = new JobType({
 	title: "Cargo Technician",
 	total_positions: 3,
 	spawn_positions: 2,
@@ -37,18 +37,18 @@ module.exports.jobs.ct = new JobType({
 	minimal_access: ["maint", "cargo", "mineral_storeroom"],
 });
 
-let ct_outfit = new JobType.Outfit({
+let cargo_tech_outfit = new JobType.Outfit({
 	name: "Cargo Technician",
-	jobtype: module.exports.jobs.ct,
+	jobtype: module.exports.jobs.cargo_tech,
 	slots: {
 		iclothing: "jumpsuit_cargo",
 		shoes: "shoes_brown",
 	},
 });
-module.exports.jobs.ct.outfit = ct_outfit;
+module.exports.jobs.cargo_tech.outfit = cargo_tech_outfit;
 
 
-module.exports.jobs.sm = new JobType({
+module.exports.jobs.mining = new JobType({
 	title: "Shaft Miner",
 	total_positions: 3,
 	spawn_positions: 3,
@@ -60,18 +60,18 @@ module.exports.jobs.sm = new JobType({
 	minimal_access: ["maint", "cargo", "mineral_storeroom"],
 });
 
-let sm_outfit = new JobType.Outfit({
+let mining_outfit = new JobType.Outfit({
 	name: "Shaft Miner",
-	jobtype: module.exports.jobs.sm,
+	jobtype: module.exports.jobs.mining,
 	slots: {
-		iclothing: "jumpsuit_miner",
+		iclothing: "jumpsuit_miner_lavaland",
 		shoes: "shoes_brown",
 	},
 	backpack: "backpack_explorer"
 });
-module.exports.jobs.sm.outfit = sm_outfit;
+module.exports.jobs.mining.outfit = mining_outfit;
 
-module.exports.jobs.bar = new JobType({
+module.exports.jobs.bartender = new JobType({
 	title: "Bartender",
 	total_positions: 1,
 	spawn_positions: 1,
@@ -83,18 +83,18 @@ module.exports.jobs.bar = new JobType({
 	minimal_access: ["bar"],
 });
 
-let bar_outfit = new JobType.Outfit({
+let bartender_outfit = new JobType.Outfit({
 	name: "Bartender",
-	jobtype: module.exports.jobs.bar,
+	jobtype: module.exports.jobs.bartender,
 	slots: {
 		iclothing: "jumpsuit_bartender",
 		shoes: "shoes_black",
 	},
 });
-module.exports.jobs.bar.outfit = bar_outfit;
+module.exports.jobs.bartender.outfit = bartender_outfit;
 
-module.exports.jobs.chef = new JobType({
-	title: "Chef",
+module.exports.jobs.cook = new JobType({
+	title: "Cook",
 	total_positions: 2,
 	spawn_positions: 1,
 	supervisors: "the head of personnel",
@@ -105,15 +105,16 @@ module.exports.jobs.chef = new JobType({
 	minimal_access: ["kitchen", "morgue"],
 });
 
-let chef_outfit = new JobType.Outfit({
-	name: "Chef",
-	jobtype: module.exports.jobs.chef,
+let cook_outfit = new JobType.Outfit({
+	name: "Cook",
+	jobtype: module.exports.jobs.cook,
 	slots: {
 		iclothing: "jumpsuit_chef",
 		shoes: "shoes_white",
+		head: "chefhat",
 	},
 });
-module.exports.jobs.chef.outfit = chef_outfit;
+module.exports.jobs.cook.outfit = cook_outfit;
 
 module.exports.jobs.hydro = new JobType({
 	title: "Botanist",
