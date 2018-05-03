@@ -11,9 +11,6 @@ module.exports.templates = {
 		components: ["SuitItem"],
 		vars: {
 			components: {
-				"SuitItem": {
-					suit_storage_whitelist: ['id_gold'] //Placeholder for testing
-				},
 				"WearableItem": {
 					body_parts_covered: ['chest', 'groin', 'l_leg', 'r_leg', 'l_arm', 'r_arm'],
 					flags_inv: "hidejumpsuit"

@@ -28,7 +28,6 @@ let captain_outfit = new JobType.Outfit({
 		shoes: "shoes_brown",
 		id: "id_gold",
 		head: "caphat",
-		oclothing: "captunic" //Placeholder for testing
 	},
 	backpack: "backpack_captain",
 });
