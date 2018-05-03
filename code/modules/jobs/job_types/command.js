@@ -138,13 +138,13 @@ module.exports.jobs.cmo = new JobType({
 
 let cmo_outfit = new JobType.Outfit({
 	name: "Chief Medical Officer",
-	jobtype: module.exports.jobs.hop,
+	jobtype: module.exports.jobs.cmo,
 	slots: {
 		iclothing: "jumpsuit_cmo",
 		shoes: "shoes_white",
 		id: "id_silver"
 	},
-	backpack: "backpack_medic"	
+	backpack: "backpack_medic"
 });
 module.exports.jobs.cmo.outfit = cmo_outfit;
 
