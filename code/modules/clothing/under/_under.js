@@ -9,6 +9,7 @@ class UniformItem extends Component {
 //TODO: Alt styles
 //TODO: Sensors
 //TODO: "fitted" probably isn't fully implemented
+//TODO: A fuckton of other procs from the DM file
 
 UniformItem.template = {
 	vars: {
