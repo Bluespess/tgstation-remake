@@ -174,26 +174,4 @@ NeckItem.template = {
 NeckItem.depends = ["WearableItem"];
 NeckItem.loadBefore = ["WearableItem"];
 
-class SuitItem extends Component {
-	constructor(atom, template) {
-		super(atom, template);
-	}
-}
-
-SuitItem.template = {
-	vars: {
-		components: {
-			"SuitItem": {
-				worn_icon: 'icons/mob/suit.png',
-				worn_icon_state: null, // If null, inherits from inhand_icon_state
-				suit_storage_blacklist: null, // components you can or can't put in the suit storage slot
-				suit_storage_whitelist: null
-			}
-		}
-	}
-};
-
-SuitItem.depends = ["WearableItem"];
-SuitItem.loadBefore = ["WearableItem"];
-
-module.exports.components = {WearableItem, BackItem, BeltItem, EarItem, EyeItem, HandItem, MaskItem, NeckItem, SuitItem};
+module.exports.components = {WearableItem, BackItem, BeltItem, EarItem, EyeItem, HandItem, MaskItem, NeckItem};
