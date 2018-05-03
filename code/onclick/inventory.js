@@ -42,7 +42,7 @@ class MobInventory extends Component {
 		this.add_slot('back', {icon: 'icons/mob/screen_midnight.png', icon_state: "back", screen_loc_x: 5.4375, screen_loc_y: 0.15625, layer: 30}, {clothing_slot:"BackItem", worn_layer: 13});
 		this.add_slot('storage1', {icon: 'icons/mob/screen_midnight.png', icon_state: "pocket", screen_loc_x: 8.5625, screen_loc_y: 0.15625, layer: 30}, {max_size: 2, requires_slot: "iclothing", requires_slot_prefix: "pocket"});
 		this.add_slot('storage2', {icon: 'icons/mob/screen_midnight.png', icon_state: "pocket", screen_loc_x: 9.625, screen_loc_y: 0.15625, layer: 30}, {max_size: 2, requires_slot: "iclothing", requires_slot_prefix: "pocket"});
-		this.add_slot('suit_storage', {icon: 'icons/mob/screen_midnight.png', icon_state: "suit_storage", screen_loc_x: 2.3125, screen_loc_y: 0.15625, layer: 30}, {special_slot:true, worn_layer: 11, requires_slot: "oclothing"});
+		this.add_slot('suit_storage', {icon: 'icons/mob/screen_midnight.png', icon_state: "suit_storage", screen_loc_x: 2.3125, screen_loc_y: 0.15625, layer: 30}, {worn_layer: 11, requires_slot: "oclothing"});
 
 		this.a.c.Eye.screen.toggle_clothing = new Atom(this.a.server, {vars:{
 			icon: 'icons/mob/screen_midnight.png', icon_state: "toggle", screen_loc_x: 0.1875, screen_loc_y: 0.15625, layer: 30
