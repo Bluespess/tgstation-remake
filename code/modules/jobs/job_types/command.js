@@ -56,12 +56,13 @@ let hop_outfit = new JobType.Outfit({
 	slots: {
 		iclothing: "jumpsuit_hop",
 		shoes: "shoes_brown",
-		id: "id_silver"
+		id: "id_silver",
+		head: "hopcap",
 	},
 });
 module.exports.jobs.hop.outfit = hop_outfit;
 
-module.exports.jobs.ce = new JobType({
+module.exports.jobs.chief_engineer = new JobType({
 	title: "Chief Engineer",
 	total_positions: 1,
 	spawn_positions: 1,
@@ -78,9 +79,9 @@ module.exports.jobs.ce = new JobType({
 	exp_type_department: "eng"
 });
 
-let ce_outfit = new JobType.Outfit({
+let chief_engineer_outfit = new JobType.Outfit({
 	name: "Chief Engineer",
-	jobtype: module.exports.jobs.ce,
+	jobtype: module.exports.jobs.chief_engineer,
 	slots: {
 		iclothing: "jumpsuit_ce",
 		shoes: "shoes_black",
@@ -88,7 +89,7 @@ let ce_outfit = new JobType.Outfit({
 	},
 	backpack: "backpack_industrial"
 });
-module.exports.jobs.ce.outfit = ce_outfit;
+module.exports.jobs.chief_engineer.outfit = chief_engineer_outfit;
 
 module.exports.jobs.hos = new JobType({
 	title: "Head of Security",
@@ -113,7 +114,8 @@ let hos_outfit = new JobType.Outfit({
 	slots: {
 		iclothing: "jumpsuit_hos_red",
 		shoes: "shoes_black",
-		id: "id_silver"
+		id: "id_silver",
+		head: "hos_beret"
 	},
 	backpack: "backpack_security"
 });
