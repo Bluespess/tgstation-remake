@@ -21,7 +21,11 @@ WearableItem.template = {
 				clothing_armor: {melee: 0, bullet: 0, laser: 0, energy: 0, bomb: 0, bio: 0, rad: 0, fire: 0, acid: 0},
 				flags_inv: null,
 				flags_cover: null,
-				dog_fashion: null
+				dog_fashion: null,
+				heat_protection: [], //Bodyparts protected from heat. Use the same parts as body_parts_covered
+				cold_protection: [], //Same but for cold
+				max_heat_protection_temperature: null, //Max temp in kelvin the item protects against high temp. Null to disable protection. Only protects areas specified in heat_protection. 0 may or may not be acceptable depending on later implementation.
+				min_cold_protection_temperature: null //Min temp in kelvin the item protects against low temp. Null to disable protection. Only protects areas specified in cold_protection. 0 may or may not be acceptable depending on later implementation.
 			},
 			"Item": {
 				inhand_lhand_icon: 'icons/mob/inhands/clothing_lefthand.png',

@@ -183,11 +183,11 @@ module.exports.templates = {
 				"WearableItem": {
 					body_parts_covered: ['chest', 'groin', 'l_leg', 'r_leg', 'l_arm', 'r_arm'],
 					clothing_armor: {melee: 25, bullet: 10, laser: 25, energy: 10, bomb: 0, bio: 0, rad: 0, fire: 0, acid: 45},
+					heat_protection: ['chest', 'groin', 'l_leg', 'r_leg', 'l_arm', 'r_arm'],
+					cold_protection: ['chest', 'groin', 'l_leg', 'r_leg', 'l_arm', 'r_arm'],
 				},
 				"Item": {
 					inhand_icon_state: "det_suit",
-					//TODO cold_protection: ['chest', 'groin', 'l_leg', 'r_leg', 'l_arm', 'r_arm'],
-					//TODO head_protection: ['chest', 'groin', 'l_leg', 'r_leg', 'l_arm', 'r_arm'],
 				},
 				"Examine": {
 					desc: "An 18th-century multi-purpose trenchcoat. Someone who wears this means serious business."
@@ -208,6 +208,8 @@ module.exports.templates = {
 				"WearableItem": {
 					body_parts_covered: ['chest', 'groin', 'l_leg', 'r_leg', 'l_arm', 'r_arm'],
 					clothing_armor: {melee: 25, bullet: 10, laser: 25, energy: 10, bomb: 0, bio: 0, rad: 0, fire: 0, acid: 45},
+					heat_protection: ['chest', 'groin', 'l_leg', 'r_leg', 'l_arm', 'r_arm'],
+					cold_protection: ['chest', 'groin', 'l_leg', 'r_leg', 'l_arm', 'r_arm'],
 				},
 				"Item": {
 					inhand_icon_state: "greydet",
@@ -392,6 +394,8 @@ module.exports.templates = {
 				"WearableItem": {
 					body_parts_covered: ['chest', 'l_arm', 'r_arm'],
 					clothing_armor: {melee: 25, bullet: 10, laser: 25, energy: 10, bomb: 0, bio: 0, rad: 0, fire: 0, acid: 45},
+					heat_protection: ['chest', 'l_arm', 'r_arm'],
+					cold_protection: ['chest', 'l_arm', 'r_arm']
 				},
 				"Item": {
 					inhand_icon_state: "curator",
