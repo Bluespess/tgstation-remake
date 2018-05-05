@@ -88,6 +88,7 @@ server.importModule(require('./code/modules/clothing/under/shorts.js'));
 server.importModule(require('./code/modules/clothing/under/syndicate.js'));
 server.importModule(require('./code/modules/clothing/under/trek.js'));
 server.importModule(require('./code/modules/clothing/suits/_suits.js'));
+server.importModule(require('./code/modules/clothing/suits/armor.js'));
 server.importModule(require('./code/modules/clothing/suits/jobs.js'));
 server.importModule(require('./code/modules/clothing/suits/labcoat.js'));
 server.importModule(require('./code/modules/clothing/shoes/_shoes.js'));
