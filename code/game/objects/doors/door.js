@@ -35,9 +35,9 @@ class Door extends Component {
 		}
 	}
 
-	try_to_activate_door(atom) {
+	try_to_activate_door(prev, atom) {
 		if(this.operating)
-			return;
+			return prev();
 		if(this.a.c.RequiresAccess.can_access(atom)) {
 			if(this.a.density > 0) {
 				this.open();
