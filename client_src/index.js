@@ -15,6 +15,7 @@ client.importModule(require('./code/ui/chem_heater.js'));
 client.importModule(require('./code/ui/latejoin.js'));
 client.importModule(require('./code/ui/login.js'));
 client.importModule(require('./code/ui/new_player.js'));
+client.importModule(require('./code/ui/preferences.js'));
 client.importModule(require('./code/ui/stack_craft.js'));
 
 if(global.is_bs_editor_env) {

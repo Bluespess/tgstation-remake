@@ -13,6 +13,8 @@
 	margin: 0 2px 2px 0;
 	cursor: default;
 	white-space: nowrap;
+	vertical-align: middle;
+
 	&.on, &.selected, &.selected:hover, &.selected:active {
 		background: #2f943c;
 	}
@@ -27,9 +29,9 @@
 	}
 
 	&.yellow {
-		background: #cacc00;
+		background: #a9aa00;
 		&:hover {
-			background: #dae422;
+			background: #bce402;
 		}
 	}
 
@@ -44,9 +46,31 @@
 		background: #507aac;
 	}
 	&:active {
-		&.disabled, .disabled &, &.selected {
+		&.disabled, .disabled &, &.selected, &.nopress, &.dropdown, &.dropdown-item {
 			transform: none;
 		}
 		transform: translate(1px,1px);
+	}
+	&.nocenter {
+		text-align: left;
+	}
+
+	&.dropdown:after {
+		content: " ⯆";
+	}
+	&.dropdown-item {
+		display: block;
+		border: none;
+		margin: 0px;
+	}
+}
+
+.dropdown-content {
+	position: fixed;
+	overflow-x: hidden;
+	overflow-y: auto;
+	border: 1px solid #161616;
+	&:focus {
+		outline: none;
 	}
 }

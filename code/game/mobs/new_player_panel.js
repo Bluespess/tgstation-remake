@@ -1,6 +1,7 @@
 'use strict';
 const {Panel} = require('bluespess');
 const LatejoinPanel = require('./latejoin_panel');
+const PreferencesPanel = require('../../modules/client/preferences_panel.js');
 
 class NewPlayerPanel extends Panel {
 	constructor(client) {
@@ -24,6 +25,9 @@ class NewPlayerPanel extends Panel {
 				});
 				panel.open();
 			}
+		}
+		if(msg.setup_character) {
+			PreferencesPanel.open_for(this.client);
 		}
 	}
 

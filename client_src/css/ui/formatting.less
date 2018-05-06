@@ -178,6 +178,15 @@
 	background-color: #fff2;
 }
 
+.flex-horizontal {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-evenly;
+}
+.flex-horizontal.wrap {
+	flex-wrap: wrap;
+}
+
 .flex-vertical {
 	display: flex;
 	flex-flow: column nowrap;
@@ -186,4 +195,33 @@
 
 .flex-vertical.wrap {
 	flex-wrap: wrap;
+}
+
+.uiframe {
+	h1, h2, h3, h4, h5, h6
+	{
+		margin: 0;
+		padding: 16px 0 8px 0;
+		color: #517087;
+	}
+
+	h1
+	{
+		font-size: 15px;
+	}
+
+	h2
+	{
+		font-size: 14px;
+	}
+
+	h3
+	{
+		font-size: 13px;
+	}
+
+	h4
+	{
+		font-size: 12px;
+	}
 }
