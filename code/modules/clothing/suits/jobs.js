@@ -409,6 +409,6 @@ module.exports.templates = {
 			name: "treasure hunter's coat",
 			icon_state: "curator"
 		},
-		tree_paths: ["items/clothing/suit/det_suit"]
+		tree_paths: ["items/clothing/suit/curator"]
 	},
 };

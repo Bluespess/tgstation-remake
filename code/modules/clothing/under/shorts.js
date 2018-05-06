@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports.templates = {
-	"red_atheletic_shorts": {
+	"red_athletic_shorts": {
 		components: ["UniformItem"],
 		vars: {
 			components: {
@@ -17,13 +17,13 @@ module.exports.templates = {
 					desc: "95% Polyester, 5% Spandex!."
 				}
 			},
-			name: "red atheletic shorts",
+			name: "red athletic shorts",
 			icon_state: "redshorts"
 			//TODO item_color: "redshorts"
 		},
 		tree_paths: ["items/clothing/under/shorts/red"]
 	},
-	"green_atheletic_shorts": {
+	"green_athletic_shorts": {
 		components: ["UniformItem"],
 		vars: {
 			components: {
@@ -39,13 +39,13 @@ module.exports.templates = {
 					desc: "95% Polyester, 5% Spandex!."
 				}
 			},
-			name: "green atheletic shorts",
+			name: "green athletic shorts",
 			icon_state: "greenshorts"
 			//TODO item_color: "greenshorts"
 		},
 		tree_paths: ["items/clothing/under/shorts/green"]
 	},
-	"blue_atheletic_shorts": {
+	"blue_athletic_shorts": {
 		components: ["UniformItem"],
 		vars: {
 			components: {
@@ -61,13 +61,13 @@ module.exports.templates = {
 					desc: "95% Polyester, 5% Spandex!."
 				}
 			},
-			name: "blue atheletic shorts",
+			name: "blue athletic shorts",
 			icon_state: "blueshorts"
 			//TODO item_color: "blueshorts"
 		},
 		tree_paths: ["items/clothing/under/shorts/blue"]
 	},
-	"black_atheletic_shorts": {
+	"black_athletic_shorts": {
 		components: ["UniformItem"],
 		vars: {
 			components: {
@@ -83,13 +83,13 @@ module.exports.templates = {
 					desc: "95% Polyester, 5% Spandex!."
 				}
 			},
-			name: "black atheletic shorts",
+			name: "black athletic shorts",
 			icon_state: "blackshorts"
 			//TODO item_color: "blackshorts"
 		},
 		tree_paths: ["items/clothing/under/shorts/black"]
 	},
-	"grey_atheletic_shorts": {
+	"grey_athletic_shorts": {
 		components: ["UniformItem"],
 		vars: {
 			components: {
@@ -105,13 +105,13 @@ module.exports.templates = {
 					desc: "95% Polyester, 5% Spandex!."
 				}
 			},
-			name: "grey atheletic shorts",
+			name: "grey athletic shorts",
 			icon_state: "greyshorts"
 			//TODO item_color: "greyshorts"
 		},
 		tree_paths: ["items/clothing/under/shorts/grey"]
 	},
-	"purple_atheletic_shorts": {
+	"purple_athletic_shorts": {
 		components: ["UniformItem"],
 		vars: {
 			components: {
@@ -127,7 +127,7 @@ module.exports.templates = {
 					desc: "95% Polyester, 5% Spandex!."
 				}
 			},
-			name: "purple atheletic shorts",
+			name: "purple athletic shorts",
 			icon_state: "purpleshorts"
 			//TODO item_color: "purpleshorts"
 		},

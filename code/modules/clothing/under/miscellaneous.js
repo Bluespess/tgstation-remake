@@ -1472,6 +1472,13 @@ module.exports.templates = {
 			components: {
 				"UniformItem": {
 					worn_icon_state: "hostanclothes",
+					alt_covers_chest: true,
+					//TODO sensor_mode: SENSOR_COORDS
+					//TODO random_sensor: false
+				},
+				"WearableItem": {
+					strip_delay: 5000,
+					clothing_armor: {melee: 10, bullet: 0, laser: 0, energy: 0, bomb: 0, bio: 0, rad: 0, fire: 30, acid: 30}
 				},
 				"Item": {
 					inhand_icon_state: "hostanclothes",

@@ -18,7 +18,8 @@ function loader(path) {
 let rules = [];
 let rules_files = [
 	"./rules/rules.js",
-	"./rules/areas.js"
+	"./rules/areas.js",
+	"./rules/clothing.js"
 ];
 
 for(let rule_file of rules_files) {
