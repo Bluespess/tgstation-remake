@@ -378,6 +378,29 @@ module.exports.templates = {
 		},
 		tree_paths: ["items/clothing/head/beret_navywarden"]
 	},
+	"beret_navyofficer": {
+		components: ["HeadItem"],
+		vars: {
+			components: {
+				"HeadItem": {
+					dynamic_hair_suffix: ""
+				},
+				"WearableItem": {
+					clothing_armor: {melee: 40, bullet: 30, laser: 30, energy: 10, bomb: 25, bio: 0, rad: 0, fire: 20, acid: 50},
+					strip_delay: 6000,
+				},
+				"Item": {
+					inhand_icon_state: "that",
+				},
+				"Examine": {
+					desc: "A special beret with the security insignia emblazoned on it. For officers with class."
+				}
+			},
+			name: "security beret",
+			icon_state: "officerberet"
+		},
+		tree_paths: ["items/clothing/head/beret_sec"]
+	},
 	"curator_fedora": {
 		components: ["HeadItem"],
 		vars: {
