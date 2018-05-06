@@ -1,31 +1,10 @@
 'use strict';
 
-const access_types = require('./access.json');
-
-function inst_dir(inst) {
-	let dir = +inst.vars.dir || 2;
-	if(inst.vars.dir == "NORTH") dir = 1;
-	if(inst.vars.dir == "WEST") dir = 8;
-	if(inst.vars.dir == "EAST") dir = 4;
-	return dir;
-}
-
-function inst_access(inst) {
-	console.log(inst.vars.req_access_txt + ", " + inst.vars.req_one_acces_txt);
-	let req_access_txt = /"(.+)"/i.exec(inst.vars.req_access_txt)[1];
-	let req_one_access_txt = /"(.+)"/i.exec(inst.vars.req_one_access_txt)[1];
-	if(req_one_access_txt && req_one_access_txt != "0") {
-		return req_one_access_txt.split(";").map(num => {return access_types[num.trim()];}).join("||");
-	} else if(req_access_txt && req_access_txt != "0") {
-		return req_access_txt.split(";").map(num => {return access_types[num.trim()];}).join("&&");
-	}
-}
-
-let areas = {};
+const {inst_dir, inst_access} = require('./utils.js');
 
 // Careful! There's a difference between returning null and undefined.
 // (undefined means "keep going, find a different rule" and null means "spawn nothing")
-let rules = [
+module.exports = [
 	["/turf/open/floor", (inst) => {
 		let templates = {
 			floor: ["floor", "white", "dark", "bar", "floorgrime", "delivery", "bot", "barber", "whitebot", "whitedelivery", "cmo", "grimy", "freezerfloor", "cafeteria"],
@@ -166,49 +145,5 @@ let rules = [
 	["/obj/item/stack/sheet/cardboard", (inst) => {return {template_name: "cardboard_sheet", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
 	["/obj/item/stack/sheet/bone", (inst) => {return {template_name: "bone_sheet", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
 	["/obj/item/stack/sheet/plastic", (inst) => {return {template_name: "plastic_sheet", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
-	["/obj/item/stack/sheet/paperframes", (inst) => {return {template_name: "paperframe_sheet", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
-
-
-	// AREAS
-
-	["/area", (inst) => {
-		let id = inst.type.path.substr(6).replace(/\//g, "_");
-		let brush_inst = {template_name: "area_brush", instance_vars: {components: {"AreaBrush": {map_id: id}}}};
-		let insts = [brush_inst];
-		if(!areas[id]) {
-			areas[id] = true;
-			let name = inst.vars.name.substring(1, inst.vars.name.length - 1);
-			if(name.startsWith("\\improper "))
-				name = name.substring(10);
-
-			let template_name = "area";
-			if(inst.type.path.startsWith("/area/maintenance"))
-				template_name = "area_maintenance";
-			else if(inst.type.path.startsWith("/area/chapel"))
-				template_name = "area_chapel";
-			else if(inst.type.path.startsWith("/area/engine"))
-				template_name = "area_engine";
-			else if(inst.type.path.startsWith("/area/medical/morgue"))
-				template_name = "area_morgue";
-			else if(inst.type.path.startsWith("/area/security/detectivs_office"))
-				template_name = "area_detective";
-			else if(inst.type.path.startsWith("/area/shuttle/arrival"))
-				template_name = "area_arrivals";
-
-			let area_inst = {template_name, instance_vars: {
-				components: {
-					"Area": {
-						brush_icon_state: JSON.parse(inst.vars.icon_state),
-						map_id: id
-					}
-				},
-				name
-			}};
-			insts.push(area_inst);
-		}
-		return insts;
-	}],
-	["/area/space", () => {return null;}]
+	["/obj/item/stack/sheet/paperframes", (inst) => {return {template_name: "paperframe_sheet", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}]
 ];
-
-module.exports = rules;
