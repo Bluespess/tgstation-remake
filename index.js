@@ -131,8 +131,10 @@ if(global.is_bs_editor_env) {
 		//turf.icon = 'icons/turf/floors.png';
 		//turf.icon_state = 'floor';
 	}*/
-	console.log("Loading maps..");
-	server.instance_map_sync(JSON.parse(fs.readFileSync('convert_test.bsmap', 'utf8')), 0, 0, 0);
+	let server_config = read_config('server.cson');
+	let map = server_config.maps.current_map;
+	console.log("Loading map " + map + "..");	
+	server.instance_map_sync(JSON.parse(fs.readFileSync((map + '.bsmap'), 'utf8')), 0, 0, 0);
 
 	server.on("client_login", (client) => {
 		if(!client.mob) {
@@ -141,7 +143,7 @@ if(global.is_bs_editor_env) {
 		}
 	});
 	console.log("Starting server..");
-	let server_config = read_config('server.cson');
+
 	for(let [key, file] of Object.entries(server_config.http_opts.files)) {
 		if(!key || !file)
 			continue;
