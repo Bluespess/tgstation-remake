@@ -101,6 +101,7 @@ server.importModule(require('./code/modules/janitorial/mop.js'));
 server.importModule(require('./code/modules/jobs/access.js'));
 server.importModule(require('./code/modules/jobs/controller.js'));
 server.importModule(require('./code/modules/jobs/id.js'));
+server.importModule(require('./code/modules/power/cable.js'));
 server.importModule(require('./code/modules/reagents/containers/open.js'));
 server.importModule(require('./code/modules/reagents/containers/spray.js'));
 server.importModule(require('./code/modules/reagents/machinery/chem_dispenser.js'));

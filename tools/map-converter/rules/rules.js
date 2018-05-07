@@ -98,6 +98,12 @@ module.exports = [
 	["/obj/item/wirecutters", () => {return {template_name: "wirecutters"};}, {pixel_offsets: true}],
 	["/obj/item/wrench", () => {return {template_name: "wrench"};}, {pixel_offsets: true}],
 
+	// CABLE
+
+	["/obj/structure/cable", (inst) => {
+		return {template_name: "cable", variant_leaf_path: [JSON.parse(inst.vars.cable_color), JSON.parse(inst.vars.icon_state)]};
+	}],
+
 	// WEAPONS
 
 	["/obj/item/melee/baseball_bat", () => {return {template_name: "baseball_bat"};}, {pixel_offsets: true}],
