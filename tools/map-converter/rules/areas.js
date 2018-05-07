@@ -2,10 +2,12 @@
 
 // AREAS
 
-let areas = {};
+let _areas = Symbol('_areas');
 
 module.exports = [
-	["/area", (inst) => {
+	["/area", (inst, {out_map}) => {
+		if(!out_map[_areas]) out_map[_areas] = {};
+		let areas = out_map[_areas];
 		let id = inst.type.path.substr(6).replace(/\//g, "_");
 		let brush_inst = {template_name: "area_brush", instance_vars: {components: {"AreaBrush": {map_id: id}}}};
 		let insts = [brush_inst];
