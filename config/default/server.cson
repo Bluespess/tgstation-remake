@@ -10,3 +10,7 @@ gh_login:
 	client_id: null
 	client_secret: null
 	user_agent: 'Bluespess'
+
+maps:
+	current_map: 'BoxStation'
+	map_list: ['BoxStation', 'MetaStation']
