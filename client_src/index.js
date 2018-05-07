@@ -3,6 +3,13 @@ const BluespessClient = require('bluespess-client');
 const {Eye, Plane} = BluespessClient;
 const {ParallaxPlane} = require('./code/parallax.js');
 
+// Just a small little polyfill for Edge (fuck you edge by the way)
+
+for(let collection_class of [HTMLCollection, NodeList, DOMTokenList]) {
+	if(!collection_class.prototype[Symbol.iterator])
+		collection_class.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator];
+}
+
 var client = new BluespessClient();
 global.client = client;
 
