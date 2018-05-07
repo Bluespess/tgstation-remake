@@ -12,5 +12,5 @@ gh_login:
 	user_agent: 'Bluespess'
 
 maps:
-	current_map: 'MetaStation'
+	current_map: 'BoxStation'
 	map_list: ['BoxStation', 'MetaStation']
