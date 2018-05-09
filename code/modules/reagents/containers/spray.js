@@ -89,8 +89,8 @@ class SprayBottle extends Component {
 	}
 }
 
-SprayBottle.depends = ["ReagentHolder", "Item"];
-SprayBottle.loadBefore = ["ReagentHolder", "Item"];
+SprayBottle.depends = ["ReagentHolder", "Item", "ReagentReceiver"];
+SprayBottle.loadBefore = ["ReagentHolder", "Item", "ReagentReceiver"];
 
 SprayBottle.template = {
 	vars: {
