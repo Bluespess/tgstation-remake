@@ -91,7 +91,8 @@ let lawyer_outfit = new JobType.Outfit({
 	jobtype: module.exports.jobs.lawyer,
 	slots: {
 		iclothing: "jumpsuit_lawyer_black",
-		shoes: "shoes_black"
+		shoes: "shoes_black",
+		oclothing: "toggle_lawyer"
 	},
 });
 module.exports.jobs.lawyer.outfit = lawyer_outfit;
