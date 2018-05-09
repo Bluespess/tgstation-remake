@@ -33,7 +33,7 @@ class OpenReagentContainer extends Component {
 				to_chat`<span class='notice'>You swallof a gulp of the ${this.a}.</span>`(user);
 			}
 			let fraction = 5 / this.a.c.ReagentHolder.total_volume;
-			this.a.c.ReagentHolder.react_atom(target, "ingest", fraction);
+			this.a.c.ReagentHolder.react_atom(target, "ingest", {volume_modifier: fraction});
 			setTimeout(() => {
 				this.a.c.ReagentHolder.transfer_to(target, 5);
 			}, 500);

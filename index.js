@@ -104,6 +104,7 @@ server.importModule(require('./code/modules/jobs/controller.js'));
 server.importModule(require('./code/modules/jobs/id.js'));
 server.importModule(require('./code/modules/power/cable.js'));
 server.importModule(require('./code/modules/reagents/containers/open.js'));
+server.importModule(require('./code/modules/reagents/containers/pill.js'));
 server.importModule(require('./code/modules/reagents/containers/spray.js'));
 server.importModule(require('./code/modules/reagents/machinery/chem_dispenser.js'));
 server.importModule(require('./code/modules/reagents/machinery/chem_heater.js'));
@@ -134,7 +135,7 @@ if(global.is_bs_editor_env) {
 	}*/
 	let server_config = read_config('server.cson');
 	let map = server_config.maps.current_map;
-	console.log("Loading map " + map + "..");	
+	console.log("Loading map " + map + "..");
 	server.instance_map_sync(JSON.parse(fs.readFileSync((map + '.bsmap'), 'utf8')), 0, 0, 0);
 
 	server.on("client_login", (client) => {
