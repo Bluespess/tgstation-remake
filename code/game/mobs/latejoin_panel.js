@@ -3,7 +3,7 @@ const {Panel} = require('bluespess');
 
 class LatejoinPanel extends Panel {
 	constructor(client) {
-		super(client, {width: 440, height: 500, title: "Late Join", can_close: true});
+		super(client, {width: 660, height: 500, title: "Late Join", can_close: true});
 		this.on("message", this.message_handler.bind(this));
 	}
 
