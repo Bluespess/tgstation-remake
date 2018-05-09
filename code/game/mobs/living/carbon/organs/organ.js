@@ -7,6 +7,8 @@ class Organ extends Component {
 		this.mob = null;
 	}
 
+	do_life() {}
+
 	insert(mob) {
 		if(!has_component(mob, "CarbonMob"))
 			return false;

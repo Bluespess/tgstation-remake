@@ -1,13 +1,15 @@
 'use strict';
 
 const EventEmitter = require('events');
-const {Sound, has_component, audible_message} = require('bluespess');
+const {Sound, has_component, audible_message, to_chat} = require('bluespess');
 
 class Reagent extends EventEmitter {
 	constructor() {
 		super();
 		this.volume = 0;
 		this.holder = null;
+		this.overdosing = false;
+		this.time_in_mob = 0;
 	}
 	add(amount, {reagent, temp} = {}) {
 		if(temp == null && (reagent == null || reagent.holder == null)) {
@@ -41,8 +43,43 @@ class Reagent extends EventEmitter {
 		return amount;
 	}
 
+	overdose_process() {}
+	overdose_start() {
+		to_chat`<span class='userdanger'>You feel like you took too much of ${this.name}!</span>`(this.holder);
+	}
+
+	addiction_act_stage1(dt) { /* yes I know probabilities don't work like that but I really don't give 2 fucks */
+		if(Math.random() < (0.15 * dt))
+			to_chat`<span class='notice'>You feel like some ${name} right about now.</span>`(this.holder);
+	}
+
+	addiction_act_stage2(dt) {
+		if(Math.random() < (0.15 * dt))
+			to_chat`<span class='notice'>You feel like you need ${name}. You just can't get enough.</span>`(this.holder);
+	}
+
+	addiction_act_stage3(dt) {
+		if(Math.random() < (0.15 * dt))
+			to_chat`<span class='danger'>You have an intense craving for ${name}.</span>`(this.holder);
+	}
+
+	addiction_act_stage4(dt) {
+		if(Math.random() < (0.15 * dt))
+			to_chat`<span class='boldannounce'>You're not feeling good at all! You really need some ${name}.</span>`(this.holder);
+	}
+
+	mob_life(dt) {
+		this.time_in_mob += dt;
+		this.remove(this.metabolization_rate * dt);
+	}
+
 	reaction_obj() {}
-	reaction_mob() {}
+	reaction_mob(target, {method, volume} = {}) {
+		if(method == "vapor") {
+			if(volume > 0.5)
+				target.c.ReagentHolder.add(this, volume);
+		}
+	}
 	reaction_turf() {}
 }
 Object.assign(Reagent.prototype, {

@@ -10,6 +10,8 @@ class ReagentHolder extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 		this.reagents = new Map();
+		this.addictions = new Map();
+		this.addiction_tick = 0;
 		this.held_reactions = new Set();
 		this.on("added", this.added.bind(this));
 		this.on("removed", this.removed.bind(this));
@@ -178,13 +180,61 @@ class ReagentHolder extends Component {
 
 	react_atom(atom, method = "touch", {volume_modifier = 1, show_message = true} = {}) {
 		let react_function = "reaction_obj";
-		if(has_component(atom, "LivingMob"))
+		if(has_component(atom, "CarbonMob"))
 			react_function = "reaction_mob";
 		else if(has_component(atom, "Turf"))
 			react_function = "reaction_turf";
 		for(let reagent of this.reagents.values()) {
 			reagent[react_function](atom, {method, volume: reagent.volume * volume_modifier, show_message});
 		}
+	}
+
+	metabolize(dt = 2) {
+		if(!has_component(this.a, "CarbonMob"))
+			throw new Error("Oi! Why are you calling metabolize on something that isn't a mob?");
+
+		for(let [key, reagent] of this.reagents) {
+			if(!this.should_metabolize_reagent(key, reagent))
+				continue;
+			if(reagent.overdose_threshold && reagent.volume >= reagent.overdose_threshold && !reagent.overdosed) {
+				reagent.overdosed = true;
+				reagent.overdose_start();
+			}
+			if(reagent.addiction_threshold && reagent.volume >= reagent.addiction_threshold && !this.addictions.has(key)) {
+				let addiction = new reagent.constructor();
+				addiction.holder = this.a;
+				this.addictions.set(key, addiction);
+			}
+			if(reagent.overdosed) {
+				reagent.overdose_process(dt);
+			}
+			if(this.addictions.has(key)) {
+				let addiction = this.addictions.get(key);
+				addiction.addiction_stage = -15;
+			}
+			reagent.mob_life(dt);
+		}
+
+		if(this.addiction_tick >= 12) {
+			this.addiction_tick -= 12;
+			for(let [key, addiction] of [...this.addictions]) {
+				addiction.addiction_stage += (dt/2);
+				if(addiction.addiction_stage < 1)
+					continue;
+				let stage = Math.floor(addiction.addiction_stage / 10) + 1;
+				if(stage > 4) {
+					to_chat`<span class='notice'>You feel like you've gotten over your need for ${addiction.name}.</span>`(this.a);
+					this.addictions.delete(key);
+					continue;
+				}
+				addiction[`addiction_act_stage${stage}`](dt);
+			}
+		}
+		this.addiction_tick += dt;
+	}
+
+	should_metabolize_reagent(/*key, reagent*/) {
+		return true;
 	}
 
 	can_be_injected() {

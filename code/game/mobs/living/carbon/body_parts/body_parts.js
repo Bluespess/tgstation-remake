@@ -1,6 +1,7 @@
 'use strict';
 const {Component, Atom, has_component, chain_func} = require('bluespess');
 const layers = require('../../../../../defines/layers.js');
+const combat_defines = require('../../../../../defines/combat_defines.js');
 const {random_zone} = require('./helpers.js');
 
 class MobBodyParts extends Component {
@@ -21,7 +22,7 @@ class MobBodyParts extends Component {
 		}
 
 		for(let type of ["brute", "burn"]) {
-			this.a.c.LivingMob.damages[type] = {
+			let obj = {
 				get: () => {
 					let dam = 0;
 					for(let bp of this.limbs_set)
@@ -29,11 +30,40 @@ class MobBodyParts extends Component {
 							dam += bp.c.BodyPart[`${type}_damage`];
 					return dam;
 				},
-				set: () => {
+				set: (val, props) => {
+					obj.adjust(val - obj.get(), props);
 				},
-				adjust: () => {
+				adjust: (amt, {health_event = true, force = false, only_robotic = false, only_organic = false} = {}) => {
+					if(amt == 0)
+						return;
+					if((this.status_flags & combat_defines.GODMODE) &&  !force)
+						return false;
+
+					let abs_amt = Math.abs(amt);
+					let sign_amt = Math.sign(amt);
+
+					let limbs = [...this.limbs_set];
+
+					while(limbs.length && abs_amt > 0) {
+						let idx = Math.floor(Math.random() * limbs.length);
+						let limb = limbs[idx];
+						limbs.splice(idx, 1);
+
+						let prev_damage = limb.c.BodyPart[`${type}_damage`];
+						if(sign_amt > 0) {
+							limb.c.BodyPart.receive_damage(type, abs_amt, {health_event: false});
+						} else {
+							limb.c.BodyPart.heal_damage(type, abs_amt, {health_event: false, only_robotic, only_organic});
+						}
+						let damage_diff = limb.c.BodyPart[`${type}_damage`] - prev_damage;
+						abs_amt -= damage_diff * sign_amt;
+					}
+
+					if(health_event)
+						this.a.c.LivingMob.emit("health_changed");
 				}
 			};
+			this.a.c.LivingMob.damages[type] = obj;
 		}
 		this.a.c.Eye.screen.health_doll = new Atom(this.a.server, "human_health_doll");
 		this.a.c.Eye.screen.health_doll.c.HealthDoll.bind_mob(this.a);
@@ -168,7 +198,7 @@ class BodyPart extends Component {
 		return amount;
 	}
 
-	receive_damage(type, amount) {
+	receive_damage(type, amount, {health_event = true} = {}) {
 		amount = this.multiply_damage(type, amount);
 
 		let can_inflict = this.max_damage - this.brute_damage - this.burn_damage;
@@ -182,7 +212,27 @@ class BodyPart extends Component {
 
 		if(this.owner) {
 			this.owner.c.LivingMob.emit("damage_changed", type);
-			this.owner.c.LivingMob.emit("health_changed", type);
+			if(health_event)
+				this.owner.c.LivingMob.emit("health_changed", type);
+		}
+		this.apply_damage_overlays(this.a);
+		if(this.owner)
+			this.apply_damage_overlays(this.owner);
+	}
+
+	heal_damage(type, amount, {only_robotic = false, only_organic = true, health_event = true} = {}) {
+		if(only_robotic && this.is_organic)
+			return;
+		if(only_organic && !this.is_organic)
+			return;
+		if(type == "brute")
+			this.brute_damage = Math.max(this.brute_damage - amount, 0);
+		if(type == "burn")
+			this.burn_damage = Math.max(this.burn_damage - amount, 0);
+		if(this.owner) {
+			this.owner.c.LivingMob.emit("damage_changed", type);
+			if(health_event)
+				this.owner.c.LivingMob.emit("health_changed", type);
 		}
 		this.apply_damage_overlays(this.a);
 		if(this.owner)

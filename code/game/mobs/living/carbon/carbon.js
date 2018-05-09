@@ -1,5 +1,5 @@
 'use strict';
-const {Component, Atom, chain_func, has_component} = require('bluespess');
+const {Component, Atom, chain_func, has_component, to_chat} = require('bluespess');
 const combat_defines = require('../../../../defines/combat_defines.js');
 const atmos_defines = require('../../../../defines/atmos_defines.js');
 
@@ -29,6 +29,7 @@ class CarbonMob extends Component.Networked {
 
 		this.organs = {};
 		new Atom(this.a.server, 'organ_lungs').c.Organ.insert(this.a);
+		new Atom(this.a.server, 'organ_liver').c.Organ.insert(this.a);
 	}
 
 	stat_changed(oldstat, newstat) {
@@ -193,7 +194,10 @@ class CarbonMob extends Component.Networked {
 
 	life(prev, cycle) {
 		prev();
+
+		this.handle_organs();
 		this.breathe(cycle);
+		this.handle_liver();
 	}
 
 	breathe() {
@@ -232,12 +236,33 @@ class CarbonMob extends Component.Networked {
 			environment.merge(breath);
 	}
 
+	handle_organs() {
+		for(let organ of Object.values(this.organs)) {
+			organ.c.Organ.do_life();
+		}
+	}
+
+	handle_liver() {
+		let liver = this.organs.liver;
+		if(!liver || liver.c.OrganLiver.failing) {
+			// liver failure
+			if(this.a.c.ReagentHolder.volume_of("Corazone")) { //corazone is processed here an not in the liver because a failing liver can't metabolize reagents
+				this.a.c.ReagentHolder.remove("Corazone", 0.4); //corazone slowly deletes itself.
+				return;
+			}
+			this.a.c.LivingMob.adjust_damage("tox", 8);
+			if(Math.random() < 0.3) {
+				to_chat`<span class='notice'>You feel confused and nauseous...</span>`(this.a); //actual symptoms of liver failure
+			}
+		}
+	}
+
 	slip(obj) {
 		this.a.c.LivingMob.apply_effect("Knockdown", {delay: obj.c.Slippery.knockdown_amount});
 	}
 }
-CarbonMob.depends = ["LivingMob", "Puller"];
-CarbonMob.loadBefore = ["LivingMob"];
+CarbonMob.depends = ["LivingMob", "Puller", "ReagentHolder"];
+CarbonMob.loadBefore = ["LivingMob", "ReagentHolder"];
 
 CarbonMob.template = {
 	vars: {
