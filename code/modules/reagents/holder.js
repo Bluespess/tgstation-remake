@@ -282,6 +282,13 @@ class ReagentHolder extends Component {
 		a /= atotal;
 		return [r,g,b,a];
 	}
+
+	can_consume(eater/*, user*/) {
+		if(!has_component(eater, "CarbonMob"))
+			return false;
+		// TODO mouth cover check
+		return true;
+	}
 }
 
 ReagentHolder.loadBefore = ["Examine"];

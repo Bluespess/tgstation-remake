@@ -1,14 +1,44 @@
 'use strict';
 
-const {Component, has_component, chain_func, to_chat, visible_message} = require('bluespess');
+const {Component, has_component, chain_func, to_chat, visible_message, Sound} = require('bluespess');
 
 // Reagent containers where you can pour from one to another.
 class OpenReagentContainer extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
+		this.a.c.Item.attack = this.attack.bind(this);
 		this.a.c.Tangible.on("throw_finished", () => {this.splash();});
 		this.a.c.Tangible.on("throw_impacted", (target) => {this.splash(target);});
+	}
+
+	attack(target, user) {
+		if(!this.a.c.ReagentHolder.can_consume(target, user))
+			return;
+
+		if(this.a.c.ReagentHolder.total_volume <= 0) {
+			to_chat`<span class='warning'>The ${this.a} is empty!</span>`(user);
+			return;
+		}
+		(async () => {
+			if(target != user) {
+				visible_message`<span class='danger'>The ${user} attempts to feed something to the ${target}.</span>`
+					.self`<span class='userdanger'>The ${user} attempts to feed something to you.</span>`
+					.emit_from(target);
+				if(!await user.c.MobInventory.do_after({target, delay: 3000}))
+					return;
+				if(this.a.c.ReagentHolder.total_volume <= 0)
+					return;
+			} else {
+				to_chat`<span class='notice'>You swallof a gulp of the ${this.a}.</span>`(user);
+			}
+			let fraction = 5 / this.a.c.ReagentHolder.total_volume;
+			this.a.c.ReagentHolder.react_atom(target, "ingest", fraction);
+			setTimeout(() => {
+				this.a.c.ReagentHolder.transfer_to(target, 5);
+			}, 500);
+			new Sound(this.a.server, {path: 'sound/items/drink', volume: 0.1 + (Math.random() * 0.4), vary: true}).emit_from(target);
+		})();
 	}
 
 	attack_by(prev, item, user) {
