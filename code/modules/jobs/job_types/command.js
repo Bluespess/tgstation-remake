@@ -27,7 +27,8 @@ let captain_outfit = new JobType.Outfit({
 		iclothing: "jumpsuit_captain",
 		shoes: "shoes_brown",
 		id: "id_gold",
-		head: "caphat"
+		head: "caphat",
+		oclothing: "armor_capcarapace"
 	},
 	backpack: "backpack_captain",
 });
@@ -99,8 +100,8 @@ module.exports.jobs.hos = new JobType({
 	selection_color: "#ffdddd",
 	department_head: ["captain"],
 	departments: ["sec", "command"],
-	access: all_access,
-	minimal_access: all_access,
+	access: ["security", "brig", "armory", "courtroom", "weapons", "forensics", "morgue", "maint", "personal_lockers", "rnd", "engine", "mining", "medical", "construction", "heads", "hos", "rc_announce", "keycard_auth", "gateway", "maint"],
+	minimal_access: ["security", "brig", "armory", "courtroom", "weapons", "forensics", "morgue", "maint", "personal_lockers", "rnd", "engine", "mining", "medical", "construction", "heads", "hos", "rc_announce", "keycard_auth", "gateway", "maint"],
 	req_admin_notify: true,
 	minimal_player_age: 14,
 	exp_requirements: 300,
@@ -113,9 +114,10 @@ let hos_outfit = new JobType.Outfit({
 	jobtype: module.exports.jobs.hos,
 	slots: {
 		iclothing: "jumpsuit_hos_red",
-		shoes: "shoes_black",
+		shoes: "boots_jackboots",
 		id: "id_silver",
-		head: "hos_beret"
+		head: "hos_beret",
+		oclothing: "armor_hos_trenchcoat"
 	},
 	backpack: "backpack_security"
 });
@@ -144,7 +146,8 @@ let cmo_outfit = new JobType.Outfit({
 	slots: {
 		iclothing: "jumpsuit_cmo",
 		shoes: "shoes_white",
-		id: "id_silver"
+		id: "id_silver",
+		oclothing: "toggle_labcoat_cmo"
 	},
 	backpack: "backpack_medic"
 });
@@ -173,7 +176,8 @@ let rd_outfit = new JobType.Outfit({
 	slots: {
 		iclothing: "jumpsuit_rd_turtleneck",
 		shoes: "shoes_white",
-		id: "id_silver"
+		id: "id_silver",
+		oclothing: "toggle_labcoat"
 	},
 	backpack: "backpack_science"
 });

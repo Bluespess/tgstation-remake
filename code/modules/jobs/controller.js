@@ -6,8 +6,14 @@ class JobController {
 		this.jobs = {};
 
 		this.importModule(require('./job_types/assistant.js'));
+		this.importModule(require('./job_types/cargo.js'));
+		this.importModule(require('./job_types/chaplain.js'));
 		this.importModule(require('./job_types/command.js'));
 		this.importModule(require('./job_types/civilian.js'));
+		this.importModule(require('./job_types/engineering.js'));
+		this.importModule(require('./job_types/medical.js'));
+		this.importModule(require('./job_types/science.js'));
+		this.importModule(require('./job_types/security.js'));
 		this.importModule(require('./job_types/service.js'));
 	}
 
