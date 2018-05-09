@@ -433,7 +433,7 @@ class Tricordrazine extends Medicine { // /datum/reagent/medicine/tricordrazine
 		this.holder.c.LivingMob.adjust_damage("burn", 1 * dt);
 		this.holder.c.LivingMob.adjust_damage("oxy", 1 * dt);
 		this.holder.c.LivingMob.adjust_damage("tox", 1 * dt);
-		super.mob_life(...arguments);
+		super.overdose_process(...arguments);
 	}
 }
 module.exports.reagents.Tricordrazine = Tricordrazine;
