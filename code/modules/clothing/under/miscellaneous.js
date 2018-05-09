@@ -1427,23 +1427,23 @@ module.exports.templates = {
 		},
 		tree_paths: ["items/clothing/under/geisha"]
 	},
-	"villian": {
+	"villain": {
 		components: ["UniformItem"],
 		vars: {
 			components: {
 				"UniformItem": {
-					worn_icon_state: "villian",
+					worn_icon_state: "villain",
 					can_adjust: false
 				},
 				"Examine": {
 					desc: "A change of wardrobe is necessary if you ever want to catch a real superhero."
 				}
 			},
-			name: "villian suit",
-			icon_state: "villian"
-			//TODO item_color: "villian"
+			name: "villain suit",
+			icon_state: "villain"
+			//TODO item_color: "villain"
 		},
-		tree_paths: ["items/clothing/under/villian"]
+		tree_paths: ["items/clothing/under/villain"]
 	},
 	"sailor": {
 		components: ["UniformItem"],

@@ -263,7 +263,7 @@
 		},
 		"tile_size": 32
 	},
-	"toxinswhite": {
+	"toxins": {
 		"dir_count": 4,
 		"width": 32,
 		"height": 32,
@@ -351,7 +351,7 @@
 		},
 		"tile_size": 32
 	},
-	"geneticswhite": {
+	"genetics": {
 		"dir_count": 4,
 		"width": 32,
 		"height": 32,
@@ -395,7 +395,7 @@
 		},
 		"tile_size": 32
 	},
-	"chemistrywhite": {
+	"chemistry": {
 		"dir_count": 4,
 		"width": 32,
 		"height": 32,
@@ -439,7 +439,7 @@
 		},
 		"tile_size": 32
 	},
-	"virologywhite": {
+	"virology": {
 		"dir_count": 4,
 		"width": 32,
 		"height": 32,
@@ -2840,7 +2840,7 @@
 		},
 		"tile_size": 32
 	},
-	"cargo": {
+	"cargotech": {
 		"dir_count": 4,
 		"width": 32,
 		"height": 32,
@@ -2884,7 +2884,7 @@
 		},
 		"tile_size": 32
 	},
-	"cargo_l": {
+	"cargotech_l": {
 		"dir_count": 4,
 		"width": 32,
 		"height": 32,
@@ -2928,7 +2928,7 @@
 		},
 		"tile_size": 32
 	},
-	"cargo_d": {
+	"cargotech_d": {
 		"dir_count": 4,
 		"width": 32,
 		"height": 32,
@@ -4925,7 +4925,7 @@
 		},
 		"tile_size": 32
 	},
-	"OLDcargo_d": {
+	"OLDcargotech_d": {
 		"dir_count": 4,
 		"width": 32,
 		"height": 32,
@@ -5145,7 +5145,7 @@
 		},
 		"tile_size": 32
 	},
-	"toxinswhite_d": {
+	"toxins_d": {
 		"dir_count": 4,
 		"width": 32,
 		"height": 32,
@@ -5189,7 +5189,7 @@
 		},
 		"tile_size": 32
 	},
-	"geneticswhite_d": {
+	"genetics_d": {
 		"dir_count": 4,
 		"width": 32,
 		"height": 32,
@@ -5233,7 +5233,7 @@
 		},
 		"tile_size": 32
 	},
-	"chemistrywhite_d": {
+	"chemistry_d": {
 		"dir_count": 4,
 		"width": 32,
 		"height": 32,
@@ -5277,7 +5277,7 @@
 		},
 		"tile_size": 32
 	},
-	"virologywhite_d": {
+	"virology_d": {
 		"dir_count": 4,
 		"width": 32,
 		"height": 32,
