@@ -1,6 +1,7 @@
 'use strict';
 
 const {Reagent} = require('../reagent.js');
+const {atmos_defines} = require('../../../defines/atmos_defines.js');
 module.exports.reagents = {};
 
 class Medicine extends Reagent {} // /datum/reagent/medicine
@@ -9,7 +10,16 @@ Object.assign(Medicine.prototype, {
 	taste_description: "bitterness"
 });
 
-class Leporazine extends Medicine {} // /datum/reagent/medicine/leporazine
+class Leporazine extends Medicine { // /datum/reagent/medicine/leporazine
+	mob_life() {
+		if(this.holder.c.LivingMob.bodytemperature > 310) {
+			this.holder.c.LivingMob.bodytemperature = Math.max(310, (this.holder.c.LivingMob.bodytemperature - (40 * atmos_defines.TEMPERATURE_DAMAGE_COEFFICIENT)));
+		} else if(this.holder.c.LivingMob.bodytemperature < 311) {
+			this.holder.c.LivingMob.bodytemperature = Math.min(310, (this.holder.c.LivingMob.bodytemperature + (40 * atmos_defines.TEMPERATURE_DAMAGE_COEFFICIENT)));
+		}
+		super.mob_life(...arguments);
+	}
+}
 module.exports.reagents.Leporazine = Leporazine;
 Object.assign(Leporazine.prototype, {
 	name: "Leporazine",
@@ -59,7 +69,33 @@ Object.assign(Inacusiate.prototype, {
 	color: [0.4,0,1]
 });
 
-class Cryoxadone extends Medicine {} // /datum/reagent/medicine/cryoxadone
+class Cryoxadone extends Medicine { // /datum/reagent/medicine/cryoxadone
+	mob_life() {
+		if(this.holder.c.LivingMob.bodytemperature >= 0 && this.holder.c.LivingMob.bodytemperature <= 99) { // At extreme temperatures (upgraded cryo) the effect is greatly increased.
+			//TODO M.status_flags &= ~DISFIGURED
+			this.holder.c.LivingMob.adjust_damage("brute", -5);
+			this.holder.c.LivingMob.adjust_damage("burn", -5);
+			this.holder.c.LivingMob.adjust_damage("oxy", -9);
+			this.holder.c.LivingMob.adjust_damage("tox", -5);
+			this.holder.c.LivingMob.adjust_damage("clone", -1);
+		} else if(this.holder.c.LivingMob.bodytemperature >= 100 && this.holder.c.LivingMob.bodytemperature <= 224) { // At lower temperatures (cryo) the full effect is boosted
+			//TODO M.status_flags &= ~DISFIGURED
+			this.holder.c.LivingMob.adjust_damage("brute", -3);
+			this.holder.c.LivingMob.adjust_damage("burn", -3);
+			this.holder.c.LivingMob.adjust_damage("oxy", -7);
+			this.holder.c.LivingMob.adjust_damage("tox", -3);
+			this.holder.c.LivingMob.adjust_damage("clone", -1);
+		} else if(this.holder.c.LivingMob.bodytemperature >= 225 && this.holder.c.LivingMob.bodytemperature <= atmos_defines.T0C) {
+			//TODO M.status_flags &= ~DISFIGURED
+			this.holder.c.LivingMob.adjust_damage("brute", -1);
+			this.holder.c.LivingMob.adjust_damage("burn", -1);
+			this.holder.c.LivingMob.adjust_damage("oxy", -5);
+			this.holder.c.LivingMob.adjust_damage("tox", -1);
+			this.holder.c.LivingMob.adjust_damage("clone", -1);
+		}
+		super.mob_life(...arguments);
+	}
+}
 module.exports.reagents.Cryoxadone = Cryoxadone;
 Object.assign(Cryoxadone.prototype, {
 	name: "Cryoxadone",
@@ -68,7 +104,21 @@ Object.assign(Cryoxadone.prototype, {
 	taste_description: "sludge"
 });
 
-class Clonexadone extends Medicine {} // /datum/reagent/medicine/clonexadone
+class Clonexadone extends Medicine { // /datum/reagent/medicine/clonexadone
+	mob_life() {
+		if(this.holder.c.LivingMob.bodytemperature >= 0 && this.holder.c.LivingMob.bodytemperature <= 99) { // At extreme temperatures (upgraded cryo) the effect is greatly increased.
+			//TODO M.status_flags &= ~DISFIGURED
+			this.holder.c.LivingMob.adjust_damage("clone", -7);
+		} else if(this.holder.c.LivingMob.bodytemperature >= 100 && this.holder.c.LivingMob.bodytemperature <= 224) { // At lower temperatures (cryo) the full effect is boosted
+			//TODO M.status_flags &= ~DISFIGURED
+			this.holder.c.LivingMob.adjust_damage("clone", -3);
+		} else if(this.holder.c.LivingMob.bodytemperature >= 225 && this.holder.c.LivingMob.bodytemperature <= atmos_defines.T0C) {
+			//TODO M.status_flags &= ~DISFIGURED
+			this.holder.c.LivingMob.adjust_damage("clone", -2);
+		}
+		super.mob_life(...arguments);
+	}
+}
 module.exports.reagents.Clonexadone = Clonexadone;
 Object.assign(Clonexadone.prototype, {
 	name: "Clonexadone",
@@ -98,7 +148,12 @@ Object.assign(Spaceacillin.prototype, {
 	metabolization_rate: 0.25
 });
 
-class SilverSulfadiazine extends Medicine {} // /datum/reagent/medicine/silver_sulfadiazine
+class SilverSulfadiazine extends Medicine { // /datum/reagent/medicine/silver_sulfadiazine //TODO: reaction_mob()
+	mob_life(dt) {
+		this.holder.c.LivingMob.adjust_damage("burn", -1 * dt);
+		super.mob_life(...arguments);
+	}
+}
 module.exports.reagents.SilverSulfadiazine = SilverSulfadiazine;
 Object.assign(SilverSulfadiazine.prototype, {
 	name: "Silver Sulfadiazine",
@@ -107,7 +162,22 @@ Object.assign(SilverSulfadiazine.prototype, {
 	color: [0.78,0.65,0.86]
 });
 
-class Oxandrolone extends Medicine {} // /datum/reagent/medicine/oxandrolone
+class Oxandrolone extends Medicine { // /datum/reagent/medicine/oxandrolone
+	mob_life(dt) {
+		if(this.holder.c.LivingMob.get_damage("burn") > 50) {
+			this.holder.c.LivingMob.adjust_damage("burn", -2 * dt); //Twice as effective as silver sulfadiazine for severe burns
+		} else {
+			this.holder.c.LivingMob.adjust_damage("burn", -0.25 * dt); //But only a quarter as effective for minor ones
+		}
+		super.mob_life(...arguments);
+	}
+	overdose_process(dt) {
+		if(this.holder.c.LivingMob.get_damage("burn") > 0) { //Makes existing burns worse
+			this.holder.c.LivingMob.adjust_damage("burn", 2.25 * dt);
+		}
+		super.overdose_process(...arguments);
+	}
+}
 module.exports.reagents.Oxandrolone = Oxandrolone;
 Object.assign(Oxandrolone.prototype, {
 	name: "Oxandrolone",
@@ -118,7 +188,12 @@ Object.assign(Oxandrolone.prototype, {
 	overdose_threshold: 25
 });
 
-class StypticPowder extends Medicine {} // /datum/reagent/medicine/styptic_powder
+class StypticPowder extends Medicine { // /datum/reagent/medicine/styptic_powder //TODO: reaction_mob()
+	mob_life(dt) {
+		this.holder.c.LivingMob.adjust_damage("brute", -1 * dt);
+		super.mob_life(...arguments);
+	}
+}
 module.exports.reagents.StypticPowder = StypticPowder;
 Object.assign(StypticPowder.prototype, {
 	name: "Styptic Powder",
@@ -171,7 +246,22 @@ Object.assign(Charcoal.prototype, {
 	taste_description: "ash"
 });
 
-class Omnizine extends Medicine {} // /datum/reagent/medicine/omnizine
+class Omnizine extends Medicine { // /datum/reagent/medicine/omnizine
+	mob_life(dt) {
+		this.holder.c.LivingMob.adjust_damage("brute", -0.25 * dt);
+		this.holder.c.LivingMob.adjust_damage("burn", -0.25 * dt);
+		this.holder.c.LivingMob.adjust_damage("oxy", -0.25 * dt);
+		this.holder.c.LivingMob.adjust_damage("tox", -0.25 * dt);
+		super.mob_life(...arguments);
+	}
+	overdose_process(dt) {
+		this.holder.c.LivingMob.adjust_damage("brute", 0.75 * dt);
+		this.holder.c.LivingMob.adjust_damage("burn", 0.75 * dt);
+		this.holder.c.LivingMob.adjust_damage("oxy", 0.75 * dt);
+		this.holder.c.LivingMob.adjust_damage("tox", 0.75 * dt);
+		super.overdose_process(...arguments);
+	}
+}
 module.exports.reagents.Omnizine = Omnizine;
 Object.assign(Omnizine.prototype, {
 	name: "Omnizine",
@@ -193,7 +283,14 @@ Object.assign(Calomel.prototype, {
 	taste_description: "acid"
 });
 
-class PotassiumIodide extends Medicine {} // /datum/reagent/medicine/potass_iodide
+class PotassiumIodide extends Medicine { // /datum/reagent/medicine/potass_iodide
+	mob_life() {
+		if(this.holder.c.LivingMob.radiation > 0) {
+			this.holder.c.LivingMob.radiation -= Math.min(this.holder.c.LivingMob.radiation, 8);
+		}
+		super.mob_life(...arguments);
+	}
+}
 module.exports.reagents.PotassiumIodide = PotassiumIodide;
 Object.assign(PotassiumIodide.prototype, {
 	name: "Potassium Iodide",
@@ -213,7 +310,22 @@ Object.assign(PenteticAcid.prototype, {
 	metabolization_rate: 0.25
 });
 
-class SalicyclicAcid extends Medicine {} // /datum/reagent/medicine/sal_acid
+class SalicyclicAcid extends Medicine { // /datum/reagent/medicine/sal_acid
+	mob_life(dt) {
+		if(this.holder.c.LivingMob.get_damage("brute") > 50) {
+			this.holder.c.LivingMob.adjust_damage("brute", -2 * dt); //Twice as effective as styptic powder for severe bruising
+		} else {
+			this.holder.c.LivingMob.adjust_damage("brute", -0.25 * dt); //But only a quarter as effective for more minor ones
+		}
+		super.mob_life(...arguments);
+	}
+	overdose_process(dt) {
+		if(this.holder.c.LivingMob.get_damage("brute") > 0) { //Makes existing bruises worse
+			this.holder.c.LivingMob.adjust_damage("brute", 2.25 * dt);
+		}
+		super.overdose_process(...arguments);
+	}
+}
 module.exports.reagents.SalicyclicAcid = SalicyclicAcid;
 Object.assign(SalicyclicAcid.prototype, {
 	name: "Salicyclic Acid",
