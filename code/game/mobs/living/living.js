@@ -40,10 +40,6 @@ class LivingMob extends Component {
 			this.life_timeout = setTimeout(this.run_life.bind(this), 2000);
 		}
 		this.life_cycle_num = 0;
-
-		//I'm not entirely sure that LivingMob is where I should be putting these but w/e
-		this.bodytemperature = 310.055; //Kelvin. aka 98.7F
-		this.radiation = 0;
 	}
 
 	add_damage_type(name) {
@@ -341,7 +337,10 @@ LivingMob.template = {
 				max_health: 100,
 				stat: combat_defines.CONSCIOUS,
 				nomove_counter: 0,
-				mob_size: mob_defines.MOB_SIZE_HUMAN
+				mob_size: mob_defines.MOB_SIZE_HUMAN,
+				//I'm not entirely sure that LivingMob is where I should be putting these but w/e
+				bodytemperature: 310.055, //Kelvin. aka 98.7F
+				radiation: 0,
 			},
 			"Tangible": {
 				throw_force: 10
