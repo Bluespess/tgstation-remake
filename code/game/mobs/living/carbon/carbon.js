@@ -197,7 +197,26 @@ class CarbonMob extends Component.Networked {
 
 		this.handle_organs();
 		this.breathe(cycle);
+		this.handle_environment();
 		this.handle_liver();
+	}
+
+	handle_environment() {
+		let environment = this.a.c.LivingMob.environment;
+		let pressure = environment.return_pressure();
+		if(pressure >= atmos_defines.HAZARD_HIGH_PRESSURE) {
+			this.a.c.LivingMob.adjust_damage("brute", Math.min(((pressure / atmos_defines.HAZARD_HIGH_PRESSURE) - 1) * atmos_defines.PRESSURE_DAMAGE_COEFFICIENT, atmos_defines.MAX_HIGH_PRESSURE_DAMAGE));
+			this.a.c.MobHud.throw_alert("pressure", "alert_highpressure", 2);
+		} else if(pressure >= atmos_defines.WARNING_HIGH_PRESSURE) {
+			this.a.c.MobHud.throw_alert("pressure", "alert_highpressure", 1);
+		} else if(pressure <= atmos_defines.HAZARD_LOW_PRESSURE) {
+			this.a.c.LivingMob.adjust_damage("brute", atmos_defines.LOW_PRESSURE_DAMAGE);
+			this.a.c.MobHud.throw_alert("pressure", "alert_lowpressure", 2);
+		} else if(pressure <= atmos_defines.WARNING_LOW_PRESSURE) {
+			this.a.c.MobHud.throw_alert("pressure", "alert_lowpressure", 1);
+		} else {
+			this.a.c.MobHud.clear_alert("pressure");
+		}
 	}
 
 	breathe() {
@@ -207,11 +226,7 @@ class CarbonMob extends Component.Networked {
 			this.losebreath++;
 		else if(this.a.c.LivingMob.in_crit)
 			this.losebreath += 0.25;
-		let environment;
-		if(this.a.base_loc && this.a.base_loc.turf) {
-			environment = this.a.base_loc.turf.c.Turf.air;
-			this.a.server.air_controller.add_to_active(this.a.base_loc.turf);
-		}
+		let environment = this.a.c.LivingMob.environment;
 		let breath;
 		if(this.losebreath >= 1) {
 			this.losebreath--;

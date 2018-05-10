@@ -1,5 +1,6 @@
 'use strict';
 const {Component, Sound, Atom, chain_func, format_html, visible_message, has_component} = require('bluespess');
+const GasMixture = require('../../../modules/atmospherics/gasmixtures/gas_mixture');
 const Mind = require('../mind/mind.js');
 const combat_defines = require('../../../defines/combat_defines.js');
 const mob_defines = require('../../../defines/mob_defines.js');
@@ -321,6 +322,17 @@ class LivingMob extends Component {
 
 	apply_effect(name, props = {}) {
 		(new (status_effects[name])()).apply_to(this.a, props);
+	}
+
+	get environment() {
+		let environment;
+		if(this.a.base_loc && this.a.base_loc.turf) {
+			environment = this.a.base_loc.turf.c.Turf.air;
+			this.a.server.air_controller.add_to_active(this.a.base_loc.turf);
+		}
+		if(!environment)
+			environment = new GasMixture();
+		return environment;
 	}
 }
 
