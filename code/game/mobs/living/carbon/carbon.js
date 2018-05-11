@@ -285,8 +285,14 @@ CarbonMob.template = {
 			CarbonMob: {
 				lying_counter: 0,
 				losebreath: 0,
+				//None of these vars are fully implemented
 				bodytemperature: 310.055, //Kelvin. aka 98.7F
-				radiation: 0
+				radiation: 0,
+				drowsiness: 0, //This is misspelled as drowsyness in TG code
+				dizziness: 0,
+				jitteriness: 0,
+				druggy: 0,
+				hallucination: 0
 			}
 		}
 	}
