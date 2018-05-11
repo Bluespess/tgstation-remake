@@ -208,12 +208,12 @@ class SalineGlucoseSolution extends Medicine { // /datum/reagent/medicine/salglu
 	overdose_process(dt) {
 		if(Math.random() < 0.03) {
 			to_chat`<span class='warning'>You feel salty.</span>`(this.holder);
-			this.holder.add("Table Salt", 1);
-			this.holder.c.ReagentHolder.remove("Saline-Glucose Solution", 0.5);
+			this.holder.add("TableSalt", 1);
+			this.holder.c.ReagentHolder.remove(this.constructor.name, 0.5);
 		} else if(Math.random() < 0.03) {
 			to_chat`<span class='warning'>You feel sweet.</span>`(this.holder);
 			this.holder.add("Sugar", 1);
-			this.holder.c.ReagentHolder.remove("Saline-Glucose Solution", 0.5);
+			this.holder.c.ReagentHolder.remove(this.constructor.name, 0.5);
 		}
 		if(Math.random() < 0.33) {
 			this.holder.c.LivingMob.adjust_damage("brute", 0.25 * dt);
@@ -259,7 +259,7 @@ class Charcoal extends Medicine { // /datum/reagent/medicine/charcoal
 		this.holder.c.LivingMob.adjust_damage("tox", -1 * dt);
 		for(let key of this.holder.c.ReagentHolder.reagents.key()) {
 			if(key != this.constructor.name) {
-				this.holder.c.ReagentHolder.remove(key, 1);
+				this.holder.c.ReagentHolder.remove(this.constructor.name, 1);
 			}
 		}
 		super.mob_life(...arguments);
@@ -305,7 +305,7 @@ class Calomel extends Medicine { // /datum/reagent/medicine/calomel
 	mob_life(dt) {
 		for(let key of this.holder.c.ReagentHolder.reagents.key()) {
 			if(key != this.constructor.name) {
-				this.holder.c.ReagentHolder.remove(key, 2.5);
+				this.holder.c.ReagentHolder.remove(this.constructor.name, 2.5);
 			}
 		}
 		if(this.a.c.LivingMob.health > 20) {
@@ -347,7 +347,7 @@ class PenteticAcid extends Medicine { // /datum/reagent/medicine/pen_acid
 		this.holder.c.LivingMob.adjust_damage("tox", -1 * dt);
 		for(let key of this.holder.c.ReagentHolder.reagents.key()) {
 			if(key != this.constructor.name) {
-				this.holder.c.ReagentHolder.remove(key, 2);
+				this.holder.c.ReagentHolder.remove(this.constructor.name, 2);
 			}
 		}
 		super.mob_life(...arguments);
@@ -698,7 +698,7 @@ class AntiToxin extends Medicine { // /datum/reagent/medicine/antitoxin
 		this.holder.c.LivingMob.adjust_damage("tox", -1 * dt);
 		for(let key of this.holder.c.ReagentHolder.reagents.key()) {
 			if(key != this.constructor.name) {
-				this.holder.c.ReagentHolder.remove(key, 1);
+				this.holder.c.ReagentHolder.remove(this.constructor.name, 1);
 			}
 		}
 		super.mob_life(...arguments);
@@ -812,7 +812,7 @@ class Haloperidol extends Medicine { // /datum/reagent/medicine/haloperidol
 	mob_life(dt) {
 		for(let key of this.holder.c.ReagentHolder.reagents.key()) {
 			if(key != this.constructor.name) {
-				this.holder.c.ReagentHolder.remove(key, 5);
+				this.holder.c.ReagentHolder.remove(this.constructor.name, 5);
 			}
 		}
 		this.holder.c.CarbonMob.drowsiness += 2 * dt;
