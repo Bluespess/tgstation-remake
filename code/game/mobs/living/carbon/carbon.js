@@ -284,7 +284,9 @@ CarbonMob.template = {
 		components: {
 			CarbonMob: {
 				lying_counter: 0,
-				losebreath: 0
+				losebreath: 0,
+				bodytemperature: 310.055, //Kelvin. aka 98.7F
+				radiation: 0
 			}
 		}
 	}
