@@ -209,11 +209,11 @@ class SalineGlucoseSolution extends Medicine { // /datum/reagent/medicine/salglu
 		if(Math.random() < 0.03) {
 			to_chat`<span class='warning'>You feel salty.</span>`(this.holder);
 			this.holder.add("Table Salt", 1);
-			this.holder.remove("Saline-Glucose Solution", 0.5);
+			this.holder.c.ReagentHolder.remove("Saline-Glucose Solution", 0.5);
 		} else if(Math.random() < 0.03) {
 			to_chat`<span class='warning'>You feel sweet.</span>`(this.holder);
 			this.holder.add("Sugar", 1);
-			this.holder.remove("Saline-Glucose Solution", 0.5);
+			this.holder.c.ReagentHolder.remove("Saline-Glucose Solution", 0.5);
 		}
 		if(Math.random() < 0.33) {
 			this.holder.c.LivingMob.adjust_damage("brute", 0.25 * dt);
@@ -257,9 +257,9 @@ Object.assign(Synthflesh.prototype, {
 class Charcoal extends Medicine { // /datum/reagent/medicine/charcoal
 	mob_life(dt) {
 		this.holder.c.LivingMob.adjust_damage("tox", -1 * dt);
-		for(let reagent of this.holder.c.ReagentHolder.reagents) {
-			if(reagent.name != "Charcoal") {
-				this.holder.remove(reagent.name, 1);
+		for(let key of this.holder.c.ReagentHolder.reagents.key()) {
+			if(key != this.constructor.name) {
+				this.holder.c.ReagentHolder.remove(key, 1);
 			}
 		}
 		super.mob_life(...arguments);
@@ -303,9 +303,9 @@ Object.assign(Omnizine.prototype, {
 
 class Calomel extends Medicine { // /datum/reagent/medicine/calomel
 	mob_life(dt) {
-		for(let reagent of this.holder.c.ReagentHolder.reagents) {
-			if(reagent.name != "Calomel") {
-				this.holder.remove(reagent.name, 2.5);
+		for(let key of this.holder.c.ReagentHolder.reagents.key()) {
+			if(key != this.constructor.name) {
+				this.holder.c.ReagentHolder.remove(key, 2.5);
 			}
 		}
 		if(this.a.c.LivingMob.health > 20) {
@@ -345,9 +345,9 @@ class PenteticAcid extends Medicine { // /datum/reagent/medicine/pen_acid
 	mob_life(dt) {
 		this.holder.c.CarbonMob.radiation -= Math.min(this.holder.c.CarbonMob.radiation - 500, 0) / 50;
 		this.holder.c.LivingMob.adjust_damage("tox", -1 * dt);
-		for(let reagent of this.holder.c.ReagentHolder.reagents) {
-			if(reagent.name != "Pentetic Acid") {
-				this.holder.remove(reagent.name, 2);
+		for(let key of this.holder.c.ReagentHolder.reagents.key()) {
+			if(key != this.constructor.name) {
+				this.holder.c.ReagentHolder.remove(key, 2);
 			}
 		}
 		super.mob_life(...arguments);
@@ -480,7 +480,7 @@ class Diphenhydramine extends Medicine { // /datum/reagent/medicine/diphenhydram
 			this.holder.c.CarbonMob.drowsiness += 1;
 		}
 		this.holder.c.CarbonMob.jitteriness -= 1;
-		this.holder.remove("Histamine", 3);
+		this.holder.c.ReagentHolder.remove("Histamine", 3);
 		super.mob_life(...arguments);
 	}
 }
@@ -696,9 +696,9 @@ Object.assign(Kelotane.prototype, {
 class AntiToxin extends Medicine { // /datum/reagent/medicine/antitoxin
 	mob_life(dt) {
 		this.holder.c.LivingMob.adjust_damage("tox", -1 * dt);
-		for(let reagent of this.holder.c.ReagentHolder.reagents) {
-			if(reagent.name != "Anti-Toxin") {
-				this.holder.remove(reagent.name, 1);
+		for(let key of this.holder.c.ReagentHolder.reagents.key()) {
+			if(key != this.constructor.name) {
+				this.holder.c.ReagentHolder.remove(key, 1);
 			}
 		}
 		super.mob_life(...arguments);
@@ -810,9 +810,9 @@ Object.assign(Earthsblood.prototype, {
 
 class Haloperidol extends Medicine { // /datum/reagent/medicine/haloperidol
 	mob_life(dt) {
-		for(let reagent of this.holder.c.ReagentHolder.reagents) {
-			if(reagent.name != "Haloperidol") {
-				this.holder.remove(reagent.name, 5);
+		for(let key of this.holder.c.ReagentHolder.reagents.key()) {
+			if(key != this.constructor.name) {
+				this.holder.c.ReagentHolder.remove(key, 5);
 			}
 		}
 		this.holder.c.CarbonMob.drowsiness += 2 * dt;
