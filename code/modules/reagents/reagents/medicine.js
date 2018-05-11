@@ -11,11 +11,11 @@ Object.assign(Medicine.prototype, {
 });
 
 class Leporazine extends Medicine { // /datum/reagent/medicine/leporazine
-	mob_life() {
-		if(this.holder.c.LivingMob.bodytemperature > 310) {
-			this.holder.c.LivingMob.bodytemperature = Math.max(310, (this.holder.c.LivingMob.bodytemperature - (40 * atmos_defines.TEMPERATURE_DAMAGE_COEFFICIENT)));
-		} else if(this.holder.c.LivingMob.bodytemperature < 311) {
-			this.holder.c.LivingMob.bodytemperature = Math.min(310, (this.holder.c.LivingMob.bodytemperature + (40 * atmos_defines.TEMPERATURE_DAMAGE_COEFFICIENT)));
+	mob_life(dt) {
+		if(this.holder.c.CarbonMob.bodytemperature > 310) {
+			this.holder.c.CarbonMob.bodytemperature = Math.max(310, (this.holder.c.CarbonMob.bodytemperature - (20 * dt * atmos_defines.TEMPERATURE_DAMAGE_COEFFICIENT)));
+		} else if(this.holder.c.CarbonMob.bodytemperature < 311) {
+			this.holder.c.CarbonMob.bodytemperature = Math.min(310, (this.holder.c.CarbonMob.bodytemperature + (20 * dt * atmos_defines.TEMPERATURE_DAMAGE_COEFFICIENT)));
 		}
 		super.mob_life(...arguments);
 	}
@@ -70,28 +70,28 @@ Object.assign(Inacusiate.prototype, {
 });
 
 class Cryoxadone extends Medicine { // /datum/reagent/medicine/cryoxadone
-	mob_life() {
-		if(this.holder.c.LivingMob.bodytemperature >= 0 && this.holder.c.LivingMob.bodytemperature <= 99) { // At extreme temperatures (upgraded cryo) the effect is greatly increased.
+	mob_life(dt) {
+		if(this.holder.c.CarbonMob.bodytemperature >= 0 && this.holder.c.CarbonMob.bodytemperature <= 99) { // At extreme temperatures (upgraded cryo) the effect is greatly increased.
 			//TODO M.status_flags &= ~DISFIGURED
-			this.holder.c.LivingMob.adjust_damage("brute", -5);
-			this.holder.c.LivingMob.adjust_damage("burn", -5);
-			this.holder.c.LivingMob.adjust_damage("oxy", -9);
-			this.holder.c.LivingMob.adjust_damage("tox", -5);
-			this.holder.c.LivingMob.adjust_damage("clone", -1);
-		} else if(this.holder.c.LivingMob.bodytemperature >= 100 && this.holder.c.LivingMob.bodytemperature <= 224) { // At lower temperatures (cryo) the full effect is boosted
+			this.holder.c.LivingMob.adjust_damage("brute", -2.5 * dt);
+			this.holder.c.LivingMob.adjust_damage("burn", -2.5 * dt);
+			this.holder.c.LivingMob.adjust_damage("oxy", -4.5 * dt);
+			this.holder.c.LivingMob.adjust_damage("tox", -2.5 * dt);
+			this.holder.c.LivingMob.adjust_damage("clone", -0.5 * dt);
+		} else if(this.holder.c.CarbonMob.bodytemperature >= 100 && this.holder.c.CarbonMob.bodytemperature <= 224) { // At lower temperatures (cryo) the full effect is boosted
 			//TODO M.status_flags &= ~DISFIGURED
-			this.holder.c.LivingMob.adjust_damage("brute", -3);
-			this.holder.c.LivingMob.adjust_damage("burn", -3);
-			this.holder.c.LivingMob.adjust_damage("oxy", -7);
-			this.holder.c.LivingMob.adjust_damage("tox", -3);
-			this.holder.c.LivingMob.adjust_damage("clone", -1);
-		} else if(this.holder.c.LivingMob.bodytemperature >= 225 && this.holder.c.LivingMob.bodytemperature <= atmos_defines.T0C) {
+			this.holder.c.LivingMob.adjust_damage("brute", -1.5 * dt);
+			this.holder.c.LivingMob.adjust_damage("burn", -1.5 * dt);
+			this.holder.c.LivingMob.adjust_damage("oxy", -3.5 * dt);
+			this.holder.c.LivingMob.adjust_damage("tox", -1.5 * dt);
+			this.holder.c.LivingMob.adjust_damage("clone", -0.5 * dt);
+		} else if(this.holder.c.CarbonMob.bodytemperature >= 225 && this.holder.c.CarbonMob.bodytemperature <= atmos_defines.T0C) {
 			//TODO M.status_flags &= ~DISFIGURED
-			this.holder.c.LivingMob.adjust_damage("brute", -1);
-			this.holder.c.LivingMob.adjust_damage("burn", -1);
-			this.holder.c.LivingMob.adjust_damage("oxy", -5);
-			this.holder.c.LivingMob.adjust_damage("tox", -1);
-			this.holder.c.LivingMob.adjust_damage("clone", -1);
+			this.holder.c.LivingMob.adjust_damage("brute", -0.5 * dt);
+			this.holder.c.LivingMob.adjust_damage("burn", -0.5 * dt);
+			this.holder.c.LivingMob.adjust_damage("oxy", -2.5 * dt);
+			this.holder.c.LivingMob.adjust_damage("tox", -0.5 * dt);
+			this.holder.c.LivingMob.adjust_damage("clone", -0.5 * dt);
 		}
 		super.mob_life(...arguments);
 	}
@@ -105,16 +105,16 @@ Object.assign(Cryoxadone.prototype, {
 });
 
 class Clonexadone extends Medicine { // /datum/reagent/medicine/clonexadone
-	mob_life() {
-		if(this.holder.c.LivingMob.bodytemperature >= 0 && this.holder.c.LivingMob.bodytemperature <= 99) { // At extreme temperatures (upgraded cryo) the effect is greatly increased.
+	mob_life(dt) {
+		if(this.holder.c.CarbonMob.bodytemperature >= 0 && this.holder.c.CarbonMob.bodytemperature <= 99) { // At extreme temperatures (upgraded cryo) the effect is greatly increased.
 			//TODO M.status_flags &= ~DISFIGURED
-			this.holder.c.LivingMob.adjust_damage("clone", -7);
-		} else if(this.holder.c.LivingMob.bodytemperature >= 100 && this.holder.c.LivingMob.bodytemperature <= 224) { // At lower temperatures (cryo) the full effect is boosted
+			this.holder.c.LivingMob.adjust_damage("clone", -3.5 * dt);
+		} else if(this.holder.c.CarbonMob.bodytemperature >= 100 && this.holder.c.CarbonMob.bodytemperature <= 224) { // At lower temperatures (cryo) the full effect is boosted
 			//TODO M.status_flags &= ~DISFIGURED
-			this.holder.c.LivingMob.adjust_damage("clone", -3);
-		} else if(this.holder.c.LivingMob.bodytemperature >= 225 && this.holder.c.LivingMob.bodytemperature <= atmos_defines.T0C) {
+			this.holder.c.LivingMob.adjust_damage("clone", -1.5 * dt);
+		} else if(this.holder.c.CarbonMob.bodytemperature >= 225 && this.holder.c.CarbonMob.bodytemperature <= atmos_defines.T0C) {
 			//TODO M.status_flags &= ~DISFIGURED
-			this.holder.c.LivingMob.adjust_damage("clone", -2);
+			this.holder.c.LivingMob.adjust_damage("clone", -1 * dt);
 		}
 		super.mob_life(...arguments);
 	}
@@ -284,9 +284,9 @@ Object.assign(Calomel.prototype, {
 });
 
 class PotassiumIodide extends Medicine { // /datum/reagent/medicine/potass_iodide
-	mob_life() {
-		if(this.holder.c.LivingMob.radiation > 0) {
-			this.holder.c.LivingMob.radiation -= Math.min(this.holder.c.LivingMob.radiation, 8);
+	mob_life(dt) {
+		if(this.holder.c.CarbonMob.radiation > 0) {
+			this.holder.c.CarbonMob.radiation -= Math.min(this.holder.c.CarbonMob.radiation, 8 * dt);
 		}
 		super.mob_life(...arguments);
 	}

@@ -337,10 +337,7 @@ LivingMob.template = {
 				max_health: 100,
 				stat: combat_defines.CONSCIOUS,
 				nomove_counter: 0,
-				mob_size: mob_defines.MOB_SIZE_HUMAN,
-				//I'm not entirely sure that LivingMob is where I should be putting these but w/e
-				bodytemperature: 310.055, //Kelvin. aka 98.7F
-				radiation: 0,
+				mob_size: mob_defines.MOB_SIZE_HUMAN
 			},
 			"Tangible": {
 				throw_force: 10
