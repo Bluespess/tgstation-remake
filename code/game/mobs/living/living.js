@@ -334,6 +334,17 @@ class LivingMob extends Component {
 			environment = new GasMixture();
 		return environment;
 	}
+
+	adjust_effect(name, amount) {
+		let effect = this.effects[name];
+		if(!effect) {
+			(new (status_effects[name])()).apply_to(this.a, {});
+			effect = this.effects[name];
+		}
+		if(!effect)
+			return;
+		effect.adjust(amount);
+	}
 }
 
 Object.assign(LivingMob.prototype, require('./living_defense.js'));

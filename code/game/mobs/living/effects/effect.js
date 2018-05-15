@@ -18,6 +18,8 @@ class StatusEffect {
 		mob.c.LivingMob.effects[this.constructor.name] = this;
 	}
 
+	adjust() {}
+
 	unapply() {
 		if(!this.mob)
 			return;
@@ -31,9 +33,7 @@ StatusEffect.prototype.overwrite_mode = "update";
 
 class TimedEffect extends StatusEffect {
 	apply_to(mob, props = {}) {
-		if(!props.delay)
-			throw new Error(`No delay specified for timed effect`);
-		let new_target_time = mob.server.now() + props.delay;
+		let new_target_time = mob.server.now() + (props.delay || 0);
 		if(new_target_time <= (this.target_time || 0))
 			return;
 		super.apply_to(mob, props);
@@ -42,12 +42,21 @@ class TimedEffect extends StatusEffect {
 		this.target_time = new_target_time;
 		if(this.timeout)
 			clearTimeout(this.timeout);
-		this.timeout = setTimeout(this.unapply.bind(this), props.delay);
+		this.timeout = setTimeout(this.unapply.bind(this), (props.delay || 0));
+	}
+
+	adjust(amount) {
+		if(this.timeout && this.mob) {
+			clearTimeout(this.timeout);
+			this.target_time += amount;
+			this.timeout = setTimeout(this.unapply.bind(this), this.target_time - this.mob.server.now());
+		}
 	}
 
 	unapply() {
 		if(this.timeout)
 			clearTimeout(this.timeout);
+		this.timeout = null;
 		super.unapply();
 	}
 }
