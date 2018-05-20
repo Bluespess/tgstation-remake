@@ -49,14 +49,14 @@ Object.assign(Nanites.prototype, {
 
 class Synaptizine extends Medicine { // /datum/reagent/medicine/synaptizine
 	mob_life(dt) {
-		this.holder.c.CarbonMob.drowsiness = Math.max(this.holder.c.CarbonMob.drowsiness - 5, 0);
+		this.holder.c.CarbonMob.drowsiness = Math.max(this.holder.c.CarbonMob.drowsiness - 2.5 * dt, 0);
 		this.holder.c.LivingMob.adjust_effect("Stun", -1000 * dt);
 		this.holder.c.LivingMob.adjust_effect("Knockdown", -1000 * dt);
 		this.holder.c.LivingMob.adjust_effect("Unconscious", -1000 * dt);
 		if(this.holder.c.ReagentHolder.reagents.has("MindbreakerToxin")) {
 			this.holder.c.ReagentHolder.remove("MindbreakerToxin", 2.5 * dt);
 		}
-		this.holder.c.CarbonMob.hallucination = Math.max(this.holder.c.CarbonMob.hallucination - 10, 0);
+		this.holder.c.CarbonMob.hallucination = Math.max(this.holder.c.CarbonMob.hallucination - 5 * dt, 0);
 		if(Math.random() < 0.3) {
 			this.holder.c.LivingMob.adjust_damage("tox", 0.5 * dt);
 		}
@@ -72,14 +72,14 @@ Object.assign(Synaptizine.prototype, {
 
 class DiphenSynaptizine extends Medicine { // /datum/reagent/medicine/synaphydramine
 	mob_life(dt) {
-		this.holder.c.CarbonMob.drowsiness = Math.max(this.holder.c.CarbonMob.drowsiness - 5, 0);
+		this.holder.c.CarbonMob.drowsiness = Math.max(this.holder.c.CarbonMob.drowsiness - 2.5 * dt, 0);
 		if(this.holder.c.ReagentHolder.reagents.has("MindbreakerToxin")) {
 			this.holder.c.ReagentHolder.remove("MindbreakerToxin", 5 * dt);
 		}
 		if(this.holder.c.ReagentHolder.reagents.has("Histamine")) {
 			this.holder.c.ReagentHolder.remove("Histamine", 5 * dt);
 		}
-		this.holder.c.CarbonMob.hallucination = Math.max(this.holder.c.CarbonMob.hallucination - 10, 0);
+		this.holder.c.CarbonMob.hallucination = Math.max(this.holder.c.CarbonMob.hallucination - 5 * dt, 0);
 		if(Math.random() < 0.3) {
 			this.holder.c.LivingMob.adjust_damage("tox", 1 * dt);
 		}
@@ -163,8 +163,8 @@ Object.assign(Clonexadone.prototype, {
 class Rezadone extends Medicine { // /datum/reagent/medicine/rezadone //TODO: mob_life()
 	overdose_process(dt) {
 		this.holder.c.LivingMob.adjust_damage("tox", 1 * dt);
-		this.holder.c.CarbonMob.dizziness = Math.max(0, this.holder.c.CarbonMob.dizziness, 5 * dt);
-		this.holder.c.CarbonMob.jitteriness = Math.max(0, this.holder.c.CarbonMob.jitteriness, 5 * dt);
+		this.holder.c.CarbonMob.dizziness = Math.max(0, this.holder.c.CarbonMob.dizziness, 2.5 * dt);
+		this.holder.c.CarbonMob.jitteriness = Math.max(0, this.holder.c.CarbonMob.jitteriness, 2.5 * dt);
 		super.overdose_process(...arguments);
 	}
 }
@@ -364,7 +364,7 @@ Object.assign(Calomel.prototype, {
 class PotassiumIodide extends Medicine { // /datum/reagent/medicine/potass_iodide
 	mob_life(dt) {
 		if(this.holder.c.CarbonMob.radiation > 0) {
-			this.holder.c.CarbonMob.radiation -= Math.min(this.holder.c.CarbonMob.radiation, 8 * dt);
+			this.holder.c.CarbonMob.radiation -= Math.min(this.holder.c.CarbonMob.radiation, 4 * dt);
 		}
 		super.mob_life(...arguments);
 	}
@@ -380,7 +380,7 @@ Object.assign(PotassiumIodide.prototype, {
 
 class PenteticAcid extends Medicine { // /datum/reagent/medicine/pen_acid
 	mob_life(dt) {
-		this.holder.c.CarbonMob.radiation -= Math.min(this.holder.c.CarbonMob.radiation - 500, 0) / 50;
+		this.holder.c.CarbonMob.radiation -= Math.min(this.holder.c.CarbonMob.radiation - 250 * dt, 0) / 50;
 		this.holder.c.LivingMob.adjust_damage("tox", -1 * dt);
 		for(let key of this.holder.c.ReagentHolder.reagents.key()) {
 			if(key != this.constructor.name) {
@@ -521,12 +521,12 @@ Object.assign(Ephedrine.prototype, {
 });
 
 class Diphenhydramine extends Medicine { // /datum/reagent/medicine/diphenhydramine
-	mob_life() {
+	mob_life(dt) {
 		if(Math.random() < 0.1) {
-			this.holder.c.CarbonMob.drowsiness += 1;
+			this.holder.c.CarbonMob.drowsiness += 0.5 * dt;
 		}
-		this.holder.c.CarbonMob.jitteriness -= 1;
-		this.holder.c.ReagentHolder.remove("Histamine", 3);
+		this.holder.c.CarbonMob.jitteriness -= 0.5 * dt;
+		this.holder.c.ReagentHolder.remove("Histamine", 1.5 * dt);
 		super.mob_life(...arguments);
 	}
 }
@@ -540,12 +540,12 @@ Object.assign(Diphenhydramine.prototype, {
 });
 
 class Morphine extends Medicine { // /datum/reagent/medicine/morphine //TODO: overdose_process(), and addiction_act_stage()s
-	mob_life() {
+	mob_life(dt) {
 		this.holder.c.LivingMob.status_flags |= combat_defines.IGNORESLOWDOWN;
 		if(this.time_in_mob == 22) {
 			to_chat`<span class='warning'>You start to feel tired...</span>`(this.holder);
 		} else if (this.time_in_mob >= 24 && this.time_in_mob <= 24) {
-			this.holder.c.CarbonMob.drowsiness += 1;
+			this.holder.c.CarbonMob.drowsiness += 0.5 * dt;
 		} else if (this.time_in_mob > 24) {
 			//TODO: M.Sleeping(40, 0)
 		}
@@ -584,15 +584,15 @@ class Atropine extends Medicine { // /datum/reagent/medicine/atropine
 		}
 		this.holder.c.CarbonMob.losebreath = 0;
 		if(Math.random() < 0.2) {
-			this.holder.c.CarbonMob.dizziness = Math.max(5, this.holder.c.CarbonMob.dizziness);
-			this.holder.c.CarbonMob.jitteriness = Math.max(5, this.holder.c.CarbonMob.jitteriness);
+			this.holder.c.CarbonMob.dizziness = Math.max(2.5 * dt, this.holder.c.CarbonMob.dizziness);
+			this.holder.c.CarbonMob.jitteriness = Math.max(2.5 * dt, this.holder.c.CarbonMob.jitteriness);
 		}
 		super.mob_life(...arguments);
 	}
 	overdose_process(dt) {
 		this.holder.c.LivingMob.adjust_damage("tox", 0.25 * dt);
-		this.holder.c.CarbonMob.dizziness = Math.max(1, this.holder.c.CarbonMob.dizziness);
-		this.holder.c.CarbonMob.jitteriness = Math.max(1, this.holder.c.CarbonMob.jitteriness);
+		this.holder.c.CarbonMob.dizziness = Math.max(0.5 * dt, this.holder.c.CarbonMob.dizziness);
+		this.holder.c.CarbonMob.jitteriness = Math.max(0.5 * dt, this.holder.c.CarbonMob.jitteriness);
 		super.overdose_process(...arguments);
 	}
 }
@@ -895,12 +895,12 @@ class Earthsblood extends Medicine { // /datum/reagent/medicine/earthsblood
 		this.holder.c.LivingMob.adjust_damage("brain", 1 * dt);
 		this.holder.c.LivingMob.adjust_damage("clone", -0.5 * dt);
 		this.holder.c.LivingMob.adjust_damage("stamina", -15 * dt);
-		this.holder.c.CarbonMob.jitteriness = Math.min(Math.max(0, this.holder.c.CarbonMob.jitteriness + 3 * dt), 30 * dt);
-		this.holder.c.CarbonMob.druggy = Math.min(Math.max(0, this.holder.c.CarbonMob.druggy + 10 * dt), 15 * dt);
+		this.holder.c.CarbonMob.jitteriness = Math.min(Math.max(0, this.holder.c.CarbonMob.jitteriness + 1.5 * dt), 15 * dt);
+		this.holder.c.CarbonMob.druggy = Math.min(Math.max(0, this.holder.c.CarbonMob.druggy + 5 * dt), 7.5 * dt);
 		super.mob_life(...arguments);
 	}
 	overdose_process(dt) {
-		this.holder.c.CarbonMob.hallucination = Math.min(Math.max(0, this.holder.c.CarbonMob.hallucination + 10 * dt), 50 * dt);
+		this.holder.c.CarbonMob.hallucination = Math.min(Math.max(0, this.holder.c.CarbonMob.hallucination + 5 * dt), 25 * dt);
 		this.holder.c.LivingMob.adjust_damage("tox", 2.5 * dt);
 		super.overdose_process(...arguments);
 	}
@@ -920,11 +920,11 @@ class Haloperidol extends Medicine { // /datum/reagent/medicine/haloperidol
 				this.holder.c.ReagentHolder.remove(key, 2.5 * dt);
 			}
 		}
-		this.holder.c.CarbonMob.drowsiness += 2 * dt;
-		if(this.holder.c.CarbonMob.jitteriness >= 3)
-			this.holder.c.CarbonMob.jitteriness -= 3 * dt;
-		if(this.holder.c.CarbonMob.hallucination >= 5)
-			this.holder.c.CarbonMob.hallucination -= 5 * dt;
+		this.holder.c.CarbonMob.drowsiness += 1 * dt;
+		if(this.holder.c.CarbonMob.jitteriness >= 1.5 * dt)
+			this.holder.c.CarbonMob.jitteriness -= 1.5 * dt;
+		if(this.holder.c.CarbonMob.hallucination >= 2.5 * dt)
+			this.holder.c.CarbonMob.hallucination -= 2.5 * dt;
 		if(Math.random() < 0.2) {
 			this.holder.c.LivingMob.adjust_damage("brain", 0.5 * dt);
 		}
