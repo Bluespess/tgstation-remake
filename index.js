@@ -244,6 +244,7 @@ if(global.is_bs_editor_env) {
 					}
 					res.writeHead(200, {'Content-Type': 'text/html'});
 					res.write(`<html><head><script>localStorage.setItem("gh_access_token", ${JSON.stringify(obj.access_token)}); window.location.href="/";</script></head><body></body></html>`);
+					res.end();
 				});
 			});
 			req2.on('error', (err) => {
@@ -252,6 +253,17 @@ if(global.is_bs_editor_env) {
 			});
 			req2.write(querystring.stringify({client_id: server_config.gh_login.client_id, client_secret: server_config.gh_login.client_secret, code: url_obj.query.code}));
 			req2.end();
+		} else if(url_obj.pathname == "/status") {
+			res.setHeader('Access-Control-Allow-Origin', '*');
+			res.writeHead(200, {'Content-Type': 'application/json'});
+			let clients = [...Object.keys(server.clients)];
+			let clients_by_name = [...Object.keys(server.clients_by_name)];
+			res.write(JSON.stringify({
+				player_count: clients.length,
+				clients,
+				clients_by_name
+			}));
+			res.end();
 		} else {
 			serve(req, res, done);
 		}
