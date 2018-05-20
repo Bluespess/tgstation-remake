@@ -428,8 +428,8 @@ Object.assign(SalicyclicAcid.prototype, {
 class Salbutamol extends Medicine { // /datum/reagent/medicine/salbutamol
 	mob_life(dt) {
 		this.holder.c.LivingMob.adjust_damage("oxy", -1.5 * dt);
-		if(this.holder.c.CarbonMob.losebreath >= 4) {
-			this.holder.c.CarbonMob.losebreath -= 2 * dt;
+		if(this.holder.c.CarbonMob.losebreath >= 2 * dt) {
+			this.holder.c.CarbonMob.losebreath -= 1 * dt;
 		}
 		super.mob_life(...arguments);
 	}
@@ -476,35 +476,35 @@ class Ephedrine extends Medicine { // /datum/reagent/medicine/ephedrine
 	overdose_process(dt) {
 		if(Math.random() < 0.33) {
 			this.holder.c.LivingMob.adjust_damage("tox", 0.25 * dt);
-			this.holder.c.CarbonMob.losebreath++;
+			this.holder.c.CarbonMob.losebreath += 0.5 * dt;
 		}
 		super.overdose_process(...arguments);
 	}
 	addiction_act_stage1(dt) {
 		if(Math.random() < 0.33) {
 			this.holder.c.LivingMob.adjust_damage("tox", 1 * dt);
-			this.holder.c.CarbonMob.losebreath += 2;
+			this.holder.c.CarbonMob.losebreath += 1 * dt;
 		}
 		super.addiction_act_stage1(...arguments);
 	}
 	addiction_act_stage2(dt) {
 		if(Math.random() < 0.33) {
 			this.holder.c.LivingMob.adjust_damage("tox", 1.5 * dt);
-			this.holder.c.CarbonMob.losebreath += 3;
+			this.holder.c.CarbonMob.losebreath += 1.5 * dt;
 		}
 		super.addiction_act_stage2(...arguments);
 	}
 	addiction_act_stage3(dt) {
 		if(Math.random() < 0.33) {
 			this.holder.c.LivingMob.adjust_damage("tox", 2 * dt);
-			this.holder.c.CarbonMob.losebreath += 4;
+			this.holder.c.CarbonMob.losebreath += 2 * dt;
 		}
 		super.addiction_act_stage3(...arguments);
 	}
 	addiction_act_stage4(dt) {
 		if(Math.random() < 0.33) {
 			this.holder.c.LivingMob.adjust_damage("tox", 2.5 * dt);
-			this.holder.c.CarbonMob.losebreath += 5;
+			this.holder.c.CarbonMob.losebreath += 2.5 * dt;
 		}
 		super.addiction_act_stage4(...arguments);
 	}
@@ -616,8 +616,8 @@ class Epinephrine extends Medicine { // /datum/reagent/medicine/epinephrine
 		if(this.holder.c.LivingMob.get_damage("oxy") > 35) {
 			this.holder.c.LivingMob.set_damage("oxy", 35);
 		}
-		if(this.holder.c.CarbonMob.losebreath >= 4) {
-			this.holder.c.CarbonMob.losebreath -= 2;
+		if(this.holder.c.CarbonMob.losebreath >= 2 * dt) {
+			this.holder.c.CarbonMob.losebreath -= 1 * dt;
 		}
 		if(this.holder.c.CarbonMob.losebreath < 0) {
 			this.holder.c.CarbonMob.losebreath = 0;
@@ -634,7 +634,7 @@ class Epinephrine extends Medicine { // /datum/reagent/medicine/epinephrine
 		if(Math.random() < 0.33) {
 			this.holder.c.LivingMob.adjust_damage("stamina", 1.25 * dt);
 			this.holder.c.LivingMob.adjust_damage("tox", 0.5 * dt);
-			this.holder.c.CarbonMob.losebreath++;
+			this.holder.c.CarbonMob.losebreath += 0.5 * dt;
 		}
 		super.overdose_process(...arguments);
 	}
@@ -717,7 +717,7 @@ class Stimulants extends Medicine { // /datum/reagent/medicine/stimulants
 		if(Math.random() < 0.33) {
 			this.holder.c.LivingMob.adjust_damage("stamina", 1.25 * dt);
 			this.holder.c.LivingMob.adjust_damage("tox", 0.5 * dt);
-			this.holder.c.CarbonMob.losebreath++;
+			this.holder.c.CarbonMob.losebreath += 0.5 * dt;
 		}
 		super.overdose_process(...arguments);
 	}
@@ -825,8 +825,8 @@ Object.assign(AntiToxin.prototype, {
 
 class Inaprovaline extends Medicine { // /datum/reagent/medicine/inaprovaline
 	mob_life(dt) {
-		if(this.holder.c.CarbonMob.losebreath >= 5) {
-			this.holder.c.CarbonMob.losebreath -= 5 * dt;
+		if(this.holder.c.CarbonMob.losebreath >= 2.5 * dt) {
+			this.holder.c.CarbonMob.losebreath -= 2.5 * dt;
 		}
 		super.mob_life(...arguments);
 	}
