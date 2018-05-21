@@ -77,7 +77,7 @@ class Grille extends Component {
 				window.loc = this.a.loc;
 				window.c.Tangible.anchored = false;
 				item.c.Stack.use(2);
-				to_chat`<span class='notice'>You place ${window} on ${this.a}.</span>`(user);
+				to_chat`<span class='notice'>You place the ${window} on the ${this.a}.</span>`(user);
 			});
 		} else if(has_component(item, "RGlassSheet")) {
 			if(item.c.Stack.amount < 2) {
@@ -96,7 +96,7 @@ class Grille extends Component {
 				window.loc = this.a.loc;
 				window.c.Tangible.anchored = false;
 				item.c.Stack.use(2);
-				to_chat`<span class='notice'>You place ${window} on ${this.a}.</span>`(user);
+				to_chat`<span class='notice'>You place the ${window} on the ${this.a}.</span>`(user);
 			});
 		}
 		return prev();
