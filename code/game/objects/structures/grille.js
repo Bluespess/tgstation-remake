@@ -69,6 +69,7 @@ class Grille extends Component {
 			user.c.MobInventory.do_after({delay: 2000, target: this.a}).then((success) => {
 				if(!success || !this.a.loc)
 					return;
+				for(let atom of this.a.crosses()) {if(has_component(atom, "Window") || has_component(atom, "ReinforcedWindow")) return;}
 				let window = new Atom(this.a.server, "window");
 				window.loc = this.a.loc;
 				window.c.Tangible.anchored = false;
@@ -84,6 +85,7 @@ class Grille extends Component {
 			user.c.MobInventory.do_after({delay: 2000, target: this.a}).then((success) => {
 				if(!success || !this.a.loc)
 					return;
+				for(let atom of this.a.crosses()) {if(has_component(atom, "Window") || has_component(atom, "ReinforcedWindow")) return;}
 				let window = new Atom(this.a.server, "r_window");
 				window.loc = this.a.loc;
 				window.c.Tangible.anchored = false;
