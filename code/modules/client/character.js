@@ -1,5 +1,6 @@
 'use strict';
 
+const _ = require('underscore');
 const first_names = require('../../../strings/names/first.json');
 const first_names_male = require('../../../strings/names/first_male.json');
 const first_names_female = require('../../../strings/names/first_female.json');
@@ -44,8 +45,8 @@ class CharacterPreferences {
 			first_list = first_names_male;
 		if(gender == "female")
 			first_list = first_names_female;
-		let first_name = first_list[Math.floor(Math.random() * first_list.length)];
-		let last_name = last_names[Math.floor(Math.random() * last_names.length)];
+		let first_name = _.sample(first_list);
+		let last_name = _.sample(last_names);
 		return `${first_name} ${last_name}`;
 	}
 

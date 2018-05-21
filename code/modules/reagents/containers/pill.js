@@ -1,11 +1,12 @@
 'use strict';
 const {Component, visible_message, to_chat} = require('bluespess');
+const _ = require('underscore');
 
 class Pill extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 		if(!this.a.icon_state)
-			this.a.icon_state = `pill${Math.floor(Math.random() * 20)+1}`;
+			this.a.icon_state = `pill${_.random(1, 20)}`;
 		this.a.c.Item.attack = this.attack.bind(this);
 	}
 

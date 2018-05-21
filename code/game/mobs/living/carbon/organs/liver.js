@@ -1,6 +1,7 @@
 'use strict';
 const {Component, has_component, chain_func, to_chat} = require('bluespess');
 const {reagent_types} = require('../../../../../modules/reagents/holder.js');
+const _ = require('underscore');
 
 class OrganLiver extends Component {
 	constructor(atom, template) {
@@ -39,7 +40,7 @@ class OrganLiver extends Component {
 			owner.c.ReagentHolder.metabolize();
 
 			if(this.damage > 10 && (Math.random() < this.damage / 300))
-				to_chat`<span class='notice'>You feel ${["nauseous", "dull pain in our lower body", "confused"][Math.floor(Math.random() * 3)]}.</span>`(owner);
+				to_chat`<span class='notice'>You feel ${_.sample(["nauseous", "dull pain in our lower body", "confused"])}.</span>`(owner);
 		}
 	}
 

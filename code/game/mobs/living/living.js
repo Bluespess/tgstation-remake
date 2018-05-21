@@ -1,5 +1,6 @@
 'use strict';
 const {Component, Sound, Atom, chain_func, format_html, visible_message, has_component} = require('bluespess');
+const _ = require('underscore');
 const GasMixture = require('../../../modules/atmospherics/gasmixtures/gas_mixture');
 const Mind = require('../mind/mind.js');
 const combat_defines = require('../../../defines/combat_defines.js');
@@ -303,7 +304,7 @@ class LivingMob extends Component {
 	send_item_attack_message(item, user, hit_area) {
 		var message_verb = "attacked";
 		if(item.c.Item.attack_verb && item.c.Item.attack_verb.length) {
-			message_verb = format_html`${item.c.Item.attack_verb[Math.floor(Math.random() * item.c.Item.attack_verb.length)]}`;
+			message_verb = format_html`${_.sample(item.c.Item.attack_verb)}`;
 		} else if(!item.c.Item.force) {
 			return;
 		}

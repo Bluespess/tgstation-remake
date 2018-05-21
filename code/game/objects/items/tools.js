@@ -1,5 +1,6 @@
 'use strict';
 const {Component, Sound, has_component, chain_func, to_chat} = require('bluespess');
+const _ = require('underscore');
 
 const _is_on = Symbol('_is_on');
 
@@ -106,7 +107,7 @@ class Wirecutters extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 		if(this.random_color)
-			this.a.icon_state = `cutters_${['yellow', 'red'][Math.floor(Math.random() * 2)]}`;
+			this.a.icon_state = `cutters_${_.sample(['yellow', 'red'])}`;
 	}
 }
 

@@ -1,16 +1,17 @@
 'use strict';
+const _ = require('underscore');
 
 module.exports = {
 	shatter() {
-		return `sound/effects/glassbr${Math.floor(Math.random()*3)+1}.ogg`;
+		return `sound/effects/glassbr${_.random(1,3)}.ogg`;
 	},
 	explosion() {
-		return `sound/effects/explosion${Math.floor(Math.random()*2)+1}.ogg`;
+		return `sound/effects/explosion${_.random(1,2)}.ogg`;
 	},
 	sparks() {
-		return `sound/effects/sparks${Math.floor(Math.random()*4)+1}.ogg`;
+		return `sound/effects/sparks${_.random(1,4)}.ogg`;
 	},
 	rustle() {
-		return `sound/effects/rustle${Math.floor(Math.random()*5)+1}.ogg`;
+		return `sound/effects/rustle${_.random(1,5)}.ogg`;
 	}
 };

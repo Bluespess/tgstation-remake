@@ -1,6 +1,7 @@
 'use strict';
 
 const {sleep, dir_dx, dir_dy} = require('bluespess');
+const _ = require('underscore');
 
 class EffectSystem {
 	constructor(server, n = 3, c = false, loc) {
@@ -33,11 +34,11 @@ class EffectSystem {
 		this.total_effects++;
 		var dir;
 		if(this.cardinals)
-			dir = [1,2,4,8][Math.floor(Math.random()*4)];
+			dir = _.sample([1,2,4,8]);
 		else
-			dir = [1,2,4,8,5,6,9,10][Math.floor(Math.random()*4)];
+			dir = _.sample([1,2,4,8,5,6,9,10]);
 
-		var steps_amt = Math.floor(Math.random()*3)+1;
+		var steps_amt = _.random(1, 3);
 		for(var j = 0; j < steps_amt; j++) {
 			await sleep(500);
 			effect.move(dir_dx(dir), dir_dy(dir), "effect");

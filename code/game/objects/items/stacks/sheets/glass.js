@@ -1,5 +1,6 @@
 'use strict';
 const {Component, Atom, has_component, chain_func} = require('bluespess');
+const _ = require('underscore');
 const combat_defines = require('../../../../../defines/combat_defines.js');
 
 class GlassSheet extends Component {
@@ -96,7 +97,7 @@ class GlassShard extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 
-		this.a.icon_state = ["small", "medium", "large"][Math.floor(Math.random()*3)];
+		this.a.icon_state = _.sample(["small", "medium", "large"]);
 		this.a.once("moved", () => {
 			var bxo = Math.random() - 0.5;
 			var byo = Math.random() - 0.5;

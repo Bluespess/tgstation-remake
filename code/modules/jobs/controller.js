@@ -1,4 +1,5 @@
 'use strict';
+const _ = require('underscore');
 
 class JobController {
 	constructor(server) {
@@ -41,7 +42,7 @@ class JobController {
 		if(this.arrivals_area) {
 			let chairs = this.arrivals_area.c.AreaArrivals.chairs;
 			if(chairs && chairs.length) {
-				let chair = chairs[Math.floor(Math.random() * chairs.length)];
+				let chair = _.sample(chairs);
 				this.send_to_atom(mob, chair, buckle);
 				return;
 			}
