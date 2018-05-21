@@ -1,5 +1,5 @@
 'use strict';
-const {Component, Sound, has_component, visible_message, Atom, chain_func} = require('bluespess');
+const {Component, Sound, has_component, visible_message, Atom, chain_func, to_chat} = require('bluespess');
 const layers = require('../../../defines/layers.js');
 
 const _broken = Symbol('_broken');
@@ -60,6 +60,36 @@ class Grille extends Component {
 			item.c.Stack.use(1);
 			this.broken = false;
 			this.obj_integrity = 50;
+		} else if(has_component(item, "GlassSheet")) {
+			if(item.c.Stack.amount < 2) {
+				to_chat`<span class='warning'>You need at least two sheets of glass for that!</span>`(user);
+				return;
+			}
+			to_chat`<span class='notice'>You start placing the window...</span>`(user);
+			user.c.MobInventory.do_after({delay: 2000, target: this.a}).then((success) => {
+				if(!success || !this.a.loc)
+					return;
+				let window = new Atom(this.a.server, "window");
+				window.loc = this.a.loc;
+				window.c.Tangible.anchored = false;
+				item.c.Stack.use(2);
+				to_chat`<span class='notice'>You place ${window} on ${this.a}.</span>`(user);
+			});
+		} else if(has_component(item, "RGlassSheet")) {
+			if(item.c.Stack.amount < 2) {
+				to_chat`<span class='warning'>You need at least two sheets of glass for that!</span>`(user);
+				return;
+			}
+			to_chat`<span class='notice'>You start placing the window...</span>`(user);
+			user.c.MobInventory.do_after({delay: 2000, target: this.a}).then((success) => {
+				if(!success || !this.a.loc)
+					return;
+				let window = new Atom(this.a.server, "r_window");
+				window.loc = this.a.loc;
+				window.c.Tangible.anchored = false;
+				item.c.Stack.use(2);
+				to_chat`<span class='notice'>You place ${window} on ${this.a}.</span>`(user);
+			});
 		}
 		return prev();
 	}
