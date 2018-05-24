@@ -284,8 +284,8 @@ if(global.is_bs_editor_env) {
 				let byte = buffer[0];
 				let protocol = byte == 22 ? 'https' : 'http';
 				let proxy = proxies[protocol];
-				socket.unshift(buffer);
 				proxy.emit('connection', socket);
+				socket.unshift(buffer);
 				socket.resume();
 			});
 		}).listen(server_config.port);
