@@ -50,5 +50,25 @@ module.exports = {
 			return "r_leg";
 
 		return zone;
+	},
+	parse_zone(zone) {
+		if(zone == "r_hand")
+			return "right hand";
+		else if (zone == "l_hand")
+			return "left hand";
+		else if (zone == "l_arm")
+			return "left arm";
+		else if (zone == "r_arm")
+			return "right arm";
+		else if (zone == "l_leg")
+			return "left leg";
+		else if (zone == "r_leg")
+			return "right leg";
+		else if (zone == "l_foot")
+			return "left foot";
+		else if (zone == "r_foot")
+			return "right foot";
+		else
+			return zone;
 	}
 };

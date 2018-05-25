@@ -1,6 +1,8 @@
 'use strict';
-const {Component} = require('bluespess');
-const pass_flags = require('../../defines/pass_flags');
+const {Component, Sound, chain_func, has_component, to_chat, visible_message} = require('bluespess');
+const pass_flags = require('../../defines/pass_flags.js');
+const combat_defines = require('../../defines/combat_defines.js');
+const {random_zone, parse_zone} = require('../../game/mobs/living/carbon/body_parts/helpers.js');
 
 class Projectile extends Component.Networked {
 	constructor(atom, template) {
@@ -14,9 +16,25 @@ class Projectile extends Component.Networked {
 		this.process = this.process.bind(this);
 		this.process_timer = null;
 		this.last_process = -1;
+		this.permuted = new Set();
+		this.starting = null;
+		this.a.can_cross = chain_func(this.a.can_cross, this.can_cross.bind(this));
+		this.a.on("bumped", this.bumped.bind(this));
+	}
+
+	bumped(target, dx, dy, reason) {
+		if(reason != "projectile")
+			return;
+		if(this.collide(target)) {
+			this.a.destroy();
+		} else {
+			this.permuted.add(target);
+			this.a.move(dx, dy, "projectile");
+		}
 	}
 
 	fire(angle/*, direct_target*/) {
+		this.starting = [this.a.x, this.a.y];
 		if(angle != undefined)
 			this.angle = angle + (Math.random() - 0.5) * 2 * this.spread;
 		else
@@ -51,6 +69,91 @@ class Projectile extends Component.Networked {
 		}
 	}
 
+	can_cross(prev, target, dx, dy, reason) {
+		if(reason != "projectile")
+			return prev();
+		if(this.permuted.has(target)) // We've already hit the thing, so let's go through it now.
+			return true;
+		return prev();
+	}
+
+	vol_by_damage() {
+		if(this.damage) {
+			return Math.min(Math.max(this.damage * 0.0067, 30), 100);
+		} else {
+			return 50;
+		}
+	}
+
+	prehit(/*target*/) {
+		return true;
+	}
+
+	hit(target, blocked = 0, def_zone) {
+		if(has_component(target, "Wall") && ["brute", "burn"].includes(this.damage_type) && !this.no_damage && Math.random() < 0.75) {
+			// TODO the damage decal
+		}
+		if(!has_component(target, "LivingMob")) {
+			return 0;
+		}
+		if(blocked < 1) {
+			// TODO blood splatter
+			let organ_hit_text = "";
+			if(has_component(target, "MobBodyParts")) {
+				organ_hit_text = ` in the ${parse_zone(target.c.MobBodyParts.limbs[def_zone] ? def_zone : "chest")}`;
+			}
+			if(this.suppressed) {
+				if(this.hitsound)
+					new Sound(this.a.server, {path: this.hitsound, volume: 0.05, vary: true}).emit_from(target);
+				to_chat`<span class='userdanger'>You're shot by a ${this.a}${organ_hit_text}</span>`(target);
+			} else {
+				if(this.hitsound)
+					new Sound(this.a.server, {path: this.hitsound, volume: this.vol_by_damage(), vary: true}).emit_from(target);
+				visible_message`<span class='danger'>The ${target} is hit by a ${this.a}${organ_hit_text}</span>`
+					.self`<span class='userdanger'>The ${target} is hit by a ${this.a}${organ_hit_text}</span>`
+					.range(combat_defines.COMBAT_MESSAGE_RANGE)
+					.emit_from(target);
+			}
+		}
+		return 0;
+	}
+
+	collide(target) {
+		let dist = Math.sqrt((this.starting[0] - this.a.x) ** 2 + (this.starting[1] - this.a.y) ** 2); // Get the distance between the turf shot from and the mob we hit and use that for the calculations.
+		this.def_zone = random_zone(this.def_zone, Math.max(1 - (0.07 * dist), 0.05)); //Lower accurancy/longer range tradeoff. 7 is a balanced number to use.
+		if(has_component(target, "Wall") && this.hitsound_wall) {
+			let volume = Math.min(Math.max(this.vol_by_damage() + 0.2, 0), 1);
+			if(this.suppressed)
+				volume = 0.05;
+			new Sound(this.a.server, {path: this.hitsound_wall, volume, vary: true}).emit_from(target);
+		}
+
+		if(!this.prehit(target)) {
+			return false;
+		}
+		if(!has_component(target, "Tangible"))
+			return true;
+
+		let permutation = target.c.Tangible.bullet_act(this.a, this.def_zone);
+		if(permutation == -1 || this.force_dodge) {
+			return false;
+		} else {
+			let alt = this.select_target(target);
+			if(alt) {
+				if(!this.prehit(alt))
+					return false;
+				if(has_component(alt, "Tangible"))
+					alt.c.Tangible.bullet_act(this.a, this.def_zone);
+			}
+		}
+
+		return true;
+	}
+
+	select_target() {
+		return;
+	}
+
 	destroy() {
 		if(this.process_timer)
 			clearInterval(this.process_timer);
@@ -71,6 +174,7 @@ Projectile.template = {
 				speed: 12.5, // This is in tiles per second. BYOND does deciseconds per 33/32 of a tile (yes really look at the code it's stupid and someone from tg needs to learn basic math)
 				// To convert from BYOND to this engine just do 10 / (speed) and ignore the fact that it's in 33/32 of a tile actually.
 				// Also, speed 0 in BYOND is equivalent to 100 tiles per second here. So do that.
+				force_dodge: false,
 				angle: 0,
 				spread: 0, // amount (in degrees) of projectile spread. Halve the value from BYOND though, because tgcoders are idiots.
 				nondirectional_sprite: false,

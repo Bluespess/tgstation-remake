@@ -251,7 +251,7 @@ class LivingMob extends Component {
 	}
 
 	can_be_crossed(prev, mover, dx, dy, reason) {
-		if((mover.density < 1 || this.a.density < 1) && reason != "throw")
+		if((mover.density < 1 || this.a.density < 1) && reason != "throw" && reason != "projectile")
 			return true;
 		return prev();
 	}

@@ -116,6 +116,10 @@ class Tangible extends Component {
 		this.emit("throw_finished");
 	}
 
+	bullet_act(projectile, def_zone) {
+		return projectile.c.Projectile.hit(this.a, 0, def_zone);
+	}
+
 	stop_throw() {} // This only has actual code once throw_at is called
 
 	drop_location() {
