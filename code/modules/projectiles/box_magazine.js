@@ -49,7 +49,7 @@ class AmmoBox extends Component {
 			return true;
 		} else if (replace_spent) { //for accessibles magazines (e.g internal ones) when full, start replacing spent ammo
 			for(let casing in this.stored_ammo) {
-				if(!casing.BB) { //Spent ammo. //TODO: This is "var/obj/item/projectile/BB" on "/obj/item/ammo_casing". Make sure it's still correct once casings are coded.
+				if(!casing.projectile) { //Spent ammo.
 					this.stored_ammo -= casing;
 					casing.loc = this.a.loc;
 
@@ -103,7 +103,7 @@ class AmmoBox extends Component {
 		}
 		if(num_loaded) {
 			if(!silent) {
-				to_chat`<span class='notice'>You load ${num_loaded} shell${this.num_loaded == 1 ? "" : "s"} into the ${this.a}!</span>`(user);
+				to_chat`<span class='notice'>You load ${num_loaded} shell${num_loaded == 1 ? "" : "s"} into the ${this.a}!</span>`(user);
 				new Sound(this.a.server, {path: 'sound/weapons/bulletinsert.ogg', volume: 0.6, vary: true}).emit_from(user);
 			}
 		}
@@ -130,7 +130,7 @@ AmmoBox.template = {
 		components: {
 			"AmmoBox": {
 				stored_ammo: [],
-				ammo_type: "AmmoCasing", //TODO: Replace this with whatever eventually becomes the equivalent of /obj/item/ammo_casing
+				ammo_type: "ammo_casing",
 				max_ammo: 7,
 				multiple_sprites: 0,
 				caliber: null,
@@ -141,9 +141,7 @@ AmmoBox.template = {
 				force: 2,
 				throw_speed: 3,
 				throw_range: 7,
-				attack_verb: ["pinched", "nipped"],
 				size: 1,
-				hitsound: 'sound/items/wirecutter.ogg',
 				inhand_lhand_icon: 'icons/mob/inhands/equipment/medical_lefthand.png',
 				inhand_rhand_icon: 'icons/mob/inhands/equipment/medical_righthand.png',
 				inhand_icon_state: "syringe_kit",
@@ -156,7 +154,7 @@ AmmoBox.template = {
 			}
 		},
 		icon: 'icons/obj/ammo.png',
-		icon_state: "357",
+		icon_state: "357-0",
 		name: "ammo box (null_reference_exception)"
 	}
 };

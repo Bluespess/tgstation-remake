@@ -103,6 +103,7 @@ server.importModule(require('./code/modules/jobs/access.js'));
 server.importModule(require('./code/modules/jobs/controller.js'));
 server.importModule(require('./code/modules/jobs/id.js'));
 server.importModule(require('./code/modules/power/cable.js'));
+server.importModule(require('./code/modules/projectiles/ammunition.js'));
 server.importModule(require('./code/modules/projectiles/box_magazine.js'));
 server.importModule(require('./code/modules/projectiles/projectile.js'));
 server.importModule(require('./code/modules/reagents/containers/open.js'));

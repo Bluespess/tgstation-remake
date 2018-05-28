@@ -50,6 +50,15 @@ module.exports.templates = {
 			components: {
 				"Examine": {
 					desc: "It contains essential survival equipment."
+				},
+				"StorageItem": {
+					populate_contents() {
+						new Atom(this.a.server, "ammo_casing", this.a);
+						new Atom(this.a.server, "ammo_casing", this.a);
+						new Atom(this.a.server, "ammo_casing", this.a);
+						new Atom(this.a.server, "ammo_box", this.a);
+						new Atom(this.a.server, "ammo_box", this.a);
+					}
 				}
 			},
 			name: "survival box",
@@ -69,7 +78,7 @@ module.exports.templates = {
 				"StorageItem": {
 					populate_contents() {
 						for(let i = 0; i < 7; i++) {
-    					new Atom(this.a.server, "beaker", this.a);
+							new Atom(this.a.server, "beaker", this.a);
 						}
 					}
 				}
