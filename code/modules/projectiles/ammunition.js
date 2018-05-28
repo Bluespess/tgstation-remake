@@ -27,7 +27,7 @@ class AmmoCasing extends Component {
 
 	attack_by(prev, item, user) {
 		if(has_component(item, "AmmoBox")) {
-			if(item.base_loc && item.base_loc.turf) {
+			if(this.a.loc && this.a.loc.is_base_loc) {
 				let boolets = 0;
 				for(let bullet of this.a.crosses()) {
 					if(has_component(bullet, "AmmoCasing")) {
@@ -68,7 +68,7 @@ AmmoCasing.template = {
 		components: {
 			"AmmoCasing": {
 				fire_sound: null, //What sound should play when this ammo is fired
-				caliber: null, //Which kind of guns it can be loaded into
+				caliber: null, //Which kind of guns it can be loaded into 
 				projectile_type: null, //The bullet type to create when New() is called
 				projectile: true, //The loaded bullet. Renamed from TG's "BB".
 				pellets: 1, //Pellets for spreadshot
@@ -76,7 +76,7 @@ AmmoCasing.template = {
 				randomspread: 0, //Randomspread for automatics
 				delay: 0, //Delay for energy weapons
 				click_cooldown_override: 0, //Override this to make your gun have a faster fire rate, in tenths of a second. 4 is the default gun cooldown.
-				firing_effect_type: null //the visual effect appearing when the ammo is fired. //TODO: set this to /obj/effect/temp_visual/dir_setting/firing_effect
+				firing_effect_type: null //the visual effect appearing when the ammo is fired. //TODO: set this to /obj/effect/temp_visual/dir_setting/firing_effect once that exists
 			},
 			"Item": {
 				force: 0,

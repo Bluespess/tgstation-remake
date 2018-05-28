@@ -51,7 +51,7 @@ module.exports.templates = {
 				"Examine": {
 					desc: "It contains essential survival equipment."
 				},
-				"StorageItem": {
+				"StorageItem": { //TODO: remove this testing placeholder
 					populate_contents() {
 						new Atom(this.a.server, "ammo_casing", this.a);
 						new Atom(this.a.server, "ammo_casing", this.a);

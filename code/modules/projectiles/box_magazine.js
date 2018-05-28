@@ -8,7 +8,7 @@ class AmmoBox extends Component {
 		this.a.c.Item.attack_self = this.attack_self.bind(this);
 		if(!this.start_empty) {
 			for(let i = 1; i <= this.max_ammo; i++) {
-				this.stored_ammo += new Atom(this.a.server, this.ammo_type, this.a);
+				this.stored_ammo.push(new Atom(this.a.server, this.ammo_type, this.a));
 			}
 		}
 		this.update_icon();
@@ -30,9 +30,10 @@ class AmmoBox extends Component {
 		if(!this.stored_ammo.length) {
 			return null;
 		}
-		let round = this.stored_ammo[this.stored_ammo.length];
+		let round = this.stored_ammo[this.stored_ammo.length - 1];
 		if(!keep) {
-			this.stored_ammo -= round;
+			let idx = this.stored_ammo.indexOf(round);
+			if(idx != -1) this.stored_ammo.splice(idx, 1);
 		}
 		return round;
 	}
@@ -44,16 +45,17 @@ class AmmoBox extends Component {
 		}
 
 		if(this.stored_ammo.length < this.max_ammo) {
-			this.stored_ammo += ammo_casing;
+			this.stored_ammo.push(ammo_casing);
 			ammo_casing.loc = this.a;
 			return true;
 		} else if (replace_spent) { //for accessibles magazines (e.g internal ones) when full, start replacing spent ammo
 			for(let casing in this.stored_ammo) {
 				if(!casing.projectile) { //Spent ammo.
-					this.stored_ammo -= casing;
+					let idx = this.stored_ammo.indexOf(casing);
+					if(idx != -1) this.stored_ammo.splice(idx, 1);
 					casing.loc = this.a.loc;
 
-					this.stored_ammo += ammo_casing;
+					this.stored_ammo.push(ammo_casing);
 					ammo_casing.loc = this.a;
 					return true;
 				}
@@ -73,7 +75,8 @@ class AmmoBox extends Component {
 	empty_magazine() {
 		for(let ammo in this.stored_ammo) {
 			ammo.loc = this.a.loc;
-			this.stored_ammo -+ ammo;
+			let idx = this.stored_ammo.indexOf(ammo);
+			if(idx != -1) this.stored_ammo.splice(idx, 1);
 		}
 	}
 
@@ -86,7 +89,8 @@ class AmmoBox extends Component {
 			for(let casing in item.stored_ammo) {
 				let did_load = this.give_round(casing, replace_spent);
 				if(did_load) {
-					item.stored_ammo -= casing;
+					let idx = item.stored_ammo.indexOf(casing);
+					if(idx != -1) item.stored_ammo.splice(idx, 1);
 					num_loaded++;
 				}
 				if(!did_load || !this.multiload) {
@@ -95,7 +99,7 @@ class AmmoBox extends Component {
 			}
 			item.update_icon();
 		}
-		if(has_component(item, "AmmoCasing")) { //TODO: Make sure this is correct once ammo casings are coded
+		if(has_component(item, "AmmoCasing")) {
 			if(this.give_round(item, replace_spent)) {
 				item.loc = this.a;
 				num_loaded++;
@@ -114,7 +118,7 @@ class AmmoBox extends Component {
 	attack_self(user) {
 		let casing = this.get_round();
 		if(casing) {
-			user.put_in_hands(casing);
+			user.c.MobInventory.put_in_hands(casing);
 			to_chat`<span class='notice'>You remove a round from the ${this.a}!</span>`(user);
 			new Sound(this.a.server, {path: 'sound/weapons/bulletremove.ogg', volume: 0.6, vary: true}).emit_from(user);
 			this.update_icon();
