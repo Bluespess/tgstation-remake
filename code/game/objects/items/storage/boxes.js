@@ -69,7 +69,7 @@ module.exports.templates = {
 				"StorageItem": {
 					populate_contents() {
 						for(let i = 0; i < 7; i++) {
-    					new Atom(this.a.server, "beaker", this.a);
+							new Atom(this.a.server, "beaker", this.a);
 						}
 					}
 				}
