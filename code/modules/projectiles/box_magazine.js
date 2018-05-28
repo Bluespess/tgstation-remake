@@ -6,6 +6,7 @@ class AmmoBox extends Component {
 		super(atom, template);
 		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
 		this.a.c.Item.attack_self = this.attack_self.bind(this);
+		this.stored_ammo = [];
 		if(!this.start_empty) {
 			for(let i = 1; i <= this.max_ammo; i++) {
 				this.stored_ammo.push(new Atom(this.a.server, this.ammo_type, this.a));
@@ -32,15 +33,17 @@ class AmmoBox extends Component {
 		}
 		let round = this.stored_ammo[this.stored_ammo.length - 1];
 		if(!keep) {
-			let idx = this.stored_ammo.indexOf(round);
-			if(idx != -1) this.stored_ammo.splice(idx, 1);
+			this.stored_ammo.length--;
 		}
 		return round;
 	}
 
 	give_round(ammo_casing, replace_spent = false) {
 		// Boxes don't have a caliber type, magazines do. Not sure if it's intended or not, but if we fail to find a caliber, then we fall back to ammo_type.
-		if(!ammo_casing || (this.caliber && ammo_casing.caliber != this.caliber) || (!this.caliber && ammo_casing.template != this.ammo_type)) { //TODO: no fucking clue if "ammo_casing.template != this.ammo_type" works or is correct
+		if(!has_component(ammo_casing, "AmmoCasing")) {
+			return false;
+		}
+		if(!ammo_casing || (this.caliber && ammo_casing.c.AmmoCasing.caliber != this.caliber) || (!this.caliber && ammo_casing.c.AmmoCasing.casing_type != this.ammo_type)) {
 			return false;
 		}
 
@@ -49,7 +52,7 @@ class AmmoBox extends Component {
 			ammo_casing.loc = this.a;
 			return true;
 		} else if (replace_spent) { //for accessibles magazines (e.g internal ones) when full, start replacing spent ammo
-			for(let casing in this.stored_ammo) {
+			for(let casing of this.stored_ammo) {
 				if(!casing.projectile) { //Spent ammo.
 					let idx = this.stored_ammo.indexOf(casing);
 					if(idx != -1) this.stored_ammo.splice(idx, 1);
@@ -73,31 +76,31 @@ class AmmoBox extends Component {
 	}
 
 	empty_magazine() {
-		for(let ammo in this.stored_ammo) {
+		for(let ammo of this.stored_ammo) {
 			ammo.loc = this.a.loc;
 			let idx = this.stored_ammo.indexOf(ammo);
 			if(idx != -1) this.stored_ammo.splice(idx, 1);
 		}
 	}
 
-	attack_by(prev, item, user, {silent = false, replace_spent = false} = {}) {
+	attack_by(prev, item, user, e, {silent = false, replace_spent = false} = {}) {
 		let num_loaded = 0;
 		if(!this.can_load(user)) {
 			return;
 		}
 		if(has_component(item, "AmmoBox")) {
-			for(let casing in item.stored_ammo) {
+			for(let casing of [...item.c.AmmoBox.stored_ammo]) {
 				let did_load = this.give_round(casing, replace_spent);
 				if(did_load) {
-					let idx = item.stored_ammo.indexOf(casing);
-					if(idx != -1) item.stored_ammo.splice(idx, 1);
+					let idx = item.c.AmmoBox.stored_ammo.indexOf(casing);
+					if(idx != -1) item.c.AmmoBox.stored_ammo.splice(idx, 1);
 					num_loaded++;
 				}
 				if(!did_load || !this.multiload) {
 					break;
 				}
 			}
-			item.update_icon();
+			item.c.AmmoBox.update_icon();
 		}
 		if(has_component(item, "AmmoCasing")) {
 			if(this.give_round(item, replace_spent)) {
@@ -118,7 +121,11 @@ class AmmoBox extends Component {
 	attack_self(user) {
 		let casing = this.get_round();
 		if(casing) {
-			user.c.MobInventory.put_in_hands(casing);
+			if(!user.c.MobInventory.put_in_hands(casing)) {
+				casing.loc = user.fine_loc;
+			} else {
+				user.c.MobInventory.put_in_hands(casing);
+			}
 			to_chat`<span class='notice'>You remove a round from the ${this.a}!</span>`(user);
 			new Sound(this.a.server, {path: 'sound/weapons/bulletremove.ogg', volume: 0.6, vary: true}).emit_from(user);
 			this.update_icon();
@@ -133,7 +140,6 @@ AmmoBox.template = {
 	vars: {
 		components: {
 			"AmmoBox": {
-				stored_ammo: [],
 				ammo_type: "ammo_casing",
 				max_ammo: 7,
 				multiple_sprites: 0,
@@ -142,7 +148,6 @@ AmmoBox.template = {
 				start_empty: false
 			},
 			"Item": {
-				force: 2,
 				throw_speed: 3,
 				throw_range: 7,
 				size: 1,
@@ -153,12 +158,15 @@ AmmoBox.template = {
 				//TODO slot_flags = SLOT_BELT
 				materials: {"metal": 30000},
 			},
+			"Tangile": {
+				throw_force: 2,
+			},
 			"Examine": {
 				desc: "A box of ammo."
 			}
 		},
 		icon: 'icons/obj/ammo.png',
-		icon_state: "357-0",
+		icon_state: "357",
 		name: "ammo box (null_reference_exception)"
 	}
 };

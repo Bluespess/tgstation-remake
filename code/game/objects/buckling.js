@@ -7,6 +7,7 @@ class Buckle extends Component {
 		super(atom, template);
 		this.a.attack_hand = chain_func(this.a.attack_hand, this.attack_hand.bind(this));
 		this.atom.on("mouse_dropped_by", this.mouse_dropped_by.bind(this));
+		this.buckled_mobs = [];
 	}
 
 	attack_hand(prev, user) {
@@ -138,7 +139,6 @@ Buckle.template = {
 				can_buckle: false,
 				buckle_lying: -1, //bed-like behaviour, forces mob.lying = buckle_lying if != -1
 				buckle_requires_restraints: false, //require people to be handcuffed before being able to buckle. eg: pipes
-				buckled_mobs: [],
 				max_buckled_mobs: 1,
 				buckle_prevents_pull: false
 			}

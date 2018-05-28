@@ -1,5 +1,6 @@
 'use strict';
 const {Component, Atom, chain_func, has_component, to_chat} = require('bluespess');
+const _ = require('underscore');
 
 class AmmoCasing extends Component {
 	constructor(atom, template) {
@@ -8,9 +9,9 @@ class AmmoCasing extends Component {
 		if(this.projectile_type) {
 			this.projectile = new Atom(this.a.server, this.projectile_type, this.a);
 		}
-		//TODO: pixel_x = rand(-10, 10) //I'm too dumb for this
-		//TODO: pixel_y = rand(-10, 10)
-		//TODO: setDir(pick(GLOB.alldirs))
+		this.a.once("moved", () => { //TODO: pixel offsets
+			this.a.dir = _.sample([1,2,4,8,5,6,9,10]);
+		});
 		this.update_icon();
 	}
 
@@ -29,27 +30,23 @@ class AmmoCasing extends Component {
 		if(has_component(item, "AmmoBox")) {
 			if(this.a.loc && this.a.loc.is_base_loc) {
 				let boolets = 0;
-				for(let bullet of this.a.crosses()) {
+				for(let bullet of this.a.loc.contents) {
 					if(has_component(bullet, "AmmoCasing")) {
-						if(item.stored_ammo && item.stored_ammo.length >= item.max_ammo) {
-							to_chat`<span class='notice'>fuck you 2</span>`(user); //TODO: remove this testing placeholder
+						if(item.c.AmmoBox.stored_ammo && item.c.AmmoBox.stored_ammo.length >= item.c.AmmoBox.max_ammo) {
 							break;
 						}
-						if(bullet.projectile) {
-							if(item.give_round(bullet, 0)) {
+						if(bullet.c.AmmoCasing.projectile) {
+							if(item.c.AmmoBox.give_round(bullet, 0)) {
 								boolets++;
-							} else {
-								to_chat`<span class='notice'>fuck you 3</span>`(user); //TODO: remove this testing placeholder
 							}
 						} else {
-							to_chat`<span class='notice'>fuck you</span>`(user); //TODO: remove this testing placeholder
 							continue;
 						}
 					}
 				}
 				if(boolets > 0) {
-					item.update_icon();
-					to_chat`<span class='notice'>You collect ${boolets} shell${boolets == 1 ? "" : "s"}. The ${this.a} now contains ${item.stored_ammo.length} shell${item.stored_ammo.length == 1 ? `` : `s`}</span>`(user);
+					item.c.AmmoBox.update_icon();
+					to_chat`<span class='notice'>You collect ${boolets} shell${boolets == 1 ? "" : "s"}. The ${this.a} now contains ${item.c.AmmoBox.stored_ammo.length} shell${item.c.AmmoBox.stored_ammo.length == 1 ? `` : `s`}</span>`(user);
 				} else {
 					to_chat`<span class='warning'>You fail to collect anything!</span>`(user);
 				}
@@ -68,15 +65,16 @@ AmmoCasing.template = {
 		components: {
 			"AmmoCasing": {
 				fire_sound: null, //What sound should play when this ammo is fired
-				caliber: null, //Which kind of guns it can be loaded into 
+				caliber: null, //Which kind of guns it can be loaded into
 				projectile_type: null, //The bullet type to create when New() is called
-				projectile: true, //The loaded bullet. Renamed from TG's "BB".
+				projectile: null, //The loaded bullet. Renamed from TG's "BB".
 				pellets: 1, //Pellets for spreadshot
 				variance: 0, //variance for inaccuracy fundamental to the casing
 				randomspread: 0, //Randomspread for automatics
 				delay: 0, //Delay for energy weapons
 				click_cooldown_override: 0, //Override this to make your gun have a faster fire rate, in tenths of a second. 4 is the default gun cooldown.
-				firing_effect_type: null //the visual effect appearing when the ammo is fired. //TODO: set this to /obj/effect/temp_visual/dir_setting/firing_effect once that exists
+				firing_effect_type: null, //the visual effect appearing when the ammo is fired. //TODO: set this to /obj/effect/temp_visual/dir_setting/firing_effect once that exists
+				casing_type: "ammo_casing" //Literally just the template name. Require because of how TG's whole ammo box/ammo casing/etc system is setup
 			},
 			"Item": {
 				force: 0,
