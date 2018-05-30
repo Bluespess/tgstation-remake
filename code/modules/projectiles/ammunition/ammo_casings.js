@@ -1,6 +1,6 @@
 'use strict';
 
-//TODO: Almost all casings are implemented, but not all of them have their projectile_type implemented
+//TODO: Almost all casings are implemented, but not all of them have their projectile_type implemented. Probably worth double-checking all the projectile_types once they're all implemented.
 
 //TODO (including their procs and subtypes): /obj/item/ammo_casing/shotgun/dart
 
