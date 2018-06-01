@@ -41,7 +41,7 @@ module.exports.templates = {
 				}
 			},
 			name: "rifle magazine (10mm)",
-			icon_state: "75-8"
+			icon_state: "75"
 			//TODO origin_tech: "combat=2"
 		},
 		tree_paths: ["items/ammo_box/magazine/m10mm/rifle"]
@@ -128,7 +128,9 @@ module.exports.templates = {
 				"AmmoBox": {
 					caliber: "4.6x30mm",
 					ammo_type: "casing_c46x30mm",
-					max_ammo: 20
+					max_ammo: 20,
+					ammo_mod: 4,
+					multiple_sprites: 1
 				},
 			},
 			name: "wt550 magazine (4.6x30mm)",
@@ -143,7 +145,9 @@ module.exports.templates = {
 				"AmmoBox": {
 					caliber: "4.6x30mm",
 					ammo_type: "casing_c46x30mm_ap",
-					max_ammo: 20
+					max_ammo: 20,
+					ammo_mod: 4,
+					multiple_sprites: 1
 				},
 			},
 			name: "wt550 magazine (Armor Piercing 4.6x30mm)",
@@ -158,7 +162,9 @@ module.exports.templates = {
 				"AmmoBox": {
 					caliber: "4.6x30mm",
 					ammo_type: "casing_c46x30mm_inc",
-					max_ammo: 20
+					max_ammo: 20,
+					ammo_mod: 4,
+					multiple_sprites: 1
 				},
 			},
 			name: "wt550 magazine (Incendiary 4.6x30mm)",
@@ -173,7 +179,9 @@ module.exports.templates = {
 				"AmmoBox": {
 					caliber: "9mm",
 					ammo_type: "casing_c9mm",
-					max_ammo: 32
+					max_ammo: 32,
+					ammo_mod: 4,
+					multiple_sprites: 1
 				},
 			},
 			name: "uzi magazine (9mm)",
@@ -192,7 +200,7 @@ module.exports.templates = {
 				},
 			},
 			name: "SMG magazine (9mm)",
-			icon_state: "smg9mm-42"
+			icon_state: "smg9mm"
 		},
 		tree_paths: ["items/ammo_box/magazine/smgm9mm"]
 	},
@@ -207,7 +215,7 @@ module.exports.templates = {
 				},
 			},
 			name: "SMG magazine (Armor Piercing 9mm)",
-			icon_state: "smg9mm-42"
+			icon_state: "smg9mm"
 		},
 		tree_paths: ["items/ammo_box/magazine/smgm9mm/ap"]
 	},
@@ -222,7 +230,7 @@ module.exports.templates = {
 				},
 			},
 			name: "SMG magazine (Incendiary 9mm)",
-			icon_state: "smg9mm-42"
+			icon_state: "smg9mm"
 		},
 		tree_paths: ["items/ammo_box/magazine/smgm9mm/fire"]
 	},
@@ -237,7 +245,7 @@ module.exports.templates = {
 				},
 			},
 			name: "pistol magazine (9mm)",
-			icon_state: "9x19p-8"
+			icon_state: "9x19p"
 		},
 		tree_paths: ["items/ammo_box/magazine/pistolm9mm"]
 	},
@@ -248,11 +256,13 @@ module.exports.templates = {
 				"AmmoBox": {
 					caliber: ".45",
 					ammo_type: "casing_c45_nostamina",
-					max_ammo: 24
+					max_ammo: 24,
+					ammo_mod: 2,
+					multiple_sprites: 2
 				},
 			},
 			name: "SMG magazine (.45)",
-			icon_state: "c20r45-24"
+			icon_state: "c20r45"
 			//TODO origin_tech: "combat=2"
 		},
 		tree_paths: ["items/ammo_box/magazine/smgm45"]
@@ -329,7 +339,8 @@ module.exports.templates = {
 				"AmmoBox": {
 					caliber: "shotgun",
 					ammo_type: "casing_shotgun_stunslug",
-					max_ammo: 8
+					max_ammo: 8,
+					multiple_sprites: 2
 				},
 			},
 			name: "shotgun magazine (12g taser slugs)",
@@ -345,7 +356,8 @@ module.exports.templates = {
 				"AmmoBox": {
 					caliber: "shotgun",
 					ammo_type: "casing_shotgun_buckshot",
-					max_ammo: 8
+					max_ammo: 8,
+					multiple_sprites: 2
 				},
 			},
 			name: "shotgun magazine (12g buckshot slugs)",
@@ -361,7 +373,8 @@ module.exports.templates = {
 				"AmmoBox": {
 					caliber: "shotgun",
 					ammo_type: "casing_shotgun",
-					max_ammo: 8
+					max_ammo: 8,
+					multiple_sprites: 2
 				},
 			},
 			name: "shotgun magazine (12g slugs)",
@@ -377,7 +390,8 @@ module.exports.templates = {
 				"AmmoBox": {
 					caliber: "shotgun",
 					ammo_type: "casing_shotgun_dragonsbreath",
-					max_ammo: 8
+					max_ammo: 8,
+					multiple_sprites: 2
 				},
 			},
 			name: "shotgun magazine (12g dragon's breath)",
@@ -393,7 +407,8 @@ module.exports.templates = {
 				"AmmoBox": {
 					caliber: "shotgun",
 					ammo_type: "casing_shotgun_dart_bioterror",
-					max_ammo: 8
+					max_ammo: 8,
+					multiple_sprites: 2
 				},
 			},
 			name: "shotgun magazine (12g bioterror)",
@@ -409,7 +424,8 @@ module.exports.templates = {
 				"AmmoBox": {
 					caliber: "shotgun",
 					ammo_type: "casing_shotgun_meteorslug",
-					max_ammo: 8
+					max_ammo: 8,
+					multiple_sprites: 2
 				},
 			},
 			name: "shotgun magazine (12g meteor slugs)",
@@ -425,7 +441,8 @@ module.exports.templates = {
 				"AmmoBox": {
 					caliber: ".50",
 					ammo_type: "casing_p50",
-					max_ammo: 6
+					max_ammo: 6,
+					multiple_sprites: 2
 				},
 			},
 			name: "sniper rounds (.50)",
@@ -441,7 +458,8 @@ module.exports.templates = {
 				"AmmoBox": {
 					caliber: ".50",
 					ammo_type: "casing_p50_soporific",
-					max_ammo: 3
+					max_ammo: 3,
+					multiple_sprites: 2
 				},
 				"Examine": {
 					desc: "Soporific sniper rounds, designed for happy days and dead quiet nights..."
@@ -460,7 +478,8 @@ module.exports.templates = {
 				"AmmoBox": {
 					caliber: ".50",
 					ammo_type: "casing_p50_penetrator",
-					max_ammo: 5
+					max_ammo: 5,
+					multiple_sprites: 2
 				},
 				"Examine": {
 					desc: "An extremely powerful round capable of passing straight through cover and anyone unfortunate enough to be behind it."
@@ -479,11 +498,13 @@ module.exports.templates = {
 				"AmmoBox": {
 					caliber: "mm195129",
 					ammo_type: "casing_mm195x129",
-					max_ammo: 50
+					max_ammo: 50,
+					ammo_mod: 10,
+					multiple_sprites: 1
 				},
 			},
 			name: "box magazine (1.95x129mm)",
-			icon_state: "a762-50"
+			icon_state: "a762"
 			//TODO origin_tech: "combat=2"
 		},
 		tree_paths: ["items/ammo_box/magazine/mm195x129"]
@@ -495,11 +516,13 @@ module.exports.templates = {
 				"AmmoBox": {
 					caliber: "mm195129",
 					ammo_type: "casing_mm195x129_hp",
-					max_ammo: 50
+					max_ammo: 50,
+					ammo_mod: 10,
+					multiple_sprites: 1
 				},
 			},
 			name: "box magazine (Hollow-Point 1.95x129mm)",
-			icon_state: "a762-50"
+			icon_state: "a762"
 			//TODO origin_tech: "combat=3"
 		},
 		tree_paths: ["items/ammo_box/magazine/mm195x129/hp"]
@@ -511,11 +534,13 @@ module.exports.templates = {
 				"AmmoBox": {
 					caliber: "mm195129",
 					ammo_type: "casing_mm195x129_ap",
-					max_ammo: 50
+					max_ammo: 50,
+					ammo_mod: 10,
+					multiple_sprites: 1
 				},
 			},
 			name: "box magazine (Armor Penetrating 1.95x129mm)",
-			icon_state: "a762-50"
+			icon_state: "a762"
 			//TODO origin_tech: "combat=4"
 		},
 		tree_paths: ["items/ammo_box/magazine/mm195x129/ap"]
@@ -527,11 +552,13 @@ module.exports.templates = {
 				"AmmoBox": {
 					caliber: "mm195129",
 					ammo_type: "casing_mm195x129_inc",
-					max_ammo: 50
+					max_ammo: 50,
+					ammo_mod: 10,
+					multiple_sprites: 1
 				},
 			},
 			name: "box magazine (Incendiary 1.95x129mm)",
-			icon_state: "a762-50"
+			icon_state: "a762"
 			//TODO origin_tech: "combat=4"
 		},
 		tree_paths: ["items/ammo_box/magazine/mm195x129/inc"]
@@ -556,11 +583,12 @@ module.exports.templates = {
 				"AmmoBox": {
 					caliber: "foam_force",
 					ammo_type: "caseless_foam_dart",
-					max_ammo: 20
+					max_ammo: 20,
+					multiple_sprites: 2
 				},
 			},
 			name: "foam force SMG magazine",
-			icon_state: "smg9mm-42"
+			icon_state: "smg9mm"
 		},
 		tree_paths: ["items/ammo_box/magazine/toy/smg"]
 	},
@@ -571,11 +599,12 @@ module.exports.templates = {
 				"AmmoBox": {
 					caliber: "foam_force",
 					ammo_type: "caseless_foam_dart_riot",
-					max_ammo: 20
+					max_ammo: 20,
+					multiple_sprites: 2
 				},
 			},
 			name: "foam force SMG magazine",
-			icon_state: "smg9mm-42"
+			icon_state: "smg9mm"
 		},
 		tree_paths: ["items/ammo_box/magazine/toy/smg/riot"]
 	},
@@ -602,11 +631,13 @@ module.exports.templates = {
 				"AmmoBox": {
 					caliber: "foam_force",
 					ammo_type: "caseless_foam_dart",
-					max_ammo: 20
+					max_ammo: 20,
+					ammo_mod: 2,
+					mutiple_sprites: 1
 				},
 			},
 			name: "donksoft SMG magazine",
-			icon_state: "c20r45-20"
+			icon_state: "c20r45"
 		},
 		tree_paths: ["items/ammo_box/magazine/toy/smgm45"]
 	},
@@ -617,11 +648,13 @@ module.exports.templates = {
 				"AmmoBox": {
 					caliber: "foam_force",
 					ammo_type: "caseless_foam_dart_riot",
-					max_ammo: 20
+					max_ammo: 20,
+					ammo_mod: 2,
+					multiple_sprites: 1
 				},
 			},
 			name: "donksoft SMG magazine",
-			icon_state: "c20r45-20"
+			icon_state: "c20r45"
 		},
 		tree_paths: ["items/ammo_box/magazine/toy/smgm45/riot"]
 	},

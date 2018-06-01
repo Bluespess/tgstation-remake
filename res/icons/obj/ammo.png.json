@@ -1036,7 +1036,7 @@
 		},
 		"tile_size": 32
 	},
-	"9x19p-8": {
+	"9x19p-1": {
 		"dir_count": 1,
 		"width": 32,
 		"height": 32,
@@ -1070,7 +1070,7 @@
 		},
 		"tile_size": 32
 	},
-	"9x19pI-8": {
+	"9x19pI-1": {
 		"dir_count": 1,
 		"width": 32,
 		"height": 32,
@@ -1104,7 +1104,7 @@
 		},
 		"tile_size": 32
 	},
-	"9x19pA-8": {
+	"9x19pA-1": {
 		"dir_count": 1,
 		"width": 32,
 		"height": 32,
@@ -1138,7 +1138,7 @@
 		},
 		"tile_size": 32
 	},
-	"9x19pH-8": {
+	"9x19pH-1": {
 		"dir_count": 1,
 		"width": 32,
 		"height": 32,
@@ -1172,7 +1172,7 @@
 		},
 		"tile_size": 32
 	},
-	"smg9mm-42": {
+	"smg9mm-1": {
 		"dir_count": 1,
 		"width": 32,
 		"height": 32,
@@ -1997,7 +1997,7 @@
 		},
 		"tile_size": 32
 	},
-	"75-8": {
+	"75-1": {
 		"dir_count": 1,
 		"width": 32,
 		"height": 32,
@@ -2252,7 +2252,7 @@
 		},
 		"tile_size": 32
 	},
-	"m12gb-8": {
+	"m12gb-1": {
 		"dir_count": 1,
 		"width": 32,
 		"height": 32,
@@ -2291,7 +2291,7 @@
 		},
 		"tile_size": 32
 	},
-	"m12gs-8": {
+	"m12gs-1": {
 		"dir_count": 1,
 		"width": 32,
 		"height": 32,
@@ -2330,7 +2330,7 @@
 		},
 		"tile_size": 32
 	},
-	"m12gf-8": {
+	"m12gf-1": {
 		"dir_count": 1,
 		"width": 32,
 		"height": 32,
@@ -2369,7 +2369,7 @@
 		},
 		"tile_size": 32
 	},
-	"5.56m-30": {
+	"5.56m-1": {
 		"dir_count": 1,
 		"width": 32,
 		"height": 32,
@@ -2726,7 +2726,7 @@
 		},
 		"tile_size": 32
 	},
-	"m12gt-8": {
+	"m12gt-1": {
 		"dir_count": 1,
 		"width": 32,
 		"height": 32,
@@ -3020,7 +3020,7 @@
 		},
 		"tile_size": 32
 	},
-	".50mag": {
+	".50mag-0": {
 		"dir_count": 1,
 		"width": 32,
 		"height": 32,
@@ -3037,7 +3037,7 @@
 		},
 		"tile_size": 32
 	},
-	".50mag-ammo": {
+	".50mag-1": {
 		"dir_count": 1,
 		"width": 32,
 		"height": 32,
@@ -3411,7 +3411,7 @@
 		},
 		"tile_size": 32
 	},
-	"soporific": {
+	"soporific-0": {
 		"dir_count": 1,
 		"width": 32,
 		"height": 32,
@@ -3428,7 +3428,7 @@
 		},
 		"tile_size": 32
 	},
-	"soporific-ammo": {
+	"soporific-1": {
 		"dir_count": 1,
 		"width": 32,
 		"height": 32,
@@ -3445,7 +3445,7 @@
 		},
 		"tile_size": 32
 	},
-	"haemorrhage": {
+	"haemorrhage-0": {
 		"dir_count": 1,
 		"width": 32,
 		"height": 32,
@@ -3462,7 +3462,7 @@
 		},
 		"tile_size": 32
 	},
-	"haemorrhage-ammo": {
+	"haemorrhage-1": {
 		"dir_count": 1,
 		"width": 32,
 		"height": 32,

@@ -18,10 +18,10 @@ class AmmoBox extends Component {
 	update_icon() {
 		switch (this.multiple_sprites) {
 		case 1:
-			this.a.icon_state = `${this.a.template.vars.icon_state}-${this.stored_ammo.length}`;
+			this.a.icon_state = `${this.a.template.vars.icon_state}-${this.stored_ammo.length % this.ammo_mod}`;
 			break;
 		case 2:
-			this.a.icon_state = `${this.a.template.vars.icon_state}-${this.stored_ammo.length ? `${this.max_ammo}` : `0`}`;
+			this.a.icon_state = `${this.a.template.vars.icon_state}-${this.stored_ammo.length ? `1` : `0`}`;
 			break;
 		}
 		this.a.c.Examine.desc = `${this.a.template.vars.components.Examine.desc} There are ${this.stored_ammo.length} shell${this.stored_ammo.length == 1 ? "" : "s"} left.`;
@@ -143,6 +143,7 @@ AmmoBox.template = {
 				ammo_type: "ammo_casing",
 				max_ammo: 7,
 				multiple_sprites: 0,
+				ammo_mod: 1,
 				caliber: null,
 				multiload: true,
 				start_empty: false
