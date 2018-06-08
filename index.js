@@ -109,6 +109,7 @@ server.importModule(require('./code/modules/projectiles/boxes_magazines/external
 server.importModule(require('./code/modules/projectiles/projectile/bullets.js'));
 server.importModule(require('./code/modules/projectiles/ammunition.js'));
 server.importModule(require('./code/modules/projectiles/box_magazine.js'));
+server.importModule(require('./code/modules/projectiles/gun.js'));
 server.importModule(require('./code/modules/projectiles/projectile.js'));
 server.importModule(require('./code/modules/reagents/containers/open.js'));
 server.importModule(require('./code/modules/reagents/containers/pill.js'));

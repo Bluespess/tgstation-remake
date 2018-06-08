@@ -6,12 +6,7 @@ class AmmoCasing extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
-		if(this.projectile_type) {
-			this.projectile = new Atom(this.a.server, this.projectile_type, this.a);
-		}
-		this.a.once("moved", () => { //TODO: pixel offsets
-			this.a.dir = _.sample([1,2,4,8,5,6,9,10]);
-		});
+		this.a.dir = _.sample([1,2,4,8,5,6,9,10]);
 		this.update_icon();
 	}
 
@@ -20,10 +15,26 @@ class AmmoCasing extends Component {
 		this.a.c.Examine.desc = `${this.a.template.vars.components.Examine.desc}${this.projectile ? `` : ` This one is spent.`}`;
 	}
 
-	newshot() { //proc to magically refill a casing with a new projectile. For energy weapons, syringe gun, shotgun shells and wands (!).
-		if(!this.projectile) {
-			this.projectile = new Atom(this.a.server, this.projectile_type, this.a);
-		}
+	fire({target, user, angle = 0, suppressed = false, zone_override, spread} = {}) {
+		if(!user.loc || !user.loc.is_base_loc || this.spent)
+			return;
+		let proj = this.create_projectile({target, user, suppressed, zone_override});
+		proj.loc = user.loc;
+		proj.c.Projectile.add_spread(spread);
+		proj.c.Projectile.add_spread(this.spread);
+		proj.c.Projectile.fire(angle);
+		if(!this.infinite)
+			this.spent = true;
+		return true;
+	}
+
+	create_projectile({target, user, quiet = false, zone_override} = {}) { //Different from tg. Fuck tg by the way.
+		let proj = new Atom(this.a.server, this.projectile_type, this.a);
+		proj.c.Projectile.target = target;
+		proj.c.Projectile.firer = user;
+		proj.c.Projectile.def_zone = zone_override || user.c.MobInteract.zone_sel;
+		proj.c.Projectile.suppressed = quiet;
+		return proj;
 	}
 
 	attack_by(prev, item, user) {
@@ -67,14 +78,15 @@ AmmoCasing.template = {
 				fire_sound: null, //What sound should play when this ammo is fired
 				caliber: null, //Which kind of guns it can be loaded into
 				projectile_type: null, //The bullet type to create when New() is called
-				projectile: null, //The loaded bullet. Renamed from TG's "BB".
 				pellets: 1, //Pellets for spreadshot
-				variance: 0, //variance for inaccuracy fundamental to the casing
-				randomspread: 0, //Randomspread for automatics
+				spread: 0, //variance for inaccuracy fundamental to the casing. Use 1/4 the value from byond. Previously variance on byond
+				fixed_spread: false, //Randomspread for automatics
 				delay: 0, //Delay for energy weapons
 				click_cooldown_override: 0, //Override this to make your gun have a faster fire rate, in tenths of a second. 4 is the default gun cooldown.
 				firing_effect_type: null, //the visual effect appearing when the ammo is fired. //TODO: set this to /obj/effect/temp_visual/dir_setting/firing_effect once that exists
-				casing_type: "ammo_casing" //Literally just the template name. Require because of how TG's whole ammo box/ammo casing/etc system is setup
+				casing_type: "ammo_casing", //Literally just the template name. Require because of how TG's whole ammo box/ammo casing/etc system is setup
+				spent: false,
+				infinite: false
 			},
 			"Item": {
 				force: 0,

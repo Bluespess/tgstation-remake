@@ -1,6 +1,7 @@
 'use strict';
 
-const {Component, Atom, has_component, chain_func, is_atom, visible_message} = require('bluespess');
+const {Component, Atom, has_component, chain_func, is_atom, visible_message, to_chat} = require('bluespess');
+const combat_defines = require('../defines/combat_defines.js');
 const EventEmitter = require('events');
 const _slots = Symbol('_slots');
 const {_slot} = require('../game/objects/items.js').symbols;
@@ -176,6 +177,13 @@ class MobInventory extends Component {
 		return false;
 	}
 
+	*hand_slots() {
+		for(let slot of Object.values(this[_slots])) {
+			if(slot.props.is_hand_slot)
+				yield slot;
+		}
+	}
+
 	get nohold_counter() {
 		return this[_nohold_counter];
 	}
@@ -190,6 +198,14 @@ class MobInventory extends Component {
 					slot.item = null;
 			}
 		}
+	}
+
+	can_use_guns(gun) {
+		if(gun.c.Gun.trigger_guard != combat_defines.TRIGGER_GUARD_ALLOW_ALL && !this.a.c.MobInteract.advanced_tool_user) {
+			to_chat`<span class='warning'>You don't have the dexterity to do this!</span>`(this.a);
+			return false;
+		}
+		return true;
 	}
 
 	accident() {

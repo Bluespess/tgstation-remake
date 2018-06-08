@@ -106,7 +106,8 @@ MobInteract.template = {
 				zone_sel_template: null,
 				act_intents: ["help", "harm"],
 				act_intent: "help",
-				nointeract_counter: 0
+				nointeract_counter: 0,
+				advanced_tool_user: false // Fun fact on tg this is a proc for no reason. A proc that just returns true/false. As in that's the only thing it does.
 			}
 		}
 	}

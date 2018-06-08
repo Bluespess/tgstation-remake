@@ -23,7 +23,8 @@ HumanMob.template = {
 	vars: {
 		components: {
 			"MobInteract": {
-				zone_sel_template: "human_zone_sel"
+				zone_sel_template: "human_zone_sel",
+				advanced_tool_user: true
 			}
 		}
 	}

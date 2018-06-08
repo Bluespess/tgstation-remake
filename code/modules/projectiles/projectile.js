@@ -33,10 +33,16 @@ class Projectile extends Component.Networked {
 		}
 	}
 
+	add_spread(amt) { // Adds spread to the projectile using proper normal distribution math
+		this.spread = Math.sqrt(this.spread * this.spread + amt * amt);
+	}
+
 	fire(angle/*, direct_target*/) {
 		this.starting = [this.a.x, this.a.y];
 		if(angle != undefined)
-			this.angle = angle + (Math.random() - 0.5) * 2 * this.spread;
+			//Does a Box-Muller transform to make the bullet spread a normal distribution.
+			// This is to make it easier to have spread from multiple sources work as you would expect.
+			this.angle = angle + (Math.sqrt( -2.0 * Math.log( Math.random() || 0.001 ) ) * Math.cos( 2.0 * Math.PI * Math.random() ) * this.spread);
 		else
 			this.angle = this.angle || 0;
 		this.paused = false;
@@ -74,6 +80,8 @@ class Projectile extends Component.Networked {
 			return prev();
 		if(this.permuted.has(target)) // We've already hit the thing, so let's go through it now.
 			return true;
+		if(target == this.target && target.density != -1)
+			return false; // We aimed at the thing, so clearly we aimed down on it.
 		return prev();
 	}
 
@@ -170,13 +178,14 @@ Projectile.template = {
 
 				def_zone: "",
 				firer: null,
+				target: null,
 				suppressed: false,
 				speed: 12.5, // This is in tiles per second. BYOND does deciseconds per 33/32 of a tile (yes really look at the code it's stupid and someone from tg needs to learn basic math)
 				// To convert from BYOND to this engine just do 10 / (speed) and ignore the fact that it's in 33/32 of a tile actually.
 				// Also, speed 0 in BYOND is equivalent to 100 tiles per second here. So do that.
 				force_dodge: false,
 				angle: 0,
-				spread: 0, // amount (in degrees) of projectile spread. Halve the value from BYOND though, because tgcoders are idiots.
+				spread: 0, // standard deviation of angle in degrees. Use 1/4 of value from byond for approximately correct value.
 				nondirectional_sprite: false,
 
 				damage: 10,

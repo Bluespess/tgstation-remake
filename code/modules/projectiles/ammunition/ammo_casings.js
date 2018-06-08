@@ -556,7 +556,7 @@ module.exports.templates = {
 					projectile_type: "bullet_shotgun_dragonsbreath",
 					casing_type: "casing_shotgun_dragonsbreath",
 					pellets: 4,
-					variance: 35
+					spread: 9
 				},
 				"Item": {
 					materials: {"metal": 4000},
@@ -663,7 +663,7 @@ module.exports.templates = {
 					projectile_type: "bullet_pellet_shotgun_buckshot",
 					casing_type: "casing_shotgun_buckshot",
 					pellets: 6,
-					variance: 25
+					spread: 6
 				},
 				"Item": {
 					materials: {"metal": 4000},
@@ -686,7 +686,7 @@ module.exports.templates = {
 					projectile_type: "bullet_pellet_shotgun_rubbershot",
 					casing_type: "casing_shotgun_rubbershot",
 					pellets: 6,
-					variance: 25
+					spread: 6
 				},
 				"Item": {
 					materials: {"metal": 4000},
@@ -709,7 +709,7 @@ module.exports.templates = {
 					projectile_type: "bullet_pellet_shotgun_improvised",
 					casing_type: "casing_shotgun_improvised",
 					pellets: 10,
-					variance: 25
+					spread: 6
 				},
 				"Item": {
 					materials: {"metal": 4000},
@@ -732,7 +732,7 @@ module.exports.templates = {
 					projectile_type: "ion_weak",
 					casing_type: "casing_shotgun_ion",
 					pellets: 4,
-					variance: 35
+					spread: 9
 				},
 				"Item": {
 					materials: {"metal": 4000},
