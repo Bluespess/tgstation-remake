@@ -7,12 +7,16 @@ var browserify = require('browserify');
 var watchify = require('watchify');
 var less = require('gulp-less');
 var concat = require('gulp-concat');
+var log = require('gulplog');
 
-var bundler = browserify('./index.js', {debug: true});
+var bundler = browserify({entries: './index.js', debug: true, cache: {}, packageCache: {}});
 
 function bundle(used_bundler = bundler) {
 	return used_bundler.bundle()
-		.on('error', function(err) {console.error(err); this.emit('end'); })
+		.on('error', function(err) {
+			log.error(err.toString());
+			this.emit('end');
+		})
 		.pipe(source('client.js'))
 		.pipe(buffer())
 		.pipe(sourcemaps.init({loadMaps: true}))
@@ -21,7 +25,7 @@ function bundle(used_bundler = bundler) {
 }
 
 gulp.task('js', function() {
-	bundle();
+	return bundle();
 });
 
 gulp.task('css', function() {
@@ -34,13 +38,12 @@ gulp.task('css', function() {
 });
 
 gulp.task('watch', function() {
-	var w = watchify(bundler);
-	bundle(w);
-	w.on('update', function() {
-		console.log("-> bundling");
-		bundle(w);
-	});
-	return gulp.watch(['css/**/*.less'], ['css']);
+	bundler.plugin(watchify);
+	gulp.series('js')();
+	bundler.on('update', gulp.series('js'));
+	return gulp.watch(['css/**/*.less'], gulp.series('css'));
 });
 
-gulp.task('default', ['js', 'css']);
+gulp.task('default', gulp.parallel('js', 'css'));
+
+gulp.task('all', gulp.series('css', 'watch'));

@@ -11,8 +11,10 @@ class AmmoCasing extends Component {
 	}
 
 	update_icon() {
-		this.a.icon_state = `${this.a.template.vars.icon_state}${this.projectile ? `-live` : ``}`;
-		this.a.c.Examine.desc = `${this.a.template.vars.components.Examine.desc}${this.projectile ? `` : ` This one is spent.`}`;
+		if(this.caseless)
+			return;
+		this.a.icon_state = `${this.a.template.vars.icon_state}${!this.spent ? `-live` : ``}`;
+		this.a.c.Examine.desc = `${this.a.template.vars.components.Examine.desc}${!this.spent ? `` : ` This one is spent.`}`;
 	}
 
 	fire({target, user, angle = 0, suppressed = false, zone_override, spread} = {}) {
@@ -23,8 +25,13 @@ class AmmoCasing extends Component {
 		proj.c.Projectile.add_spread(spread);
 		proj.c.Projectile.add_spread(this.spread);
 		proj.c.Projectile.fire(angle);
-		if(!this.infinite)
+		if(!this.infinite) {
 			this.spent = true;
+			if(this.caseless) {
+				this.a.destroy();
+			}
+		}
+		this.update_icon();
 		return true;
 	}
 
@@ -86,7 +93,8 @@ AmmoCasing.template = {
 				firing_effect_type: null, //the visual effect appearing when the ammo is fired. //TODO: set this to /obj/effect/temp_visual/dir_setting/firing_effect once that exists
 				casing_type: "ammo_casing", //Literally just the template name. Require because of how TG's whole ammo box/ammo casing/etc system is setup
 				spent: false,
-				infinite: false
+				infinite: false,
+				caseless: false
 			},
 			"Item": {
 				force: 0,
