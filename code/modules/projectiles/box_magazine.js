@@ -172,6 +172,11 @@ AmmoBox.template = {
 	}
 };
 
+class GunMagazine extends Component {}
+
+GunMagazine.loadBefore = ["AmmoBox"];
+GunMagazine.depends = ["AmmoBox"];
+
 module.exports.templates = {
 	"ammo_box": {
 		components: ["AmmoBox"],
@@ -179,4 +184,4 @@ module.exports.templates = {
 	},
 };
 
-module.exports.components = {AmmoBox};
+module.exports.components = {AmmoBox, GunMagazine};

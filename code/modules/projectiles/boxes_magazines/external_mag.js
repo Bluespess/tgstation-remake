@@ -7,7 +7,7 @@
 
 module.exports.templates = {
 	"mag_m10mm": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -27,7 +27,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/m10mm"]
 	},
 	"mag_m10mm_rifle": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -47,7 +47,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/m10mm/rifle"]
 	},
 	"mag_m10mm_fire": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -67,7 +67,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/m10mm/fire"]
 	},
 	"mag_m10mm_hp": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -87,7 +87,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/m10mm/hp"]
 	},
 	"mag_m10mm_ap": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -107,7 +107,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/m10mm/ap"]
 	},
 	"mag_m45": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -122,7 +122,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/m45"]
 	},
 	"mag_wt550m9": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -139,7 +139,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/wt550m9"]
 	},
 	"mag_wt550m9_wtap": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -156,7 +156,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/wt550m9/wtap"]
 	},
 	"mag_wt550m9_wtic": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -173,7 +173,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/wt550m9/wtic"]
 	},
 	"mag_uzim9mm": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -190,7 +190,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/uzim9mm"]
 	},
 	"mag_smgm9mm": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -205,7 +205,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/smgm9mm"]
 	},
 	"mag_smgm9mm_ap": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -220,7 +220,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/smgm9mm/ap"]
 	},
 	"mag_smgm9mm_fire": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -235,7 +235,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/smgm9mm/fire"]
 	},
 	"mag_pistolm9mm": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -250,7 +250,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/pistolm9mm"]
 	},
 	"mag_smgm45": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -268,7 +268,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/smgm45"]
 	},
 	"mag_tommygunm45": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -283,7 +283,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/tommygunm45"]
 	},
 	"mag_m50": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -300,7 +300,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/m50"]
 	},
 	"mag_m75": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -316,7 +316,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/m75"]
 	},
 	"mag_m556": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -333,7 +333,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/m556"]
 	},
 	"mag_m12g": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -350,7 +350,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/m12g"]
 	},
 	"mag_m12g_buckshot": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -367,7 +367,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/m12g/buckshot"]
 	},
 	"mag_m12g_slug": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -384,7 +384,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/m12g/slug"]
 	},
 	"mag_m12g_dragon": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -401,7 +401,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/m12g/dragonsbreath"]
 	},
 	"mag_m12g_bioterror": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -418,7 +418,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/m12g/bioterror"]
 	},
 	"mag_m12g_meteor": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -435,7 +435,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/m12g/meteor"]
 	},
 	"mag_sniper_rounds": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -452,7 +452,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/sniper_rounds"]
 	},
 	"mag_sniper_rounds_soporific": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -472,7 +472,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/sniper_rounds/soporific"]
 	},
 	"mag_sniper_rounds_penetrator": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -492,7 +492,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/sniper_rounds/penetrator"]
 	},
 	"mag_mm195x129": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -510,7 +510,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/mm195x129"]
 	},
 	"mag_mm195x129_hp": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -528,7 +528,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/mm195x129/hp"]
 	},
 	"mag_mm195x129_ap": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -546,7 +546,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/mm195x129/ap"]
 	},
 	"mag_mm195x129_inc": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -564,7 +564,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/mm195x129/inc"]
 	},
 	"mag_toy": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -577,7 +577,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/toy"]
 	},
 	"mag_toy_smg": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -593,7 +593,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/toy/smg"]
 	},
 	"mag_toy_smg_riot": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -609,7 +609,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/toy/smg/riot"]
 	},
 	"mag_toy_pistol": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -625,7 +625,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/toy/pistol"]
 	},
 	"mag_toy_smgm45": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -642,7 +642,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/toy/smgm45"]
 	},
 	"mag_toy_smgm45_riot": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -659,7 +659,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/toy/smgm45/riot"]
 	},
 	"mag_toy_m762": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {
@@ -673,7 +673,7 @@ module.exports.templates = {
 		tree_paths: ["items/ammo_box/magazine/toy/m762"]
 	},
 	"mag_toy_m762_riot": {
-		components: ["AmmoBox"],
+		components: ["GunMagazine"],
 		vars: {
 			components: {
 				"AmmoBox": {

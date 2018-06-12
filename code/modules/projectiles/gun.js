@@ -80,7 +80,7 @@ class Gun extends Component {
 			return false;
 		}
 		this.process_chamber();
-
+		this.update_icon();
 		return true;
 	}
 
@@ -121,6 +121,8 @@ class Gun extends Component {
 	can_shoot() {
 		return true;
 	}
+
+	update_icon() {}
 }
 
 Gun.loadBefore = ["Item"];
