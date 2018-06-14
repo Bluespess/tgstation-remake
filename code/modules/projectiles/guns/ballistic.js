@@ -90,5 +90,6 @@ module.exports.templates = {
 	"test_gun": { // TODO remove this when we have real guns that aren't test ones
 		components: ["BallisticGun"]
 	}
-}
+};
+
 module.exports.components = {BallisticGun};
