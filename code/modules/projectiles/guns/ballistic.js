@@ -1,5 +1,5 @@
 'use strict';
-const {Component, Atom, has_component, chain_func, to_chat} = require('bluespess');
+const {Component, Atom, Sound, has_component, chain_func, to_chat} = require('bluespess');
 
 class BallisticGun extends Component {
 	constructor(atom, template) {
@@ -9,6 +9,8 @@ class BallisticGun extends Component {
 		this.a.c.Gun.update_icon = chain_func(this.a.c.Gun.update_icon, this.update_icon.bind(this));
 		this.a.c.Gun.process_chamber = chain_func(this.a.c.Gun.process_chamber, this.process_chamber.bind(this));
 		this.a.c.Examine.examine = chain_func(this.a.c.Examine.examine, this.examine.bind(this));
+		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
+		this.a.c.Item.attack_self = this.attack_self.bind(this);
 
 		if(this.spawn_mag) {
 			this.magazine = new Atom(this.a.server, this.spawn_mag);
@@ -41,6 +43,52 @@ class BallisticGun extends Component {
 		}
 	}
 
+	attack_by(prev, item, user) {
+		if(has_component(item, "GunMagazine") && !has_component(item, "InternalMagazine") && this.mag_caliber == item.c.AmmoBox.caliber && this.mag_form_factor == item.c.AmmoBox.form_factor) {
+			if(this.magazine && !this.tactical_reloads) {
+				to_chat`<span class='notice'>There's already a magazine in the ${this.a}.</span>`(user);
+				return true;
+			}
+			if(!item.slot || item.slot.can_unequip()) {
+				if(this.magazine) {
+					to_chat`<span class='notice'>You perform a tactical reload on the ${this.a}, replacing the magazine.</span>`(user);
+					this.magazine.loc = this.a.base_mover.fine_loc;
+				} else {
+					to_chat`<span class='notice'>You insert the magazine into the ${this.a}.</span>`(user);
+				}
+
+				if(this.reload_sound)
+					new Sound(this.a.server, {path: this.reload_sound, volume: 0.6, vary: true}).emit_from(user);
+				this.magazine = item;
+				item.loc = this.a;
+				this.chamber_round();
+				this.a.c.Gun.update_icon();
+				return true;
+			} else {
+				to_chat`<span class='warning'>You cannot seem to get the ${this.a} out of your hands!</span>`(user);
+				return true;
+			}
+		}
+		return prev();
+	}
+
+	attack_self(user) {
+		if(this.magazine) {
+			this.magazine.loc = this.a.base_mover.fine_loc;
+			user.c.MobInventory.put_in_hands(this.magazine);
+			this.magazine.c.AmmoBox.update_icon();
+			this.magazine = null;
+			to_chat`<span class='notice'>You pull the magazine out of the ${this.a}.</span>`(user);
+		} else if(this.a.c.Gun.chambered) {
+			this.a.c.Gun.chambered.loc = this.a.base_mover.fine_loc;
+			this.a.c.Gun.chambered = null;
+			to_chat`<span class='notice'>You unload the round from the ${this.a}'s chamber.</span>`(user);
+		} else {
+			to_chat`<span class='notice'>There's no magazine in the ${this.a}.</span>`(user);
+		}
+		this.a.c.Gun.update_icon();
+	}
+
 	update_icon(prev) {
 		prev();
 		this.a.icon_state = `${this.a.template.vars.icon_state}${this.a.c.Gun.suppressed ? '-suppressed' : ''}`;
@@ -69,10 +117,13 @@ BallisticGun.template = {
 		components: {
 			"BallisticGun": {
 				spawn_mag: "mag_m10mm",
-				mag_caliber: "m10mm",
+				mag_caliber: "10mm",
+				mag_form_factor: "pistol",
 				max_mag_size: 3,
 				casing_ejector: true,
-				keep_casing: false
+				keep_casing: false,
+				tactical_reloads: false,
+				reload_sound: null
 			},
 			"Item": {
 				size: 3

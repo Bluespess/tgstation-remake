@@ -12,6 +12,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "10mm",
+					form_factor: "pistol",
 					ammo_type: "casing_c10mm",
 					max_ammo: 8,
 					multiple_sprites: 2
@@ -32,6 +33,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "10mm",
+					form_factor: "pistol",
 					ammo_type: "casing_c10mm",
 					max_ammo: 10,
 					multiple_sprites: 2
@@ -52,6 +54,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "10mm",
+					form_factor: "pistol",
 					ammo_type: "casing_c10mm_inc",
 					max_ammo: 8,
 					multiple_sprites: 2
@@ -72,6 +75,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "10mm",
+					form_factor: "pistol",
 					ammo_type: "casing_c10mm_hp",
 					max_ammo: 8,
 					multiple_sprites: 2
@@ -92,6 +96,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "10mm",
+					form_factor: "pistol",
 					ammo_type: "casing_c10mm_ap",
 					max_ammo: 8,
 					multiple_sprites: 2
@@ -112,6 +117,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: ".45",
+					form_factor: "pistol",
 					ammo_type: "casing_c45",
 					max_ammo: 8
 				},
@@ -127,6 +133,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "4.6x30mm",
+					form_factor: "pistol",
 					ammo_type: "casing_c46x30mm",
 					max_ammo: 20,
 					ammo_mod: 4,
@@ -144,6 +151,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "4.6x30mm",
+					form_factor: "pistol",
 					ammo_type: "casing_c46x30mm_ap",
 					max_ammo: 20,
 					ammo_mod: 4,
@@ -161,6 +169,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "4.6x30mm",
+					form_factor: "pistol",
 					ammo_type: "casing_c46x30mm_inc",
 					max_ammo: 20,
 					ammo_mod: 4,
@@ -178,6 +187,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "9mm",
+					form_factor: "uzi",
 					ammo_type: "casing_c9mm",
 					max_ammo: 32,
 					ammo_mod: 4,
@@ -195,6 +205,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "9mm",
+					form_factor: "smg",
 					ammo_type: "casing_c9mm",
 					max_ammo: 21
 				},
@@ -210,6 +221,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "9mm",
+					form_factor: "smg",
 					ammo_type: "casing_c9mm_ap",
 					max_ammo: 21
 				},
@@ -225,6 +237,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "9mm",
+					form_factor: "smg",
 					ammo_type: "casing_c9mm_inc",
 					max_ammo: 21
 				},
@@ -240,6 +253,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "9mm",
+					form_factor: "smg",
 					ammo_type: "casing_c9mm",
 					max_ammo: 15
 				},
@@ -255,6 +269,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: ".45",
+					form_factor: "smg",
 					ammo_type: "casing_c45_nostamina",
 					max_ammo: 24,
 					ammo_mod: 2,
@@ -273,6 +288,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: ".45",
+					form_factor: "pistol",
 					ammo_type: "casing_c45",
 					max_ammo: 50
 				},
@@ -288,6 +304,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: ".50",
+					form_factor: "pistol",
 					ammo_type: "casing_a50ae",
 					max_ammo: 7,
 					multiple_sprites: 1
@@ -305,6 +322,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "75",
+					form_factor: "pistol",
 					ammo_type: "caseless_a75",
 					max_ammo: 8,
 					multiple_sprites: 2
@@ -321,6 +339,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "a556",
+					form_factor: "toploader",
 					ammo_type: "casing_a556",
 					max_ammo: 30,
 					multiple_sprites: 2
@@ -338,6 +357,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "shotgun",
+					form_factor: "shotgun",
 					ammo_type: "casing_shotgun_stunslug",
 					max_ammo: 8,
 					multiple_sprites: 2
@@ -355,6 +375,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "shotgun",
+					form_factor: "shotgun",
 					ammo_type: "casing_shotgun_buckshot",
 					max_ammo: 8,
 					multiple_sprites: 2
@@ -372,6 +393,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "shotgun",
+					form_factor: "shotgun",
 					ammo_type: "casing_shotgun",
 					max_ammo: 8,
 					multiple_sprites: 2
@@ -389,6 +411,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "shotgun",
+					form_factor: "shotgun",
 					ammo_type: "casing_shotgun_dragonsbreath",
 					max_ammo: 8,
 					multiple_sprites: 2
@@ -406,6 +429,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "shotgun",
+					form_factor: "shotgun",
 					ammo_type: "casing_shotgun_dart_bioterror",
 					max_ammo: 8,
 					multiple_sprites: 2
@@ -423,6 +447,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "shotgun",
+					form_factor: "shotgun",
 					ammo_type: "casing_shotgun_meteorslug",
 					max_ammo: 8,
 					multiple_sprites: 2
@@ -440,6 +465,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: ".50",
+					form_factor: "sniper",
 					ammo_type: "casing_p50",
 					max_ammo: 6,
 					multiple_sprites: 2
@@ -457,6 +483,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: ".50",
+					form_factor: "sniper",
 					ammo_type: "casing_p50_soporific",
 					max_ammo: 3,
 					multiple_sprites: 2
@@ -477,6 +504,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: ".50",
+					form_factor: "sniper",
 					ammo_type: "casing_p50_penetrator",
 					max_ammo: 5,
 					multiple_sprites: 2
@@ -497,6 +525,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "mm195129",
+					form_factor: "smg",
 					ammo_type: "casing_mm195x129",
 					max_ammo: 50,
 					ammo_mod: 10,
@@ -515,6 +544,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "mm195129",
+					form_factor: "smg",
 					ammo_type: "casing_mm195x129_hp",
 					max_ammo: 50,
 					ammo_mod: 10,
@@ -533,6 +563,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "mm195129",
+					form_factor: "smg",
 					ammo_type: "casing_mm195x129_ap",
 					max_ammo: 50,
 					ammo_mod: 10,
@@ -551,6 +582,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "mm195129",
+					form_factor: "smg",
 					ammo_type: "casing_mm195x129_inc",
 					max_ammo: 50,
 					ammo_mod: 10,
@@ -569,6 +601,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "foam_force",
+					form_factor: "foam_force",
 					ammo_type: "caseless_foam_dart"
 				},
 			},
@@ -582,6 +615,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "foam_force",
+					form_factor: "foam_force",
 					ammo_type: "caseless_foam_dart",
 					max_ammo: 20,
 					multiple_sprites: 2
@@ -598,6 +632,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "foam_force",
+					form_factor: "foam_force",
 					ammo_type: "caseless_foam_dart_riot",
 					max_ammo: 20,
 					multiple_sprites: 2
@@ -614,6 +649,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "foam_force",
+					form_factor: "foam_force",
 					ammo_type: "caseless_foam_dart",
 					max_ammo: 8,
 					multiple_sprites: 2
@@ -630,6 +666,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "foam_force",
+					form_factor: "foam_force",
 					ammo_type: "caseless_foam_dart",
 					max_ammo: 20,
 					ammo_mod: 2,
@@ -647,6 +684,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "foam_force",
+					form_factor: "foam_force",
 					ammo_type: "caseless_foam_dart_riot",
 					max_ammo: 20,
 					ammo_mod: 2,
@@ -664,6 +702,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "foam_force",
+					form_factor: "foam_force",
 					ammo_type: "caseless_foam_dart",
 					max_ammo: 50
 				},
@@ -678,6 +717,7 @@ module.exports.templates = {
 			components: {
 				"AmmoBox": {
 					caliber: "foam_force",
+					form_factor: "foam_force",
 					ammo_type: "caseless_foam_dart_riot",
 					max_ammo: 50
 				},

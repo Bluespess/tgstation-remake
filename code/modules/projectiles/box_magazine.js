@@ -145,6 +145,7 @@ AmmoBox.template = {
 				multiple_sprites: 0,
 				ammo_mod: 1,
 				caliber: null,
+				special_interface: null,
 				multiload: true,
 				start_empty: false
 			},
@@ -176,6 +177,16 @@ class GunMagazine extends Component {}
 
 GunMagazine.loadBefore = ["AmmoBox"];
 GunMagazine.depends = ["AmmoBox"];
+
+GunMagazine.template = {
+	vars: {
+		components: {
+			"GunMagazine": {
+				interface: null
+			}
+		}
+	}
+};
 
 module.exports.templates = {
 	"ammo_box": {
