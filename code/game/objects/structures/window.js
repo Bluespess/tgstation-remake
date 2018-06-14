@@ -116,7 +116,7 @@ class Window extends Component {
 			glass.c.Stack.amount = this.glass_amount;
 			glass.loc = this.a.base_mover.fine_loc;
 		} else {
-			new Sound(this.a.server, {path: sounds.shatter(), volume: 0.7, vary: true}).emit_from(this.a);
+			new Sound(this.a.server, {path: sounds.shatter, volume: 0.7, vary: true}).emit_from(this.a);
 			if(!this.a.c.Destructible.no_deconstruct && this.a.base_loc) {
 				this.make_debris();
 			}

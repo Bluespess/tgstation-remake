@@ -257,7 +257,7 @@ class StorageItem extends Component {
 		item.loc = this.a;
 		if(user && !prevent_warning) {
 			if(this.rustle_jimmies)
-				new Sound(this.a.server, {path: sounds.rustle(), volume: 1, vary: true}).emit_from(this.a.base_mover);
+				new Sound(this.a.server, {path: sounds.rustle, volume: 1, vary: true}).emit_from(this.a.base_mover);
 		}
 		return true;
 	}

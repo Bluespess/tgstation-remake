@@ -1,6 +1,7 @@
 'use strict';
 const {Component, has_component, Sound, visible_message, to_chat} = require('bluespess');
 const combat_defines = require('../../defines/combat_defines.js');
+const sounds = require('../../defines/sounds.js');
 
 class Gun extends Component {
 	constructor(atom, template) {
@@ -132,7 +133,7 @@ Gun.template = {
 	vars: {
 		components: {
 			"Gun": {
-				fire_sound: "gunshot",
+				fire_sound: sounds.gunshot,
 				suppressed: null,
 				can_suppress: false,
 				can_unsuppress: true,
