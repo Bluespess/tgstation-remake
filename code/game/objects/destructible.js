@@ -1,5 +1,6 @@
 'use strict';
 const {Component, Sound, has_component, chain_func, visible_message} = require('bluespess');
+const combat_defines = require('../../defines/combat_defines.js');
 
 class Destructible extends Component {
 	constructor(atom, template) {
@@ -7,6 +8,7 @@ class Destructible extends Component {
 		if(this.obj_integrity == null)
 			this.obj_integrity = this.max_integrity;
 		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
+		this.a.c.Tangible.bullet_act = chain_func(this.a.c.Tangible.bullet_act, this.bullet_act.bind(this));
 		this.a.c.Tangible.attacked_by = this.attacked_by.bind(this);
 		this.a.c.Tangible.on("throw_impacted_by", this.throw_impacted_by.bind(this));
 	}
@@ -76,6 +78,17 @@ class Destructible extends Component {
 		if(!has_component(obj, "Tangible"))
 			return;
 		this.take_damage(obj.c.Tangible.throw_force, "brute", "melee", true);
+	}
+
+	bullet_act(prev, projectile) {
+		let ret = prev();
+		if(!has_component(this.a, "Wall"))
+			new Sound(this.a.server, {path: projectile.c.Projectile.hitsound}).emit_from(this.a);
+		visible_message`<span class='danger'>The ${this.a} is hit by a ${projectile}!</span>`
+			.range(combat_defines.COMBAT_MESSAGE_RANGE)
+			.emit_from(this.a);
+		this.take_damage(projectile.c.Projectile.damage, projectile.c.Projectile.damage_type, projectile.c.Projectile.flag, false);
+		return ret;
 	}
 }
 
