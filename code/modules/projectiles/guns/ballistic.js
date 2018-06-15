@@ -24,7 +24,8 @@ class BallisticGun extends Component {
 		let ammo = this.a.c.Gun.chambered;
 		if(has_component(ammo, "AmmoCasing")) {
 			if(this.casing_ejector) {
-				ammo.loc = this.a.fine_loc;
+				ammo.loc = this.a.base_mover.fine_loc;
+				ammo.move(Math.random() - 0.5, Math.random() - 0.5, "placement");
 				this.a.c.Gun.chambered = null;
 			} else if(!this.keep_casing) {
 				ammo.destroy();
@@ -52,6 +53,7 @@ class BallisticGun extends Component {
 			if(!item.slot || item.slot.can_unequip()) {
 				if(this.magazine) {
 					to_chat`<span class='notice'>You perform a tactical reload on the ${this.a}, replacing the magazine.</span>`(user);
+					this.magazine.c.AmmoBox.update_icon();
 					this.magazine.loc = this.a.base_mover.fine_loc;
 				} else {
 					to_chat`<span class='notice'>You insert the magazine into the ${this.a}.</span>`(user);
@@ -91,7 +93,12 @@ class BallisticGun extends Component {
 
 	update_icon(prev) {
 		prev();
-		this.a.icon_state = `${this.a.template.vars.icon_state}${this.a.c.Gun.suppressed ? '-suppressed' : ''}`;
+		let state = this.a.template.vars.icon_state;
+		if(this.empty_state && !this.a.c.Gun.chambered)
+			state += '-e';
+		if(this.a.c.Gun.suppressed)
+			state += '-suppressed';
+		this.a.icon_state = state;
 	}
 	examine(prev, user) {
 		prev();
@@ -123,7 +130,11 @@ BallisticGun.template = {
 				casing_ejector: true,
 				keep_casing: false,
 				tactical_reloads: false,
-				reload_sound: null
+				reload_sound: null,
+				can_suppress: false,
+				can_unsuppress: true,
+				empty_state: true,
+				mag_state: true
 			},
 			"Item": {
 				size: 3
@@ -134,12 +145,6 @@ BallisticGun.template = {
 		},
 		name: "projectile gun",
 		icon_state: "pistol"
-	}
-};
-
-module.exports.templates = {
-	"test_gun": { // TODO remove this when we have real guns that aren't test ones
-		components: ["BallisticGun"]
 	}
 };
 

@@ -135,8 +135,6 @@ Gun.template = {
 			"Gun": {
 				fire_sound: sounds.gunshot,
 				suppressed: null,
-				can_suppress: false,
-				can_unsuppress: true,
 				recoil: 0,
 				clumsy_check: true,
 				trigger_guard: combat_defines.TRIGGER_GUARD_NORMAL,

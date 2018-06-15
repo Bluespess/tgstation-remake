@@ -106,6 +106,7 @@ server.importModule(require('./code/modules/power/cable.js'));
 server.importModule(require('./code/modules/projectiles/ammunition/ammo_casings.js'));
 server.importModule(require('./code/modules/projectiles/boxes_magazines/ammo_boxes.js'));
 server.importModule(require('./code/modules/projectiles/boxes_magazines/external_mag.js'));
+server.importModule(require('./code/modules/projectiles/guns/ballistic/pistol.js'));
 server.importModule(require('./code/modules/projectiles/guns/ballistic.js'));
 server.importModule(require('./code/modules/projectiles/projectile/bullets.js'));
 server.importModule(require('./code/modules/projectiles/ammunition.js'));
