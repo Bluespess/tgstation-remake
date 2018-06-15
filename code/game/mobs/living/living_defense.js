@@ -52,7 +52,7 @@ module.exports = {
 	},
 
 	check_armor(def_zone, d_type) {
-		if(!d_type) {
+		if(!d_type || !has_component(this.a, "MobInventory")) {
 			return 0;
 		}
 		let protection = 0;
@@ -67,5 +67,14 @@ module.exports = {
 			}
 		}
 		return protection;
+	},
+
+	bullet_act(projectile, def_zone) {
+		let armor = this.run_armor_check(def_zone, projectile.c.Projectile.flag, {armour_penetration: projectile.c.Projectile.armour_penetration});
+		if(!projectile.c.Projectile.no_damage) {
+			this.apply_damage(projectile.c.Projectile.damage, projectile.c.Projectile.damage_type, def_zone, armor);
+			// TODO dismemberment
+		}
+		return projectile.c.Projectile.hit(this.a, armor, def_zone);
 	}
 };

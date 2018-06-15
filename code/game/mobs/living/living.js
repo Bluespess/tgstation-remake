@@ -30,6 +30,7 @@ class LivingMob extends Component {
 		this.a.c.Mob.can_interact_with_panel = this.can_interact_with_panel.bind(this);
 		this.a.c.Tangible.experience_pressure_difference = chain_func(this.a.c.Tangible.experience_pressure_difference, this.experience_pressure_difference.bind(this));
 		this.a.c.Tangible.attacked_by = this.attacked_by.bind(this);
+		this.a.c.Tangible.bullet_act = this.bullet_act.bind(this);
 		this.a.c.Tangible.on("throw_finished", this.throw_finished.bind(this));
 		this.a.c.Tangible.on("throw_impacted_by", this.throw_impacted_by.bind(this));
 		this.a.c.SpeechEmitter.build_message = chain_func(this.a.c.SpeechEmitter.build_message, this.build_message.bind(this));
@@ -141,6 +142,7 @@ class LivingMob extends Component {
 
 	update_stat() {
 	}
+
 	//DAMAGE
 	apply_damage(damage = 0, damagetype = "brute", def_zone, blocked = this.run_armor_check(def_zone, "melee")) {
 		var hit_percent = (100-blocked)/100;

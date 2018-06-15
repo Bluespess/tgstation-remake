@@ -80,7 +80,7 @@ class Projectile extends Component.Networked {
 			return prev();
 		if(this.permuted.has(target)) // We've already hit the thing, so let's go through it now.
 			return true;
-		if(target == this.target && target.density != -1)
+		if(target == this.target && (target.density == 1 || has_component(target, "LivingMob")))
 			return false; // We aimed at the thing, so clearly we aimed down on it.
 		return prev();
 	}
@@ -191,6 +191,7 @@ Projectile.template = {
 				damage: 10,
 				damage_type: "brute",
 				no_damage: false,
+				armour_penetration: 0,
 				flag: "bullet", // Defines what armor to use when it hits things.  Must be set to bullet, laser, energy,or bomb
 				status_effects: {}, // Example: {"Knockdown": {delay: 3000}}
 
