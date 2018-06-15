@@ -87,9 +87,9 @@ class Projectile extends Component.Networked {
 
 	vol_by_damage() {
 		if(this.damage) {
-			return Math.min(Math.max(this.damage * 0.0067, 30), 100);
+			return Math.min(Math.max(this.damage * 0.0067, 0.3), 1);
 		} else {
-			return 50;
+			return 0.5;
 		}
 	}
 
