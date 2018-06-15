@@ -119,7 +119,7 @@ module.exports.templates = {
 			components: {
 				"Bullet": {
 					damage: 27,
-					//TODO armor_penetration: 40
+					armour_penetration: 40
 				}
 			},
 			name: "10mm armor-piercing bullet"
@@ -132,7 +132,7 @@ module.exports.templates = {
 			components: {
 				"Bullet": {
 					damage: 40,
-					//TODO armor_penetration: -50
+					armour_penetration: -50
 				}
 			},
 			name: "10mm hollow-point bullet"
@@ -158,7 +158,7 @@ module.exports.templates = {
 			components: {
 				"Bullet": {
 					damage: 15,
-					//TODO armor_penetration: 40
+					armour_penetration: 40
 				}
 			},
 			name: "10mm armor-piercing bullet"
@@ -184,7 +184,7 @@ module.exports.templates = {
 			components: {
 				"Bullet": {
 					damage: 15,
-					//TODO armor_penetration: 40
+					armour_penetration: 40
 				}
 			},
 			name: "4.6x30mm armor-piercing bullet"
@@ -237,7 +237,7 @@ module.exports.templates = {
 			components: {
 				"Bullet": {
 					damage: 45,
-					//TODO armor_penetration: 5
+					armour_penetration: 5
 				}
 			},
 			name: "1.95x129mm bullet"
@@ -250,7 +250,7 @@ module.exports.templates = {
 			components: {
 				"Bullet": {
 					damage: 40,
-					//TODO armor_penetration: 75
+					armour_penetration: 75
 				}
 			},
 			name: "1.95x129mm armor-piercing bullet"
@@ -263,7 +263,7 @@ module.exports.templates = {
 			components: {
 				"Bullet": {
 					damage: 60,
-					//TODO armor_penetration: -60
+					armour_penetration: -60
 				}
 			},
 			name: "1.95x129mm hollow-point bullet"
