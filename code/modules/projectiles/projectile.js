@@ -123,6 +123,10 @@ class Projectile extends Component.Networked {
 					.emit_from(target);
 			}
 		}
+		for(let [effect,props] of Object.entries(this.status_effects)) {
+			let real_props = Object.assign({}, props, {blocked});
+			target.c.LivingMob.apply_effect(effect, real_props);
+		}
 		return 0;
 	}
 
