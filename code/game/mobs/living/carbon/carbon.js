@@ -187,7 +187,7 @@ class CarbonMob extends Component.Networked {
 		if(has_component(this.a, "MobInventory")) {
 			if(this.lying && !old)
 				this.a.c.MobInventory.nohold_counter++;
-			else if(!old && this.lying)
+			else if(old && !this.lying)
 				this.a.c.MobInventory.nohold_counter--;
 		}
 	}
