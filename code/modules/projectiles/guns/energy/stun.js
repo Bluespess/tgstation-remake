@@ -2,7 +2,7 @@
 
 module.exports.templates = {
 	"hybrid_taser": {
-		components: ["EnergyGun"],
+		components: ["EnergyGun", "BeltItem"],
 		vars: {
 			components: {
 				"EnergyGun": {

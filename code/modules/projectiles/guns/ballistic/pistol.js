@@ -2,7 +2,7 @@
 
 module.exports.templates = {
 	"stechkin_pistol": {
-		components: ["BallisticGun"],
+		components: ["BallisticGun", "BeltItem"],
 		vars: {
 			components: {
 				"BallisticGun": {

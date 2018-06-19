@@ -26,6 +26,7 @@ class CarbonMob extends Component.Networked {
 			}
 			return true;
 		});
+		this.add_networked_var("jitteriness");
 
 		this.organs = {};
 		new Atom(this.a.server, 'organ_lungs').c.Organ.insert(this.a);
