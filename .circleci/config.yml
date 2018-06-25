@@ -6,7 +6,7 @@ jobs:
       - image: circleci/node:carbon
     steps:
       - checkout
-      - run: eslint .
+      - run: npm i --no-audit -g eslint && eslint .
 workflows:
   version: 2
   test:
