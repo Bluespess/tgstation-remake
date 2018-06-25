@@ -15,6 +15,12 @@ Welcome! This is my attempt at creating an SS13 remake using node.js.
 
 Run `launch.bat`. To join the server connect to `localhost:8080` using a web browser.
 
+### Docker
+
+If you have docker, you can use the following
+ * `docker build -t bluespess .`
+ * `docker run -d  --name bluespess-server -p 8080:8080 bluespess`
+
 ## Licenses
 
 All code is licensed under [GNU AGPL v3](https://www.gnu.org/licenses/agpl-3.0.html).
