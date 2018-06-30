@@ -21,7 +21,8 @@ SuitItem.template = {
 				suit_storage_blacklist: [], // components you can or can't put in the suit storage slot
 				suit_storage_whitelist: [],
 				blood_overlay_type: "suit", //currently useless
-				toggle_name: null //also useless
+				toggle_name: null, //also useless
+				siemens_coefficient: 0
 			},
 		},
 		icon: 'icons/obj/clothing/suits.png',

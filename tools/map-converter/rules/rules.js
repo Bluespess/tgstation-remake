@@ -151,5 +151,6 @@ module.exports = [
 	["/obj/item/stack/sheet/cardboard", (inst) => {return {template_name: "cardboard_sheet", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
 	["/obj/item/stack/sheet/bone", (inst) => {return {template_name: "bone_sheet", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
 	["/obj/item/stack/sheet/plastic", (inst) => {return {template_name: "plastic_sheet", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
-	["/obj/item/stack/sheet/paperframes", (inst) => {return {template_name: "paperframe_sheet", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}]
+	["/obj/item/stack/sheet/paperframes", (inst) => {return {template_name: "paperframe_sheet", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
+	["/obj/item/stack/cable", (inst) => {return {template_name: "stack_cable", variant_leaf_path: [JSON.parse(inst.vars.item_color) || "random", JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
 ];

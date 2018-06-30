@@ -77,6 +77,8 @@ server.importModule(require('./code/modules/atmospherics/environmental/block_air
 server.importModule(require('./code/modules/atmospherics/environmental/controller.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/turf.js'));
 server.importModule(require('./code/modules/client/verbs.js'));
+server.importModule(require('./code/modules/clothing/gloves/_gloves.js'));
+server.importModule(require('./code/modules/clothing/gloves/color.js'));
 server.importModule(require('./code/modules/clothing/under/jobs/civilian.js'));
 server.importModule(require('./code/modules/clothing/under/jobs/engineering.js'));
 server.importModule(require('./code/modules/clothing/under/jobs/medsci.js'));
@@ -104,6 +106,7 @@ server.importModule(require('./code/modules/jobs/controller.js'));
 server.importModule(require('./code/modules/jobs/id.js'));
 server.importModule(require('./code/modules/power/cable.js'));
 server.importModule(require('./code/modules/power/cell.js'));
+server.importModule(require('./code/modules/power/controller.js'));
 server.importModule(require('./code/modules/projectiles/ammunition/ammo_casings.js'));
 server.importModule(require('./code/modules/projectiles/ammunition/energy.js'));
 server.importModule(require('./code/modules/projectiles/boxes_magazines/ammo_boxes.js'));

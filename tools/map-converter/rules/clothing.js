@@ -254,5 +254,9 @@ module.exports = [
 	["/obj/item/clothing/under/draculass", () => {return {template_name: "draculass"};}, {pixel_offsets: true}],
 	["/obj/item/clothing/under/drfreeze", () => {return {template_name: "dr_freeze"};}, {pixel_offsets: true}],
 	["/obj/item/clothing/under/lobster", () => {return {template_name: "lobster"};}, {pixel_offsets: true}],
-	["/obj/item/clothing/under/skeleton", () => {return {template_name: "skeleton"};}, {pixel_offsets: true}]
+	["/obj/item/clothing/under/skeleton", () => {return {template_name: "skeleton"};}, {pixel_offsets: true}],
+
+	// Gloves
+	["/obj/item/clothing/gloves/color/yellow", () => {return {template_name: "gloves_yellow"};}, {pixel_offsets: true}],
+	["/obj/item/clothing/gloves/color/fyellow", () => {return {template_name: "gloves_fyellow"};}, {pixel_offsets: true}]
 ];

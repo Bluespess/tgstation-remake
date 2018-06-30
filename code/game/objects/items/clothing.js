@@ -118,26 +118,6 @@ EyeItem.template = {
 EyeItem.depends = ["WearableItem"];
 EyeItem.loadBefore = ["WearableItem"];
 
-class HandItem extends Component {
-	constructor(atom, template) {
-		super(atom, template);
-	}
-}
-
-HandItem.template = {
-	vars: {
-		components: {
-			"HandItem": {
-				worn_icon: 'icons/mob/hands.png',
-				worn_icon_state: null // If null, inherits from inhand_icon_state
-			}
-		}
-	}
-};
-
-HandItem.depends = ["WearableItem"];
-HandItem.loadBefore = ["WearableItem"];
-
 class MaskItem extends Component {
 	constructor(atom, template) {
 		super(atom, template);
@@ -178,4 +158,4 @@ NeckItem.template = {
 NeckItem.depends = ["WearableItem"];
 NeckItem.loadBefore = ["WearableItem"];
 
-module.exports.components = {WearableItem, BackItem, BeltItem, EarItem, EyeItem, HandItem, MaskItem, NeckItem};
+module.exports.components = {WearableItem, BackItem, BeltItem, EarItem, EyeItem, MaskItem, NeckItem};
