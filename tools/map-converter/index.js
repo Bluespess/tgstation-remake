@@ -20,7 +20,8 @@ let rules = [];
 let rules_files = [
 	"./rules/rules.js",
 	"./rules/areas.js",
-	"./rules/clothing.js"
+	"./rules/clothing.js",
+	"./rules/misc_items.js"
 ];
 
 for(let rule_file of rules_files) {
