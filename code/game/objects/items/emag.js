@@ -24,7 +24,7 @@ Emag.template = {
 			}
 		},
 		icon: 'icons/obj/card.png',
-		icon_state: 'emag',
+		icon_state: 'emag'
 		name: "cryptographic sequencer"
 	}
 };
