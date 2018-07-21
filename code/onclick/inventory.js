@@ -441,10 +441,10 @@ class Slot extends EventEmitter {
 			this[_item].screen_loc_y = this.atom.screen_loc_y;
 			if(this.visible)
 				this.mob.c.Eye.screen[`item_in_slot_${this.id}`] = this[_item];
-			if(this.props.is_hand_slot && this[_item].c.Item.inhand_icon_state) {
+			if(this.props.is_hand_slot && (this[_item].c.Item.inhand_icon_state || this[_item].icon_state)) {
 				this.mob.overlays[`inhand_${this.id}`] = {
 					icon: this[_item].c.Item[`inhand_${this.id}_icon`],
-					icon_state: this[_item].c.Item.inhand_icon_state,
+					icon_state: this[_item].c.Item.inhand_icon_state || this[_item].icon_state,
 					overlay_layer: this.props.worn_layer
 				};
 			}

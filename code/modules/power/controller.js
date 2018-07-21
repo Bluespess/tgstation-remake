@@ -1,4 +1,5 @@
 'use strict';
+const _ = require('underscore');
 
 class PowerController {
 	constructor(server) {
@@ -13,11 +14,14 @@ class PowerController {
 
 	async tick() {
 		let dt = 1;
-		for(let powernet of [...this.powernets]) {
+		for(let powernet of _.shuffle([...this.powernets])) {
 			if(!powernet.nodes.size && !powernet.cables.size)
 				this.powernets.delete(powernet);
 			else
 				powernet.reset(dt);
+		}
+		for(let machine of this.server.atoms_for_components.MachineTick) {
+			machine.c.MachineTick.process(dt);
 		}
 	}
 }

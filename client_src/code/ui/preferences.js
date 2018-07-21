@@ -46,18 +46,18 @@ class PreferencesPanel {
 Preferences
 
 </div>`;
-		[...this.panel.content_obj.querySelectorAll(`.button[data-radio-group="tab"]`)].forEach((item) => {
+		[...this.panel.$(`.button[data-radio-group="tab"]`)].forEach((item) => {
 			item.addEventListener("click", () => {
 				this.show_tab(item.dataset.tab);
 			});
 		});
 
-		let name_field = this.panel.content_obj.querySelector(`.property-name`);
+		let name_field = this.panel.$(`.property-name`);
 		name_field.addEventListener("input", () => {
 			this.panel.send_message({char_prefs: {name: name_field.value}});
 		});
 
-		let gender_dropdown = this.panel.content_obj.querySelector(`.property-gender`);
+		let gender_dropdown = this.panel.$(`.property-gender`);
 		gender_dropdown.addEventListener("click", (e) => {
 			if(e.defaultPrevented)
 				return;
@@ -82,7 +82,7 @@ Preferences
 			dropdown(gender_dropdown, menu);
 		});
 
-		this.panel.content_obj.querySelector(`.property-age`).addEventListener("input", (e) => {
+		this.panel.$(`.property-age`).addEventListener("input", (e) => {
 			let age = Math.round(+e.target.value);
 			this.panel.send_message({char_prefs: {age}});
 		});
@@ -93,39 +93,39 @@ Preferences
 	}
 
 	show_tab(tab) {
-		[...this.panel.content_obj.querySelectorAll(`.tabcontent`)].forEach((item)=>{item.style.display = 'none';});
-		let tab_obj = this.panel.content_obj.querySelector(`.tabcontent[data-tab='${tab}']`);
+		[...this.panel.$(`.tabcontent`)].forEach((item)=>{item.style.display = 'none';});
+		let tab_obj = this.panel.$(`.tabcontent[data-tab='${tab}']`);
 		if(tab_obj)
 			tab_obj.style.display = 'block';
 	}
 
 	handle_message(msg) {
 		if(msg.set_tab) {
-			[...this.panel.content_obj.querySelectorAll(`.button[data-radio-group='tab']`)].forEach((item)=>{item.classList.remove("selected");});
-			this.panel.content_obj.querySelector(`.button[data-radio-group='tab'][data-tab='${msg.set_tab}']`).classList.add("selected");
+			[...this.panel.$(`.button[data-radio-group='tab']`)].forEach((item)=>{item.classList.remove("selected");});
+			this.panel.$(`.button[data-radio-group='tab'][data-tab='${msg.set_tab}']`).classList.add("selected");
 			this.show_tab(msg.set_tab);
 		}
 		if(msg.char_prefs) {
 			Object.assign(this.char_prefs, msg.char_prefs);
 			if(msg.char_prefs.name) {
-				this.panel.content_obj.querySelector(`.property-name`).value = msg.char_prefs.name;
+				this.panel.$(`.property-name`).value = msg.char_prefs.name;
 			}
 			if(msg.char_prefs.gender) {
-				this.panel.content_obj.querySelector(`.property-gender`).textContent = msg.char_prefs.gender == "male" ? "Male" : "Female";
+				this.panel.$(`.property-gender`).textContent = msg.char_prefs.gender == "male" ? "Male" : "Female";
 			}
 			if(msg.char_prefs.age) {
-				this.panel.content_obj.querySelector(`.property-age`).value = msg.char_prefs.age;
+				this.panel.$(`.property-age`).value = msg.char_prefs.age;
 			}
 		}
 		if(msg.hasOwnProperty("name_valid")) {
-			let elem = this.panel.content_obj.querySelector(`.property-name`);
+			let elem = this.panel.$(`.property-name`);
 			if(msg.name_valid)
 				elem.classList.remove("red");
 			else
 				elem.classList.add("red");
 		}
 		if(msg.name_correction) {
-			let elem = this.panel.content_obj.querySelector(`.property-name`);
+			let elem = this.panel.$(`.property-name`);
 			if(elem.value == msg.name_correction[0])
 				elem.value = msg.name_correction[1];
 		}

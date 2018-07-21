@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const ByondEnv = require('byond-parser');
 const stable_stringify = require('json-stable-stringify');
+const {promisify} = require('util');
 //const read_config = require('../../code/config.js');
 
 function loader(path) {
@@ -14,6 +15,17 @@ function loader(path) {
 			resolve(data);
 		});
 	});
+}
+
+function progress_bar(title, proportion) {
+	let notches = Math.ceil(proportion * 30);
+	let text = `${title}: [`;
+	for(let i = 0; i < notches; i++)
+		text += "#";
+	for(let i = notches; i < 30; i++)
+		text += ".";
+	text += `] (${(proportion * 100).toFixed(1)}%)  \r`;
+	process.stdout.write(text);
 }
 
 let rules = [];
@@ -37,17 +49,19 @@ rules.sort((a, b) => {
 		console.log("Pass the /tg/station dme to this");
 		return;
 	}
-
-	console.log("Parsing env...");
 	//let server_config = read_config('server.cson');
 	let map_list = ['BoxStation', 'MetaStation']; //TODO get read_config working and remove this placeholder
+	let env = await ByondEnv.parse(loader, process.argv[2], {progress_function: (prop) => {
+		progress_bar('Parsing env', prop);
+	}});
+	process.stdout.write('\n\n');
 	for(let processing_map of map_list) {
-		let env = await ByondEnv.parse(loader, process.argv[2]);
 		let maptext = await loader(path.join(path.dirname(process.argv[2]), `_maps${path.sep}map_files${path.sep}${processing_map}${path.sep}${processing_map}.dmm`));
 		let map = env.parse_map(maptext, 'map file');
 		let bsmap = {};
 		bsmap.locs = {};
-		console.log("Converting " + processing_map + "...");
+		let total_locs = map.coords_to_key.size;
+		let loc_counter = 0;
 		for(let [loc, key] of map.coords_to_key) {
 			let [x,y,z] = JSON.parse(loc);
 			x -= 113;
@@ -84,6 +98,8 @@ rules.sort((a, b) => {
 					break;
 				}
 			}
+			loc_counter++;
+			progress_bar(`Converting ${processing_map}`, loc_counter / total_locs);
 		}
 
 		for(let [key, val] of Object.entries(bsmap.locs)) {
@@ -100,9 +116,19 @@ rules.sort((a, b) => {
 			return a.key > b.key ? 1 : -1;
 		}});
 
+		process.stdout.write('\n');
+		console.log(processing_map + " converted!");
+
 		let targetfile = path.join(__dirname, `..${path.sep}..${path.sep}${processing_map}.bsmap`);
 		console.log(`Writing to ${targetfile}...`);
-		fs.writeFile(targetfile, str, "utf8", ()=>{console.log("File write success!");});
+		try {
+			await promisify(fs.writeFile)(targetfile, str, "utf8");
+			console.log(`\x1b[1m\x1b[32mFile write success!\x1b[0m`);
+		} catch (e) {
+			console.error(`\x1b[1m\x1b[31mFile write success!\x1b[0m`);
+			console.error(e);
+		}
+		console.log("");
 	}
 })().then(()=>{}, (err) => {
 	console.error(err);

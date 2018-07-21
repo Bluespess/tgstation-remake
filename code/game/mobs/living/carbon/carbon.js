@@ -1,7 +1,9 @@
 'use strict';
-const {Component, Atom, chain_func, has_component, to_chat} = require('bluespess');
+const {Component, Atom, Sound, chain_func, has_component, to_chat} = require('bluespess');
 const combat_defines = require('../../../../defines/combat_defines.js');
 const atmos_defines = require('../../../../defines/atmos_defines.js');
+const layers = require('../../../../defines/layers.js');
+const sounds = require('../../../../defines/sounds.js');
 
 const _lying_counter = Symbol('_lying_counter');
 
@@ -12,6 +14,7 @@ class CarbonMob extends Component.Networked {
 	constructor(atom, template) {
 		super(atom, template);
 
+		this.a.on("moved", this.moved.bind(this));
 		this.a.c.LivingMob.on("health_changed", this.health_changed.bind(this));
 		this.a.c.LivingMob.on("stat_changed", this.stat_changed.bind(this));
 		this.a.c.LivingMob.update_stat = this.update_stat.bind(this);
@@ -21,8 +24,13 @@ class CarbonMob extends Component.Networked {
 		this.add_networked_var("lying", (newval) => {
 			if(newval) {
 				this.a.density = 0;
+				this.a.layer = layers.LYING_MOB_LAYER;
+				if(!this.lying) {
+					new Sound(this.a.server, {path: sounds.bodyfall, volume: 0.5, vary: true}).emit_from(this.a);
+				}
 			} else {
 				this.a.density = this.a.template.vars.density;
+				this.a.layer = this.a.template.vars.layer;
 			}
 			return true;
 		});
@@ -182,9 +190,15 @@ class CarbonMob extends Component.Networked {
 		this.update_lying(old, val);
 	}
 
+	moved(e) {
+		if(!!(e.old.loc && e.old.loc.is_base_loc) != !!(e.old.loc && e.old.loc.is_base_loc)) {
+			this.update_lying();
+		}
+	}
+
 	update_lying() {
 		let old = this.lying;
-		this.lying = !!this[_lying_counter];
+		this.lying = !!this[_lying_counter] && this.a.loc && this.a.loc.is_base_loc;
 		if(has_component(this.a, "MobInventory")) {
 			if(this.lying && !old)
 				this.a.c.MobInventory.nohold_counter++;

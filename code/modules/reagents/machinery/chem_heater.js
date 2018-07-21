@@ -120,7 +120,7 @@ class ChemHeaterPanel extends Panel {
 	}
 
 	target_temperature_changed(old, val) {
-		this.send_message({target_temperature: val});
+		this.send_message({target_temperature: [old, val]});
 	}
 
 	enabled_changed(old, val) {

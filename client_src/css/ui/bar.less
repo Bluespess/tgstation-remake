@@ -1,0 +1,43 @@
+
+.bar {
+	display: block;
+	position: relative;
+	vertical-align: middle;
+	height: 20px;
+	line-height: 17px;
+	padding: 1px;
+	margin: 2px;
+
+	border: 1px solid #40628a;
+	background: #272727;
+	color: #ffffff;
+	&:after {
+		content: attr(data-bar-label);
+		position: relative;
+		vertical-align: middle;
+	}
+	&[data-status-color]:after {
+		color: #ffffff;
+	}
+	.bar-fill {
+		position: absolute;
+		top: 0px;
+		bottom: 0px;
+		background-color: #40628a;
+		&:not(.bar-fill-inverse) {
+			left: 0px;
+		}
+		&.bar-fill-inverse {
+			right: 0px;
+		}
+		[data-status-color="good"]& {
+			background-color: #537d29;
+		}
+		[data-status-color="average"]& {
+			background-color: #be6209;
+		}
+		[data-status-color="bad"]& {
+			background-color: #b00e0e;
+		}
+	}
+}

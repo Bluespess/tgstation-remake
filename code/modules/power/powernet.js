@@ -1,5 +1,5 @@
 'use strict';
-const {chain_func} = require('bluespess');
+const {chain_func, has_component} = require('bluespess');
 const _ = require('underscore');
 
 const enable_debug_colors = false;
@@ -63,7 +63,11 @@ class Powernet {
 		this.avail = 0;
 		this.view_avail = 0;
 		this.view_load = 0;
-		this.net_excess = 0;
+
+		this.smes_output_total = 0;
+		this.smes_input_total = 0;
+		this.smes_input_potential = 0;
+		this.new_smes_output_total = 0;
 	}
 
 	merge(powernet) {
@@ -76,22 +80,40 @@ class Powernet {
 			this.cables.add(cable);
 		for(let node of new_nodes)
 			this.nodes.add(node);
+		this.load += powernet.load;
+		this.new_avail += powernet.new_avail;
+		this.avail += powernet.avail;
+		this.view_avail += powernet.view_avail;
+		this.view_load += powernet.view_load;
+
+		this.smes_output_total += powernet.smes_output_total;
+		this.smes_input_total += powernet.smes_input_total;
+		this.smes_input_potential += powernet.smes_input_potential;
+		this.new_smes_output_total += powernet.new_smes_output_total;
 	}
 
 	//handles the power changes in the powernet
 	//called every tick by the powernet controller
 	reset(dt) {
-		this.net_excess = this.avail - this.load;
-
-		// TODO put excess power back in smes
-
-		this.view_avail = this.avail/dt;
+		this.view_avail = this.new_avail/dt;
 		this.view_load = this.load/dt;
+
+		for(let smes of this.nodes) {
+			if(has_component(smes, "Smes"))
+				smes.c.Smes.restore(dt);
+			if(has_component(smes, "SmesTerminal") && smes.c.SmesTerminal.master)
+				smes.c.SmesTerminal.master.c.Smes.balance_input(dt);
+		}
 
 		// reset the powernet
 		this.load = 0;
 		this.avail = this.new_avail;
 		this.new_avail = 0;
+
+		this.smes_output_total = this.new_smes_output_total;
+		this.new_smes_output_total = 0;
+		this.smes_input_potential = 0;
+		this.smes_input_potential = 0;
 	}
 
 	get_electrocute_damage() {

@@ -2,6 +2,7 @@
 
 const {Component, Sound, to_chat} = require('bluespess');
 const NewPlayerPanel = require('./new_player_panel.js');
+const _ = require('underscore');
 
 class NewPlayer extends Component {
 	constructor(atom, template) {
@@ -32,11 +33,10 @@ NewPlayer.loadBefore = ['Mob'];
 
 module.exports.components = {NewPlayer};
 module.exports.now = function(server) {
-	let options = [
+	server.lobby_music = _.sample([
 		"sound/ambience/title1.ogg",
 		"sound/ambience/title2.ogg",
 		"sound/ambience/title3.ogg",
 		"sound/ambience/clown.ogg"
-	];
-	server.lobby_music = options[Math.floor(Math.random() * options.length)];
+	]);
 };

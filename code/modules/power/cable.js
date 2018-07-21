@@ -3,12 +3,13 @@ const {Component, Atom, to_chat, has_component, chain_func, dir_to} = require('b
 const layers = require('../../defines/layers.js');
 const _ = require('underscore');
 const Powernet = require('./powernet.js');
+const {display_watts} = require('./helpers.js');
 
 const cable_colors = {
 	red: "#ff0000",
 	yellow: "#ffff00",
 	green: "#00aa00",
-	blue: "#1919c8",
+	blue: "#18558c",
 	pink: "#ff3cc8",
 	orange: "#ff8000",
 	cyan: "#00ffff",
@@ -43,6 +44,13 @@ class Cable extends Component {
 		if(has_component(item, "Tool") && item.c.Tool.can_use("Wirecutters", user)) {
 			item.c.Tool.used("Wirecutters");
 			this.a.c.Destructible.deconstruct(true);
+			return true;
+		}
+		if(has_component(item, "Tool") && item.c.Tool.can_use("Multitool", user)) {
+			if(this.powernet && this.powernet.avail > 0)
+				to_chat`<span class='danger'>${display_watts(this.powernet.view_avail)} in power network.`(user);
+			else
+				to_chat`<span class='danger'>This cable is not powered.</span>`(user);
 			return true;
 		}
 		return prev();
@@ -226,6 +234,7 @@ class StackCable extends Component {
 			this.cable_color = _.sample([...Object.keys(cable_colors)]);
 		this.a.color = cable_colors[this.cable_color];
 		this.a.c.Item.pre_attack = chain_func(this.a.c.Item.pre_attack, this.pre_attack.bind(this));
+		this.a.c.Item.inhand_icon_state = `coil_${this.cable_color}`;
 	}
 
 	pre_attack(prev, target, user) {
@@ -274,7 +283,7 @@ class StackCable extends Component {
 				return true;
 			}
 		}
-		if(target_cable && target_cable.c.Cable.d1 == 0) {
+		if(target_cable && target_cable.c.Cable.d1 == 0 && target_dir != target_cable.c.Cable.d2) {
 			let orig_dir = target_cable.c.Cable.d2;
 			let target_cable_loc = target_cable.fine_loc;
 			target_cable.destroy();
@@ -312,8 +321,8 @@ StackCable.template = {
 				attack_verb: ["whipped", "lashed", "disciplined", "flogged"],
 				conduct: true,
 				size: 2,
-				inhand_lhand_icon: 'icon/smob/inhands/equipment/tools_lefthand.png',
-				inhand_rhand_icon: 'icon/smob/inhands/equipment/tools_righthand.png',
+				inhand_lhand_icon: 'icons/mob/inhands/equipment/tools_lefthand.png',
+				inhand_rhand_icon: 'icons/mob/inhands/equipment/tools_righthand.png',
 				inhand_icon_state: "coil"
 			},
 			"Stack": {

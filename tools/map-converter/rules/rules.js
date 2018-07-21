@@ -97,12 +97,16 @@ module.exports = [
 	["/obj/item/weldingtool", () => {return {template_name: "welding_tool"};}, {pixel_offsets: true}],
 	["/obj/item/wirecutters", () => {return {template_name: "wirecutters"};}, {pixel_offsets: true}],
 	["/obj/item/wrench", () => {return {template_name: "wrench"};}, {pixel_offsets: true}],
+	["/obj/item/device/multitool", () => {return {template_name: "multitool"};}, {pixel_offsets: true}],
 
 	// CABLE
 
 	["/obj/structure/cable", (inst) => {
 		return {template_name: "cable", variant_leaf_path: [JSON.parse(inst.vars.cable_color), JSON.parse(inst.vars.icon_state)]};
 	}],
+	["/obj/machinery/power/smes", () => {return {template_name: "smes"};}],
+	["/obj/machinery/power/smes/engineering", () => {return {template_name: "engineering_smes"};}],
+	["/obj/machinery/power/terminal", () => {return {template_name: "smes_terminal"};}], // there's only one kind of mapped-in terminal
 
 	// WEAPONS
 
