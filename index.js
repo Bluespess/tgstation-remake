@@ -106,6 +106,7 @@ server.importModule(require('./code/modules/janitorial/mop.js'));
 server.importModule(require('./code/modules/jobs/access.js'));
 server.importModule(require('./code/modules/jobs/controller.js'));
 server.importModule(require('./code/modules/jobs/id.js'));
+server.importModule(require('./code/modules/power/apc.js'));
 server.importModule(require('./code/modules/power/cable.js'));
 server.importModule(require('./code/modules/power/cell.js'));
 server.importModule(require('./code/modules/power/controller.js'));

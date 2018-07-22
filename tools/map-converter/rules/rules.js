@@ -107,6 +107,7 @@ module.exports = [
 	["/obj/machinery/power/smes", () => {return {template_name: "smes"};}],
 	["/obj/machinery/power/smes/engineering", () => {return {template_name: "engineering_smes"};}],
 	["/obj/machinery/power/terminal", () => {return {template_name: "smes_terminal"};}], // there's only one kind of mapped-in terminal
+	["/obj/machinery/power/apc", (inst) => {return {template_name: "apc", variant_leaf_path: [inst_dir(inst)]};}],
 
 	// WEAPONS
 
