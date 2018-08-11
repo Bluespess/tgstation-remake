@@ -4,6 +4,15 @@ const _ = require('underscore');
 
 const enable_debug_colors = false;
 
+// Alright, there's something y'all need to understand:
+
+// A *JOULE* is a unit of energy.
+// A *WATT* is a unit of power.
+// 1 watt means that 1 joule is being used every second
+// got it?
+// If you ever utter the phrase "watts per <any unit of time here>" you are
+// officially retarded.
+
 class Powernet {
 	constructor(power_controller) {
 		this.controller = power_controller;

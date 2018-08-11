@@ -70,4 +70,42 @@ class AreaArrivals extends Component {
 AreaArrivals.depends = ["Area"];
 AreaArrivals.loadBefore = ["Area"];
 
-module.exports.components = {AreaAmbience, AreaArrivals};
+class AreaPower extends Component {
+	constructor(atom, template) {
+		super(atom, template);
+		this.apc = null;
+	}
+
+	// returns the energy available in joules
+	get_available_power(channel = "equipment") {
+		if(this.infinite_power)
+			return Infinity;
+		if(!this.apc)
+			return 0;
+		return this.apc.c.Apc.get_available_power(channel);
+	}
+
+	// uses this amount of energy
+	use_power(amount, channel = "equipment") {
+		if(this.infinite_power)
+			return amount;
+		if(!this.apc)
+			return 0;
+		return this.apc.c.Apc.use_power(amount, channel);
+	}
+}
+
+AreaPower.loadBefore = ["Area"];
+AreaPower.depends = ["Area"];
+
+AreaPower.template = {
+	vars: {
+		components: {
+			"AreaPower": {
+				infinite_power: false // more clear variable name than what byond does
+			}
+		}
+	}
+};
+
+module.exports.components = {AreaAmbience, AreaArrivals, AreaPower};

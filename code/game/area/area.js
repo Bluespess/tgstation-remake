@@ -138,11 +138,11 @@ AreaBrush.update_map_instance = function(instobj) {
 
 module.exports.templates = {
 	"area": {
-		components: ["Area", "AreaAmbience"],
+		components: ["Area", "AreaAmbience", "AreaPower"],
 		tree_paths: ["areas"]
 	},
 	"area_maintenance": {
-		components: ["Area", "AreaAmbience"],
+		components: ["Area", "AreaAmbience", "AreaPower"],
 		vars: {
 			components: {
 				"AreaAmbience": {
@@ -162,7 +162,7 @@ module.exports.templates = {
 		tree_paths: ["areas/maintenance"]
 	},
 	"area_chapel": {
-		components: ["Area", "AreaAmbience"],
+		components: ["Area", "AreaAmbience", "AreaPower"],
 		vars: {
 			components: {
 				"AreaAmbience": {
@@ -173,7 +173,7 @@ module.exports.templates = {
 		tree_paths: ["areas/chapel"]
 	},
 	"area_engine": {
-		components: ["Area", "AreaAmbience"],
+		components: ["Area", "AreaAmbience", "AreaPower"],
 		vars: {
 			components: {
 				"AreaAmbience": {
@@ -184,7 +184,7 @@ module.exports.templates = {
 		tree_paths: ["areas/engine"]
 	},
 	"area_morgue": {
-		components: ["Area", "AreaAmbience"],
+		components: ["Area", "AreaAmbience", "AreaPower"],
 		vars: {
 			components: {
 				"AreaAmbience": {
@@ -195,7 +195,7 @@ module.exports.templates = {
 		tree_paths: ["areas/engine"]
 	},
 	"area_detective": {
-		components: ["Area", "AreaAmbience"],
+		components: ["Area", "AreaAmbience", "AreaPower"],
 		vars: {
 			components: {
 				"AreaAmbience": {
@@ -206,7 +206,14 @@ module.exports.templates = {
 		tree_paths: ["areas/engine"]
 	},
 	"area_arrivals": {
-		components: ["Area", "AreaAmbience", "AreaArrivals"],
+		components: ["Area", "AreaAmbience", "AreaArrivals", "AreaPower"],
+		vars: {
+			components: {
+				"AreaPower": {
+					infinite_power: true
+				}
+			}
+		},
 		tree_paths: ["areas/shuttle/arrivals"]
 	},
 	"area_brush": {
@@ -216,3 +223,4 @@ module.exports.templates = {
 };
 
 module.exports.components = {Area, AreaBrush};
+module.exports.symbols = {_areas};

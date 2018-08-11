@@ -110,6 +110,7 @@ server.importModule(require('./code/modules/power/apc.js'));
 server.importModule(require('./code/modules/power/cable.js'));
 server.importModule(require('./code/modules/power/cell.js'));
 server.importModule(require('./code/modules/power/controller.js'));
+server.importModule(require('./code/modules/power/lighting.js'));
 server.importModule(require('./code/modules/power/machine.js'));
 server.importModule(require('./code/modules/power/node.js'));
 server.importModule(require('./code/modules/power/smes.js'));

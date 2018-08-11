@@ -26,7 +26,7 @@ module.exports = [
 				template_name = "area_engine";
 			else if(inst.type.path.startsWith("/area/medical/morgue"))
 				template_name = "area_morgue";
-			else if(inst.type.path.startsWith("/area/security/detectivs_office"))
+			else if(inst.type.path.startsWith("/area/security/detectives_office"))
 				template_name = "area_detective";
 			else if(inst.type.path.startsWith("/area/shuttle/arrival"))
 				template_name = "area_arrivals";

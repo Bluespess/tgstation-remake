@@ -27,11 +27,15 @@ class PowerCell extends Component {
 	}
 
 	use(amount) {
+		let to_use = Math.min(this.charge, amount);
 		this.charge = Math.max(this.charge - amount, 0);
+		return to_use;
 	}
 
 	give(amount) {
+		let to_give = Math.min(this.max_charge - this.charge, amount);
 		this.charge = Math.min(this.charge + amount, this.max_charge);
+		return to_give;
 	}
 
 	get percent() {

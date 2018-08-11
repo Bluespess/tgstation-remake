@@ -106,8 +106,15 @@ module.exports = [
 	}],
 	["/obj/machinery/power/smes", () => {return {template_name: "smes"};}],
 	["/obj/machinery/power/smes/engineering", () => {return {template_name: "engineering_smes"};}],
-	["/obj/machinery/power/terminal", () => {return {template_name: "smes_terminal"};}], // there's only one kind of mapped-in terminal
-	["/obj/machinery/power/apc", (inst) => {return {template_name: "apc", variant_leaf_path: [inst_dir(inst)]};}],
+	["/obj/machinery/power/terminal", (inst) => {return {template_name: "smes_terminal", variant_leaf_path: [inst_dir(inst)]};}], // there's only one kind of mapped-in terminal
+	["/obj/machinery/power/apc", (inst) => {
+		let obj = {template_name: "apc", variant_leaf_path: [inst_dir(inst)]};
+		let areastring = JSON.parse(inst.vars.areastring);
+		if(areastring) {
+			obj.instance_vars = {components: {"Apc": {area_override_id: areastring.substr(6).replace(/\//g, "_")}}};
+		}
+		return obj;
+	}],
 
 	// WEAPONS
 
