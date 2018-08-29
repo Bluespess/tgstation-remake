@@ -2,9 +2,9 @@
 /*ALL DEFINES RELATED TO COMBAT GO HERE*/
 
 module.exports = {
-//Damage and status effect defines
+	//Damage and status effect defines
 
-//bitflag damage defines used for suicide_act
+	//bitflag damage defines used for suicide_act
 	BRUTELOSS: 1,
 	FIRELOSS: 2,
 	TOXLOSS: 4,
