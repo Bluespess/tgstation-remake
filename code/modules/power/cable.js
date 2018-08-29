@@ -415,3 +415,4 @@ module.exports.templates = {
 };
 
 module.exports.components = {Cable, StackCable};
+module.exports.cable_colors = cable_colors;

@@ -1,5 +1,7 @@
 'use strict';
 const {Component, Atom} = require('bluespess');
+const _ = require('underscore');
+const {cable_colors} = require('../../../../modules/power/cable.js');
 
 class Toolbox extends Component {
 	constructor(atom, template) {
@@ -74,6 +76,36 @@ module.exports.templates = {
 			name: "mechanical toolbox"
 		},
 		tree_paths: ["items/storage/toolbox/mechanical"]
+	},
+	"toolbox_electrical": {
+		components: ["Toolbox"],
+		vars: {
+			components: {
+				"Item": {
+					inhand_icon_state: "toolbox_yellow"
+				},
+				"StorageItem": {
+					populate_contents() {
+						let picked_color = _.sample(Object.keys(cable_colors));
+						new Atom(this.a.server, "screwdriver", this.a);
+						//TODO: T-Ray scanner
+						new Atom(this.a.server, "wirecutters", this.a);
+						new Atom(this.a.server, "crowbar", this.a);
+						let cable_template = {components: ["StackCable"], vars: {components: {"StackCable": {cable_color: picked_color }, "Stack": {amount: 30}}}};
+						new Atom(this.a.server, cable_template, this.a);
+						new Atom(this.a.server, cable_template, this.a);
+						if(Math.random() < 0.05) {
+							new Atom(this.a.server, "gloves_yellow", this.a);
+						} else {
+							new Atom(this.a.server, cable_template, this.a);
+						}
+					}
+				}
+			},
+			icon_state: "yellow",
+			name: "electrical toolbox"
+		},
+		tree_paths: ["items/storage/toolbox/electrical"]
 	}
 };
 
