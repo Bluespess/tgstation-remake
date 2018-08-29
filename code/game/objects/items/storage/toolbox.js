@@ -91,12 +91,13 @@ module.exports.templates = {
 						//TODO: T-Ray scanner
 						new Atom(this.a.server, "wirecutters", this.a);
 						new Atom(this.a.server, "crowbar", this.a);
-						new Atom(this.a.server, {components: ["StackCable"], vars: {components: {"StackCable": {cable_color: picked_color }, "Stack": {amount: 30}}}}, this.a);
-						new Atom(this.a.server, {components: ["StackCable"], vars: {components: {"StackCable": {cable_color: picked_color }, "Stack": {amount: 30}}}}, this.a);
+						let cable_template = {components: ["StackCable"], vars: {components: {"StackCable": {cable_color: picked_color }, "Stack": {amount: 30}}}};
+						new Atom(this.a.server, cable_template, this.a);
+						new Atom(this.a.server, cable_template, this.a);
 						if(Math.random() < 0.05) {
 							new Atom(this.a.server, "gloves_yellow", this.a);
 						} else {
-							new Atom(this.a.server, {components: ["StackCable"], vars: {components: {"StackCable": {cable_color: picked_color }, "Stack": {amount: 30}}}}, this.a);
+							new Atom(this.a.server, cable_template, this.a);
 						}
 					}
 				}
