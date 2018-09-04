@@ -1,9 +1,32 @@
 'use strict';
-const {Component} = require('bluespess');
+const {Component, make_watched_property} = require('bluespess');
 
 class LightFixture extends Component {
 	constructor(atom, template) {
 		super(atom, template);
+		//TODO add actual tubes
+		this.tube = true; // for now, will add actual tubes later™
+		this.a.c.ApcPowered.on("powered_changed", this.update_on.bind(this));
+		this.on("tube_changed", this.update_on.bind(this));
+		this.on("turned_on_changed", this.update_on.bind(this));
+		make_watched_property(this, "tube");
+		make_watched_property(this, "turned_on");
+	}
+
+	update_on() {
+		let functional = this.turned_on && this.tube; // TODO add a check for tube broken-ness when I add actual tubes
+		this.using_idle_power = functional;
+		if(functional && this.a.c.ApcPowered.powered) {
+			this.a.icon_state = `${this.base_state}1`;
+			this.a.c.LightSource.enabled = true;
+		} else {
+			this.a.c.LightSource.enabled = false;
+			if(!this.tube) {
+				this.a.icon_state = `${this.base_state}_empty`;
+			} else {
+				this.a.icon_state = `${this.base_state}0`;
+			}
+		}
 	}
 }
 
@@ -16,7 +39,8 @@ LightFixture.template = {
 			"LightFixture": {
 				base_state: "tube",
 				tube_type: "tube",
-				default_tube: "tube"
+				default_tube: "tube",
+				turned_on: true
 			},
 			"LightSource": {
 				enabled: true,

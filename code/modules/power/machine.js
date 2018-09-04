@@ -44,15 +44,20 @@ class ApcPowered extends Component {
 
 	process(prev, dt) {
 		prev();
+		let new_powered = false;
 		if(!this.using_idle_power) {
-			this.powered = false;
-			return;
-		}
-		if(this.get_available_power() >= this.power_usage*dt) {
+			new_powered = false;
+		} else if(this.get_available_power() >= this.power_usage*dt) {
 			this.use_power(this.power_usage*dt);
+			new_powered = true;
 		} else {
-			this.powered = false;
+			new_powered = false;
 		}
+		// It looks 10x cooler if shit loses/gains power not all at the same time
+		// So let's do that!
+		setTimeout(() => {
+			this.powered = new_powered;
+		}, Math.random() * 1000 * Math.min(1, 0.8 * dt));
 	}
 }
 
