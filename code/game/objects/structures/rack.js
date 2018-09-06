@@ -1,6 +1,7 @@
 'use strict';
 const {Component, has_component, chain_func, to_chat, Atom} = require('bluespess');
 const pass_flags = require('../../../defines/pass_flags.js');
+const layers = require('../../../defines/layers.js');
 
 class Rack extends Component { //TODO: attack_hand() and by extension play_attack_sound. Basically, you can't kick racks yet.
 	constructor(atom, template) {
@@ -16,12 +17,10 @@ class Rack extends Component { //TODO: attack_hand() and by extension play_attac
 	}
 
 	attack_by(prev, item, user, e) {
-		if(has_component(item, "Tool")) {
-			if(item.c.Tool.can_use("Wrench", user)) {
-				item.c.Tool.used("Wrench");
-				this.a.c.Destructible.deconstruct();
-				return true;
-			}
+		if(has_component(item, "Tool") && item.c.Tool.can_use("Wrench", user)) {
+			item.c.Tool.used("Wrench");
+			this.a.c.Destructible.deconstruct();
+			return true;
 		} else if(item.c.Item.slot && item.c.Item.slot.can_unequip()) { //Yes this is from table code. Because I like it more than how racks in DM handle placing items. Sue me.
 			item.glide_size = 0;
 			item.loc = this.a.base_mover.fine_loc;
@@ -70,6 +69,7 @@ class RackParts extends Component {
 			if(!success)
 				return;
 			new Atom(this.a.server, "rack", user.loc);
+			this.a.destroy();
 		});
 	}
 }
@@ -96,6 +96,7 @@ Rack.template = {
 		icon: 'icons/obj/objects.png',
 		icon_state: "rack",
 		let_pass_flags: pass_flags.LETPASSTHROW,
+		layer: layers.TABLE_LAYER,
 		density: 1
 	}
 };
