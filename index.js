@@ -63,6 +63,7 @@ server.importModule(require('./code/game/objects/structures/wall/reinf_walls.js'
 server.importModule(require('./code/game/objects/structures/wall/walls.js'));
 server.importModule(require('./code/game/objects/structures/girders.js'));
 server.importModule(require('./code/game/objects/structures/grille.js'));
+server.importModule(require('./code/game/objects/structures/rack.js'));
 server.importModule(require('./code/game/objects/structures/table_frames.js'));
 server.importModule(require('./code/game/objects/structures/table.js'));
 server.importModule(require('./code/game/objects/structures/window.js'));
