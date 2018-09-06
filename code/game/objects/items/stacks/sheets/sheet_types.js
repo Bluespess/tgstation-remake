@@ -43,7 +43,8 @@ MetalSheet.template = {
 					{name: "stool", template_name: "stool", cost: 1, cant_cross: ["Chair"], on_floor: true},
 					{name: "bar stool", template_name: "bar_stool", cost: 1, cant_cross: ["Chair"], on_floor: true},
 					{name: "chair", template_name: "chair", cost: 1, cant_cross: ["Chair"], on_floor: true},
-					{name: "swivel chair", template_name: "office_chair_dark", cost: 5, cant_cross: ["Chair"], on_floor: true}
+					{name: "swivel chair", template_name: "office_chair_dark", cost: 5, cant_cross: ["Chair"], on_floor: true},
+					{name: "rack parts", template_name: "rack_parts", cost: 2}
 				]
 			},
 			"Item": {

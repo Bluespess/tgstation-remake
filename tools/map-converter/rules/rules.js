@@ -74,6 +74,9 @@ module.exports = [
 	["/obj/structure/table/wood", () => {return {template_name: "wood_table"};}],
 	["/obj/structure/table/reinforced", () => {return {template_name: "reinforced_table"};}],
 
+	["/obj/structure/rack", () => {return {template_name: "rack"};}],
+	["/obj/item/rack", () => {return {template_name: "rack_parts"};}],
+
 	["/obj/structure/chair", (inst) => {return {template_name: "chair", variant_leaf_path: [inst_dir(inst)]};}],
 	["/obj/structure/chair/wood", (inst) => {return {template_name: "wooden_chair", variant_leaf_path: [inst_dir(inst)]};}],
 	["/obj/structure/chair/wood/wings", (inst) => {return {template_name: "wooden_chair_wings", variant_leaf_path: [inst_dir(inst)]};}],
