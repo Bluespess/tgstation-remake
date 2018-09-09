@@ -46,7 +46,7 @@ class PreferencesPanel {
 Preferences
 
 </div>`;
-		[...this.panel.$(`.button[data-radio-group="tab"]`)].forEach((item) => {
+		[...this.panel.$$(`.button[data-radio-group="tab"]`)].forEach((item) => {
 			item.addEventListener("click", () => {
 				this.show_tab(item.dataset.tab);
 			});
@@ -93,7 +93,7 @@ Preferences
 	}
 
 	show_tab(tab) {
-		[...this.panel.$(`.tabcontent`)].forEach((item)=>{item.style.display = 'none';});
+		[...this.panel.$$(`.tabcontent`)].forEach((item)=>{item.style.display = 'none';});
 		let tab_obj = this.panel.$(`.tabcontent[data-tab='${tab}']`);
 		if(tab_obj)
 			tab_obj.style.display = 'block';
@@ -101,7 +101,7 @@ Preferences
 
 	handle_message(msg) {
 		if(msg.set_tab) {
-			[...this.panel.$(`.button[data-radio-group='tab']`)].forEach((item)=>{item.classList.remove("selected");});
+			[...this.panel.$$(`.button[data-radio-group='tab']`)].forEach((item)=>{item.classList.remove("selected");});
 			this.panel.$(`.button[data-radio-group='tab'][data-tab='${msg.set_tab}']`).classList.add("selected");
 			this.show_tab(msg.set_tab);
 		}
@@ -129,6 +129,10 @@ Preferences
 			if(elem.value == msg.name_correction[0])
 				elem.value = msg.name_correction[1];
 		}
+	}
+
+	instance_human() {
+		
 	}
 }
 

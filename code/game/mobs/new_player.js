@@ -3,6 +3,7 @@
 const {Component, Sound, to_chat} = require('bluespess');
 const NewPlayerPanel = require('./new_player_panel.js');
 const _ = require('underscore');
+const CharacterPreferences = require('../../modules/client/character.js');
 
 class NewPlayer extends Component {
 	constructor(atom, template) {
@@ -25,6 +26,9 @@ class NewPlayer extends Component {
 
 			this.lobby_music_sound = new Sound(this.a.server, {path: this.a.server.lobby_music, volume: 0.85});
 			this.lobby_music_sound.play_to(new_client);
+
+			if(!new_client.character_preferences)
+				new_client.character_preferences = new CharacterPreferences();
 		}
 	}
 }
