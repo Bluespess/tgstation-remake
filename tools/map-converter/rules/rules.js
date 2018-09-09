@@ -154,6 +154,9 @@ module.exports = [
 	["/obj/item/storage/box", () => {return {template_name: "box"};}, {pixel_offsets: true}],
 	["/obj/item/storage/box/beakers", () => {return {template_name: "beaker_box"};}, {pixel_offsets: true}],
 	["/obj/item/storage/box/survival", () => {return {template_name: "survival_box"};}, {pixel_offsets: true}],
+	["/obj/item/storage/box/lights", () => {return {template_name: "light_bulbs_box"};}, {pixel_offsets: true}],
+	["/obj/item/storage/box/lights/tubes", () => {return {template_name: "light_tubes_box"};}, {pixel_offsets: true}],
+	["/obj/item/storage/box/lights/mixed", () => {return {template_name: "light_mixed_box"};}, {pixel_offsets: true}],
 
 	// STACKS/SHEETS
 
