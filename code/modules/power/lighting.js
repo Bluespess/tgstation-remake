@@ -221,7 +221,8 @@ module.exports.templates = {
 			components: {
 				"LightFixture": {
 					default_tube: "light_tube_small",
-					tube_type: "bulb"
+					tube_type: "bulb",
+					base_state: "bulb"
 				},
 				"LightSource": {
 					radius: 4,
