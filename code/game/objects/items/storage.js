@@ -222,6 +222,7 @@ class StorageItem extends Component {
 			if(!flagged) {
 				if(user && !stop_messages)
 					to_chat`<span class='warning'>The ${this.a} cannot hold the ${item}!</span>`(user);
+				return false;
 			}
 		}
 
