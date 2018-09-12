@@ -139,6 +139,7 @@ module.exports = [
 	// JANITORIAL
 
 	["/obj/item/mop", () => {return {template_name: "mop"};}, {pixel_offsets: true}],
+	["/obj/item/caution", () => {return {template_name: "caution"};}, {pixel_offsets: true}],
 
 	// CHEMISTRY
 
