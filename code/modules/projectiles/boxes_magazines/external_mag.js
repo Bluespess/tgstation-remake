@@ -305,7 +305,7 @@ module.exports.templates = {
 				"AmmoBox": {
 					caliber: ".50",
 					form_factor: "pistol",
-					ammo_type: "casing_a50ae",
+					ammo_type: "casing_a50AE",
 					max_ammo: 7,
 					multiple_sprites: 1
 				},
