@@ -45,59 +45,33 @@ module.exports.templates = {
 					size: 2
 				},
 			},
-			name: "improper Desert Eagle",
+			name: "desert eagle",
 			icon_state: "deagle"
 			
 		},
 		tree_paths: ["items/gun/ballistic/automatic/pistol/deagle"]
 	},
 	"deagleg": {
-		components: ["BallisticGun", "BeltItem"],
+		parent_template: "deagle",
 		vars: {
 			components: {
-				"BallisticGun": {
-					spawn_mag: "mag_m50",
-					mag_caliber: ".50",
-					mag_form_factor: "pistol",
-					tactical_reloads: true,
-					reload_sound: 'sound/weapons/autoguninsert.ogg',
-					can_suppress: false,
-					mag_state: true
-				},
 				"Examine": {
 					desc: "A gold plated Desert Eagle folded over a million times by superior martian gunsmiths. Uses .50 AE ammo."
 				},
-				"Item": {
-					size: 2
-				},
 			},
-			name: "improper Desert Eagle",
 			icon_state: "deagleg"
 			
 		},
 		tree_paths: ["items/gun/ballistic/automatic/pistol/deagle/gold"]
 	},
 	"deaglecamo": {
-		components: ["BallisticGun", "BeltItem"],
+		parent_template: "deagle",
 		vars: {
 			components: {
-				"BallisticGun": {
-					spawn_mag: "mag_m50",
-					mag_caliber: ".50",
-					mag_form_factor: "pistol",
-					tactical_reloads: true,
-					reload_sound: 'sound/weapons/autoguninsert.ogg',
-					can_suppress: false,
-					mag_state: true
-				},
 				"Examine": {
 					desc: "A Deagle brand Deagle for operators operating operationally. Uses .50 AE ammo."
 				},
-				"Item": {
-					size: 2
-				},
 			},
-			name: "improper Desert Eagle",
 			icon_state: "deaglecamo"
 			
 		},
