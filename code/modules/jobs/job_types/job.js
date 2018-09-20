@@ -1,7 +1,7 @@
 'use strict';
 const Outfit = require('../../outfits/outfit.js');
-const {Atom, weak_deep_assign, has_component} = require('bluespess');
-const clown_names = require('../../../../strings/names/clown.json');
+const {weak_deep_assign, has_component} = require('bluespess');
+const CharacterPreferences = require('../../client/character.js');
 
 class JobType {
 	constructor(obj) {
@@ -35,12 +35,10 @@ class JobType {
 		return this.access;
 	}
 
-	instance(server) {
-		let template = {"components": ["MobMovement", "MobInventory", "HumanMob"], vars: {layer: 5}};
-		if(this.name_override == "clown") {
-			template.vars.name = clown_names[Math.floor(Math.random() * clown_names.length)];
-		}
-		let mob = new Atom(server, template);
+	instance(server, prefs) {
+		if(!prefs)
+			prefs = new CharacterPreferences();
+		let mob = prefs.instance_human(server, {name_override: this.name_override});
 		this.equip(mob);
 		return mob;
 	}

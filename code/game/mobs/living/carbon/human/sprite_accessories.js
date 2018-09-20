@@ -14,7 +14,7 @@ class SpriteAccessory {
 
 class HairAccessory extends SpriteAccessory {
 	constructor(obj = {}) {
-		obj.icon = obj.icon || 'icons/mob/human_face.png';
+		obj.icon = obj.hasOwnProperty('icon') ? obj.icon : 'icons/mob/human_face.png';
 		super(obj);
 	}
 }
@@ -431,6 +431,7 @@ module.exports.hair = {
 
 	"bald": new HairAccessory({
 		name: "Bald",
+		icon: null,
 		icon_state: null
 	}),
 

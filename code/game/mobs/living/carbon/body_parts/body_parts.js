@@ -148,6 +148,12 @@ class BodyPart extends Component {
 		this.apply_damage_overlays(atom);
 	}
 
+	update_overlays() {
+		this.apply_overlays(this.a);
+		if(this.owner)
+			this.apply_overlays(this.owner);
+	}
+
 	apply_damage_overlays(atom) {
 		let brutestate = Math.ceil(this.brute_damage / this.max_damage * 3);
 		let burnstate = Math.ceil(this.burn_damage / this.max_damage * 3);
@@ -192,6 +198,10 @@ class BodyPart extends Component {
 
 	get_color() {
 		return "#ffffff";
+	}
+
+	apply_prefs(/*prefs*/) {
+
 	}
 
 	multiply_damage(type, amount) {

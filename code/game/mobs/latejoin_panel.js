@@ -30,7 +30,7 @@ class LatejoinPanel extends Panel {
 			if(job.current_positions >= job.total_positions && job.total_positions != -1)
 				return;
 			job.current_positions++;
-			let mob = job.instance(this.client.server);
+			let mob = job.instance(this.client.server, this.client.character_preferences);
 			this.client.server.job_controller.send_to_late_join(mob, true);
 			mob.c.Mob.client = this.client;
 		}

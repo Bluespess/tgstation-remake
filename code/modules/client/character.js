@@ -1,10 +1,14 @@
 'use strict';
 
+const {Atom} = require('bluespess');
 const _ = require('underscore');
 const first_names = require('../../../strings/names/first.json');
 const first_names_male = require('../../../strings/names/first_male.json');
 const first_names_female = require('../../../strings/names/first_female.json');
 const last_names = require('../../../strings/names/last.json');
+const clown_names = require('../../../strings/names/clown.json');
+const sprite_accessories = require('../../game/mobs/living/carbon/human/sprite_accessories.js');
+const {skin_tones} = require('../../game/mobs/living/carbon/body_parts/helpers.js');
 
 class CharacterPreferences {
 	constructor(obj) {
@@ -33,6 +37,9 @@ class CharacterPreferences {
 	randomize_body() {
 		this.gender = Math.random() < 0.5 ? "male" : "female";
 		this.age = Math.floor((Math.random()**2)*69) + 17; // Square the random number so that it's biased toward smaller numbers
+		this.skin_tone = _.sample(Object.keys(skin_tones));
+		this.hair_style = _.sample([...Object.entries(sprite_accessories.hair)].filter(item => {return !item[0].gender || item[0].gender.includes(this.gender);}))[0];
+		this.hair_color = [_.random(0, 255), _.random(0, 255), _.random(0, 255)];
 	}
 	randomize_name(type) {
 		if(!type || type == "human")
@@ -109,6 +116,21 @@ class CharacterPreferences {
 		if(["space","floor","wall","r-wall","monkey","unknown","inactive ai"].includes(t_out.toLowerCase()))
 			return;
 		return t_out;
+	}
+
+	instance_human(server, {name_override = null}) {
+		let template = {"components": ["MobMovement", "MobInventory", "HumanMob"], vars: {layer: 5}};
+		if(name_override == "clown") {
+			template.vars.name = clown_names[Math.floor(Math.random() * clown_names.length)];
+		} else {
+			template.vars.name = this.name;
+		}
+		template.vars.gender = this.gender;
+		let mob = new Atom(server, template);
+		for(let limb of mob.c.MobBodyParts.limbs_set) {
+			limb.c.BodyPart.apply_prefs(this);
+		}
+		return mob;
 	}
 }
 

@@ -1,6 +1,8 @@
 'use strict';
 const {Panel} = require('bluespess');
 const CharacterPreferences = require('./character.js');
+const sprite_accessories = require('../../game/mobs/living/carbon/human/sprite_accessories.js');
+const {skin_tones} = require('../../game/mobs/living/carbon/body_parts/helpers.js');
 
 class PreferencesPanel extends Panel {
 	constructor(client, {start_tab = "character"} = {}) {
@@ -35,6 +37,23 @@ class PreferencesPanel extends Panel {
 				age = Math.min(Math.max(17, age), 85);
 				this.char_prefs.age = age;
 			}
+			if(msg.char_prefs.hair_style != null) {
+				let hair_obj = sprite_accessories.hair[msg.char_prefs.hair_style];
+				if(hair_obj && sprite_accessories.hair.hasOwnProperty(msg.char_prefs.hair_style) && (!hair_obj.gender || hair_obj.gender.includes(this.char_prefs.gender)))
+					this.char_prefs.hair_style = msg.char_prefs.hair_style;
+			}
+			if(msg.char_prefs.hair_color != null) {
+				let arr = msg.char_prefs.hair_color;
+				if(!(arr instanceof Array))
+					arr = [];
+				arr.length = 3;
+				arr = arr.map(item => {return Math.min(255, Math.max(0, Math.round(+item)));});
+				this.char_prefs.hair_color = arr;
+			}
+			if(msg.char_prefs.skin_tone != null) {
+				if(skin_tones.hasOwnProperty(msg.char_prefs.skin_tone))
+					this.char_prefs.skin_tone = msg.char_prefs.skin_tone;
+			}
 		}
 		if(msg.randomize_name && this.char_prefs) {
 			this.char_prefs.randomize_name(msg.randomize_name);
@@ -44,7 +63,7 @@ class PreferencesPanel extends Panel {
 
 	send_prefs(parts) {
 		let char_prefs_msg = {};
-		for(let key of ["name", "be_random_name", "be_random_body", "gender", "age", "skin_tone", "backbag"]) {
+		for(let key of ["name", "be_random_name", "be_random_body", "gender", "age", "skin_tone", "backbag", "hair_style", "hair_color"]) {
 			if(parts && !parts.includes(key))
 				continue;
 			char_prefs_msg[key] = this.char_prefs[key];
@@ -58,7 +77,7 @@ class PreferencesPanel extends Panel {
 	opened() {
 		this.client.preferences_panel = this;
 
-		this.send_message({set_tab: this.start_tab});
+		this.send_message({set_tab: this.start_tab, sprite_accessories, skin_tones});
 		this.send_prefs();
 	}
 
