@@ -297,7 +297,7 @@ Preferences
 		let hair_style = this.sprite_accessories.hair[prefs.hair_style];
 		if(hair_style) {
 			let hc = this.char_prefs.hair_color || [255,255,255];
-			atom.set_overlay("hair", {icon: hair_style.icon, icon_state: hair_style.icon_state, color: `rgb(${hc[0]},${hc[1]},${hc[2]})`});
+			atom.set_overlay("hair", {icon: hair_style.icon, icon_state: hair_style.icon_state, color: `rgb(${hc[0]},${hc[1]},${hc[2]})`, overlay_layer: 14});
 		}
 		if(add_clothes)
 			atom.set_overlay(`uniform`, {icon: 'icons/mob/uniform.png', icon_state: "grey"});
