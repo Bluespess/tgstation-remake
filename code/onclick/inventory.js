@@ -105,6 +105,7 @@ class MobInventory extends Component {
 		this[_active_hand] = value;
 		this[_slots][this[_active_hand]].atom.overlays.hand_active = "hand_active";
 		this.emit("active_hand_changed", old_active_hand, value);
+		this.emit("active_hand_item_changed", old_active_hand && this[_slots][old_active_hand].item, value && this[_slots][value].item);
 	}
 	get active_hand() {
 		return this[_active_hand];
@@ -462,6 +463,8 @@ class Slot extends EventEmitter {
 		if(olditem)
 			olditem.c.Item.emit("unequipped", this);
 		this.emit("item_changed", olditem, value);
+		if(this.id == this.mob.c.MobInventory.active_hand)
+			this.mob.c.MobInventory.emit("active_hand_item_changed", olditem, value);
 		if(value)
 			value.c.Item.emit("equipped", this);
 	}

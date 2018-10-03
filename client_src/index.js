@@ -22,6 +22,7 @@ client.importModule(require('./code/ui/chem_dispenser.js'));
 client.importModule(require('./code/ui/chem_heater.js'));
 client.importModule(require('./code/ui/latejoin.js'));
 client.importModule(require('./code/ui/login.js'));
+client.importModule(require('./code/ui/machine_wires.js'));
 client.importModule(require('./code/ui/new_player.js'));
 client.importModule(require('./code/ui/preferences.js'));
 client.importModule(require('./code/ui/smes.js'));

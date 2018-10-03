@@ -14,6 +14,7 @@ global.require = require;
 server.resRoot = "./res/";
 
 server.importModule(require('./code/game/components/squeak.js'));
+server.importModule(require('./code/game/components/wires.js'));
 server.importModule(require('./code/game/area/area_components.js'));
 server.importModule(require('./code/game/area/area.js'));
 server.importModule(require('./code/game/mobs/mob_movement.js'));

@@ -1,5 +1,5 @@
 'use strict';
-const {Component, Sound, chain_func, has_component, sleep} = require('bluespess');
+const {Component, Sound, make_watched_property, to_chat, audible_message, chain_func, has_component, sleep} = require('bluespess');
 const combat_defines = require('../../../defines/combat_defines.js');
 
 class Airlock extends Component {
@@ -25,11 +25,24 @@ class Airlock extends Component {
 		this.a.c.Door.on("locked", this.locked.bind(this));
 		this.a.c.Door.on("unlocked", this.unlocked.bind(this));
 
+		this.a.c.MachineWires.on("cut", this.wire_cut.bind(this));
+		this.a.c.MachineWires.on("mend", this.wire_mended.bind(this));
+		this.a.c.MachineWires.on("pulse", this.wire_pulsed.bind(this));
+
 		this.a.c.Emaggable.emag_act = chain_func(this.a.c.Emaggable.emag_act, this.emag_act.bind(this));
+		this.a.attack_hand = chain_func(this.a.attack_hand, this.attack_hand.bind(this));
+		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
+		this.on("panel_open_changed", ()=>{this.update_panel_overlay();});
+
+		make_watched_property(this, "panel_open", "boolean");
 	}
 
 	update_panel_overlay() {
-		// not yet
+		if(this.panel_open) {
+			this.a.overlays.airlock_panel = {icon: this.overlays_file, icon_state: "panel_[parent]"};
+		} else {
+			this.a.overlays.airlock_panel = null;
+		}
 	}
 
 	update_welded_overlay() {
@@ -187,6 +200,40 @@ class Airlock extends Component {
 		new Sound(this.a.server, {path: this.unbolt_sound, volume: 0.3}).emit_from(this.a);
 		this.update_lights_overlay();
 	}
+
+	attack_hand(prev, user) {
+		if(this.panel_open) {
+			this.a.c.MachineWires.show_ui(user);
+			return true;
+		}
+		return prev();
+	}
+	attack_by(prev, item, user) {
+		if(has_component(item, "Tool") && item.c.Tool.can_use("Screwdriver", user)) {
+			this.panel_open = !this.panel_open;
+			to_chat`<span class='notice'>You ${this.panel_open ? "open":"close"} the maintenance panel of the airlock.</span>`(user);
+			item.c.Tool.used("Screwdriver");
+			return true;
+		}
+		if(this.a.c.MachineWires.is_wire_tool(item)) {
+			this.a.attack_hand(user);
+			return true;
+		}
+		return prev();
+	}
+
+	wire_cut(wire) {
+
+	}
+	wire_mended(wire) {
+
+	}
+	wire_pulsed(wire) {
+		if(wire.type == "bolts") {
+			this.a.c.Door.locked = !this.a.c.Door.locked;
+			audible_message`<span class='italics'>You hear a click from the bottom of the door.</span>`.range(1).emit_from(this.a);
+		}
+	}
 }
 
 Airlock.one_per_tile = true;
@@ -203,6 +250,27 @@ Airlock.template = {
 				opening_state: "opening",
 				closing_state: "closing",
 				autoclose: true
+			},
+			"MachineWires": {
+				wire_types: {
+					"power1": "Main Power 1",
+					"power2": "Main Power 2",
+					"backup1": "Auxiliary Power 1",
+					"backup2": "Auxiliary Power 2",
+					"open": "Open",
+					"bolts": "Bolts",
+					"idscan": "ID Scan",
+					"ai": "AI Connection",
+					"shock": "High Voltage Ground",
+					"safety": "Safety",
+					"timing": "Timing",
+					"light": "Bolt Lights",
+					"zap1": "High Voltage Circuit 1",
+					"zap2": "High Voltage Circuit 2",
+					"dud1": null,
+					"dud2": null
+				},
+				wire_group: "airlock"
 			},
 			"Airlock": {
 				security_level: 0, //How much are wires secured
@@ -230,8 +298,8 @@ Airlock.template = {
 	}
 };
 
-Airlock.depends = ["Door", "Emaggable", "SmoothGroup"];
-Airlock.loadBefore = ["Door", "Emaggable"];
+Airlock.depends = ["Door", "Emaggable", "MachineWires", "SmoothGroup"];
+Airlock.loadBefore = ["Door", "Emaggable", "MachineWires"];
 
 Airlock.update_map_instance = function(instobj) {
 	let airlock_material = instobj.computed_vars.components.Airlock.airlock_material;
