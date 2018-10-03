@@ -294,7 +294,7 @@ Object.assign(Synthflesh.prototype, {
 class Charcoal extends Medicine { // /datum/reagent/medicine/charcoal
 	mob_life(dt) {
 		this.holder.c.LivingMob.adjust_damage("tox", -1 * dt);
-		for(let key of this.holder.c.ReagentHolder.reagents.key()) {
+		for(let key of this.holder.c.ReagentHolder.reagents.keys()) {
 			if(key != this.constructor.name) {
 				this.holder.c.ReagentHolder.remove(key, 0.5 * dt);
 			}
@@ -340,7 +340,7 @@ Object.assign(Omnizine.prototype, {
 
 class Calomel extends Medicine { // /datum/reagent/medicine/calomel
 	mob_life(dt) {
-		for(let key of this.holder.c.ReagentHolder.reagents.key()) {
+		for(let key of this.holder.c.ReagentHolder.reagents.keys()) {
 			if(key != this.constructor.name) {
 				this.holder.c.ReagentHolder.remove(key, 1.25 * dt);
 			}
@@ -382,7 +382,7 @@ class PenteticAcid extends Medicine { // /datum/reagent/medicine/pen_acid
 	mob_life(dt) {
 		this.holder.c.CarbonMob.radiation -= Math.min(this.holder.c.CarbonMob.radiation - 250 * dt, 0) / 50;
 		this.holder.c.LivingMob.adjust_damage("tox", -1 * dt);
-		for(let key of this.holder.c.ReagentHolder.reagents.key()) {
+		for(let key of this.holder.c.ReagentHolder.reagents.keys()) {
 			if(key != this.constructor.name) {
 				this.holder.c.ReagentHolder.remove(key, 1 * dt);
 			}
@@ -801,7 +801,7 @@ Object.assign(Kelotane.prototype, {
 class AntiToxin extends Medicine { // /datum/reagent/medicine/antitoxin
 	mob_life(dt) {
 		this.holder.c.LivingMob.adjust_damage("tox", -1 * dt);
-		for(let key of this.holder.c.ReagentHolder.reagents.key()) {
+		for(let key of this.holder.c.ReagentHolder.reagents.keys()) {
 			if(key != this.constructor.name) {
 				this.holder.c.ReagentHolder.remove(key, 0.5 * dt);
 			}
@@ -915,7 +915,7 @@ Object.assign(Earthsblood.prototype, {
 
 class Haloperidol extends Medicine { // /datum/reagent/medicine/haloperidol
 	mob_life(dt) {
-		for(let key of this.holder.c.ReagentHolder.reagents.key()) {
+		for(let key of this.holder.c.ReagentHolder.reagents.keys()) {
 			if(key != this.constructor.name) {
 				this.holder.c.ReagentHolder.remove(key, 2.5 * dt);
 			}
