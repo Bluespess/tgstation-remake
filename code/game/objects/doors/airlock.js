@@ -222,10 +222,10 @@ class Airlock extends Component {
 		return prev();
 	}
 
-	wire_cut(wire) {
+	wire_cut(/*wire*/) {
 
 	}
-	wire_mended(wire) {
+	wire_mended(/*wire*/) {
 
 	}
 	wire_pulsed(wire) {
