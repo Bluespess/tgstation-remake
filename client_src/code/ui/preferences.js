@@ -179,14 +179,13 @@ Preferences
 			if(e.defaultPrevented)
 				return;
 			let menu = document.createElement('div');
-			menu.classList.add('button', "dropdown-content");
-			menu.style.height = "100px";
+			menu.classList.add('dropdown-content');
 			let sliders = [];
 			for(let i = 0; i < 3; i++) {
 				let slider = document.createElement('input');
 				sliders[i] = slider;
 				slider.type = 'range';
-				slider.classList.add('button', 'dropdown-item');
+				slider.classList.add('dropdown-item');
 				slider.style.display = "block";
 				slider.min = 0;
 				slider.max = 255;
