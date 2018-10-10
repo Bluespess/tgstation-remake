@@ -52,6 +52,13 @@ class MachineWirePanel {
 					elem.classList.add("disabled");
 			}
 		}
+		if(msg.status_text !== undefined) {
+			if(msg.status_text == null)
+				this.panel.$(`.status_text`).style.display = "none";
+			else
+				this.panel.$(`.status_text`).style.display = "block";
+			this.panel.$(`.status_text`).innerHTML=msg.status_text;
+		}
 	}
 }
 

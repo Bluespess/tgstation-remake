@@ -7,13 +7,14 @@ class MachineWires extends Component {
 		super(atom, template);
 		this.wires = [];
 		this.colors = {};
+		this.wire_types = {};
 		let group_def = null;
 		if(!this.wire_group || !this.a.server.wire_groups[this.wire_group]) {
 			let colors = _.shuffle(["blue", "brown", "crimson", "cyan", "gold", "grey",
 				"green", "magenta", "orange", "pink", "purple", "red", "silver",
 				"violet", "white", "yellow"]);
 			group_def = [];
-			for(let [type, name] of _.shuffle(Object.entries(this.wire_types))) {
+			for(let [type, name] of _.shuffle(Object.entries(this.wire_defs))) {
 				if(name === undefined)
 					continue;
 				let color = colors.pop();
@@ -34,6 +35,7 @@ class MachineWires extends Component {
 			let wire_obj = Object.assign({}, def);
 			this.wires.push(wire_obj);
 			this.colors[wire_obj.color] = wire_obj;
+			this.wire_types[wire_obj.type] = wire_obj;
 
 			let cut = false;
 			Object.defineProperty(wire_obj, "cut", {
@@ -49,10 +51,22 @@ class MachineWires extends Component {
 						this.emit("mend", wire_obj);
 				}
 			});
-			wire_obj.pulse = () => {
+			wire_obj.pulse = (user) => {
 				if(wire_obj.cut)
 					return;
-				this.emit("pulse", wire_obj);
+				this.emit("pulse", wire_obj, user);
+			};
+			wire_obj.do_cut = (user) => {
+				if(wire_obj.cut)
+					return;
+				cut = true;
+				this.emit("cut", wire_obj, user);
+			};
+			wire_obj.do_mend = (user) => {
+				if(!wire_obj.cut)
+					return;
+				cut = false;
+				this.emit("mend", wire_obj, user);
 			};
 		}
 		make_watched_property(this, "status_text", "string");
@@ -72,6 +86,14 @@ class MachineWires extends Component {
 			return true;
 		return false;
 	}
+
+	update_status_text() {
+		this.status_text = this.build_status_text();
+	}
+
+	build_status_text() {
+		return "";
+	}
 }
 
 MachineWires.loadBefore = [];
@@ -81,7 +103,7 @@ MachineWires.template = {
 	vars: {
 		components: {
 			"MachineWires": {
-				wire_types: {}, // a list of wire IDs
+				wire_defs: {}, // a list of wire IDs
 				// but be careful though the individual wire IDs will be inherited
 				wire_group: null, // if not null all wire machines with the same group will have the same
 				status_text: null
@@ -126,7 +148,10 @@ class MachineWirePanel extends Panel {
 				tool.c.Tool.used("Wirecutters");
 				let wire = this.bound_atom.c.MachineWires.colors[msg.cut];
 				if(wire) {
-					wire.cut = !wire.cut;
+					if(wire.cut)
+						wire.do_mend(this.bound_mob);
+					else
+						wire.do_cut(this.bound_mob);
 				}
 			}
 			if(msg.pulse && has_component(tool, "Tool") && tool.c.Tool.can_use("Multitool", this.bound_mob)) {

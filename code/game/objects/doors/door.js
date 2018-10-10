@@ -16,7 +16,8 @@ class Door extends Component {
 		this.a.c.BlocksAir.is_blocking = this.a.density > 0;
 		this.a.on("bumped_by", this.bumped_by.bind(this));
 		this.a.c.RequiresAccess.can_access = chain_func(this.a.c.RequiresAccess.can_access, this.can_access);
-		this.a.attack_hand = chain_func(this.a.attack_hand, this.try_to_activate_door.bind(this));
+		this.a.attack_hand = chain_func(this.a.attack_hand, (user) => {this.try_to_activate_door(user);});
+		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
 	}
 
 	bumped_by(atom) {
@@ -126,6 +127,22 @@ class Door extends Component {
 
 	deny() {
 
+	}
+
+	try_to_crowbar(/*tool, user*/) {}
+
+	try_to_weld(/*tool, user*/) {}
+
+	attack_by(prev, item, user) {
+		if(has_component(item, "Tool") && item.c.Tool.can_use("Crowbar")) {
+			this.try_to_crowbar(item, user);
+			return true;
+		}
+		if(has_component(item, "Tool") && item.c.Tool.can_use("Welder")) {
+			this.try_to_weld(item, user);
+			return true;
+		}
+		return prev();
 	}
 
 	get locked() {
