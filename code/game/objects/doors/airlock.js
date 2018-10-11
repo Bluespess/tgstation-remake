@@ -39,7 +39,7 @@ class Airlock extends Component {
 		this.a.attack_hand = chain_func(this.a.attack_hand, this.attack_hand.bind(this));
 		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
 		this.on("panel_open_changed", ()=>{this.update_panel_overlay();});
-		this.on("lights_enabled_changed", () => {this.update_lights_overlay();});
+		this.on("lights_changed", () => {this.update_lights_overlay();});
 		this.a.c.ApcPowered.on("powered_changed", () => {this.update_lights_overlay(); this.a.c.MachineWires.update_status_text();});
 		this.on("seconds_main_power_lost_changed", () => {this.update_lights_overlay(); this.a.c.MachineWires.update_status_text();});
 		this.on("seconds_backup_power_lost_changed", () => {this.update_lights_overlay(); this.a.c.MachineWires.update_status_text();});
@@ -47,6 +47,7 @@ class Airlock extends Component {
 		make_watched_property(this, "panel_open", "boolean");
 		make_watched_property(this, "seconds_main_power_lost", "number");
 		make_watched_property(this, "seconds_backup_power_lost", "number");
+		make_watched_property(this, "lights", "boolean");
 	}
 
 	update_panel_overlay() {
@@ -66,7 +67,7 @@ class Airlock extends Component {
 	}
 
 	update_lights_overlay() {
-		let on = this.lights_enabled;
+		let on = this.lights;
 		if(!this.a.c.ApcPowered.powered) {
 			if(this.a.c.ApcPowered.get_available_power() > this.a.c.ApcPowered.power_usage) {
 				this.a.c.ApcPowered.use_power(this.a.c.ApcPowered.power_usage);
@@ -77,7 +78,7 @@ class Airlock extends Component {
 			}
 		}
 		this.a.overlays.airlock_emergency_lights = (on && this.a.c.Door.emergency) ? {icon: this.overlays_file, icon_state: "lights_emergency_[parent]"} : null;
-		this.a.overlays.airlock_lights = (on && this.this.a.c.Door.locked) ? {icon: this.overlays_file, icon_state: "lights_bolts_[parent]"} : {icon: this.overlays_file, icon_state: "lights_[parent]"};
+		this.a.overlays.airlock_lights = (on && this.a.c.Door.locked) ? {icon: this.overlays_file, icon_state: "lights_bolts_[parent]"} : {icon: this.overlays_file, icon_state: "lights_[parent]"};
 	}
 
 	try_to_crowbar(tool, user) {
