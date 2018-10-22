@@ -39,7 +39,7 @@ class MobInteract extends Component {
 		if(isliving && !this.can_interact())
 			return;
 
-		if(hasinv && this.a.c.MobInventory.throw_mode) {
+		if(hasinv && this.a.c.MobInventory.throw_mode && e.atom.loc && e.atom.loc.is_base_loc) {
 			this.a.c.MobInventory.throw_item({x: e.atom.x + e.x - 0.5, y: e.atom.y + e.y - 0.5});
 		}
 

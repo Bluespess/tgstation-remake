@@ -244,7 +244,7 @@ class LivingMob extends Component {
 	}
 
 	can_interact_with_panel(target) {
-		return target.z == this.a.z && Math.max(Math.abs(target.x - this.a.x), Math.abs(target.y - this.a.y)) < 1;
+		return target.z == this.a.z && target.dim == this.a.dim && Math.max(Math.abs(target.x - this.a.x), Math.abs(target.y - this.a.y)) < 1;
 	}
 
 	experience_pressure_difference(prev, difference) {

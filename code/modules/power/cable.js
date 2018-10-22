@@ -341,7 +341,7 @@ StackCable.template = {
 			}
 		},
 		name: "cable coil",
-		gender: "neutral",
+		gender: "neuter",
 		icon_state: "coil",
 		icon: 'icons/obj/power.png'
 	}

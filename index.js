@@ -164,7 +164,8 @@ if(global.is_bs_editor_env) {
 	let server_config = read_config('server.cson');
 	let map = server_config.maps.current_map;
 	console.log("Loading map " + map + "..");
-	server.instance_map_sync(JSON.parse(fs.readFileSync((map + '.bsmap'), 'utf8')), 0, 0, 0);
+	server.station_dim = new Bluespess.Dimension(server);
+	server.instance_map_sync(JSON.parse(fs.readFileSync((map + '.bsmap'), 'utf8')), 0, 0, 0, server.station_dim);
 
 	server.on("client_login", (client) => {
 		if(!client.mob) {

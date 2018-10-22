@@ -25,7 +25,7 @@ class Puller extends Component {
 
 	can_pull(target) {
 		return target != this.a && has_component(target, "Tangible") && !target.c.Tangible.anchored
-			&& this.a.z == target.z && Math.max(Math.abs(this.a.x - target.x), Math.abs(this.a.y - target.y)) <= 1.50001
+			&& this.a.z == target.z && this.a.dim == target.dim && Math.max(Math.abs(this.a.x - target.x), Math.abs(this.a.y - target.y)) <= 1.50001
 			&& this.a.loc && this.a.loc.is_base_loc && target.loc && target.loc.is_base_loc;
 	}
 

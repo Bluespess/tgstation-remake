@@ -39,7 +39,7 @@ class Stack extends Component {
 		}
 
 		if(this.amount == 1)
-			this.a.gender = "neutral";
+			this.a.gender = "neuter";
 		else
 			this.a.gender = "plural";
 
