@@ -26,4 +26,17 @@ class Knockdown extends StatusEffect.Timed {
 	}
 }
 
-module.exports.status_effects = {Knockdown};
+class Unconscious extends StatusEffect.Timed {
+	apply_to(mob, props) {
+		super.apply_to(mob, props);
+		if(this.mob)
+			this.mob.c.LivingMob.update_stat();
+	}
+
+	unapply() {
+		super.unapply();
+		this.mob.c.LivingMob.update_stat();
+	}
+}
+
+module.exports.status_effects = {Knockdown, Unconscious};

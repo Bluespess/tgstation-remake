@@ -233,7 +233,9 @@ class ReagentHolder extends Component {
 		this.addiction_tick += dt;
 	}
 
-	should_metabolize_reagent(/*key, reagent*/) {
+	should_metabolize_reagent(key/*, reagent*/) {
+		if(key == "Blood" && this.a.c.CarbonMob.uses_blood)
+			return false;
 		return true;
 	}
 

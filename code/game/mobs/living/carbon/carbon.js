@@ -1,7 +1,9 @@
 'use strict';
 const {Component, Atom, Sound, chain_func, has_component, to_chat} = require('bluespess');
+const _ = require('underscore');
 const combat_defines = require('../../../../defines/combat_defines.js');
 const atmos_defines = require('../../../../defines/atmos_defines.js');
+const mob_defines = require('../../../../defines/mob_defines.js');
 const layers = require('../../../../defines/layers.js');
 const sounds = require('../../../../defines/sounds.js');
 
@@ -20,6 +22,7 @@ class CarbonMob extends Component.Networked {
 		this.a.c.LivingMob.update_stat = this.update_stat.bind(this);
 		this.a.c.LivingMob.movement_delay = chain_func(this.a.c.LivingMob.movement_delay, this.movement_delay.bind(this));
 		this.a.c.LivingMob.life = chain_func(this.a.c.LivingMob.life, this.life.bind(this));
+		this.a.c.LivingMob.add_splatter_floor = this.add_splatter_floor.bind(this);
 
 		this.add_networked_var("lying", (newval) => {
 			if(newval) {
@@ -35,6 +38,10 @@ class CarbonMob extends Component.Networked {
 			return true;
 		});
 		this.add_networked_var("jitteriness");
+
+		if(this.uses_blood) {
+			this.a.c.ReagentHolder.add("Blood", mob_defines.BLOOD_VOLUME_NORMAL);
+		}
 
 		this.organs = {};
 		new Atom(this.a.server, 'organ_lungs').c.Organ.insert(this.a);
@@ -63,7 +70,7 @@ class CarbonMob extends Component.Networked {
 				this.a.c.LivingMob.stat = combat_defines.DEAD;
 				return;
 			}
-			if(this.a.c.LivingMob.get_damage("oxy") > 50 || health <= combat_defines.HEALTH_THRESHOLD_FULLCRIT) {
+			if(this.a.c.LivingMob.get_damage("oxy") > 50 || health <= combat_defines.HEALTH_THRESHOLD_FULLCRIT || this.a.c.LivingMob.effects.Unconscious) {
 				this.a.c.LivingMob.stat = combat_defines.UNCONSCIOUS;
 			} else {
 				if(health <= combat_defines.HEALTH_THRESHOLD_CRIT) {
@@ -211,6 +218,7 @@ class CarbonMob extends Component.Networked {
 		prev();
 
 		this.handle_organs();
+		this.handle_blood();
 		this.breathe(cycle);
 		this.handle_environment();
 		this.handle_liver();
@@ -272,6 +280,59 @@ class CarbonMob extends Component.Networked {
 		}
 	}
 
+	handle_blood() {
+		// In BYOND ss13, blood is stored in a special snowflakey var.
+		// I say down with that bullshit. Make mobs a 2000-volume reagent container and toss
+		// blood in there as another reagent type. Makes more sense, and your syringes will actually
+		// pull out the other reagents in your blood. And you'll actually be able to get drunk
+		// by drinking a drunk person's blood. (please don't try this at home)
+		if(!this.uses_blood)
+			return; // fuck off we have no blood here
+		let blood_volume = this.a.c.ReagentHolder.volume_of("Blood");
+		if(blood_volume < mob_defines.BLOOD_VOLUME_SAFE) {
+			let word = _.sample(["dizzy", "woozy", "faint"]);
+			if(blood_volume >= mob_defines.BLOOD_VOLUME_OKAY) {
+				if(Math.random() < 0.05)
+					to_chat`<span class='warning'>You feel ${word}.</span>`(this.a);
+				this.a.c.LivingMob.adjust_damage("oxy", Math.round((mob_defines.BLOOD_VOLUME_NORMAL - blood_volume) * 0.01));
+			} else if(blood_volume >= mob_defines.BLOOD_VOLUME_BAD) {
+				if(Math.random() < 0.05) {
+					to_chat`<span class='warning'>You feel very ${word}.</span>`(this.a);
+				}
+				this.a.c.LivingMob.adjust_damage("oxy", Math.round((mob_defines.BLOOD_VOLUME_NORMAL - blood_volume) * 0.02));
+			} else if(blood_volume >= mob_defines.BLOOD_VOLUME_SURVIVE) {
+				this.a.c.LivingMob.adjust_damage("oxy", 5);
+				if(Math.random() < 0.15) {
+					this.a.c.LivingMob.apply_effect("Unconscious", Math.random() * 4000 + 2000);
+					to_chat`<span class='warning'>You feel very ${word}.</span>`(this.a);
+				}
+			} else {
+				this.a.c.LivingMob.stat = mob_defines.DEAD;
+			}
+		}
+
+		let new_bleed_rate = 0;
+		if(has_component(this.a, "MobBodyParts")) {
+			for(let limb of this.a.c.MobBodyParts.limbs_set) {
+				if(limb.c.BodyPart.brute_damage > 20)
+					new_bleed_rate += limb.c.BodyPart.brute_damage * 0.013;
+			}
+		} else {
+			if(this.a.c.LivingMob.get_damage("brute") > 20)
+				new_bleed_rate += this.a.c.LivingMob.get_damage("brute") * 0.013;
+		}
+		this.bleed_rate = Math.max(this.bleed_rate - 0.5, new_bleed_rate);
+		if(this.bleed_rate > 0)
+			this.bleed(this.bleed_rate);
+	}
+
+	bleed(amt) {
+		amt = this.a.c.ReagentHolder.remove("Blood", amt);
+		if(this.a.loc && this.a.loc.is_base_loc) {
+			this.a.c.LivingMob.add_splatter_floor({small_drip: amt < 10});
+		}
+	}
+
 	handle_liver() {
 		let liver = this.organs.liver;
 		if(!liver || liver.c.OrganLiver.failing) {
@@ -285,6 +346,25 @@ class CarbonMob extends Component.Networked {
 				to_chat`<span class='notice'>You feel confused and nauseous...</span>`(this.a); //actual symptoms of liver failure
 			}
 		}
+	}
+
+	get_blood_id() {
+		return this.uses_blood ? "blood" : null;
+	}
+
+	add_splatter_floor({ref = this.a, small_drip = false} = {}) {
+		if(this.get_blood_id() != "blood")
+			return;
+		if(!ref || !ref.base_mover || !ref.base_mover.loc)
+			return;
+
+		let splatter;
+		if(small_drip) {
+			splatter = new Atom(this.a.server, "decal_blood_drips");
+		} else {
+			splatter = new Atom(this.a.server, "decal_blood_splatter");
+		}
+		splatter.fine_loc = ref.base_mover.fine_loc;
 	}
 
 	slip(obj) {
@@ -307,7 +387,12 @@ CarbonMob.template = {
 				dizziness: 0,
 				jitteriness: 0,
 				druggy: 0,
-				hallucination: 0
+				hallucination: 0,
+				uses_blood: true,
+				bleed_rate: 0
+			},
+			"ReagentHolder": {
+				maximum_volume: 2000 // enough space to hold 4 times more blood than you'll ever have.
 			}
 		}
 	}

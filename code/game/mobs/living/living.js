@@ -293,12 +293,17 @@ class LivingMob extends Component {
 		this.apply_damage(item.c.Tangible.throw_force, item.c.Item.damage_type, zone);
 	}
 
+	add_splatter_floor(/*{turf, small_drip = false} = {}*/) {}
+
 	attacked_by(item, user) {
 		let zone = random_zone(user.c.MobInteract.zone_sel);
 		let bp = has_component(this.a, "MobBodyParts") && (this.a.c.MobBodyParts.limbs[zone] || this.a.c.MobBodyParts.limbs.chest);
 		this.send_item_attack_message(item, user, bp && bp.name);
 		if(item.c.Item.force) {
 			this.apply_damage(item.c.Item.force, item.c.Item.damage_type, zone);
+			if(item.c.Item.damage_type == "brute" && Math.random() < 0.33) {
+				this.add_splatter_floor();
+			}
 			return true; // successful attack
 		}
 	}
