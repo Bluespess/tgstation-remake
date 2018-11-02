@@ -29,7 +29,7 @@ class OpenReagentContainer extends Component {
 				if(this.a.c.ReagentHolder.total_volume <= 0)
 					return;
 			} else {
-				to_chat`<span class='notice'>You swallof a gulp of the ${this.a}.</span>`(user);
+				to_chat`<span class='notice'>You swallow a gulp of the ${this.a}.</span>`(user);
 			}
 			let fraction = 5 / this.a.c.ReagentHolder.total_volume;
 			this.a.c.ReagentHolder.react_atom(target, "ingest", {volume_modifier: fraction});

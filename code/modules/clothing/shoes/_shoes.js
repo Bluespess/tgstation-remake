@@ -38,7 +38,7 @@ class FootItem extends Component {
 				}
 			}
 		}
-		if(has_component(obj, "FootprintsDecal")) {
+		if(has_component(obj, "FootprintsDecal") && movement.offset) {
 			let amount = +this.footprint_amounts[obj.c.FootprintsDecal.type] || 0;
 			if(amount > 0) {
 				this.footprint_amounts[obj.c.FootprintsDecal.type] = Math.max(this.footprint_amounts[obj.c.FootprintsDecal.type] - BLOOD_LOSS_PER_STEP, 0);
@@ -47,7 +47,7 @@ class FootItem extends Component {
 		}
 	}
 	mob_uncrossed(obj, movement) {
-		if(has_component(obj, "FootprintsDecal")) {
+		if(has_component(obj, "FootprintsDecal") && movement.offset) {
 			let amount = +this.footprint_amounts[obj.c.FootprintsDecal.type] || 0;
 			if(amount > 0) {
 				this.footprint_amounts[obj.c.FootprintsDecal.type] = Math.max(this.footprint_amounts[obj.c.FootprintsDecal.type] - BLOOD_LOSS_PER_STEP, 0);
@@ -56,6 +56,8 @@ class FootItem extends Component {
 		}
 	}
 	mob_moved(movement) {
+		if(!movement.offset)
+			return;
 		for(let [type, amount] of Object.entries(this.footprint_amounts)) {
 			if(amount <= 0)
 				continue;
