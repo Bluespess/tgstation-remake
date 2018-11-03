@@ -70,6 +70,8 @@ class Item extends Component {
 
 	after_attack() {}
 
+	attack_space() {}
+
 	melee_attack_chain(user, target, e) {
 		if(!this.pre_attack(target, user, e)) {
 			let resolved = target.attack_by(this.a, user, e);

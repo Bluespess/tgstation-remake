@@ -21,7 +21,7 @@ class FloorCover extends Component {
 				this.a.name = g.name;
 				this.a.c.Examine.desc = g.desc;
 				this.a.dir = g.dir;
-			} else {
+			} else if(!this.a.c.FloorBase.broken && !this.a.c.FloorBase.burnt) {
 				let g = {};
 				g.icon = this.a.icon;
 				g.icon_state = this.a.icon_state;
@@ -49,10 +49,15 @@ class FloorCover extends Component {
 	}
 
 	remove_tile({user, silent = false, make_tile = true} = {}) {
-		if(user && !silent)
-			to_chat`<span class='notice'>You remove the floor tile.</span>`(user);
-		if(this.floor_tile && make_tile) {
-			new Atom(this.a.server, this.floor_tile, this.a.loc);
+		if(this.a.c.FloorBase.broken || this.a.c.FloorBase.burnt) {
+			if(user && !silent)
+				to_chat`<span class='notice'>You remove the broken plating.</span>`(user);
+		} else {
+			if(user && !silent)
+				to_chat`<span class='notice'>You remove the floor tile.</span>`(user);
+			if(this.floor_tile && make_tile) {
+				new Atom(this.a.server, this.floor_tile, this.a.loc);
+			}
 		}
 		this.a.destroy();
 	}
@@ -67,6 +72,10 @@ FloorCover.template = {
 			"FloorCover": {
 				floor_tile: "plasteel_tile",
 				icon_group: "floor"
+			},
+			"FloorBase": {
+				broken_states: ["damaged1", "damaged2", "damaged3", "damaged4", "damaged5"],
+				burnt_states: ["floorscorched1", "floorscorched2"]
 			}
 		},
 		layer: layers.FLOOR_LAYER,

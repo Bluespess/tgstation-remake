@@ -175,7 +175,11 @@ RWall.template = {
 			"Wall": {
 				sheet_type: "plasteel_sheet",
 				sheet_amount: 1,
-				girder_type: "girder_reinforced"
+				girder_type: "girder_reinforced",
+				hardness: 0.1
+			},
+			"Tangible": {
+				explosion_block: 2
 			},
 			"Smooth": {
 				smooth_with: "wall"

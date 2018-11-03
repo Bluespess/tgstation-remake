@@ -158,7 +158,8 @@ Tangible.template = {
 				throw_force: 0,
 				burn_state: Tangible.FIRE_PROOF, // LAVA_PROOF, FIRE_PROOF, FLAMMABLE, or ON_FIRE
 				burn_time: 10, // How long it takes to burn to ashes, in seconds
-				pressure_resistance: 10
+				pressure_resistance: 10,
+				explosion_block: 0,
 			}
 		}
 	}

@@ -429,6 +429,9 @@ Airlock.template = {
 			"ApcPowered": {
 				power_usage: 1,
 				using_idle_power: true
+			},
+			"Tangible": {
+				explosion_block: 1
 			}
 		},
 		icon: 'icons/obj/doors/airlocks/station/public.png',

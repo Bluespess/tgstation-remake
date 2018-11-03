@@ -37,6 +37,7 @@ module.exports = [
 	["/turf/closed/wall/mineral/titanium", () => {return {template_name: "wall_titanium"};}, {put_plating: true}],
 	["/turf/open/floor/plating", () => {return {template_name: "plating"};}],
 	["/obj/structure/grille", () => {return {template_name: "grille"};}],
+	["/obj/structure/lattice", () => {return {template_name: "lattice"};}],
 	["/obj/effect/spawner/structure/window/reinforced", () => {return [{template_name: "r_window"}, {template_name: "grille"}];}],
 	["/obj/effect/spawner/structure/window", () => {return [{template_name: "window"}, {template_name: "grille"}];}],
 	["/obj/effect/spawner/structure/window/shuttle", () => {return [{template_name: "shuttle_window"}, {template_name: "grille"}];}],

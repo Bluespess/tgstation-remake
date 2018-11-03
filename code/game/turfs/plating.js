@@ -10,11 +10,20 @@ class Plating extends Component {
 	}
 }
 
-Plating.depends = ["SimulatedTurf", "FloorBase"];
-Plating.loadBefore = ["SimulatedTurf", "FloorBase"];
+Plating.depends = ["SimulatedTurf", "FloorBase", "SmoothGroup"];
+Plating.loadBefore = ["SimulatedTurf", "FloorBase", "SmoothGroup"];
 
 Plating.template = {
 	vars: {
+		components: {
+			"FloorBase": {
+				broken_states: ["platingdmg1", "platingdmg2", "platingdmg3"],
+				burnt_states: ["panelscorched"]
+			},
+			"SmoothGroup": {
+				groups: ["lattice"]
+			},
+		},
 		name: "plating",
 		icon: 'icons/turf/floors.png',
 		icon_state: "plating",

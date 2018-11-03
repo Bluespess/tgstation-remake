@@ -9,6 +9,7 @@ class Wall extends Component {
 		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
 		this.a.c.Destructible.deconstruct = chain_func(this.a.c.Destructible.deconstruct, this.deconstruct.bind(this));
 		this.a.c.Examine.examine = chain_func(this.a.c.Examine.examine, this.examine.bind(this));
+		this.a.c.Tangible.ex_act = chain_func(this.a.c.Tangible.ex_act, this.ex_act.bind(this));
 	}
 
 	examine(prev, user) {
@@ -47,15 +48,38 @@ class Wall extends Component {
 		if(!this.a.loc)
 			return;
 		if(!this.a.c.Destructible.no_deconstruct) {
-			var girder = new Atom(this.a.server, this.girder_type);
+			let girder = new Atom(this.a.server, this.girder_type);
 			girder.loc = this.a.loc;
 
-			var sheets = new Atom(this.a.server, this.sheet_type);
+			let sheets = new Atom(this.a.server, this.sheet_type);
 			sheets.c.Stack.amount = this.sheet_amount;
 			sheets.loc = this.a.fine_loc;
 			this.a.destroy();
 		}
 		prev();
+	}
+
+	ex_act(prev, severity) {
+		if(severity == 2) {
+			if(Math.random() < 0.5) {
+				this.a.c.Destructible.deconstruct(false);
+			} else {
+				let sheets = new Atom(this.a.server, this.sheet_type);
+				sheets.c.Stack.amount = this.sheet_amount;
+				sheets.loc = this.a.fine_loc;
+				if(this.girder_type) {
+					sheets = new Atom(this.a.server, "metal_sheet");
+					sheets.loc = this.a.fine_loc;
+				}
+				this.a.destroy();
+			}
+		} else if(severity == 3) {
+			if(Math.random() < this.hardness) {
+				this.a.c.Destructible.deconstruct(false);
+			}
+		} else {
+			prev();
+		}
 	}
 }
 
@@ -71,10 +95,12 @@ Wall.template = {
 				slicing_duration: 10000,
 				sheet_type: "metal_sheet",
 				sheet_amount: 2,
-				girder_type: "girder"
+				girder_type: "girder",
+				hardness: 0.4
 			},
 			"Tangible": {
 				anchored: true,
+				explosion_block: 1
 			},
 			"Examine": {
 				desc: "A huge chunk of metal used to separate rooms."

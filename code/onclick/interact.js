@@ -28,7 +28,6 @@ class MobInteract extends Component {
 	}
 
 	click_on(e) {
-		if(e.atom == null) return;
 		if(e.ctrlKey || e.altKey || e.shiftKey) return;
 		let isliving = has_component(this.a, "LivingMob");
 		let hasinv = has_component(this.a, "MobInventory");
@@ -39,32 +38,47 @@ class MobInteract extends Component {
 		if(isliving && !this.can_interact())
 			return;
 
-		if(hasinv && this.a.c.MobInventory.throw_mode && e.atom.loc && e.atom.loc.is_base_loc) {
-			this.a.c.MobInventory.throw_item({x: e.atom.x + e.x - 0.5, y: e.atom.y + e.y - 0.5});
+		if(hasinv && this.a.c.MobInventory.throw_mode && (!e.atom || (e.atom.loc && e.atom.loc.is_base_loc)) && this.a.loc && this.a.loc.is_base_loc) {
+			this.a.c.MobInventory.throw_item({x: e.world_x - 0.5, y: e.world_y - 0.5});
+			return;
 		}
 
 		var active_item = hasinv ? this.a.c.MobInventory.slots[this.a.c.MobInventory.active_hand].item : null;
 
-		if(active_item == e.atom) {
-			active_item.c.Item.attack_self(this.a);
-			return;
-		}
+		if(e.atom) {
+			if(active_item == e.atom) {
+				active_item.c.Item.attack_self(this.a);
+				return;
+			}
 
-		if(Math.abs(e.atom.x - this.a.x) <= 1.50001 && Math.abs(e.atom.y - this.a.y) <= 1.50001) {
-			if(active_item) {
-				active_item.c.Item.melee_attack_chain(this.a, e.atom, e);
+			if(Math.abs(e.atom.x - this.a.x) <= 1.50001 && Math.abs(e.atom.y - this.a.y) <= 1.50001) {
+				if(active_item) {
+					active_item.c.Item.melee_attack_chain(this.a, e.atom, e);
+				} else {
+					if(has_component(e.atom, "Mob"))
+						this.change_next_move(combat_defines.CLICK_CD_MELEE);
+					this.unarmed_attack(e.atom, e);
+				}
+				return;
 			} else {
-				if(has_component(e.atom, "Mob"))
-					this.change_next_move(combat_defines.CLICK_CD_MELEE);
-				this.unarmed_attack(e.atom, e);
+				if(active_item) {
+					active_item.c.Item.after_attack(e.atom, this.a, false, e);
+				} else {
+					this.ranged_attack(e.atom, e);
+				}
 			}
-			return;
 		} else {
-			if(active_item) {
-				active_item.c.Item.after_attack(e.atom, this.a, false, e);
-			} else {
-				this.ranged_attack(e.atom, e);
-			}
+			let flag = Math.abs(Math.floor(e.world_x) - this.a.x) <= 1.50001 && Math.abs(Math.floor(e.world_y) - this.a.y) <= 1.50001;
+			let target = {
+				x: e.world_x-0.5,
+				y: e.world_y-0.5,
+				z: this.a.z,
+				dim: this.a.dim,
+				is_fine_loc: true,
+				loc: this.a.dim.location(Math.floor(e.world_x),Math.floor(e.world_y),this.a.z)
+			};
+			if(active_item)
+				active_item.c.Item.attack_space(target, this.a, flag, e);
 		}
 	}
 

@@ -182,6 +182,12 @@ Door.template = {
 				closed_state: "door0",
 				opening_state: "doorc0",
 				closing_state: "doorc1"
+			},
+			"Tangible": {
+				anchored: true
+			},
+			"Examine": {
+				desc: "It opens and closes."
 			}
 		},
 		density: true,
@@ -189,7 +195,7 @@ Door.template = {
 	}
 };
 
-Door.depends = ["RequiresAccess", "BlocksAir"];
-Door.loadBefore = ["RequiresAccess", "BlocksAir"];
+Door.depends = ["Destructible", "RequiresAccess", "BlocksAir"];
+Door.loadBefore = ["Destructible", "RequiresAccess", "BlocksAir"];
 
 module.exports.components = {Door};

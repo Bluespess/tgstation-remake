@@ -26,8 +26,10 @@ class Turf extends Component {
 		}
 		if(this.a.loc && this.a.loc.is_base_loc) {
 			this.a.loc.turf = this.atom;
+			this.a.server.air_controller.add_to_active(this.a);
+		} else {
+			this.a.server.air_controller.remove_from_active(this.a);
 		}
-		this.a.server.air_controller.add_to_active(this.a);
 	}
 }
 
@@ -97,6 +99,10 @@ class SimulatedTurf extends Component {
 	}
 
 	update_blockers() {
+		if(!this.a.loc || !this.a.loc.is_base_loc) {
+			this.adjacent_dirs = 0;
+			return;
+		}
 		var newdirs = 0;
 		for(let atom of this.a.crosses()) {
 			if(atom.c.BlocksAir && atom.c.BlocksAir.is_blocking && atom.does_enclose_tile(this.a.loc)) {
@@ -137,6 +143,9 @@ class SimulatedTurf extends Component {
 	}
 
 	process_cell(cycle_num) {
+		if(!this.a.loc || !this.a.loc.is_base_loc) {
+			return;
+		}
 		if(this.archived_cycle < cycle_num)
 			this.archive(cycle_num);
 
