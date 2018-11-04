@@ -67,7 +67,7 @@ class SprayBottle extends Component {
 
 			await sleep(wait_step);
 
-			for(let atom of chempuff.crosses()) {
+			for(let atom of [...chempuff.crosses()]) {
 				if(puff_reagent_left <= 0)
 					break;
 

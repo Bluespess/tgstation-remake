@@ -1,6 +1,30 @@
 'use strict';
 const {ReagentReaction} = require('../reagent.js');
+const explosion = require('../../explosion/explosion.js');
 module.exports.reagent_reactions = [];
+
+class ExplosiveReaction extends ReagentReaction {
+	constructor(instobj) {
+		super(Object.assign({
+			strngthdiv: 10,
+			modifier: 0
+		}, instobj));
+	}
+
+	react(container, multiplier) {
+		let volume = 0;
+		for(let val of Object.values(this.required_reagents))
+			volume += val;
+		volume *= multiplier;
+		container.c.ReagentHolder.clear();
+		let power = Math.round(volume / this.strengthdiv) + this.modifier;
+		if(power < 1) {
+			// no
+		} else {
+			explosion.dyn_explosion({epicenter: container, power});
+		}
+	}
+}
 
 module.exports.reagent_reactions.push(new ReagentReaction({
 	strengthdiv: 10,
@@ -13,18 +37,18 @@ module.exports.reagent_reactions.push(new ReagentReaction({
 	strengthdiv: 2
 }));
 
-module.exports.reagent_reactions.push(new ReagentReaction({
+module.exports.reagent_reactions.push(new ExplosiveReaction({
 	required_reagents: {"Nitroglycerin": 1},
 	min_temp: 474,
 	strengthdiv: 2
 }));
 
-module.exports.reagent_reactions.push(new ReagentReaction({
+module.exports.reagent_reactions.push(new ExplosiveReaction({
 	required_reagents: {"Water": 1, "Potassium": 1},
 	strengthdiv: 10
 }));
 
-module.exports.reagent_reactions.push(new ReagentReaction({
+module.exports.reagent_reactions.push(new ExplosiveReaction({
 	required_reagents: {"HolyWater": 1, "Potassium": 1}
 }));
 
@@ -33,7 +57,7 @@ module.exports.reagent_reactions.push(new ReagentReaction({
 	required_reagents: {"Saltpetre": 1, "Charcoal": 1, "Sulfur": 1}
 }));
 
-module.exports.reagent_reactions.push(new ReagentReaction({
+module.exports.reagent_reactions.push(new ExplosiveReaction({
 	required_reagents: {"BlackPowder": 1},
 	min_temp: 474,
 	strengthdiv: 6,
@@ -61,7 +85,7 @@ module.exports.reagent_reactions.push(new ReagentReaction({
 	min_temp: 424
 }));
 
-module.exports.reagent_reactions.push(new ReagentReaction({
+module.exports.reagent_reactions.push(new ExplosiveReaction({
 	results: {"?": 1},
 	min_temp: 380,
 	required_reagents: {"Methamphetamine": 1},

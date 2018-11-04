@@ -1,11 +1,11 @@
 'use strict';
-const {has_component} = require('bluespess');
+const {Sound, has_component, stoplag} = require('bluespess');
 const _ = require('underscore');
 const combat_defines = require('../../defines/combat_defines.js');
 
-function explosion({epicenter, devastation_range = 0, heavy_impact_range = 0,
+async function explosion({epicenter, devastation_range = 0, heavy_impact_range = 0,
 	light_impact_range = 0, flash_range = devastation_range,
-	flame_range = light_impact_range} = {}) {
+	flame_range = light_impact_range, silent = false} = {}) {
 	if(!epicenter.dim) // fuck off there's no place to explode into
 		return;
 	let max_range = Math.max(devastation_range, heavy_impact_range, light_impact_range, flame_range, flash_range);
@@ -13,6 +13,23 @@ function explosion({epicenter, devastation_range = 0, heavy_impact_range = 0,
 	let y0 = Math.round(epicenter.y);
 	let z0 = Math.round(epicenter.z);
 	let dim = epicenter.dim;
+
+	if(!silent) {
+		let far_dist = (heavy_impact_range * 5) + (devastation_range * 20);
+		let emitter = {x: x0, y: y0};
+		for(let mob of dim.server.atoms_for_components.Mob) {
+			if(mob.dim != dim)
+				continue;
+			let dist = Math.sqrt((x0-mob.x)**2 + (y0-mob.y)**2);
+			if(dist <= (max_range + 5)) {
+				new Sound(dim.server, {path:'sound/effects/explosion{1-2}.ogg', vary: true, emitter}).play_to(mob);
+			} else if(dist <= far_dist) {
+				let far_volume = Math.min(Math.max(far_dist / 100, 0.3), 0.5) * 8;
+				new Sound(dim.server, {path:'sound/effects/explosionfar.ogg', vary: true, volume: far_volume, emitter}).play_to(mob);
+			}
+		}
+	}
+
 	// word of warning here, the algorithm used here is quite different from byond ss13
 	// alright, let's get a bounding box.
 	let bbox = [];
@@ -57,6 +74,7 @@ function explosion({epicenter, devastation_range = 0, heavy_impact_range = 0,
 				// This tile has already been done, add explosion block and move on
 				accumulated_explosion_block += explosion_block_cache.get(tile);
 			} else {
+				await stoplag();
 				// first check if it's too far away
 				let dist = accumulated_explosion_block + Math.sqrt((dx*dx)+(dy*dy)) - 0.5;
 				if(dist > max_range)
@@ -96,5 +114,24 @@ function explosion({epicenter, devastation_range = 0, heavy_impact_range = 0,
 		}
 	}
 }
+
+explosion.dyn_explosion = function dyn_explosion({epicenter, power, flash_range = 0.25,
+	admin_log = true, ignore_cap = true, flame_range = 0, silent = false, smoke = true} = {}) {
+	if(!power)
+		return;
+	let range = Math.round(Math.sqrt(2 * power));
+	explosion({
+		epicenter,
+		devastation_range: Math.round(range * 0.25),
+		heavy_impact_range: Math.round(range * 0.5),
+		light_impact_range: range,
+		flash_range: Math.round(flash_range * range),
+		admin_log,
+		ignore_cap,
+		flame_range: Math.round(flame_range * range),
+		silent,
+		smoke
+	});
+};
 
 module.exports = explosion;
