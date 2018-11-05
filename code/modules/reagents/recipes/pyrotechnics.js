@@ -6,7 +6,7 @@ module.exports.reagent_reactions = [];
 class ExplosiveReaction extends ReagentReaction {
 	constructor(instobj) {
 		super(Object.assign({
-			strngthdiv: 10,
+			strengthdiv: 10,
 			modifier: 0
 		}, instobj));
 	}
