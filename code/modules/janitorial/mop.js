@@ -1,5 +1,5 @@
 'use strict';
-const {Component, to_chat, visible_message, has_component, chain_func} = require('bluespess');
+const {Component, Sound, to_chat, visible_message, has_component, chain_func} = require('bluespess');
 
 class Mop extends Component {
 	constructor(atom, template) {
@@ -10,6 +10,17 @@ class Mop extends Component {
 	after_attack(prev, target, user, prox) {
 		if(!prox)
 			return prev();
+
+		if(has_component(target, "OpenReagentContainer")) {
+			if(target.c.ReagentHolder.total_volume < 1)
+				to_chat`<span class='warning'>The ${target} is out of water!</span>`(user);
+			else {
+				target.c.ReagentHolder.transfer_to(this.a, 5);
+				to_chat`<span class='warning'>You wet the ${this.a} in the ${target}</span>`(user);
+				new Sound(this.a.server, {path: 'sound/effects/slosh.ogg', volume: 0.25, vary: true}).emit_from(target);
+			}
+			return true;
+		}
 
 		if(this.a.c.ReagentHolder.total_volume < 1) {
 			to_chat`<span class='warning'>Your mop is dry!</span>`(user);
@@ -27,7 +38,7 @@ class Mop extends Component {
 					return;
 				to_chat`<span class='notice'>You finish mopping.</span>`(user);
 				if(this.a.c.ReagentHolder.volume_of("Water") >= 1) {
-					for(let crosser of turf.crosses()) {
+					for(let crosser of [...turf.crosses()]) {
 						if(has_component(crosser, "CleanableDecal")){
 							crosser.destroy();
 							continue;
