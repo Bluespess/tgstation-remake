@@ -14,6 +14,7 @@ class Smooth extends Component {
 	rebuild_smooth(exclude) {
 		this.adjacent = 0;
 		if(!this.enabled) {
+			this.a.icon_state = this.a.template.vars.icon_state;
 			return this.redraw_smoothing();
 		}
 		this.a.icon_state = "";
