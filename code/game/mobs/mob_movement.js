@@ -1,5 +1,5 @@
 'use strict';
-const {Component} = require('bluespess');
+const {Component, chain_func} = require('bluespess');
 
 class MobMovement extends Component {
 	constructor(atom, template) {
@@ -28,27 +28,7 @@ class MobMovement extends Component {
 			this.update_walk();
 		});
 
-		this.atom.on("moved", (movement) => {
-			if(!movement.offset || movement.offset.z != 0)
-				return;
-			var dir = 0;
-			if(movement.offset.x > 0) dir |= 4;
-			if(movement.offset.x < 0) dir |= 8;
-			if(movement.offset.y > 0) dir |= 1;
-			if(movement.offset.y < 0) dir |= 2;
-			if(dir)
-				this.atom.dir = dir;
-		});
-
-		this.atom.on("bumped", (atom, offsetx, offsety) => {
-			var dir = 0;
-			if(offsetx > 0) dir |= 4;
-			if(offsetx < 0) dir |= 8;
-			if(offsety > 0) dir |= 1;
-			if(offsety < 0) dir |= 2;
-			if(dir)
-				this.atom.dir = dir;
-		});
+		this.a.move = chain_func(this.a.move, this.move.bind(this));
 
 		this.a.c.Mob.on("client_changed", () => {
 			this.intended_walk_dir = 0;
@@ -58,8 +38,18 @@ class MobMovement extends Component {
 	update_walk() {
 		var walk_dir = this.intended_walk_dir;
 		if(walk_dir & 12 && walk_dir & 3) walk_dir &= this.last_axis;
-		this.atom.walk_dir = walk_dir;
-		this.atom.walking = !!walk_dir;
+		this.a.walk_dir = walk_dir;
+		this.a.walking = !!walk_dir;
+	}
+	move(prev, dx, dy) {
+		var dir = 0;
+		if(dx > 0) dir |= 4;
+		if(dx < 0) dir |= 8;
+		if(dy > 0) dir |= 1;
+		if(dy < 0) dir |= 2;
+		if(dir)
+			this.a.dir = dir;
+		return prev();
 	}
 }
 

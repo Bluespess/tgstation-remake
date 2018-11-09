@@ -133,12 +133,16 @@ class Window extends Component {
 		this[_state] = val;
 		if(val == "unscrewed_from_floor") {
 			this.a.c.Tangible.anchored = false;
-			this.a.c.Smooth.enabled = false;
-			this.a.c.SmoothGroup.enabled = false;
+			if(has_component(this.a, "Smooth")) {
+				this.a.c.Smooth.enabled = false;
+				this.a.c.SmoothGroup.enabled = false;
+			}
 		} else {
 			this.a.c.Tangible.anchored = true;
-			this.a.c.Smooth.enabled = true;
-			this.a.c.SmoothGroup.enabled = true;
+			if(has_component(this.a, "Smooth")) {
+				this.a.c.Smooth.enabled = true;
+				this.a.c.SmoothGroup.enabled = true;
+			}
 		}
 	}
 }
@@ -272,6 +276,74 @@ ReinforcedWindow.template = {
 	}
 };
 
+class DirectionalWindow extends Component {
+	constructor(atom, template) {
+		super(atom, template);
+		this.a.on("dir_changed", this.dir_changed.bind(this));
+		this.a.can_crosser_move_within = chain_func(this.a.can_crosser_move_within, this.can_crosser_move_within.bind(this));
+		this.a.can_be_uncrossed = chain_func(this.a.can_be_uncrossed, this.can_crosser_move_within.bind(this));
+		this.a.can_be_crossed = chain_func(this.a.can_be_crossed, this.can_be_crossed.bind(this));
+		this.dir_changed(undefined, this.a.dir);
+	}
+
+	dir_changed(from, to) {
+		this.a.c.BlocksAir.blocking_dirs = to;
+	}
+
+	can_be_crossed(prev, crosser, dx, dy) {
+		if(dx < 0 && (this.a.dir & 4))
+			return prev();
+		if(dx > 0 && (this.a.dir & 8))
+			return prev();
+		if(dy < 0 && (this.a.dir & 1))
+			return prev();
+		if(dy > 0 && (this.a.dir & 2))
+			return prev();
+		return true;
+	}
+
+	can_crosser_move_within(prev, atom, dx, dy) {
+		if(this.a.let_pass_flags & atom.pass_flags)
+			return prev();
+		if(atom.density < 0 || this.a.density <= 0)
+			return prev();
+		if(dx > 0 && (this.a.dir & 4)) {
+			let this_right = this.a.x + this.a.bounds_x + this.a.bounds_width;
+			let other_right = atom.x + atom.bounds_x + atom.bounds_width;
+			if(other_right <= this_right && (other_right + dx) > this_right)
+				return false;
+		}
+		if(dx < 0 && (this.a.dir & 8)) {
+			let this_left = this.a.x + this.a.bounds_x;
+			let other_left = atom.x + atom.bounds_x;
+			if(other_left >= this_left && (other_left + dx) < this_left)
+				return false;
+		}
+		if(dy > 0 && (this.a.dir & 1)) {
+			let this_top = this.a.y + this.a.bounds_y + this.a.bounds_height;
+			let other_top = atom.y + atom.bounds_y + atom.bounds_height;
+			if(other_top <= this_top && (other_top + dy) > this_top)
+				return false;
+		}
+		if(dy < 0 && (this.a.dir & 2)) {
+			let this_bottom = this.a.y + this.a.bounds_y;
+			let other_bottom = atom.y + atom.bounds_y;
+			if(other_bottom >= this_bottom && (other_bottom + dy) < this_bottom)
+				return false;
+		}
+		return prev();
+	}
+}
+
+DirectionalWindow.loadBefore = ["Window"];
+DirectionalWindow.depends = ["Window"];
+
+DirectionalWindow.template = {
+	vars: {
+		icon: 'icons/obj/structures.png'
+	}
+};
+
 module.exports.templates = {
 	"window": {
 		components: ["Window", "TGSmooth"],
@@ -288,6 +360,20 @@ module.exports.templates = {
 			icon_state: "window"
 		},
 		tree_paths: ["basic_structures/window"]
+	},
+	"window_dir": {
+		components: ["Window", "DirectionalWindow"],
+		variants: [
+			{
+				type: "single",
+				var_path: ["dir"],
+				values: [
+					2, 1, 4, 8
+				],
+				orientation: "horizontal"
+			}
+		],
+		tree_paths: ["basic_structures/window/directional"]
 	},
 	"window_construct": {
 		parent_template: "window",
@@ -315,6 +401,20 @@ module.exports.templates = {
 			icon_state: "r_window"
 		},
 		tree_paths: ["basic_structures/window/reinforced"]
+	},
+	"r_window_dir": {
+		components: ["ReinforcedWindow", "DirectionalWindow"],
+		variants: [
+			{
+				type: "single",
+				var_path: ["dir"],
+				values: [
+					2, 1, 4, 8
+				],
+				orientation: "horizontal"
+			}
+		],
+		tree_paths: ["basic_structures/window/reinforced/directional"]
 	},
 	"r_window_construct": {
 		parent_template: "r_window",
@@ -353,4 +453,4 @@ module.exports.templates = {
 	}
 };
 
-module.exports.components = {Window, ReinforcedWindow};
+module.exports.components = {Window, ReinforcedWindow, DirectionalWindow};

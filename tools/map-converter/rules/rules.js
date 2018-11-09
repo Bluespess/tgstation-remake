@@ -42,6 +42,8 @@ module.exports = [
 	["/obj/effect/spawner/structure/window", () => {return [{template_name: "window"}, {template_name: "grille"}];}],
 	["/obj/effect/spawner/structure/window/shuttle", () => {return [{template_name: "shuttle_window"}, {template_name: "grille"}];}],
 	["/obj/structure/window/shuttle", () => {return [{template_name: "shuttle_window"}];}],
+	["/obj/structure/window", (inst) => {return {template_name: "window_dir", variant_leaf_path: [inst_dir(inst)]};}],
+	["/obj/structure/window/reinforced", (inst) => {return {template_name: "r_window_dir", variant_leaf_path: [inst_dir(inst)]};}],
 	["/obj/machinery/door/airlock", (inst) => {
 		let valid = ["airlock_command","airlock_security","airlock_engineering","airlock_medical",
 			"airlock_maintenance","airlock_mining","airlock_atmos","airlock_research",
