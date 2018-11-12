@@ -24,12 +24,24 @@
 		align-items: center;
 		grid-area: m;
 		background-color: black;
+		position: relative;
 		#mainlayer {
 			width: 100%;
 			@media (max-aspect-ratio: 1/1) {
 				width: initial;
 				height: 100%;
 			}
+		}
+		#hovering-atom {
+			pointer-events: none;
+			position:absolute;
+			bottom:0px;
+			left:0px;
+			background-color: black;
+			color: white;
+			font-weight: bold;
+			font-size: 14px;
+			opacity: 0.5;
 		}
 	}
 

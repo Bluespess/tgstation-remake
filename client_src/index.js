@@ -13,6 +13,7 @@ for(let collection_class of [HTMLCollection, NodeList, DOMTokenList]) {
 var client = new BluespessClient();
 global.client = client;
 
+client.importModule(require('./code/alert.js'));
 client.importModule(require('./code/carbon_mob.js'));
 client.importModule(require('./code/hud.js'));
 client.importModule(require('./code/progress_bar.js'));
@@ -46,6 +47,13 @@ if(global.is_bs_editor_env) {
 		parallax_plane.z_index = 9999;
 		eye.canvas = document.getElementById("mainlayer");
 		eye.create_click_handlers();
+		eye.on("mouse_over_atom_changed", (from, to) => {
+			if(to) {
+				document.getElementById("hovering-atom").textContent = to.name;
+			} else {
+				document.getElementById("hovering-atom").textContent = "";
+			}
+		});
 
 		client.login();
 	});

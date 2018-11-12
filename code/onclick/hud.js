@@ -116,9 +116,11 @@ class MobHud extends Component {
 
 MobHud.depends = ["Mob"];
 
-class Alert extends Component {
+class Alert extends Component.Networked {
 	constructor(atom, template) {
 		super(atom, template);
+		this.add_networked_var("desc");
+		this.add_networked_var("tooltip_theme");
 	}
 }
 Alert.template = {
@@ -126,13 +128,13 @@ Alert.template = {
 		components: {
 			Alert: {
 				timeout: 0, // If set to a number, this alert will clear itself after that many deciseconds
-				desc: "Something seems to have gone wrong with this alert, so report this bug please"
+				desc: "Something seems to have gone wrong with this alert, so report this bug please",
+				tooltip_theme: ""
 			}
 		},
 		icon: 'icons/mob/screen_alert.png',
 		icon_state: "default",
 		name: "Alert",
-		tooltip_theme: "",
 		layer: 30
 	},
 	hidden: true // Make it not appear in map editor
@@ -165,8 +167,12 @@ module.exports.templates = {
 	"alert_buckled": { // TODO click action see code/_onclick/hud/alert.dm line 574
 		components: ["Alert"],
 		vars: {
+			components: {
+				"Alert": {
+					desc: "You've been buckled to something. Click the alert to unbuckle unless you're handcuffed."
+				}
+			},
 			name: 'Buckled',
-			alert_desc: "You've been buckled to something. Click the alert to unbuckle unless you're handcuffed.",
 			icon_state: 'buckled'
 		}
 	},
@@ -174,8 +180,12 @@ module.exports.templates = {
 	"alert_not_enough_o2": {
 		components: ["Alert"],
 		vars: {
+			components: {
+				"Alert": {
+					desc: "You're not getting enough oxygen. Find some good air before you pass out! The box in your backpack has an oxygen tank and breath mask in it"
+				}
+			},
 			name: 'Choking (No O2)',
-			alert_desc: "You're not getting enough oxygen. Find some good air before you pass out! The box in your backpack has an oxygen tank and breath mask in it",
 			icon_state: 'not_enough_oxy'
 		}
 	},
@@ -416,12 +426,12 @@ module.exports.templates = {
 		vars: {
 			components: {
 				"Alert": {
-					desc: "There's flammable plasma in the air. If it lights up, you'll be toast."
+					desc: "There's flammable plasma in the air. If it lights up, you'll be toast.",
+					tooltip_theme: "alien"
 				}
 			},
 			name: "Plasma",
-			icon_state: 'alien_tox',
-			tooltip_theme: "alien"
+			icon_state: 'alien_tox'
 		}
 	},
 	"alert_alien_fire": {
@@ -429,12 +439,12 @@ module.exports.templates = {
 		vars: {
 			components: {
 				"Alert": {
-					desc: "It's too hot! Flee to space or at least away from the flames. Standing on weeds will heal you."
+					desc: "It's too hot! Flee to space or at least away from the flames. Standing on weeds will heal you.",
+					tooltip_theme: "alien"
 				}
 			},
 			name: "Too Hot",
-			icon_state: 'alien_fire',
-			tooltip_theme: "alien"
+			icon_state: 'alien_fire'
 		}
 	},
 	"alert_alien_vulnerable": {
@@ -442,12 +452,12 @@ module.exports.templates = {
 		vars: {
 			components: {
 				"Alert": {
-					desc: "Your queen has been killed, you will suffer movement penalties and loss of hivemind. A new queen cannot be made until you recover."
+					desc: "Your queen has been killed, you will suffer movement penalties and loss of hivemind. A new queen cannot be made until you recover.",
+					tooltip_theme: "alien"
 				}
 			},
 			name: "Severed Matriarchy",
-			icon_state: 'alien_noqueen',
-			tooltip_theme: "alien"
+			icon_state: 'alien_noqueen'
 		}
 	},
 
@@ -458,12 +468,12 @@ module.exports.templates = {
 		vars: {
 			components: {
 				"Alert": {
-					desc: "You have no factory, and are slowly dying!"
+					desc: "You have no factory, and are slowly dying!",
+					tooltip_theme: "blob"
 				}
 			},
 			name: "No Factory",
-			icon_state: 'blobbernaut_nofactory',
-			tooltip_theme: "blob"
+			icon_state: 'blobbernaut_nofactory'
 		}
 	},
 };
