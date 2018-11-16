@@ -32,6 +32,7 @@ let rules = [];
 let rules_files = [
 	"./rules/rules.js",
 	"./rules/areas.js",
+	"./rules/atmos.js",
 	"./rules/clothing.js",
 	"./rules/misc_items.js"
 ];
