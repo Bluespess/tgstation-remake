@@ -1,7 +1,6 @@
 'use strict';
 const {Component, has_component, turn_dir} = require('bluespess');
 const layers = require('../../../../defines/layers.js');
-const _ = require('underscore');
 
 const pipe_colors = {
 	"grey": "rgb(255,255,255)",
@@ -44,7 +43,7 @@ class Pipe extends Component {
 		for(let node of old_nodes) {
 			if(!node)
 				continue;
-			for(let i = 0; i < node.c.Pipe.nodes; i++) {
+			for(let i of [1,2,4,8]) {
 				if(node.c.Pipe.nodes[i] == this.a)
 					node.c.Pipe.nodes[i] = null;
 			}
@@ -73,7 +72,7 @@ class Pipe extends Component {
 							continue;
 						let opp_node_dir = turn_dir(node_dir, 180);
 						if(this.nodes[node_dir] || atom.c.Pipe.nodes[opp_node_dir]) {
-							console.warn(`Multiple pipes on one turf around (${this.a.x},${this.a.y},${this.a.z},${this.a.dim})`);
+							console.warn(`Multiple pipes on one node around (${this.a.x},${this.a.y},${this.a.z},${this.a.dim})`);
 						}
 						this.nodes[node_dir] = atom;
 						atom.c.Pipe.nodes[opp_node_dir] = this.a;
@@ -82,7 +81,7 @@ class Pipe extends Component {
 			}
 		}
 		this.update_intact_overlays();
-		for(let i = 0; i < this.nodes.length; i++) {
+		for(let i of [1,2,4,8]) {
 			if(this.nodes[i] != old_nodes[i]) {
 				if(this.nodes[i])
 					this.nodes[i].c.Pipe.update_intact_overlays();
