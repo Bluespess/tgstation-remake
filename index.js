@@ -215,7 +215,7 @@ if(global.is_bs_editor_env) {
 								name = obj2.user.login;
 								id = obj2.user.id;
 								token = obj.access_token;
-								ws.send(JSON.stringify({valid: true, logged_in_as: obj2.user.login}));
+								ws.send(JSON.stringify({valid: true, logged_in_as: obj2.user.login, autojoin: (server.dc_mobs[id] != null || server.clients[id] != null)}));
 							}
 						});
 					});

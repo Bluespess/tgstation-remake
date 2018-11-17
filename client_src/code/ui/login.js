@@ -81,6 +81,10 @@ class LoginPanel {
 				this.panel.content_obj.getElementsByClassName('not-logged-in')[0].style.display = 'none';
 				this.panel.content_obj.getElementsByClassName('connect-button')[0].classList.remove('disabled');
 				this.panel.content_obj.getElementsByClassName('logged-in-as')[0].textContent = obj.logged_in_as;
+				if(obj.autojoin) {
+					this.connection.send(JSON.stringify({login: true}));
+					this.login_finish();
+				}
 			} else {
 				this.panel.content_obj.getElementsByClassName('logged-in')[0].style.display = 'none';
 				this.panel.content_obj.getElementsByClassName('not-logged-in')[0].style.display = 'block';
