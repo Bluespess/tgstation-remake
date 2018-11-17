@@ -16,7 +16,7 @@ class Door extends Component {
 		this.a.c.BlocksAir.is_blocking = this.a.density > 0;
 		this.a.on("bumped_by", this.bumped_by.bind(this));
 		this.a.c.RequiresAccess.can_access = chain_func(this.a.c.RequiresAccess.can_access, this.can_access);
-		this.a.attack_hand = chain_func(this.a.attack_hand, (user) => {this.try_to_activate_door(user);});
+		this.a.attack_hand = (user) => {this.try_to_activate_door(user);};
 		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
 	}
 
@@ -36,16 +36,16 @@ class Door extends Component {
 		}
 	}
 
-	try_to_activate_door(prev, atom) {
+	try_to_activate_door(atom) {
 		if(this.operating)
-			return prev();
+			return false;
 		if(this.a.c.RequiresAccess.can_access(atom)) {
 			if(this.a.density > 0) {
 				this.open();
 			} else {
 				this.close();
 			}
-			return;
+			return true;
 		}
 		if(this.a.density > 0)
 			this.deny();
