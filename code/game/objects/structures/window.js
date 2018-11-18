@@ -37,7 +37,7 @@ class Window extends Component {
 		var ratio = this.a.c.Destructible.obj_integrity / this.a.c.Destructible.max_integrity;
 		ratio = Math.ceil(ratio * 4) * 25;
 
-		if(ratio > 75)
+		if(ratio > 75 || !this.enable_damage_overlay)
 			this.a.overlays.window_damage = null;
 		else
 			this.a.overlays.window_damage = {icon: 'icons/obj/structures.png', icon_state: `damage${ratio}`, overlay_layer: -1};
@@ -161,7 +161,8 @@ Window.template = {
 				glass_amount: 2,
 				shard_type: "glass_shard",
 				decon_speed: 3000,
-				glass_type: "glass_sheet"
+				glass_type: "glass_sheet",
+				enable_damage_overlay: false
 			},
 			"Destructible": {
 				max_integrity: 25,
@@ -349,6 +350,9 @@ module.exports.templates = {
 		components: ["Window", "TGSmooth"],
 		vars: {
 			components: {
+				"Window": {
+					enable_damage_overlay: true
+				},
 				"Smooth": {
 					smooth_with: "window"
 				},
@@ -390,6 +394,9 @@ module.exports.templates = {
 		components: ["ReinforcedWindow", "TGSmooth"],
 		vars: {
 			components: {
+				"Window": {
+					enable_damage_overlay: true
+				},
 				"Smooth": {
 					smooth_with: "window"
 				},

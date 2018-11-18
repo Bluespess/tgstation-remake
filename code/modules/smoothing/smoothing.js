@@ -14,7 +14,10 @@ class Smooth extends Component {
 	rebuild_smooth(exclude) {
 		this.adjacent = 0;
 		if(!this.enabled) {
-			this.a.icon_state = this.a.template.vars.icon_state;
+			if(this.use_soft_disable)
+				this.a.icon_state = "";
+			else
+				this.a.icon_state = this.a.template.vars.icon_state;
 			return this.redraw_smoothing();
 		}
 		this.a.icon_state = "";
@@ -94,7 +97,8 @@ Smooth.template = {
 		components: {
 			"Smooth": {
 				smooth_with: null,
-				enabled: true
+				enabled: true,
+				use_soft_disable: true // makes it so disabling it just makes the thing acts as if theres nothing adjacent
 			}
 		}
 	}
@@ -158,7 +162,7 @@ class TGSmooth extends Component {
 	}
 
 	redraw_smoothing() {
-		if(!this.a.c.Smooth.enabled) {
+		if(!this.a.c.Smooth.enabled && !this.a.c.Smooth.use_soft_disable) {
 			for(let i of [1,2,3,4]) this.a.overlays[`smoothing_corner_${i}`] = undefined;
 			if(this.diagonal) {
 				this.a.overlays['smoothing_diag_a'] = undefined;
