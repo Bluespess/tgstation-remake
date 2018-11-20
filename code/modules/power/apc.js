@@ -1,6 +1,7 @@
 'use strict';
-const {Component, make_watched_property, has_component} = require('bluespess');
+const {Component, Atom, make_watched_property, chain_func, has_component} = require('bluespess');
 const layers = require('../../defines/layers.js');
+const lighting = require('../../defines/lighting.js');
 const {_areas} = require('../../game/area/area.js').symbols;
 const channels = ["lighting", "equipment", "environment"];
 
@@ -13,6 +14,12 @@ class Apc extends Component {
 		for(let channel of channels) {
 			this.channel_on[channel] = true;
 			this.channel_auto[channel] = true;
+		}
+
+		this.cell = null;
+		if(this.cell_type) {
+			this.cell = new Atom(this.a.server, this.cell_type, this.a);
+			this.cell.charge = this.cell.max_charge * this.start_charge;
 		}
 
 		this.a.once("map_instance_done", (map) => {
@@ -48,6 +55,7 @@ class Apc extends Component {
 			}
 		});
 		this.on("area_changed", this.area_changed.bind(this));
+		this.a.c.MachineTick.process = chain_func(this.a.c.MachineTick.process, this.process.bind(this));
 		make_watched_property(this, "area");
 	}
 
@@ -90,10 +98,45 @@ class Apc extends Component {
 
 		return to_use_powernet + to_use_cell;
 	}
+
+	process(prev, dt) {
+		if(this.cell) {
+			let to_charge = Math.min(this.cell.c.PowerCell.max_charge - this.cell.c.PowerCell.charge, this.a.c.PowerNode.surplus / 1000, this.cell.c.PowerCell.max_charge * 0.001 * dt);
+			to_charge = this.cell.c.PowerCell.give(to_charge);
+			this.a.c.PowerNode.load += to_charge * 1000;
+			this.last_charge = to_charge;
+		}
+		this.update_charging_overlay();
+		return prev();
+	}
+
+	update_charging_overlay() {
+		let overlay_num;
+		this.a.c.LightSource.enabled = true;
+		if(!this.cell) {
+			overlay_num = 0;
+		} else if(this.cell.c.PowerCell.charge >= this.cell.c.PowerCell.max_charge - 0.001) {
+			overlay_num = 2;
+		} else if(this.last_charge > 0) {
+			overlay_num = 1;
+		} else {
+			overlay_num = 0;
+		}
+		let new_icon_state = `apco3-${overlay_num}`;
+		if(!this.a.overlays.apc_charge || new_icon_state != this.a.overlays.apc_charge.icon_state) {
+			this.a.overlays.apc_charge = {icon_state: new_icon_state};
+			if(overlay_num == 0)
+				this.a.c.LightSource.color = lighting.LIGHT_COLOR_RED;
+			else if(overlay_num == 1)
+				this.a.c.LightSource.color = lighting.LIGHT_COLOR_BLUE;
+			else
+				this.a.c.LightSource.color = lighting.LIGHT_COLOR_GREEN;
+		}
+	}
 }
 
-Apc.loadBefore = ["Destructible", "PowerNode", "LightSource"];
-Apc.depends = ["Destructible", "PowerNode", "LightSource"];
+Apc.loadBefore = ["Destructible", "PowerNode", "LightSource", "MachineTick"];
+Apc.depends = ["Destructible", "PowerNode", "LightSource", "MachineTick"];
 
 Apc.template = {
 	vars: {
@@ -106,10 +149,11 @@ Apc.template = {
 				opened: false,
 				has_cover: true,
 				shorted: false,
-
+				last_charge: 0
 			},
 			"LightSource": {
-				radius: 2
+				radius: 2,
+				enabled: false
 			},
 			"Destructible": {
 				max_integrity: 200,

@@ -1,5 +1,5 @@
 'use strict';
-const {Component, has_component, turn_dir} = require('bluespess');
+const {Component, has_component} = require('bluespess');
 const layers = require('../../../../defines/layers.js');
 
 const pipe_colors = {
