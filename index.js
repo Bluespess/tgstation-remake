@@ -83,6 +83,7 @@ server.importModule(require('./code/modules/atmospherics/environmental/block_air
 server.importModule(require('./code/modules/atmospherics/environmental/controller.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/turf.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/pipes/pipes.js'));
+server.importModule(require('./code/modules/atmospherics/machinery/node.js'));
 server.importModule(require('./code/modules/client/verbs.js'));
 server.importModule(require('./code/modules/clothing/gloves/_gloves.js'));
 server.importModule(require('./code/modules/clothing/gloves/color.js'));

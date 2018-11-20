@@ -34,66 +34,13 @@ class Pipe extends Component {
 		} else {
 			this.a.layer = this.above_floor ? layers.GAS_PIPE_VISIBLE_LAYER : layers.GAS_PIPE_HIDDEN_LAYER;
 		}
-		this.a.on("moved", this.moved.bind(this));
-		this.nodes = new Array(9);
+		this.a.c.AtmosNode.update_intact_overlays = this.update_intact_overlays.bind(this);
 	}
 
-	moved() {
-		let old_nodes = this.nodes;
-		for(let node of old_nodes) {
-			if(!node)
-				continue;
-			for(let i of [1,2,4,8]) {
-				if(node.c.Pipe.nodes[i] == this.a)
-					node.c.Pipe.nodes[i] = null;
-			}
-		}
-		this.nodes = new Array(9);
-		if(this.a.loc && this.a.loc.is_base_loc) {
-			for(let loc of this.a.marginal_locs()) {
-				for(let atom of loc.partial_contents) {
-					if(!has_component(atom, "Pipe"))
-						continue;
-					let node_dir = 0;
-					if((atom.dir & 3) && (this.a.dir & 3) && Math.abs(atom.x - this.a.x) < 0.00001) {
-						if((atom.dir & 2) && (this.a.dir & 1) && Math.abs((atom.y + atom.bounds_y) - (this.a.y + this.a.bounds_y + this.a.bounds_height)) < 0.0001)
-							node_dir = 1;
-						if((atom.dir & 1) && (this.a.dir & 2) && Math.abs((atom.y + atom.bounds_y + atom.bounds_height) - (this.a.y + this.a.bounds_y)) < 0.0001)
-							node_dir = 2;
-					}
-					if((atom.dir & 12) && (this.a.dir & 12) && Math.abs(atom.y - this.a.y) < 0.00001) {
-						if((atom.dir & 8) && (this.a.dir & 4) && Math.abs((atom.x + atom.bounds_x) - (this.a.x + this.a.bounds_x + this.a.bounds_width)) < 0.0001)
-							node_dir = 4;
-						if((atom.dir & 4) && (this.a.dir & 8) && Math.abs((atom.x + atom.bounds_x + atom.bounds_width) - (this.a.x + this.a.bounds_x)) < 0.0001)
-							node_dir = 8;
-					}
-					if(node_dir) {
-						if(this.nodes[node_dir] == atom)
-							continue;
-						let opp_node_dir = turn_dir(node_dir, 180);
-						if(this.nodes[node_dir] || atom.c.Pipe.nodes[opp_node_dir]) {
-							console.warn(`Multiple pipes on one node around (${this.a.x},${this.a.y},${this.a.z},${this.a.dim})`);
-						}
-						this.nodes[node_dir] = atom;
-						atom.c.Pipe.nodes[opp_node_dir] = this.a;
-					}
-				}
-			}
-		}
-		this.update_intact_overlays();
-		for(let i of [1,2,4,8]) {
-			if(this.nodes[i] != old_nodes[i]) {
-				if(this.nodes[i])
-					this.nodes[i].c.Pipe.update_intact_overlays();
-				if(old_nodes[i])
-					old_nodes[i].c.Pipe.update_intact_overlays();
-			}
-		}
-	}
 	update_intact_overlays() {
 		let intact_dirs = 0;
 		for(let dir of [1,2,4,8]) {
-			if(this.nodes[dir])
+			if(this.a.c.AtmosNode.nodes[dir])
 				intact_dirs |= dir;
 		}
 		if(intact_dirs == this.a.dir) {
@@ -106,8 +53,8 @@ class Pipe extends Component {
 	}
 }
 
-Pipe.loadBefore = ["Destructible"];
-Pipe.depends = ["Destructible"];
+Pipe.loadBefore = ["Destructible", "AtmosNode"];
+Pipe.depends = ["Destructible", "AtmosNode"];
 
 Pipe.template = {
 	vars: {
