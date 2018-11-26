@@ -139,6 +139,8 @@ class Cable extends Component {
 
 	connect() {
 		this.disconnect();
+		if(!this.a.loc)
+			return;
 		let new_powernet = null;
 		for(let loc of this.a.marginal_locs()) {
 			for(let cable of loc.partial_contents) {

@@ -14,6 +14,7 @@ var client = new BluespessClient();
 global.client = client;
 
 client.importModule(require('./code/alert.js'));
+client.importModule(require('./code/atmos_machine.js'));
 client.importModule(require('./code/carbon_mob.js'));
 client.importModule(require('./code/hud.js'));
 client.importModule(require('./code/progress_bar.js'));

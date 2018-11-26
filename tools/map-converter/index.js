@@ -87,11 +87,11 @@ rules.sort((a, b) => {
 						let ty = y;
 						if(item.y) ty += item.y;
 						if(item.x) tx += item.x;
-						item.x = tx; item.y = ty;
 						if(props.pixel_offsets) {
 							tx += (+oi.vars.pixel_x || 0) / 32;
 							ty += (+oi.vars.pixel_y || 0) / 32;
 						}
+						item.x = tx; item.y = ty;
 						bloc.push(item);
 					}
 					if(props.put_plating)

@@ -1,6 +1,7 @@
 'use strict';
 const atmos_defines = require('../../../defines/atmos_defines.js');
 const gas_metas = require('./gas_types.js');
+const {to_chat, visible_message} = require('bluespess');
 
 const debug_nan = false; // Set this to true to debug instances of NaN
 
@@ -303,6 +304,27 @@ class GasMixture {
 				return "temp";
 		}
 		return "";
+	}
+
+	atmosanalyzer_scan(user, target) {
+		visible_message`The ${user} has used the analyzer on the ${target}.`
+			.self`<span class='notice'>You use the analyzer on the ${target}.</span>`
+			.emit_from(user);
+		let pressure = this.return_pressure();
+		let total_moles = this.total_moles();
+
+		to_chat`<span class='notice'>Results of analysis of the ${target}.</span>`(user);
+		if(total_moles > 0) {
+			to_chat`<span class='notice'>Pressure: ${pressure.toFixed(1)} kPa</span>`(user);
+			for(let gas of this.gases_list) {
+				let concentration = gas.moles / total_moles;
+				if(gas.gas_meta.hardcoded || concentration > 0.001)
+					to_chat`<span class='notice'>${gas.gas_meta.name}: ${(concentration * 100).toFixed(2)} %</span>`(user);
+			}
+			to_chat`<span class='notice'>Temperature: ${Math.round(this.temperature - atmos_defines.T0C)} &deg;C</span>`(user);
+		} else {
+			to_chat`<span class='notice'>The ${target} is empty!</span>`(user);
+		}
 	}
 }
 

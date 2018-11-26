@@ -1,5 +1,5 @@
 'use strict';
-const {Component, has_component, turn_dir} = require('bluespess');
+const {Component, has_component, chain_func, turn_dir, visible_message} = require('bluespess');
 // not to be confused with the programming environment.
 // wow this is the second file I've named node.js so far.
 
@@ -7,11 +7,29 @@ class AtmosNode extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 		this.a.on("moved", this.moved.bind(this));
+		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
 		this.nodes = new Array(9);
 	}
 
 	get_node_dirs() {
 		return this.a.dir;
+	}
+
+	attack_by(prev, item, user) {
+		if(has_component(item, "Tool") && item.c.Tool.can_use("Wrench") && this.check_can_unwrench(user)) {
+			item.c.Tool.used("Wrench");
+			user.c.MobInventory.do_after({delay: 2000 * item.c.Tool.toolspeed, target: this.a}).then((success) => {
+				if(!success)
+					return;
+				visible_message`The ${user} unfastens the ${this.a}.`
+					.self`<span class='notice'>You unfasten the ${this.a}.</span>`
+					.blind`<span class='italics'>You hear ratchet.</span>`
+					.emit_from(user);
+				this.a.c.Destructible.deconstruct(true);
+			});
+			return true;
+		}
+		return prev();
 	}
 
 	moved() {
@@ -67,20 +85,25 @@ class AtmosNode extends Component {
 					old_nodes[i].c.AtmosNode.update_intact_overlays();
 			}
 		}
+		this.update_pipenet(old_nodes, this.nodes);
 	}
-	update_intact_overlays() {
 
+	check_can_unwrench(/*user*/) {
+		return this.can_unwrench;
 	}
+
+	update_intact_overlays() {}
+	update_pipenet() {}
 }
 
 AtmosNode.loadBefore = ["Destructible"];
-AtmosNode.depends = [];
+AtmosNode.depends = ["Destructible"];
 
 AtmosNode.template = {
 	vars: {
 		components: {
 			"AtmosNode": {
-
+				can_unwrench: true
 			},
 			"Tangible": {
 				anchored: true

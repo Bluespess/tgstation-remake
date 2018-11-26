@@ -22,7 +22,8 @@ let engineer_outfit = new JobType.Outfit({
 	jobtype: module.exports.jobs.engineer,
 	slots: {
 		iclothing: "jumpsuit_engineer",
-		shoes: "boots_work"
+		shoes: "boots_work",
+		belt: "utility_belt_engi"
 	},
 	backpack: "backpack_industrial"
 });

@@ -104,6 +104,13 @@ class Item extends Component {
 		user.c.Tangible.do_attack_animation(target);
 		target.c.Destructible.attacked_by(this.a, user);
 	}
+
+	apply_belt_overlay(item) {
+		item.overlays[`belt_${this.a.object_id}`] = {icon: 'icons/obj/clothing/belt_overlays.png', icon_state: this.a.icon_state};
+	}
+	unapply_belt_overlay(item) {
+		item.overlays[`belt_${this.a.object_id}`] = null;
+	}
 }
 Item.depends = ["Tangible"];
 Item.loadBefore = ["Tangible"];
@@ -121,7 +128,8 @@ Item.template = {
 				size: 3,
 				sharpness: Item.IS_BLUNT,
 				force: 0,
-				damage_type: "brute"
+				damage_type: "brute",
+				attack_verb: null
 			}
 		},
 		icon: 'icons/obj/items.png',

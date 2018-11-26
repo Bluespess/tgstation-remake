@@ -68,6 +68,7 @@ module.exports.templates = {
 						new Atom(this.a.server, "wrench", this.a);
 						new Atom(this.a.server, "welding_tool", this.a);
 						new Atom(this.a.server, "crowbar", this.a);
+						new Atom(this.a.server, "analyzer", this.a);
 						new Atom(this.a.server, "wirecutters", this.a);
 					}
 				}

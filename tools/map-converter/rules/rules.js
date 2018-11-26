@@ -105,6 +105,7 @@ module.exports = [
 	["/obj/item/wirecutters", () => {return {template_name: "wirecutters"};}, {pixel_offsets: true}],
 	["/obj/item/wrench", () => {return {template_name: "wrench"};}, {pixel_offsets: true}],
 	["/obj/item/device/multitool", () => {return {template_name: "multitool"};}, {pixel_offsets: true}],
+	["/obj/item/device/analyzer", () => {return {template_name: "analyzer"};}, {pixel_offsets: true}],
 
 	// CABLE
 

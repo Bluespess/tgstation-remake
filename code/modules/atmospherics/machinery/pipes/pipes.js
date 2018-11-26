@@ -1,6 +1,7 @@
 'use strict';
-const {Component, has_component} = require('bluespess');
+const {Component, chain_func, has_component} = require('bluespess');
 const layers = require('../../../../defines/layers.js');
+const Pipenet = require('../pipenet.js');
 
 const pipe_colors = {
 	"grey": "rgb(255,255,255)",
@@ -34,7 +35,11 @@ class Pipe extends Component {
 		} else {
 			this.a.layer = this.above_floor ? layers.GAS_PIPE_VISIBLE_LAYER : layers.GAS_PIPE_HIDDEN_LAYER;
 		}
+		this.pipenet = null;
+		this.temporary_air = null;
 		this.a.c.AtmosNode.update_intact_overlays = this.update_intact_overlays.bind(this);
+		this.a.c.AtmosNode.update_pipenet = this.update_pipenet.bind(this);
+		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
 	}
 
 	update_intact_overlays() {
@@ -51,6 +56,104 @@ class Pipe extends Component {
 			this.a.overlays["pipe_intact"] = {icon_state: "pipe_intact_overlay", dir: intact_dirs};
 		}
 	}
+
+	update_pipenet(old_nodes, new_nodes) {
+		old_nodes = old_nodes.filter(i => {return !!i;});
+		new_nodes = new_nodes.filter(i => {return !!i;});
+		for(let i = 0; i < old_nodes.length; i++) {
+			let j = new_nodes.indexOf(old_nodes[i]);
+			if(j != -1) {
+				old_nodes.splice(i, 1);
+				i--;
+				new_nodes.splice(j, 1);
+			}
+		}
+		if(!new_nodes.length && !old_nodes.length) {
+			if(this.a.loc && !this.pipenet) {
+				new Pipenet(this.a.server.air_controller).pipes.add(this.a);
+			} else if(!this.a.loc && this.pipenet) {
+				this.pipenet.pipes.delete(this.a); // gc better gc mmkay?
+			}
+			return; // nothing changed. (specifically we're on a shuttle and it moved so fuck off and stop wasting CPU cycles)
+		}
+		let biggest_pn = this.pipenet;
+		for(let node of new_nodes) {
+			if(has_component(node, "Pipe")) {
+				if(!biggest_pn || (node.c.Pipe.pipenet && node.c.Pipe.pipenet.pipes.size > biggest_pn.pipes.size))
+					biggest_pn = node.c.Pipe.pipenet;
+			}
+		}
+		if(new_nodes.length && !old_nodes.length) { // we're just adding, no need to make this more complicated than it has to be.
+			if(!biggest_pn) {
+				biggest_pn = new Pipenet(this.a.server.air_controller);
+			}
+			if(!this.pipenet) {
+				biggest_pn.pipes.add(this.a);
+			} else if(this.pipenet != biggest_pn) {
+				biggest_pn.merge(this.pipenet);
+			}
+			for(let node of new_nodes) {
+				if(has_component(node, "Pipe")) {
+					if(node.c.Pipe.pipenet && node.c.Pipe.pipenet != biggest_pn) {
+						biggest_pn.merge(node.c.Pipe.pipenet);
+					} else if(!node.c.Pipe.pipenet) {
+						biggest_pn.pipes.add(node);
+					}
+				}
+			}
+			return;
+		}
+		if(this.pipenet)
+			this.pipenet.pipes.delete(this.a);
+		let pipenet_roots = [];
+		if(this.a.loc || new_nodes.length)
+			pipenet_roots.push(this.a);
+		pipenet_roots.push(...old_nodes);
+		let new_pipenets = [];
+		while(pipenet_roots.length) {
+			let root = pipenet_roots.pop();
+			if(!has_component(root, "Pipe")) {
+				continue;
+			}
+			let queue = [root];
+			let new_set = new Set();
+			while(queue.length) {
+				let next = queue.shift();
+				for(let pipe of next.c.AtmosNode.nodes) {
+					if(!has_component(pipe, "Pipe") || new_set.has(pipe))
+						continue;
+					let idx = pipenet_roots.indexOf(pipe);
+					if(idx != -1) {
+						pipenet_roots.splice(idx, 1);
+					}
+					queue.push(pipe);
+				}
+				new_set.add(next);
+			}
+			new_pipenets.push(new_set);
+		}
+		new_pipenets.sort((a,b)=>{return b.size-a.size;});
+		for(let i = biggest_pn ? 1 : 0; i < new_pipenets.length; i++) {
+			let pn = new Pipenet(this.a.server.air_controller);
+			for(let pipe of new_pipenets[i]) {
+				pn.pipes.add(pipe);
+			}
+		}
+		if(new_pipenets[0] && biggest_pn) {
+			for(let pipe of new_pipenets[0]) {
+				biggest_pn.pipes.add(pipe);
+			}
+		}
+	}
+
+	attack_by(prev, item, user) {
+		if(has_component(item, "Analyzer")) {
+			if(this.pipenet)
+				this.pipenet.air.atmosanalyzer_scan(user, this.a);
+			return true;
+		}
+		return prev();
+	}
 }
 
 Pipe.loadBefore = ["Destructible", "AtmosNode"];
@@ -61,7 +164,8 @@ Pipe.template = {
 		components: {
 			"Pipe": {
 				above_floor: null,
-				pipe_color: "grey"
+				pipe_color: "grey",
+				volume: 80 // In BYOND ss13, this was based on how many nodes. I think doing that is pointless, soooooo
 			},
 			"Tangible": {
 				anchored: true

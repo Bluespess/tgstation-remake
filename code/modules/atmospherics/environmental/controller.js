@@ -7,6 +7,7 @@ class AirController {
 		this.excited_groups = [];
 		this.active_turfs = new Set();
 		this.high_pressure_delta = new Set();
+		this.pipenets = new Set();
 		this.server = server;
 		this.ticknum = 0;
 	}
