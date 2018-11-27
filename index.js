@@ -84,6 +84,8 @@ server.importModule(require('./code/game/placeholders.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/block_air.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/controller.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/turf.js'));
+server.importModule(require('./code/modules/atmospherics/machinery/machines/unary/_unary.js'));
+server.importModule(require('./code/modules/atmospherics/machinery/machines/unary/tank.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/machines/atmos_machine.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/pipes/pipes.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/node.js'));

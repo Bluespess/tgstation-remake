@@ -25,5 +25,9 @@ module.exports = [
 	}],
 	["/obj/machinery/atmospherics/pipe/heat_exchanging", () => {
 		return null; // not implemented, but the above handler does not work with h/e pipes.
-	}]
+	}],
+
+	// UNARY
+
+	["/obj/machinery/atmospherics/components/unary/tank/air", (inst) => {return {template_name: "pressure_tank_air", variant_leaf_path: [inst_dir(inst)]};}]
 ];
