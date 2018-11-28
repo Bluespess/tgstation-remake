@@ -46,12 +46,22 @@ class Pipenet {
 			return prev();
 		});
 		this.machines = new Set();
+		this.other_airs = new Set();
 	}
 	merge(other) {
 		for(let pipe of [...other.pipes]) {
 			this.pipes.add(pipe);
 		}
 		other.pipes.clear();
+		for(let machine of [...other.machines]) {
+			let index_dirs = machine.c.AtmosMachine.get_node_index_dirs();
+			for(let i = 0; i < index_dirs.length; i++) {
+				if(machine.c.AtmosMachine.pipenets[i] == other)
+					machine.c.AtmosMachine.set_pipenet(i, this);
+			}
+		}
+		other.machines.clear();
+		other.other_airs.clear();
 	}
 }
 

@@ -99,6 +99,14 @@ class Pipe extends Component {
 					} else if(!node.c.Pipe.pipenet) {
 						biggest_pn.pipes.add(node);
 					}
+				} else if(has_component(node, "AtmosMachine")) {
+					let index_dirs = node.c.AtmosMachine.get_node_index_dirs();
+					for(let i = 0; i < index_dirs.length; i++) {
+						if(node.c.AtmosNode.nodes[index_dirs[i]] == this.a) {
+							node.c.AtmosMachine.set_pipenet(i, biggest_pn);
+							break;
+						}
+					}
 				}
 			}
 			return;
@@ -120,6 +128,10 @@ class Pipe extends Component {
 			while(queue.length) {
 				let next = queue.shift();
 				for(let pipe of next.c.AtmosNode.nodes) {
+					if(has_component(pipe, "AtmosMachine")) {
+						new_set.add(pipe);
+						continue;
+					}
 					if(!has_component(pipe, "Pipe") || new_set.has(pipe))
 						continue;
 					let idx = pipenet_roots.indexOf(pipe);
@@ -136,12 +148,29 @@ class Pipe extends Component {
 		for(let i = biggest_pn ? 1 : 0; i < new_pipenets.length; i++) {
 			let pn = new Pipenet(this.a.server.air_controller);
 			for(let pipe of new_pipenets[i]) {
-				pn.pipes.add(pipe);
+				if(has_component(pipe, "Pipe"))
+					pn.pipes.add(pipe);
 			}
 		}
 		if(new_pipenets[0] && biggest_pn) {
 			for(let pipe of new_pipenets[0]) {
-				biggest_pn.pipes.add(pipe);
+				if(has_component(pipe, "Pipe"))
+					biggest_pn.pipes.add(pipe);
+			}
+		}
+		for(let pn of new_pipenets) {
+			for(let machine of pn) {
+				if(!has_component(machine, "AtmosMachine"))
+					continue;
+				let index_dirs = machine.c.AtmosMachine.get_node_index_dirs();
+				for(let i = 0; i < index_dirs.length; i++) {
+					let dir = index_dirs[i];
+					let node = machine.c.AtmosNode.nodes[dir];
+					if(has_component(node, "Pipe")) {
+						if(machine.c.AtmosMachine.pipenets[i] != node.c.Pipe.pipenet)
+							machine.c.AtmosMachine.set_pipenet(i, node.c.Pipe.pipenet);
+					}
+				}
 			}
 		}
 	}
