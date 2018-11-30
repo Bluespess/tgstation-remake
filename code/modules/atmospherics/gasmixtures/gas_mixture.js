@@ -313,15 +313,17 @@ class GasMixture {
 		let pressure = this.return_pressure();
 		let total_moles = this.total_moles();
 
-		to_chat`<span class='notice'>Results of analysis of the ${target}.</span>`(user);
+		to_chat`<span class='boldnotice'>Results of analysis of the ${target}.</span>`(user);
 		if(total_moles > 0) {
-			to_chat`<span class='notice'>Pressure: ${pressure.toFixed(1)} kPa</span>`(user);
+			to_chat`<span class='notice'>Moles: ${total_moles.toFixed(2)} mol</span>`(user);
+			to_chat`<span class='notice'>Volume: ${this.volume} L</span>`(user);
+			to_chat`<span class='notice'>Pressure: ${pressure.toFixed(2)} kPa</span>`(user);
 			for(let gas of this.gases_list) {
 				let concentration = gas.moles / total_moles;
 				if(gas.gas_meta.hardcoded || concentration > 0.001)
-					to_chat`<span class='notice'>${gas.gas_meta.name}: ${(concentration * 100).toFixed(2)} %</span>`(user);
+					to_chat`<span class='notice'>${gas.gas_meta.name}: ${(concentration * 100).toFixed(2)} % (${gas.moles.toFixed(2)} mol)</span>`(user);
 			}
-			to_chat`<span class='notice'>Temperature: ${Math.round(this.temperature - atmos_defines.T0C)} &deg;C</span>`(user);
+			to_chat`<span class='notice'>Temperature: ${(this.temperature - atmos_defines.T0C).toFixed(2)} &deg;C (${this.temperature.toFixed(2)} K)</span>`(user);
 		} else {
 			to_chat`<span class='notice'>The ${target} is empty!</span>`(user);
 		}

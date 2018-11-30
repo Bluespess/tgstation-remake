@@ -19,11 +19,22 @@ class AirController {
 	async tick() {
 		try {
 			this.ticknum++;
+			await this.process_pipenets();
 			await this.process_active_turfs();
 			await this.process_excited_groups();
 			await this.process_high_pressure_delta();
 		} catch (e) {
 			console.error(e.stack);
+		}
+	}
+
+	async process_pipenets() {
+		let pipenets = [...this.pipenets];
+		for(let pipenet of pipenets) {
+			if(pipenet.pipes.size == 0 && pipenet.machines.size == 0)
+				this.pipenets.delete(pipenet);
+			else
+				pipenet.process();
 		}
 	}
 

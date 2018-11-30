@@ -26,6 +26,7 @@ class Pipenet {
 			val.c.Pipe.pipenet = this;
 			if(enable_debug_colors)
 				val.color = this.debug_color;
+			this.update_flag = true;
 			return prev();
 		});
 		this.pipes.delete = chain_func(this.pipes.delete, (prev, val) => {
@@ -34,6 +35,7 @@ class Pipenet {
 				val.c.Pipe.pipenet = null;
 				this.air.volume -= val.c.Pipe.volume;
 			}
+			this.update_flag = true;
 			return prev();
 		});
 		this.pipes.clear = chain_func(this.pipes.clear, (prev) => {
@@ -43,10 +45,12 @@ class Pipenet {
 					pipe.c.Pipe.pipenet = null;
 					this.air.volume -= pipe.c.Pipe.volume;
 				}
+			this.update_flag = true;
 			return prev();
 		});
 		this.machines = new Set();
 		this.other_airs = new Set();
+		this.update_flag = true;
 	}
 	merge(other) {
 		for(let pipe of [...other.pipes]) {
@@ -62,6 +66,34 @@ class Pipenet {
 		}
 		other.machines.clear();
 		other.other_airs.clear();
+		this.update_flag = true;
+	}
+	reconcile_air() {
+		let temp_airs = this.other_airs;
+		let total_thermal_energy = this.air.thermal_energy();
+		let total_heat_capacity = this.air.heat_capacity();
+		let original_volume = this.air.volume;
+		for(let air of temp_airs) {
+			this.air.volume += air.volume;
+			this.air.merge(air);
+			total_thermal_energy += air.thermal_energy();
+			total_heat_capacity += air.heat_capacity();
+		}
+		this.air.temperature = total_heat_capacity ? total_thermal_energy/total_heat_capacity : 0;
+		for(let air of temp_airs) {
+			air.temperature = this.air.temperature;
+			for(let i = 0; i < air.gases_list.length; i++) {
+				air.gases_list[i].moles = this.air.gases_list[i].moles * air.volume / this.air.volume;
+			}
+		}
+		this.air.remove_ratio(1 - (original_volume / this.air.volume));
+		this.air.volume = original_volume;
+		this.update_flag = false;
+	}
+	process() {
+		if(this.update_flag) {
+			this.reconcile_air();
+		}
 	}
 }
 

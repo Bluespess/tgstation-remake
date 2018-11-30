@@ -26,10 +26,12 @@ class AtmosMachine extends Component.Networked {
 			old.other_airs.delete(this.airs[i]);
 			if(!this.pipenets.includes(old))
 				old.machines.delete(this.a);
+			old.update_flag = true;
 		}
 		if(val) {
 			val.machines.add(this.a);
 			val.other_airs.add(this.airs[i]);
+			val.update_flag = true;
 		}
 	}
 	update_pipenet(old_nodes, new_nodes) {
