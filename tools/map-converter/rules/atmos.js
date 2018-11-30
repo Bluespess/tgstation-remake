@@ -29,5 +29,9 @@ module.exports = [
 
 	// UNARY
 
-	["/obj/machinery/atmospherics/components/unary/tank/air", (inst) => {return {template_name: "pressure_tank_air", variant_leaf_path: [inst_dir(inst)]};}]
+	["/obj/machinery/atmospherics/components/unary/tank/air", (inst) => {return {template_name: "pressure_tank_air", variant_leaf_path: [inst_dir(inst)]};}],
+
+	// BINARY
+
+	["/obj/machinery/atmospherics/components/binary/pump", (inst) => {return {template_name: +inst.vars.on ? "gas_pump_on" : "gas_pump", variant_leaf_path: [inst_dir(inst)]};}],
 ];

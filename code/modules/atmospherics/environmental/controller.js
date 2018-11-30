@@ -1,6 +1,7 @@
 'use strict';
 const {has_component} = require('bluespess');
 const atmos_defines = require('../../../defines/atmos_defines.js');
+const _ = require('underscore');
 
 class AirController {
 	constructor(server) {
@@ -20,6 +21,7 @@ class AirController {
 		try {
 			this.ticknum++;
 			await this.process_pipenets();
+			await this.process_atmos_macinery();
 			await this.process_active_turfs();
 			await this.process_excited_groups();
 			await this.process_high_pressure_delta();
@@ -35,6 +37,13 @@ class AirController {
 				this.pipenets.delete(pipenet);
 			else
 				pipenet.process();
+		}
+	}
+
+	async process_atmos_macinery() {
+		let machines = _.shuffle([...this.server.atoms_for_components.AtmosMachineTick]);
+		for(let machine of machines) {
+			machine.c.AtmosMachineTick.process(0.5);
 		}
 	}
 

@@ -11,7 +11,7 @@ class AtmosMachine extends Component.Networked {
 		this.a.c.AtmosNode.update_intact_overlays = this.update_intact_overlays.bind(this);
 		this.a.c.AtmosNode.update_pipenet = this.update_pipenet.bind(this);
 		this.airs = [];
-		this.pipenets = new Array(this.node_amount.length);
+		this.pipenets = new Array(this.node_amount);
 		for(let i = 0; i < this.node_amount; i++) {
 			this.airs.push(new GasMixture(200));
 		}
@@ -38,8 +38,8 @@ class AtmosMachine extends Component.Networked {
 		let index_dirs = this.get_node_index_dirs();
 		for(let i = 0; i < index_dirs.length; i++) {
 			let dir = index_dirs[i];
-			let from = old_nodes[i];
-			let to = new_nodes[i];
+			let from = old_nodes[dir];
+			let to = new_nodes[dir];
 			if(from == to)
 				continue; // nothing to see here, move on
 			if(has_component(from, "AtmosMachine")) { // we need to delete the other machine from the pipenet because it now has a floating node.
@@ -81,7 +81,7 @@ class AtmosMachine extends Component.Networked {
 			else if(!node)
 				new_node_display.push(["#fff",false,true]);
 			else
-				new_node_display.push([node.color,true,has_component(node, "Pipe") ? node.c.Pipe.visible : true]);
+				new_node_display.push([node.color,true,has_component(node, "Pipe") ? node.c.Pipe.above_floor : true]);
 		}
 		this.node_display = new_node_display;
 	}
@@ -112,4 +112,11 @@ AtmosMachine.template = {
 	}
 };
 
-module.exports.components = {AtmosMachine};
+class AtmosMachineTick extends Component {
+	constructor(atom, template) {
+		super(atom, template);
+	}
+	process() {}
+}
+
+module.exports.components = {AtmosMachine, AtmosMachineTick};
