@@ -5,13 +5,12 @@ const layers = require('../../defines/layers.js');
 const _areas = Symbol('_areas');
 const _area = Symbol('_area');
 const _area_brushes = Symbol('_area_brushes');
-const _touching = Symbol('_touching');
 
 class Area extends Component {
 	constructor(atom, template) {
 		super(atom, template);
-		this[_area_brushes] = new Set();
-		this[_touching] = new Set();
+		this.area_brushes = new Set();
+		this.touching = new Set();
 		this.a.once("map_instanced", (map) => {
 			if(!this.map_id)
 				return;
@@ -76,8 +75,8 @@ class AreaBrush extends Component {
 	crossed(atom) {
 		if(!this.area)
 			return;
-		if(!this.area.c.Area[_touching].has(atom)) {
-			this.area.c.Area[_touching].add(atom);
+		if(!this.area.c.Area.touching.has(atom)) {
+			this.area.c.Area.touching.add(atom);
 			this.area.c.Area.emit("start_touch", atom);
 			atom.emit("start_touch_area", this.area);
 		}
@@ -90,7 +89,7 @@ class AreaBrush extends Component {
 			if(has_component(brush, "AreaBrush") && brush.c.AreaBrush.area == this.area)
 				return;
 		}
-		this.area.c.Area[_touching].delete(atom);
+		this.area.c.Area.touching.delete(atom);
 		this.area.c.Area.emit("end_touch", atom);
 		atom.emit("end_touch_area", this.area);
 	}
@@ -99,12 +98,19 @@ class AreaBrush extends Component {
 		if(this.area)
 			throw new Error(`This brush already has an area associated with it!`);
 		this[_area] = area;
+		area.c.Area.area_brushes.add(this.a);
 		for(let atom of this.a.crosses())
 			this.crossed(atom);
 	}
 
 	get area() {
 		return this[_area];
+	}
+
+	destroy() {
+		super.destroy();
+		if(this.area)
+			this.area.area_brushes.delete(this.a);
 	}
 }
 
