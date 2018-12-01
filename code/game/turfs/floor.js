@@ -95,7 +95,7 @@ module.exports.templates = {
 			{
 				type: "single",
 				var_path: ["icon_state"],
-				values: ["floor", "white", "dark", "bar", "floorgrime", "delivery", "bot", "barber", "whitebot", "whitedelivery", "cmo", "grimy", "freezerfloor", "cafeteria"],
+				values: ["floor", "white", "dark", "bar", "floorgrime", "delivery", "bot", "barber", "whitebot", "whitedelivery", "cmo", "grimy", "freezerfloor", "cafeteria", "engine"],
 				label: true,
 				orientation: "vertical"
 			}

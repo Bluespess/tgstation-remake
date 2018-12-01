@@ -252,7 +252,7 @@ module.exports.templates = {
 				}
 			},
 			name: "Choking (Plasma)",
-			icon_state: 'tox_in_air'
+			icon_state: 'too_much_tox'
 		}
 	},
 	//End gas alerts

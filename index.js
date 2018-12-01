@@ -81,6 +81,7 @@ server.importModule(require('./code/game/turfs/floor_base.js'));
 server.importModule(require('./code/game/turfs/floor.js'));
 server.importModule(require('./code/game/turfs/plating.js'));
 server.importModule(require('./code/game/placeholders.js'));
+server.importModule(require('./code/modules/atmospherics/environmental/air_holder.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/block_air.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/controller.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/turf.js'));
@@ -90,6 +91,7 @@ server.importModule(require('./code/modules/atmospherics/machinery/machines/unar
 server.importModule(require('./code/modules/atmospherics/machinery/machines/unary/tank.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/machines/atmos_machine.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/pipes/pipes.js'));
+server.importModule(require('./code/modules/atmospherics/machinery/meter.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/node.js'));
 server.importModule(require('./code/modules/client/verbs.js'));
 server.importModule(require('./code/modules/clothing/gloves/_gloves.js'));

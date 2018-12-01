@@ -39,6 +39,7 @@ class Pipe extends Component {
 		this.temporary_air = null;
 		this.a.c.AtmosNode.update_intact_overlays = this.update_intact_overlays.bind(this);
 		this.a.c.AtmosNode.update_pipenet = this.update_pipenet.bind(this);
+		this.a.c.AirHolder.return_air = this.return_air.bind(this);
 		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
 	}
 
@@ -53,7 +54,7 @@ class Pipe extends Component {
 			this.a.overlays["pipe_intact"] = null;
 		} else {
 			this.a.icon_state = this.a.template.vars.icon_state + "_exposed";
-			this.a.overlays["pipe_intact"] = {icon_state: "pipe_intact_overlay", dir: intact_dirs};
+			this.a.overlays["pipe_intact"] = {icon_state: this.a.template.vars.icon_state + "_intact_overlay", dir: intact_dirs};
 		}
 	}
 
@@ -183,10 +184,12 @@ class Pipe extends Component {
 		}
 		return prev();
 	}
+
+	return_air() {return this.pipenet && this.pipenet.air;}
 }
 
-Pipe.loadBefore = ["Destructible", "AtmosNode"];
-Pipe.depends = ["Destructible", "AtmosNode"];
+Pipe.loadBefore = ["Destructible", "AtmosNode", "AirHolder"];
+Pipe.depends = ["Destructible", "AtmosNode", "AirHolder"];
 
 Pipe.template = {
 	vars: {
@@ -250,6 +253,51 @@ module.exports.templates = {
 			}
 		},
 		tree_paths: ["basic_structures/pipe/hidden"]
+	},
+	"small_pipe_visible": {
+		components: ["Pipe"],
+		vars: {
+			components: {
+				"Pipe": {
+					above_floor: true
+				}
+			},
+			icon_state: "small_pipe",
+			bounds_x: 1/3,
+			bounds_y: 1/3,
+			bounds_width: 1/3,
+			bounds_height: 1/3
+		},
+		tree_paths: ["basic_structures/pipe/small/visible"],
+		variants: [
+			{
+				type: "single",
+				var_path: ["components", "Pipe", "pipe_color"],
+				values: Object.keys(pipe_colors),
+				label: true,
+				orientation: "vertical"
+			},
+			{
+				type: "single",
+				var_path: ["dir"],
+				values: [
+					14, 13, 11, 7, 5, 6, 9, 10, 3, 12, 15
+				],
+				orientation: "horizontal",
+				wrap: 4
+			}
+		]
+	},
+	"small_pipe_hidden": {
+		parent_template: "small_pipe_visible",
+		vars: {
+			components: {
+				"Pipe": {
+					above_floor: false
+				}
+			}
+		},
+		tree_paths: ["basic_structures/pipe/small/hidden"]
 	}
 };
 module.exports.components = {Pipe};

@@ -10,6 +10,19 @@ class Turf extends Component {
 		this.air = new GasMixture();
 		this.air.parse_gas_string(this.initial_gas_mix);
 		this.a.on("moved", this.moved.bind(this));
+		this.a.c.AirHolder.remove_air = this.remove_air.bind(this);
+		this.a.c.AirHolder.return_air = this.return_air.bind(this);
+		this.a.c.AirHolder.assume_air = ()=>{};
+	}
+
+	return_air() {
+		return this.air;
+	}
+
+	remove_air(amount) {
+		let removed = this.a.c.Turf.air.remove(amount);
+		this.air.parse_gas_string();
+		return removed;
 	}
 
 	moved(movement) {
@@ -32,6 +45,9 @@ class Turf extends Component {
 		}
 	}
 }
+
+Turf.depends = ["AirHolder"];
+Turf.loadBefore = ["AirHolder"];
 
 Turf.one_per_tile = true;
 
@@ -59,6 +75,8 @@ class SimulatedTurf extends Component {
 		this.pressure_difference = 0;
 		this.adjacent_dirs = 15;
 		this.a.on("moved", this.moved.bind(this));
+		this.a.c.AirHolder.assume_air = this.assume_air.bind(this);
+		this.a.c.AirHolder.remove_air = this.remove_air.bind(this);
 	}
 
 	moved() {

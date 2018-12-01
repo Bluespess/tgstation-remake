@@ -9,7 +9,7 @@
   "author": "",
   "license": "AGPL-3.0",
   "dependencies": {
-    "byond-parser": "^1.1.0",
+    "byond-parser": "^1.2.0",
     "json-stable-stringify": "^1.0.1"
   }
 }

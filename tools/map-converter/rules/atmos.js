@@ -33,5 +33,27 @@ module.exports = [
 
 	// BINARY
 
-	["/obj/machinery/atmospherics/components/binary/pump", (inst) => {return {template_name: +inst.vars.on ? "gas_pump_on" : "gas_pump", variant_leaf_path: [inst_dir(inst)]};}],
+	["/obj/machinery/atmospherics/components/binary/pump", (inst) => {
+		let ret = {template_name: +inst.vars.on ? "gas_pump_on" : "gas_pump", variant_leaf_path: [inst_dir(inst)]};
+		if(inst.vars.name != `"gas pump"`) {
+			if(!ret.instance_vars) ret.instance_vars = {};
+			ret.instance_vars.name = JSON.parse(inst.vars.name);
+		}
+		if(inst.vars.target_pressure != "101.325") {
+			if(!ret.instance_vars) ret.instance_vars = {};
+			ret.instance_vars.components = {GasPump: {target_pressure: +inst.vars.target_pressure}};
+		}
+		return ret;
+	}],
+
+	// OTHER STUFF
+
+	["/obj/machinery/meter", (inst) => {
+		let ret = {template_name: "pipe_meter"};
+		if(inst.vars.name != `"gas flow meter"`) {
+			if(!ret.instance_vars) ret.instance_vars = {};
+			ret.instance_vars.name = JSON.parse(inst.vars.name);
+		}
+		return ret;
+	}]
 ];

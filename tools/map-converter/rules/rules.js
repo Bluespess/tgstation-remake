@@ -7,7 +7,7 @@ const {inst_dir, inst_access} = require('./utils.js');
 module.exports = [
 	["/turf/open/floor", (inst) => {
 		let templates = {
-			floor: ["floor", "white", "dark", "bar", "floorgrime", "delivery", "bot", "barber", "whitebot", "whitedelivery", "cmo", "grimy", "freezerfloor", "cafeteria"],
+			floor: ["floor", "white", "dark", "bar", "floorgrime", "delivery", "bot", "barber", "whitebot", "whitedelivery", "cmo", "grimy", "freezerfloor", "cafeteria", "engine"],
 			floor_ss13: ["L1", "L3", "L5", "L7", "L2", "L4", "L6", "L8", "L9", "L11", "L13", "L7", "L10", "L12", "L14", "L8"],
 			floor_edge: ["red", "whitered", "blue", "whiteblue", "green", "whitegreen", "yellow", "whiteyellow", "orange", "whitehall", "arrival", "escape", "purple", "whitepurple", "brownold", "brown", "redyellow", "redblue", "bluered", "redgreen", "greenyellow", "greenblue", "blueyellow", "darkpurple", "darkred", "darkblue", "darkgreen", "darkyellow", "darkbrown"],
 			floor_corner: ["redcorner", "whiteredcorner", "bluecorner", "whitebluecorner", "greencorner", "whitegreencorner", "yellowcorner", "whiteyellowcorner", "orangecorner", "arrivalcorner", "escapecorner", "purplecorner", "whitepurplecorner", "browncorner"]
@@ -32,6 +32,15 @@ module.exports = [
 		if(!variants.includes(state)) state = variants[0];
 		return {template_name: "floor_titanium", variant_leaf_path: [state]};
 	}, {put_plating: true}],
+
+	// atmos floors
+	["/turf/open/floor/engine/n2o", () => {return {template_name: "floor", variant_leaf_path: ["engine"]};}, {put_plating: "plating_n2o"}],
+	["/turf/open/floor/engine/co2", () => {return {template_name: "floor", variant_leaf_path: ["engine"]};}, {put_plating: "plating_co2"}],
+	["/turf/open/floor/engine/plasma", () => {return {template_name: "floor", variant_leaf_path: ["engine"]};}, {put_plating: "plating_plasma"}],
+	["/turf/open/floor/engine/o2", () => {return {template_name: "floor", variant_leaf_path: ["engine"]};}, {put_plating: "plating_o2"}],
+	["/turf/open/floor/engine/n2", () => {return {template_name: "floor", variant_leaf_path: ["engine"]};}, {put_plating: "plating_n2"}],
+	["/turf/open/floor/engine/air", () => {return {template_name: "floor", variant_leaf_path: ["engine"]};}, {put_plating: "plating_air"}],
+
 	["/turf/closed/wall", () => {return {template_name: "wall"};}, {put_plating: true}],
 	["/turf/closed/wall/r_wall", () => {return {template_name: "r_wall"};}, {put_plating: true}],
 	["/turf/closed/wall/mineral/titanium", () => {return {template_name: "wall_titanium"};}, {put_plating: true}],

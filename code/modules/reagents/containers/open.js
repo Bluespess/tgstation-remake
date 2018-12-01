@@ -36,7 +36,7 @@ class OpenReagentContainer extends Component {
 			setTimeout(() => {
 				this.a.c.ReagentHolder.transfer_to(target, 5);
 			}, 500);
-			new Sound(this.a.server, {path: 'sound/items/drink', volume: 0.1 + (Math.random() * 0.4), vary: true}).emit_from(target);
+			new Sound(this.a.server, {path: 'sound/items/drink.ogg', volume: 0.1 + (Math.random() * 0.4), vary: true}).emit_from(target);
 		})();
 	}
 
