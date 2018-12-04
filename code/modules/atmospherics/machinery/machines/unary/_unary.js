@@ -21,7 +21,8 @@ UnaryAtmosMachine.template = {
 			"AtmosMachine": {
 				node_amount: 1
 			}
-		}
+		},
+		icon: 'icons/obj/atmospherics/components/unary_devices.png'
 	}
 };
 

@@ -52,4 +52,19 @@ class AirHolder extends Component {
 	}
 }
 
+function get_air_holder(l) {
+	while(l && !l.is_base_loc && !has_component(l, "AirHolder")) {
+		l = l.loc;
+	}
+	if(!l)
+		return;
+	if(l.is_base_loc) {
+		if(has_component(l.turf, "Turf"))
+			return l.turf;
+		return;
+	}
+	return l;
+}
+
 module.exports.components = {AirHolder};
+module.exports.get_air_holder = get_air_holder;

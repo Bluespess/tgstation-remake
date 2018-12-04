@@ -199,6 +199,9 @@ Pipe.template = {
 				pipe_color: "grey",
 				volume: 80 // In BYOND ss13, this was based on how many nodes. I think doing that is pointless, soooooo
 			},
+			"AtmosNode": {
+				can_unwrench: true
+			},
 			"Tangible": {
 				anchored: true
 			},

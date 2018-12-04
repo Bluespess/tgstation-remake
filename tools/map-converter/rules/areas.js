@@ -40,6 +40,9 @@ module.exports = [
 				},
 				name
 			}};
+			if(!(+inst.vars.requires_power) || inst.type.path.startsWith("/area/engine/supermatter") || inst.type.path.startsWith("/area/science/test_area")) {
+				area_inst.instance_vars.components.AreaPower = {infinite_power: true};
+			}
 			insts.push(area_inst);
 		}
 		return insts;

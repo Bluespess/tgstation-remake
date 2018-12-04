@@ -95,7 +95,7 @@ rules.sort((a, b) => {
 						bloc.push(item);
 					}
 					if(props.put_plating)
-						bloc.splice(0, 0, {template_name: (typeof props.put_plating == "string") ? props.put_plating : (oi.type.path.includes("airless") ? "plating_airless" : "plating"), x, y}); // at 0th position, removing 0 items, insert the plating
+						bloc.splice(0, 0, {template_name: (typeof props.put_plating == "string") ? props.put_plating : ((oi.type.path.includes("airless") || oi.type.path.includes("vacuum")) ? "plating_airless" : "plating"), x, y}); // at 0th position, removing 0 items, insert the plating
 					break;
 				}
 			}

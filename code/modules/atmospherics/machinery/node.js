@@ -103,7 +103,7 @@ AtmosNode.template = {
 	vars: {
 		components: {
 			"AtmosNode": {
-				can_unwrench: true
+				can_unwrench: false
 			},
 			"Tangible": {
 				anchored: true

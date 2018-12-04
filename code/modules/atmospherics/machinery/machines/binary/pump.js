@@ -49,6 +49,9 @@ GasPump.template = {
 				turned_on: false,
 				target_pressure: atmos_defines.ONE_ATMOSPHERE
 			},
+			"AtmosNode": {
+				can_unwrench: true
+			},
 			"Examine": {
 				desc: "A pump that moves gas by pressure."
 			}

@@ -7,6 +7,7 @@ class AtmosMachine extends Component.Networked {
 	constructor(atom, template) {
 		super(atom, template);
 		this.add_networked_var("node_display");
+		this.add_networked_var("cap_overlay");
 		this.a.c.AtmosNode.get_node_dirs = this.get_node_dirs.bind(this);
 		this.a.c.AtmosNode.update_intact_overlays = this.update_intact_overlays.bind(this);
 		this.a.c.AtmosNode.update_pipenet = this.update_pipenet.bind(this);
@@ -97,7 +98,7 @@ class AtmosMachine extends Component.Networked {
 	}
 }
 
-AtmosMachine.loadBefore = ["AtmosNode", "Destructible"];
+AtmosMachine.loadBefore = ["AtmosNode", "Destructible", "ApcPowered"];
 AtmosMachine.depends = ["AtmosNode", "Destructible"];
 
 AtmosMachine.template = {
@@ -106,6 +107,9 @@ AtmosMachine.template = {
 			"AtmosMachine": {
 				node_display: [],
 				node_amount: 0
+			},
+			"ApcPowered": {
+				power_channel: "environment"
 			}
 		},
 		layer: 2.49

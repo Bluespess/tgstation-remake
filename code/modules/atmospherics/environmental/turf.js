@@ -1,5 +1,5 @@
 'use strict';
-const {Component, has_component} = require('bluespess');
+const {Component, has_component, Atom} = require('bluespess');
 const GasMixture = require('../gasmixtures/gas_mixture.js');
 const ExcitedGroup = require('./excited_group.js');
 const atmos_defines = require('../../../defines/atmos_defines.js');
@@ -74,6 +74,7 @@ class SimulatedTurf extends Component {
 		this.atmos_cooldown = 0;
 		this.pressure_difference = 0;
 		this.adjacent_dirs = 15;
+		this.visuals_overlay_atom = null;
 		this.a.on("moved", this.moved.bind(this));
 		this.a.c.AirHolder.assume_air = this.assume_air.bind(this);
 		this.a.c.AirHolder.remove_air = this.remove_air.bind(this);
@@ -81,6 +82,8 @@ class SimulatedTurf extends Component {
 
 	moved() {
 		this.update_blockers();
+		if(this.visuals_overlay_atom)
+			this.visuals_overlay_atom.loc = this.a.fine_loc;
 	}
 
 	assume_air(giver) {
@@ -88,12 +91,14 @@ class SimulatedTurf extends Component {
 			return false;
 		this.a.c.Turf.air.merge(giver);
 		this.update_visuals();
+		this.a.server.air_controller.add_to_active(this.a, false);
 		return true;
 	}
 
 	remove_air(amount) {
 		var removed = this.a.c.Turf.air.remove(amount);
 		this.update_visuals();
+		this.a.server.air_controller.add_to_active(this.a, false);
 		return removed;
 	}
 
@@ -149,13 +154,36 @@ class SimulatedTurf extends Component {
 	}
 
 	update_visuals() {
-		for(var gas of this.a.c.Turf.air.gases_list) {
+		let should_have_visuals = false;
+		for(let gas of this.a.c.Turf.air.gases_list) {
 			if(gas.gas_meta.gas_overlay && gas.moles > gas.gas_meta.moles_visible) {
-				if(!this.a.overlays[`gas_overlay_${gas.id}`]) {
-					this.a.overlays[`gas_overlay_${gas.id}`] = {icon:'icons/effects/tile_effects.png',icon_state:gas.gas_meta.gas_overlay,mouse_opacity:0,layer:5};
+				should_have_visuals = true;
+				break;
+			}
+		}
+		if(should_have_visuals && !this.visuals_overlay_atom) {
+			this.visuals_overlay_atom = new Atom(this.a.server, {
+				vars: {
+					icon: 'icons/effects/tile_effects.png',
+					layer: 5,
+					mouse_opacity: 0
 				}
-			} else {
-				this.a.overlays[`gas_overlay_${gas.id}`] = null;
+			});
+			this.visuals_overlay_atom.loc = this.a.fine_loc;
+		} else if(!should_have_visuals && this.visuals_overlay_atom) {
+			this.visuals_overlay_atom.destroy();
+			this.visuals_overlay_atom = null;
+		}
+		if(should_have_visuals) {
+			for(var gas of this.a.c.Turf.air.gases_list) {
+				if(gas.gas_meta.gas_overlay && gas.moles > gas.gas_meta.moles_visible) {
+					if(!this.visuals_overlay_atom.overlays[`gas_overlay_${gas.id}`]) {
+						this.visuals_overlay_atom.overlays[`gas_overlay_${gas.id}`] = {icon_state:gas.gas_meta.gas_overlay};
+					}
+				} else {
+					if(this.visuals_overlay_atom.overlays[`gas_overlay_${gas.id}`])
+						this.visuals_overlay_atom.overlays[`gas_overlay_${gas.id}`] = null;
+				}
 			}
 		}
 	}

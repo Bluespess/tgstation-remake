@@ -30,6 +30,41 @@ module.exports = [
 	// UNARY
 
 	["/obj/machinery/atmospherics/components/unary/tank/air", (inst) => {return {template_name: "pressure_tank_air", variant_leaf_path: [inst_dir(inst)]};}],
+	["/obj/machinery/atmospherics/components/unary/vent_pump", (inst) => {
+		let template_name = "vent_pump";
+		let external_pressure_bound = 101.325;
+		let internal_pressure_bound = 0;
+		if(+inst.vars.pump_direction == 0) {
+			template_name += "_siphoning";
+			external_pressure_bound = 0;
+			internal_pressure_bound = 4000;
+		}
+		if(inst.vars.on)
+			template_name += "_on";
+
+		let template = {template_name, variant_leaf_path: [inst_dir(inst)]};
+		let inst_vars_pump = null;
+		let inst_vars = null;
+		if(inst.vars.internal_pressure_bound != internal_pressure_bound) {
+			if(!inst_vars_pump) inst_vars_pump = {};
+			inst_vars_pump.internal_pressure_bound = +inst.vars.internal_pressure_bound;
+		}
+		if(inst.vars.external_pressure_bound != external_pressure_bound) {
+			if(!inst_vars_pump) inst_vars_pump = {};
+			inst_vars_pump.external_pressure_bound = +inst.vars.external_pressure_bound;
+		}
+		if(inst_vars_pump) {
+			if(!inst_vars) inst_vars = {};
+			inst_vars.components = {"VentPump": inst_vars_pump};
+		}
+		if(inst.vars.name != `"air pump"`) {
+			if(!inst_vars) inst_vars = {};
+			inst_vars.name = JSON.parse(inst.vars.name);
+		}
+		if(inst_vars)
+			template.instance_vars = inst_vars;
+		return template;
+	}],
 
 	// BINARY
 
