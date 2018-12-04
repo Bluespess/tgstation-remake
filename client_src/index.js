@@ -29,6 +29,7 @@ client.importModule(require('./code/ui/machine_wires.js'));
 client.importModule(require('./code/ui/new_player.js'));
 client.importModule(require('./code/ui/preferences.js'));
 client.importModule(require('./code/ui/smes.js'));
+client.importModule(require('./code/ui/spawn_object.js'));
 client.importModule(require('./code/ui/stack_craft.js'));
 
 if(global.is_bs_editor_env) {
