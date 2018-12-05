@@ -94,13 +94,13 @@ VentPump.template = {
 				do_check_internal: false
 			},
 			"AtmosMachine": {
-				cap_overlay: {icon_state: "vent_cap"}
+				cap_overlay: {icon: 'icons/obj/atmospherics/components/unary_devices.png', icon_state: "vent_cap"}
 			},
 			"AtmosNode": {
 				can_unwrench: true
 			},
 			"ApcPowered": {
-				power_usage: 1
+				power_usage: 5
 			},
 			"Examine": {
 				desc: "Has a valve and pump attached to it."

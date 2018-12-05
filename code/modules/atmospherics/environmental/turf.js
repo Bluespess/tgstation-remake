@@ -329,6 +329,32 @@ class SimulatedTurf extends Component {
 	hotspot_expose() {
 
 	}
+
+	get_adjacent_turfs(diagonals = false) {
+		let turfs = [];
+		for(let dir of [1,2,4,8]) {
+			if((dir & this.adjacent_dirs) && this.a.loc.get_step(dir))
+				turfs.push(this.a.loc.get_step(dir));
+		}
+		if(!diagonals)
+			return turfs;
+		for(let dir of [5,6,9,10]) {
+			for(let order of [[3,12],[12,3]]) {
+				let d1 = order[0] & dir;
+				let d2 = order[1] & dir;
+				if(!(d1 & this.adjacent_dirs))
+					continue;
+				let intermediate = this.a.loc.get_step(d1);
+				if(!has_component(intermediate, "SimulatedTurf"))
+					continue;
+				let final = intermediate.loc.get_step(d2);
+				if(has_component(final, "SimulatedTurf")) {
+					turfs.push(final);
+					break;
+				}
+			}
+		}
+	}
 }
 SimulatedTurf.depends = ["Turf"];
 SimulatedTurf.loadBefore = ["Turf"];

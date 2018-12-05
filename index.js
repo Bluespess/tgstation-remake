@@ -90,6 +90,7 @@ server.importModule(require('./code/modules/atmospherics/machinery/machines/bina
 server.importModule(require('./code/modules/atmospherics/machinery/machines/unary/_unary.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/machines/unary/tank.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/machines/unary/vent_pump.js'));
+server.importModule(require('./code/modules/atmospherics/machinery/machines/unary/vent_scrubber.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/machines/atmos_machine.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/pipes/pipes.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/meter.js'));

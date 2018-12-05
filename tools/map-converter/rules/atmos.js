@@ -66,6 +66,22 @@ module.exports = [
 		return template;
 	}],
 
+	["/obj/machinery/atmospherics/components/unary/vent_scrubber", (inst) => {
+		let template_name = "vent_scrubber";
+		if(inst.vars.on)
+			template_name += "_on";
+
+		let template = {template_name, variant_leaf_path: [inst_dir(inst)]};
+		let inst_vars = null;
+		if(inst.vars.name != `"air scrubber"`) {
+			if(!inst_vars) inst_vars = {};
+			inst_vars.name = JSON.parse(inst.vars.name);
+		}
+		if(inst_vars)
+			template.instance_vars = inst_vars;
+		return template;
+	}],
+
 	// BINARY
 
 	["/obj/machinery/atmospherics/components/binary/pump", (inst) => {
