@@ -137,6 +137,13 @@ class Tangible extends Component {
 	attacked_by() {
 		// This is basically for legit attacks
 	}
+
+	adjacent(target) {
+		return Math.abs(target.x - this.a.x) <= 1.50001 && Math.abs(target.y - this.a.y) <= 1.50001;
+	}
+	can_reach(target) {
+		return this.adjacent(target);
+	}
 }
 
 Tangible.depends = ["Examine"];

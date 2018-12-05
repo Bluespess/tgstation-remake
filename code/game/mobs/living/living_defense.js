@@ -43,7 +43,7 @@ module.exports = {
 			return this.check_armor(affecting, type);
 		}
 		//If you don't specify a bodypart, it checks ALL your bodyparts for protection, and averages out the values
-		for(let bp of this.a.c.MobBodyparts.limbs_set) {
+		for(let bp of this.a.c.MobBodyParts.limbs_set) {
 			armorval += this.check_armor(bp, type);
 			organnum++;
 		}

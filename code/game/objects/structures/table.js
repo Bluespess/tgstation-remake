@@ -95,8 +95,8 @@ class Table extends Component {
 
 Table.one_per_tile = true;
 
-Table.depends = ["Destructible"];
-Table.loadBefore = ["Destructible", "TGSmooth"];
+Table.depends = ["Destructible", "Climbable"];
+Table.loadBefore = ["Destructible", "TGSmooth", "Climbable"];
 
 Table.template = {
 	vars: {

@@ -39,4 +39,24 @@ class Unconscious extends StatusEffect.Timed {
 	}
 }
 
-module.exports.status_effects = {Knockdown, Unconscious};
+class Stun extends StatusEffect.Timed {
+	apply_to(mob, props) {
+		super.apply_to(mob, props);
+		if(this.mob && !this.lying) {
+			this.lying = true;
+			this.mob.c.LivingMob.nomove_counter++;
+			this.mob.c.LivingMob.nointeract_counter++;
+		}
+	}
+
+	unapply() {
+		if(this.mob && this.lying) {
+			this.lying = false;
+			this.mob.c.LivingMob.nomove_counter--;
+			this.mob.c.LivingMob.nointeract_counter--;
+		}
+		super.unapply();
+	}
+}
+
+module.exports.status_effects = {Knockdown, Unconscious, Stun};
