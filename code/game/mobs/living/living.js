@@ -48,6 +48,7 @@ class LivingMob extends Component {
 	add_damage_type(name) {
 		let damage_obj = {
 			val: 0,
+			affects_health: true,
 			get: () => {
 				return damage_obj.val;
 			},
@@ -97,7 +98,7 @@ class LivingMob extends Component {
 	get health() {
 		let h = this.max_health;
 		for(let damage_obj of Object.values(this.damages)) {
-			if(damage_obj && damage_obj.get)
+			if(damage_obj && damage_obj.get && damage_obj.affects_health)
 				h -= damage_obj.get();
 		}
 		return h;

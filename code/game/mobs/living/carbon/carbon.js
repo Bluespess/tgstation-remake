@@ -18,6 +18,7 @@ class CarbonMob extends Component.Networked {
 
 		this.a.on("moved", this.moved.bind(this));
 		this.a.c.LivingMob.on("health_changed", this.health_changed.bind(this));
+		this.a.c.LivingMob.on("damage_changed", this.damage_changed.bind(this));
 		this.a.c.LivingMob.on("stat_changed", this.stat_changed.bind(this));
 		this.a.c.LivingMob.update_stat = this.update_stat.bind(this);
 		this.a.c.LivingMob.movement_delay = chain_func(this.a.c.LivingMob.movement_delay, this.movement_delay.bind(this));
@@ -43,6 +44,9 @@ class CarbonMob extends Component.Networked {
 			this.a.c.ReagentHolder.add("Blood", mob_defines.BLOOD_VOLUME_NORMAL);
 		}
 
+		this.a.c.LivingMob.add_damage_type("stamina");
+		this.a.c.LivingMob.damages.stamina.affects_health = false;
+
 		this.organs = {};
 		new Atom(this.a.server, 'organ_lungs').c.Organ.insert(this.a);
 		new Atom(this.a.server, 'organ_liver').c.Organ.insert(this.a);
@@ -59,6 +63,24 @@ class CarbonMob extends Component.Networked {
 	health_changed() {
 		this.update_damage_hud();
 		this.update_health_hud();
+	}
+
+	damage_changed(type) {
+		if(type == "stamina") {
+			this.update_stamina();
+		}
+	}
+
+	update_stamina() {
+		let staminaloss = this.a.c.LivingMob.get_damage("stamina");
+		if(staminaloss) {
+			let total_health = (this.a.c.LivingMob.health - staminaloss);
+			if(total_health <= combat_defines.HEALTH_THRESHOLD_CRIT && !this.a.c.LivingMob.stat) {
+				to_chat`<span class='notice'>You're too exhausted to keep going...</span>`(this.a);
+				this.a.c.LivingMob.apply_effect("Knockdown", {delay: 10000});
+				this.a.c.LivingMob.set_damage("stamina", this.a.c.LivingMob.health - 2);
+			}
+		}
 	}
 
 	update_stat() {
@@ -86,7 +108,7 @@ class CarbonMob extends Component.Networked {
 		let health_hud = this.a.c.Eye.screen.health;
 		if(!health_hud)
 			return;
-		let health = this.a.c.LivingMob.health;
+		let health = this.a.c.LivingMob.health - this.a.c.LivingMob.get_damage("stamina");
 		let max_health = this.a.c.LivingMob.max_health;
 		let variant;
 		if(this.a.c.LivingMob.stat != combat_defines.DEAD) {
@@ -179,7 +201,7 @@ class CarbonMob extends Component.Networked {
 		let delay = prev();
 		if(this.a.c.LivingMob.stat == combat_defines.SOFT_CRIT)
 			delay += combat_defines.SOFTCRIT_ADD_SLOWDOWN;
-		let health_deficiency = 100 - this.a.c.LivingMob.health;
+		let health_deficiency = 100 - this.a.c.LivingMob.health + this.a.c.LivingMob.get_damage("stamina");
 		if(health_deficiency >= 40) {
 			delay += (health_deficiency * 4);
 		}
@@ -222,6 +244,7 @@ class CarbonMob extends Component.Networked {
 		this.breathe(cycle);
 		this.handle_environment();
 		this.handle_liver();
+		this.a.c.LivingMob.adjust_damage("stamina", -3);
 	}
 
 	handle_environment() {

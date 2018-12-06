@@ -1,6 +1,7 @@
 'use strict';
 const {Component, Sound, has_component, visible_message, Atom, chain_func, to_chat} = require('bluespess');
 const layers = require('../../../defines/layers.js');
+const pass_flags = require('../../../defines/pass_flags.js');
 
 const _broken = Symbol('_broken');
 
@@ -171,6 +172,7 @@ Grille.template = {
 		icon: 'icons/obj/structures.png',
 		icon_state: "grille",
 		density: true,
+		let_pass_flags: pass_flags.PASSGRILLE,
 		layer: layers.BELOW_OBJ_LAYER
 	}
 };

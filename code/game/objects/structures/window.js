@@ -2,6 +2,7 @@
 const {Component, Atom, Sound, has_component, chain_func, to_chat} = require('bluespess');
 const layers = require('../../../defines/layers.js');
 const sounds = require('../../../defines/sounds.js');
+const pass_flags = require('../../../defines/pass_flags.js');
 
 const _state = Symbol('_state');
 
@@ -180,6 +181,7 @@ Window.template = {
 		icon: 'icons/obj/structures.png',
 		icon_state: "window",
 		density: true,
+		let_pass_flags: pass_flags.PASSGLASS,
 		layer: layers.ABOVE_OBJ_LAYER
 	}
 };

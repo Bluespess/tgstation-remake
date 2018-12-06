@@ -83,7 +83,8 @@ let officer_outfit = new JobType.Outfit({
 	slots: {
 		iclothing: "jumpsuit_security_red",
 		shoes: "boots_jackboots",
-		oclothing: "armor_vest_alt"
+		oclothing: "armor_vest_alt",
+		belt: "hybrid_taser"
 	},
 	backpack: "backpack_security"
 });

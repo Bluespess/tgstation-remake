@@ -1,5 +1,5 @@
 'use strict';
-const {Component, Atom, make_watched_property, chain_func} = require('bluespess');
+const {Component, Atom, make_watched_property, chain_func, to_chat} = require('bluespess');
 
 class EnergyGun extends Component {
 	constructor(atom, template) {
@@ -18,6 +18,7 @@ class EnergyGun extends Component {
 		this.cell_charge_changed = this.cell_charge_changed.bind(this);
 		this.a.c.Gun.can_shoot = chain_func(this.a.c.Gun.can_shoot, this.can_shoot.bind(this));
 		this.a.c.Gun.process_chamber = chain_func(this.a.c.Gun.process_chamber, this.process_chamber.bind(this));
+		this.a.c.Item.attack_self = this.attack_self.bind(this);
 
 		make_watched_property(this, "select", "number");
 		make_watched_property(this, "cell");
@@ -89,10 +90,20 @@ class EnergyGun extends Component {
 		}
 	}
 
+	attack_self(user) {
+		if(this.ammo_type.length > 1) {
+			this.select++;
+			let shot = this.a.c.Gun.chambered;
+			if(shot && shot.c.EnergyLens.select_name) {
+				to_chat`<span class='notice'>The ${this.a} is now set to ${shot.c.EnergyLens.select_name}.</span>`(user);
+			}
+		}
+	}
+
 	select_changed(from, to) {
 		if(this.ammo_type.length <= 0)
 			return; // this shouldn't happen
-		if(to > this.ammo_type.length) {
+		if(to >= this.ammo_type.length) {
 			this.select -= this.ammo_type.length;
 			return;
 		}

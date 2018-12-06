@@ -47,6 +47,22 @@ module.exports.templates = {
 			}
 		},
 		tree_paths: ["items/ammo_casing/energy/electrode"]
+	},
+	"energy_lens_disabler": {
+		components: ["EnergyLens"],
+		vars: {
+			components: {
+				"EnergyLens": {
+					e_cost: 50,
+					select_name: "disable"
+				},
+				"AmmoCasing": {
+					projectile_type: "beam_disabler",
+					fire_sound: 'sound/weapons/taser2.ogg'
+				}
+			}
+		},
+		tree_paths: ["items/ammo_casing/energy/disabler"]
 	}
 };
 

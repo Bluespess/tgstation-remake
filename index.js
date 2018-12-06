@@ -143,6 +143,7 @@ server.importModule(require('./code/modules/projectiles/guns/ballistic/pistol.js
 server.importModule(require('./code/modules/projectiles/guns/energy/stun.js'));
 server.importModule(require('./code/modules/projectiles/guns/ballistic.js'));
 server.importModule(require('./code/modules/projectiles/guns/energy.js'));
+server.importModule(require('./code/modules/projectiles/projectile/beam.js'));
 server.importModule(require('./code/modules/projectiles/projectile/bullets.js'));
 server.importModule(require('./code/modules/projectiles/projectile/energy.js'));
 server.importModule(require('./code/modules/projectiles/ammunition.js'));

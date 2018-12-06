@@ -6,7 +6,7 @@ module.exports.templates = {
 		vars: {
 			components: {
 				"EnergyGun": {
-					ammo_type: ["energy_lens_electrode"],
+					ammo_type: ["energy_lens_electrode", "energy_lens_disabler"],
 					select_icon: true
 				},
 				"Examine": {
