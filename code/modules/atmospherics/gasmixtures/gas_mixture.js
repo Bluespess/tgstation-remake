@@ -328,6 +328,9 @@ class GasMixture {
 			to_chat`<span class='notice'>The ${target} is empty!</span>`(user);
 		}
 	}
+	react() {
+		return false;
+	}
 }
 
 module.exports = GasMixture;

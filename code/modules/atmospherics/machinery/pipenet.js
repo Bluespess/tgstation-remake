@@ -94,6 +94,8 @@ class Pipenet {
 		if(this.update_flag) {
 			this.reconcile_air();
 		}
+		if(this.air.react())
+			this.update_flag = true;
 	}
 }
 

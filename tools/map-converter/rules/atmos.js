@@ -81,6 +81,17 @@ module.exports = [
 			template.instance_vars = inst_vars;
 		return template;
 	}],
+	["/obj/machinery/atmospherics/components/unary/portables_connector", (inst) => {
+		let template = {template_name: "portables_connector", variant_leaf_path: [inst_dir(inst)]};
+		let inst_vars = null;
+		if(inst.vars.name != `"connector port"`) {
+			if(!inst_vars) inst_vars = {};
+			inst_vars.name = JSON.parse(inst.vars.name);
+		}
+		if(inst_vars)
+			template.instance_vars = inst_vars;
+		return template;
+	}],
 
 	// BINARY
 
@@ -96,6 +107,23 @@ module.exports = [
 		}
 		return ret;
 	}],
+
+	// CANISTERS
+
+	["/obj/machinery/portable_atmospherics/canister", () => {return {template_name: "canister"};}],
+	["/obj/machinery/portable_atmospherics/canister/nitrogen", () => {return {template_name: "canister_n2"};}],
+	["/obj/machinery/portable_atmospherics/canister/oxygen", () => {return {template_name: "canister_o2"};}],
+	["/obj/machinery/portable_atmospherics/canister/carbon_dioxide", () => {return {template_name: "canister_co2"};}],
+	["/obj/machinery/portable_atmospherics/canister/toxins", () => {return {template_name: "canister_plasma"};}],
+	["/obj/machinery/portable_atmospherics/canister/bz", () => {return {template_name: "canister_bz"};}],
+	["/obj/machinery/portable_atmospherics/canister/nitrous_oxide", () => {return {template_name: "canister_n2o"};}],
+	["/obj/machinery/portable_atmospherics/canister/air", () => {return {template_name: "canister_air"};}],
+	["/obj/machinery/portable_atmospherics/canister/tritium", () => {return {template_name: "canister_tritium"};}],
+	["/obj/machinery/portable_atmospherics/canister/nob", () => {return {template_name: "canister_nob"};}],
+	["/obj/machinery/portable_atmospherics/canister/no2", () => {return {template_name: "canister_nitryl"};}],
+	["/obj/machinery/portable_atmospherics/canister/stimulum", () => {return {template_name: "canister_stimulum"};}],
+	["/obj/machinery/portable_atmospherics/canister/pluoxium", () => {return {template_name: "canister_pluox"};}],
+	["/obj/machinery/portable_atmospherics/canister/water_vapor", () => {return {template_name: "canister_water_vapor"};}],
 
 	// OTHER STUFF
 

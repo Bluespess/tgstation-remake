@@ -89,11 +89,14 @@ server.importModule(require('./code/modules/atmospherics/environmental/turf.js')
 server.importModule(require('./code/modules/atmospherics/machinery/machines/binary/_binary.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/machines/binary/pump.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/machines/unary/_unary.js'));
+server.importModule(require('./code/modules/atmospherics/machinery/machines/unary/portables_connector.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/machines/unary/tank.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/machines/unary/vent_pump.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/machines/unary/vent_scrubber.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/machines/atmos_machine.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/pipes/pipes.js'));
+server.importModule(require('./code/modules/atmospherics/machinery/portable/canister.js'));
+server.importModule(require('./code/modules/atmospherics/machinery/portable/portable_atmospherics.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/meter.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/node.js'));
 server.importModule(require('./code/modules/client/verbs.js'));
