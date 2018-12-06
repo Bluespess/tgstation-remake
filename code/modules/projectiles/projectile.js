@@ -67,6 +67,8 @@ class Projectile extends Component.Networked {
 
 		let dist_to_move = this.speed * dt / 1000;
 		let rad_angle = this.angle * Math.PI / 180;
+		if(this.a.glide_size != this.speed + 1)
+			this.a.glide_size = this.speed + 1;
 		this.a.move(Math.cos(rad_angle) * dist_to_move, Math.sin(rad_angle) * dist_to_move, "projectile");
 		this.range -= dist_to_move;
 		if(this.range <= 0) {
