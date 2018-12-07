@@ -75,6 +75,7 @@ class Recharger extends Component {
 			} else {
 				this.a.icon_state = "recharger2";
 			}
+			return;
 		}
 		this.a.icon_state = "recharger0";
 	}

@@ -37,7 +37,14 @@ class Projectile extends Component.Networked {
 		this.spread = Math.sqrt(this.spread * this.spread + amt * amt);
 	}
 
-	fire(angle/*, direct_target*/) {
+	fire(angle, direct_target) {
+		if(direct_target && this.prehit(direct_target)) {
+			direct_target.bullet_act(this.a, this.def_zone);
+			this.a.destroy();
+			return;
+		}
+		if(this.permuted)
+			this.permuted.add(this.firer);
 		this.starting = [this.a.x, this.a.y];
 		if(angle != undefined)
 			//Does a Box-Muller transform to make the bullet spread a normal distribution.

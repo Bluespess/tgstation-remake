@@ -12,11 +12,9 @@ class Gun extends Component {
 	}
 
 	after_attack(target, user, prox, e) {
-		if(this.firing_burst)
+		if(this.firing_burst || !target.loc || !target.loc.is_base_loc)
 			return;
 		if(prox) {
-			if(!target.loc || !target.loc.is_base_loc)
-				return;
 			if(!has_component(target, "LivingMob"))
 				return;
 			if(target == user && user.c.MobInteract.zone_sel != "mouth")//so we can't shoot ourselves (unless mouth selected)

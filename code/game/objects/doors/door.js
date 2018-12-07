@@ -1,6 +1,7 @@
 'use strict';
 const {Component, chain_func, has_component, sleep} = require('bluespess');
 const layers = require('../../../defines/layers.js');
+const pass_flags = require('../../../defines/pass_flags.js');
 
 const _locked = Symbol('_locked');
 
@@ -18,6 +19,9 @@ class Door extends Component {
 		this.a.c.RequiresAccess.can_access = chain_func(this.a.c.RequiresAccess.can_access, this.can_access);
 		this.a.attack_hand = (user) => {this.try_to_activate_door(user);};
 		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
+
+		if(this.glass)
+			this.a.let_pass_flags |= pass_flags.PASSGLASS;
 	}
 
 	bumped_by(atom) {

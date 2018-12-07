@@ -89,7 +89,8 @@ class Destructible extends Component {
 		visible_message`<span class='danger'>The ${this.a} is hit by a ${projectile}!</span>`
 			.range(combat_defines.COMBAT_MESSAGE_RANGE)
 			.emit_from(this.a);
-		this.take_damage(projectile.c.Projectile.damage, projectile.c.Projectile.damage_type, projectile.c.Projectile.flag, false);
+		if(!projectile.c.Projectile.no_damage)
+			this.take_damage(projectile.c.Projectile.damage, projectile.c.Projectile.damage_type, projectile.c.Projectile.flag, false);
 		return ret;
 	}
 

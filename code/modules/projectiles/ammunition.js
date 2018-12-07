@@ -24,7 +24,7 @@ class AmmoCasing extends Component {
 		proj.loc = user.loc;
 		proj.c.Projectile.add_spread(spread);
 		proj.c.Projectile.add_spread(this.spread);
-		proj.c.Projectile.fire(angle);
+		proj.c.Projectile.fire(angle, (target && user && user.does_cross(target)));
 		if(!this.infinite) {
 			this.spent = true;
 			if(this.caseless) {
