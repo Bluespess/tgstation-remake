@@ -61,6 +61,7 @@ PowerCell.template = {
 			"PowerCell": {
 				charge: 0,
 				max_charge: 1000,
+				charge_rate: 50, // this is per-second. BYOND ss13 is per tick. Divide byond values by 2.
 				start_empty: false
 			},
 			"Item": {
@@ -106,7 +107,8 @@ module.exports.templates = {
 		vars: {
 			components: {
 				"PowerCell": {
-					max_charge: 2500
+					max_charge: 2500,
+					charge_rate: 500
 				},
 				"Examine": {
 					desc: "A power cell with a slightly higher capacity than normal!"

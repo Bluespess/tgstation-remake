@@ -19,6 +19,8 @@ class EnergyGun extends Component {
 		this.a.c.Gun.can_shoot = chain_func(this.a.c.Gun.can_shoot, this.can_shoot.bind(this));
 		this.a.c.Gun.process_chamber = chain_func(this.a.c.Gun.process_chamber, this.process_chamber.bind(this));
 		this.a.c.Item.attack_self = this.attack_self.bind(this);
+		this.a.c.Rechargeable.check_can_charge = this.check_can_charge.bind(this);
+		this.a.c.Rechargeable.recharge = this.recharge.bind(this);
 
 		make_watched_property(this, "select", "number");
 		make_watched_property(this, "cell");
@@ -118,10 +120,31 @@ class EnergyGun extends Component {
 		this.a.c.Gun.update_icon();
 		this.update_charge_overlay();
 	}
+
+	check_can_charge(user) {
+		if(!this.can_charge) {
+			to_chat`<span class='notice'>Your gun has no external power connector</span>`(user);
+			return false;
+		}
+		return true;
+	}
+	recharge(recharger, dt) {
+		let recharge_coeff = recharger.c.Recharger.recharge_coeff;
+		if(this.cell.c.PowerCell.charge < this.cell.c.PowerCell.max_charge) {
+			// fun fact rechargers multiply your energy by like a thousand.
+			// not very realistic but meh, I'll keep it over from byond tg
+			let diff = Math.min((this.cell.c.PowerCell.max_charge - this.cell.c.PowerCell.charge), this.cell.c.PowerCell.charge_rate * recharge_coeff * dt, recharger.c.ApcPowered.get_available_power());
+			diff = this.cell.c.PowerCell.give(diff);
+			recharger.c.ApcPowered.use_power(diff);
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
 
-EnergyGun.loadBefore = ["Gun"];
-EnergyGun.depends = ["Gun"];
+EnergyGun.loadBefore = ["Gun", "Rechargeable"];
+EnergyGun.depends = ["Gun", "Rechargeable"];
 
 EnergyGun.template = {
 	vars: {
@@ -134,7 +157,8 @@ EnergyGun.template = {
 				shaded_charge: false,
 				charge_x_offset: 2/32,
 				charge_y_offset: 0,
-				select_icon: false
+				select_icon: false,
+				can_charge: true
 			},
 			"Examine": {
 				desc: "A basic energy-based gun."

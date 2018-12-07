@@ -349,7 +349,7 @@ module.exports.templates = {
 				}
 			}
 		},
-		tree_paths: ["machiner/power/smes"]
+		tree_paths: ["machinery/power/smes/engineering"]
 	},
 	"smes_terminal": {
 		components: ["SmesTerminal"],
@@ -361,7 +361,7 @@ module.exports.templates = {
 				orientation: "horizontal"
 			}
 		],
-		tree_paths: ["machiner/power/smes_terminal"]
+		tree_paths: ["machinery/power/smes_terminal"]
 	}
 };
 

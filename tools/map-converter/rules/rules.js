@@ -135,6 +135,8 @@ module.exports = [
 
 	// WEAPONS
 
+	["/obj/machinery/recharger", () => {return {template_name: "recharger"};}],
+
 	["/obj/item/melee/baseball_bat", () => {return {template_name: "baseball_bat"};}, {pixel_offsets: true}],
 
 	// LAMPS AND LIGHTS
