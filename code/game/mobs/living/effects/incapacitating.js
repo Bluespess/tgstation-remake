@@ -35,7 +35,8 @@ class Unconscious extends StatusEffect.Timed {
 
 	unapply() {
 		super.unapply();
-		this.mob.c.LivingMob.update_stat();
+		if(this.mob)
+			this.mob.c.LivingMob.update_stat();
 	}
 }
 

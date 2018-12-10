@@ -326,7 +326,7 @@ class CarbonMob extends Component.Networked {
 			} else if(blood_volume >= mob_defines.BLOOD_VOLUME_SURVIVE) {
 				this.a.c.LivingMob.adjust_damage("oxy", 5);
 				if(Math.random() < 0.15) {
-					this.a.c.LivingMob.apply_effect("Unconscious", Math.random() * 4000 + 2000);
+					this.a.c.LivingMob.apply_effect("Unconscious", {delay: Math.random() * 4000 + 2000});
 					to_chat`<span class='warning'>You feel very ${word}.</span>`(this.a);
 				}
 			} else {

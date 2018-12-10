@@ -330,6 +330,10 @@ class LivingMob extends Component {
 	}
 
 	apply_effect(name, props = {}) {
+		if(props && (typeof props != "object")) {
+			// I fucked this up once, so I'm not letting it get fucked up again.
+			throw new Error(`Expected an object for second argument, instead got a ${typeof props}. You meant to wrap it in a {delay: *number*}, right?`);
+		}
 		(new (status_effects[name])()).apply_to(this.a, props);
 	}
 

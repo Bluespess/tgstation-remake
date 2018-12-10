@@ -12,7 +12,7 @@
     "bluespess-client": "0.3.0"
   },
   "devDependencies": {
-    "browserify": "^14.5.0",
+    "browserify": "^16.2.3",
     "gulp": "^4.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-less": "^4.0.0",
