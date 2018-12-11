@@ -1,5 +1,5 @@
 'use strict';
-const {Component, Atom, is_atom} = require('bluespess');
+const {Component, Atom, has_component, is_atom} = require('bluespess');
 
 class MobHud extends Component {
 	constructor(atom, template) {
@@ -8,7 +8,7 @@ class MobHud extends Component {
 		this.a.on("click", this._onclick.bind(this));
 	}
 
-	throw_alert(category, template, severity, new_master, override = false) {
+	throw_alert(category, template, {severity, new_master, override = false} = {}) {
 		/* Proc to create or update an alert. Returns the alert if the alert is new or updated, 0 if it was thrown already
 		category is a text string. Each mob may only have one alert per category; the previous one will be replaced
 		path is a type path of the actual alert type to throw
@@ -59,10 +59,7 @@ class MobHud extends Component {
 		thealert.c.Alert.mob_viewer = this.atom;
 
 		if(is_atom(new_master)) {
-			var overlay = Object.assign({}, new_master.appearance);
-			delete overlay.layer;
-			delete overlay.plane;
-			thealert.overlays.alert_master = overlay;
+			thealert.overlays.alert_master = {icon: new_master.icon, icon_state: new_master.icon_state, color: new_master.color};
 			thealert.icon_state = "template"; // We'll set the icon to the client's ui pref in reorganize_alerts()
 			thealert.c.Alert.master = new_master;
 		} else {
@@ -121,6 +118,13 @@ class Alert extends Component.Networked {
 		super(atom, template);
 		this.add_networked_var("desc");
 		this.add_networked_var("tooltip_theme");
+		this.a.on("clicked", this.clicked.bind(this));
+		this.mob_viewer = null;
+	}
+
+	clicked() {
+		if(this.resist_alert && this.mob_viewer && has_component(this.mob_viewer, "MobInteract"))
+			this.mob_viewer.c.MobInteract.resist();
 	}
 }
 Alert.template = {
@@ -129,7 +133,8 @@ Alert.template = {
 			Alert: {
 				timeout: 0, // If set to a number, this alert will clear itself after that many deciseconds
 				desc: "Something seems to have gone wrong with this alert, so report this bug please",
-				tooltip_theme: ""
+				tooltip_theme: "",
+				resist_alert: false
 			}
 		},
 		icon: 'icons/mob/screen_alert.png',
@@ -169,14 +174,26 @@ module.exports.templates = {
 		vars: {
 			components: {
 				"Alert": {
-					desc: "You've been buckled to something. Click the alert to unbuckle unless you're handcuffed."
+					desc: "You've been buckled to something. Click the alert to unbuckle unless you're handcuffed.",
+					resist_alert: true
 				}
 			},
 			name: 'Buckled',
 			icon_state: 'buckled'
 		}
 	},
-
+	"alert_handcuffed": {
+		components: ["Alert"],
+		vars: {
+			components: {
+				"Alert": {
+					desc: "You're handcuffed and can't act. If anyone drags you, you won't be able to move. Click the alert to free yourself.",
+					resist_alert: true
+				}
+			},
+			name: "Handcufed"
+		}
+	},
 	"alert_not_enough_o2": {
 		components: ["Alert"],
 		vars: {

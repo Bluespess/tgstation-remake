@@ -56,6 +56,7 @@ server.importModule(require('./code/game/objects/items/storage/boxes.js'));
 server.importModule(require('./code/game/objects/items/storage/toolbox.js'));
 server.importModule(require('./code/game/objects/items/clothing.js'));
 server.importModule(require('./code/game/objects/items/emag.js'));
+server.importModule(require('./code/game/objects/items/handcuffs.js'));
 server.importModule(require('./code/game/objects/items/miscellaneous.js'));
 server.importModule(require('./code/game/objects/items/storage.js'));
 server.importModule(require('./code/game/objects/items/tools.js'));

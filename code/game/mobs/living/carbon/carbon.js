@@ -252,14 +252,14 @@ class CarbonMob extends Component.Networked {
 		let pressure = environment.return_pressure();
 		if(pressure >= atmos_defines.HAZARD_HIGH_PRESSURE) {
 			this.a.c.LivingMob.adjust_damage("brute", Math.min(((pressure / atmos_defines.HAZARD_HIGH_PRESSURE) - 1) * atmos_defines.PRESSURE_DAMAGE_COEFFICIENT, atmos_defines.MAX_HIGH_PRESSURE_DAMAGE));
-			this.a.c.MobHud.throw_alert("pressure", "alert_highpressure", 2);
+			this.a.c.MobHud.throw_alert("pressure", "alert_highpressure", {severity: 2});
 		} else if(pressure >= atmos_defines.WARNING_HIGH_PRESSURE) {
-			this.a.c.MobHud.throw_alert("pressure", "alert_highpressure", 1);
+			this.a.c.MobHud.throw_alert("pressure", "alert_highpressure", {severity: 1});
 		} else if(pressure <= atmos_defines.HAZARD_LOW_PRESSURE) {
 			this.a.c.LivingMob.adjust_damage("brute", atmos_defines.LOW_PRESSURE_DAMAGE);
-			this.a.c.MobHud.throw_alert("pressure", "alert_lowpressure", 2);
+			this.a.c.MobHud.throw_alert("pressure", "alert_lowpressure", {severity: 2});
 		} else if(pressure <= atmos_defines.WARNING_LOW_PRESSURE) {
-			this.a.c.MobHud.throw_alert("pressure", "alert_lowpressure", 1);
+			this.a.c.MobHud.throw_alert("pressure", "alert_lowpressure", {severity: 1});
 		} else {
 			this.a.c.MobHud.clear_alert("pressure");
 		}

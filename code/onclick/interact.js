@@ -38,6 +38,10 @@ class MobInteract extends Component {
 		if(isliving && !this.can_interact())
 			return;
 
+		if(hasinv && this.a.c.MobInventory.handcuffed) {
+			return;
+		}
+
 		if(hasinv && this.a.c.MobInventory.throw_mode && (!e.atom || (e.atom.loc && e.atom.loc.is_base_loc)) && this.a.loc && this.a.loc.is_base_loc) {
 			this.a.c.MobInventory.throw_item({x: e.world_x - 0.5, y: e.world_y - 0.5});
 			return;
@@ -106,6 +110,15 @@ class MobInteract extends Component {
 	unarmed_attack(target, e) {
 		target.attack_hand(this.a, e);
 	}
+
+	resist() {
+		if(this.next_move > this.a.server.now() || !this.can_interact())
+			return;
+		this.change_next_move(mob_defines.CLICK_CD_RESIST);
+		this.resist_act();
+	}
+
+	resist_act() {}
 
 	ranged_attack() {}
 }

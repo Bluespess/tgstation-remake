@@ -16,8 +16,8 @@ class HumanMob extends Component {
 	}
 }
 
-HumanMob.depends = ["CarbonMob", "MobBodyParts"];
-HumanMob.loadBefore = ["CarbonMob", "MobBodyParts"];
+HumanMob.depends = ["CarbonMob", "MobBodyParts", "MobInventory", "MobMovement"];
+HumanMob.loadBefore = ["CarbonMob", "MobBodyParts", "MobInventory", "MobMovement"];
 
 HumanMob.template = {
 	vars: {
@@ -25,6 +25,9 @@ HumanMob.template = {
 			"MobInteract": {
 				zone_sel_template: "human_zone_sel",
 				advanced_tool_user: true
+			},
+			"MobInventory": {
+				handcuffable: true
 			}
 		}
 	}

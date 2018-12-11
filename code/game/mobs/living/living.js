@@ -6,6 +6,7 @@ const Mind = require('../mind/mind.js');
 const combat_defines = require('../../../defines/combat_defines.js');
 const mob_defines = require('../../../defines/mob_defines.js');
 const {random_zone} = require('./carbon/body_parts/helpers.js');
+const layers = require('../../../defines/layers.js');
 
 const _stat = Symbol('_stat');
 
@@ -380,7 +381,8 @@ LivingMob.template = {
 			}
 		},
 		name: "",
-		density: 1
+		density: 1,
+		layer: layers.MOB_LAYER
 	}
 };
 

@@ -1,6 +1,6 @@
 'use strict';
 
-const {Component, Atom, has_component, chain_func, is_atom, visible_message, to_chat} = require('bluespess');
+const {Component, Atom, has_component, chain_func, is_atom, make_watched_property, visible_message, to_chat} = require('bluespess');
 const combat_defines = require('../defines/combat_defines.js');
 const EventEmitter = require('events');
 const _slots = Symbol('_slots');
@@ -90,6 +90,10 @@ class MobInventory extends Component {
 		this.a.c.Eye.screen.health = new Atom(this.a.server, {vars:{
 			icon: 'icons/mob/screen_gen.png', icon_state: "health0", screen_loc_x: 13.875, screen_loc_y: 6.46875, layer: 30
 		}});
+
+		this.on("handcuffed_changed", this.handcuffed_changed.bind(this));
+
+		make_watched_property(this, "handcuffed");
 	}
 
 	add_slot(id, appearance, props) {
@@ -207,6 +211,27 @@ class MobInventory extends Component {
 			return false;
 		}
 		return true;
+	}
+
+	check_can_handcuff() {
+		return this.handcuffable;
+	}
+
+	handcuffed_changed(from, to) {
+		if(to) {
+			this.a.c.MobHud.throw_alert("handcuffed", "alert_handcuffed", {new_master: to});
+			this.a.overlays.handcuffed = {overlay_layer: 17, icon: 'icons/mob/mob.png', icon_state: "handcuff1"};
+			// some interesting icon_state values you got there tg
+			this.slots.rhand.atom.overlays.handcuffed = {icon: 'icons/mob/screen_gen.png', icon_state: "markus"};
+			this.slots.lhand.atom.overlays.handcuffed = {icon: 'icons/mob/screen_gen.png', icon_state: "gabrielle"};
+			this.accident();
+		}
+		if(from) {
+			this.a.c.MobHud.clear_alert("handcuffed");
+			this.a.overlays.handcuffed = null;
+			this.slots.lhand.atom.overlays.handcuffed = null;
+			this.slots.rhand.atom.overlays.handcuffed = null;
+		}
 	}
 
 	accident() {
@@ -477,7 +502,8 @@ MobInventory.template = {
 	vars: {
 		components: {
 			"MobInventory": {
-				nohold_counter: 0
+				nohold_counter: 0,
+				handcuffable: false
 			}
 		}
 	}

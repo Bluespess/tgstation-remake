@@ -119,7 +119,7 @@ class CharacterPreferences {
 	}
 
 	instance_human(server, {name_override = null}) {
-		let template = {"components": ["MobMovement", "MobInventory", "HumanMob"], vars: {layer: 5}};
+		let template = {"components": ["HumanMob"], vars: {}};
 		if(name_override == "clown") {
 			template.vars.name = clown_names[Math.floor(Math.random() * clown_names.length)];
 		} else {

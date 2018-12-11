@@ -1,5 +1,5 @@
 'use strict';
-const {Component, Atom, has_component, chain_func} = require('bluespess');
+const {Component, Atom, has_component, chain_func, to_chat} = require('bluespess');
 const layers = require('../../../../../defines/layers.js');
 const combat_defines = require('../../../../../defines/combat_defines.js');
 const {random_zone} = require('./helpers.js');
@@ -67,6 +67,9 @@ class MobBodyParts extends Component {
 		}
 		this.a.c.Eye.screen.health_doll = new Atom(this.a.server, "human_health_doll");
 		this.a.c.Eye.screen.health_doll.c.HealthDoll.bind_mob(this.a);
+		if(has_component(this.a, "MobInventory")) {
+			this.a.c.MobInventory.check_can_handcuff = chain_func(this.a.c.MobInventory.check_can_handcuff, this.check_can_handcuff.bind(this));
+		}
 	}
 
 	apply_damage(prev, damage, damage_type = "brute", def_zone = null, blocked = this.run_armor_check(def_zone, "melee")) {
@@ -100,6 +103,17 @@ class MobBodyParts extends Component {
 			}
 		}
 	}
+
+	check_can_handcuff(prev, user) {
+		if(!prev())
+			return false;
+		if(!this.limbs.l_arm || !this.limbs.r_arm) {
+			if(user)
+				to_chat`<span class='warning'>The ${this.a} doesn't have two hands...</span>`(user);
+			return false;
+		}
+		return true;
+	}
 }
 
 Object.assign(MobBodyParts.prototype, require('../../living_defense.js'));
@@ -115,7 +129,7 @@ MobBodyParts.template = {
 };
 
 MobBodyParts.depends = ["LivingMob"];
-MobBodyParts.loadBefore = ["LivingMob", "CarbonMob"];
+MobBodyParts.loadBefore = ["LivingMob", "CarbonMob", "MobInventory"];
 
 class BodyPart extends Component {
 	constructor(atom, template) {
