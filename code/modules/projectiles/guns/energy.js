@@ -59,6 +59,9 @@ class EnergyGun extends Component {
 				this.a.overlays.energy_charge = null;
 			}
 		}
+		if(!this.a.template.vars.components.Item.inhand_icon_state) {
+			this.a.c.Item.inhand_icon_state = this.a.icon_state + (shot.c.EnergyLens.select_name || "") + ratio;
+		}
 	}
 
 	process_chamber(prev) {

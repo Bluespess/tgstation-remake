@@ -124,7 +124,7 @@ class Gun extends Component {
 	update_icon() {}
 }
 
-Gun.loadBefore = ["Item"];
+Gun.loadBefore = ["Item", "BeltItem"];
 Gun.depends = ["Item"];
 
 Gun.template = {
@@ -143,8 +143,8 @@ Gun.template = {
 				size: 3,
 				force: 5,
 				inhand_icon_state: "gun",
-				inhand_lhand_file: 'icons/mob/inhands/weapons/guns_lefthand.png',
-				inhand_rhand_file: 'icons/mob/inhands/weapons/guns_righthand.png'
+				inhand_lhand_icon: 'icons/mob/inhands/weapons/guns_lefthand.png',
+				inhand_rhand_icon: 'icons/mob/inhands/weapons/guns_righthand.png'
 			},
 			"Tangible": {
 				throw_force: 5,

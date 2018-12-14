@@ -65,8 +65,8 @@ PowerCell.template = {
 				start_empty: false
 			},
 			"Item": {
-				inhand_lhand_file: 'icons/mob/inhands/misc/devices_lefthand.png',
-				inhand_rhand_file: 'icons/mob/inhands/misc/devices_righthand.png',
+				inhand_lhand_icon: 'icons/mob/inhands/misc/devices_lefthand.png',
+				inhand_rhand_icon: 'icons/mob/inhands/misc/devices_righthand.png',
 				force: 5,
 				size: 2,
 				inhand_icon_state: "cell"
