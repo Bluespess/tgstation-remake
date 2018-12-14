@@ -3,10 +3,6 @@ class AdminPanel {
 	constructor(panel) {
 		this.panel = panel;
 		this.panel.on("message", this.message_handler.bind(this));
-		if(this.panel.manager.client.server_templates) {
-			this.templates = this.panel.manager.client.server_templates;
-			this.populate_templates();
-		}
 
 		this.panel.content_obj.innerHTML = `
 <input type="text" placeholder="Search..." class="button search-field">

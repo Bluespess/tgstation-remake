@@ -76,7 +76,7 @@ rules.sort((a, b) => {
 					if(!props) props = {};
 					if(!oi.type.path.startsWith(rulekey))
 						continue;
-					let result = rule(oi, {env, in_map: map, out_map: bsmap});
+					let result = rule(oi, {env, in_map: map, in_loc: JSON.parse(loc), out_map: bsmap});
 					if(result === undefined)
 						continue;
 					else if(result === null)

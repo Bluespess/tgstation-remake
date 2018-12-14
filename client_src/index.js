@@ -19,6 +19,7 @@ client.importModule(require('./code/carbon_mob.js'));
 client.importModule(require('./code/hud.js'));
 client.importModule(require('./code/progress_bar.js'));
 client.importModule(require('./code/projectile.js'));
+client.importModule(require('./code/shuttle.js'));
 client.importModule(require('./code/text_input.js'));
 client.importModule(require('./code/ui/admin_menu.js'));
 client.importModule(require('./code/ui/atmos.js'));

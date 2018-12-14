@@ -166,6 +166,7 @@ server.importModule(require('./code/modules/reagents/containers/spray.js'));
 server.importModule(require('./code/modules/reagents/machinery/chem_dispenser.js'));
 server.importModule(require('./code/modules/reagents/machinery/chem_heater.js'));
 server.importModule(require('./code/modules/reagents/holder.js'));
+server.importModule(require('./code/modules/shuttle/shuttle.js'));
 server.importModule(require('./code/modules/smoothing/smoothing.js'));
 server.importModule(require('./code/modules/speech/speech.js'));
 server.importModule(require('./code/onclick/hud.js'));

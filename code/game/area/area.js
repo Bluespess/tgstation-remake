@@ -212,7 +212,7 @@ module.exports.templates = {
 		tree_paths: ["areas/engine"]
 	},
 	"area_arrivals": {
-		components: ["Area", "AreaAmbience", "AreaArrivals", "AreaPower"],
+		components: ["Area", "AreaAmbience", "AreaArrivals", "AreaPower", "Shuttle"],
 		vars: {
 			components: {
 				"AreaPower": {
