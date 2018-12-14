@@ -109,13 +109,15 @@ RackParts.template = {
 		components: {
 			"Examine": {
 				desc: "Parts of a rack."
+			},
+			"Item": {
+				materials: {"metal": 2000}
 			}
 		},
 		name: "rack parts",
 		icon: 'icons/obj/items_and_weapons.png',
 		icon_state: "rack_parts",
 		//TODO: flags_1 = CONDUCT_1
-		//TODO: materials = list(MAT_METAL=2000)
 	}
 };
 
