@@ -63,6 +63,21 @@ module.exports.templates = {
 			}
 		},
 		tree_paths: ["items/ammo_casing/energy/disabler"]
+	},
+	"energy_lens_lasergun": {
+		components: ["EnergyLens"],
+		vars: {
+			components: {
+				"EnergyLens": {
+					e_cost: 83,
+					select_name: "kill"
+				},
+				"AmmoCasing": {
+					projectile_type: "beam_laser"
+				}
+			}
+		},
+		tree_paths: ["items/ammo_casing/energy/lasergun"]
 	}
 };
 
