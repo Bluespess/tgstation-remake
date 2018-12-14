@@ -69,6 +69,7 @@ class SpawnObjectPanel {
 				a.fully_load().then(() => {
 					a.on_render_tick(0);
 					a.draw(preview.getContext('2d'), 0);
+					a.del();
 				});
 			}, 1);
 		}
