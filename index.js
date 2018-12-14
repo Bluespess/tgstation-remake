@@ -88,6 +88,8 @@ server.importModule(require('./code/game/turfs/floor.js'));
 server.importModule(require('./code/game/turfs/plating.js'));
 server.importModule(require('./code/game/placeholders.js'));
 server.importModule(require('./code/game/ticker.js'));
+server.importModule(require('./code/modules/admin/holder.js'));
+server.importModule(require('./code/modules/admin/menu.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/air_holder.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/block_air.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/controller.js'));
