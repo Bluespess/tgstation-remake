@@ -13,6 +13,9 @@ global.server = server; // So the debugger can access it. No, you are not allowe
 global.require = require;
 server.resRoot = "./res/";
 
+server.config = read_config('config.cson');
+server.game_options = read_config('game_options.cson');
+
 server.importModule(require('./code/game/area/area_components.js'));
 server.importModule(require('./code/game/area/area.js'));
 server.importModule(require('./code/game/components/climbable.js'));
@@ -84,6 +87,7 @@ server.importModule(require('./code/game/turfs/floor_base.js'));
 server.importModule(require('./code/game/turfs/floor.js'));
 server.importModule(require('./code/game/turfs/plating.js'));
 server.importModule(require('./code/game/placeholders.js'));
+server.importModule(require('./code/game/ticker.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/air_holder.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/block_air.js'));
 server.importModule(require('./code/modules/atmospherics/environmental/controller.js'));
@@ -129,6 +133,7 @@ server.importModule(require('./code/modules/janitorial/mop.js'));
 server.importModule(require('./code/modules/jobs/access.js'));
 server.importModule(require('./code/modules/jobs/controller.js'));
 server.importModule(require('./code/modules/jobs/id.js'));
+server.importModule(require('./code/modules/jobs/landmark.js'));
 server.importModule(require('./code/modules/power/apc.js'));
 server.importModule(require('./code/modules/power/cable.js'));
 server.importModule(require('./code/modules/power/cell.js'));

@@ -1,12 +1,17 @@
 'use strict';
 const {has_component} = require('bluespess');
 const {EventEmitter} = require('events');
+const CharacterPreferences = require('../../../modules/client/character.js');
 
 class Mind extends EventEmitter {
 	constructor(key) {
 		super();
 		this.key = key;
 		this.current = null;
+
+		this.assigned_role = null;
+		this.restricted_roles = new Set();
+		this.character_preferences = new CharacterPreferences(); 
 	}
 
 	transfer_to(new_character) {

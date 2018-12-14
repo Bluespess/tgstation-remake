@@ -27,7 +27,8 @@ class CharacterPreferences {
 			facial_hair_style: "shaved",
 			facial_hair_color: [0,0,0],
 			skin_tone: "caucasian1",
-
+			job_preferences: {},
+			jobless_role: "random" // assistant, random, or none
 		});
 		this.randomize_body();
 		this.randomize_name();

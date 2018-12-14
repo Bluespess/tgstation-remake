@@ -22,7 +22,7 @@
 		background: #3fac5e;
 	}
 	&.disabled, .disabled & {
-		&, &:hover, &:active, &.yellow, &.yellow:hover, &.red, &.red:hover {
+		&, &:hover, &:active, &.yellow, &.yellow:hover, &.red, &.red:hover, &.white, &.white:hover {
 			background: #999999;
 			border-color: #666666;
 		}
@@ -39,6 +39,13 @@
 		background: #ea0000;
 		&:hover {
 			background: #fa1822;
+		}
+	}
+
+	&.white {
+		background: #fff;
+		&:hover, &.selected {
+			background: #ddd;
 		}
 	}
 

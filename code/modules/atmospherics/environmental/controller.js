@@ -19,12 +19,14 @@ class AirController {
 
 	async tick() {
 		try {
-			this.ticknum++;
-			await this.process_pipenets();
-			await this.process_atmos_macinery();
-			await this.process_active_turfs();
-			await this.process_excited_groups();
-			await this.process_high_pressure_delta();
+			if(this.server.ticker.game_state != "pregame") {
+				this.ticknum++;
+				await this.process_pipenets();
+				await this.process_atmos_macinery();
+				await this.process_active_turfs();
+				await this.process_excited_groups();
+				await this.process_high_pressure_delta();
+			}
 		} catch (e) {
 			console.error(e.stack);
 		}

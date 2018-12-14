@@ -21,7 +21,7 @@ class CardId extends Component {
 		let name = this.registered_name;
 		let job_name = this.include_job_in_name ? this.job_name : null;
 
-		this.a.name = `${name ? "identification card" : `${name}'s ID Card'`}${job_name ? ` (${job_name})` : ""}`;
+		this.a.name = `${name ? `${name}'s ID Card` : "identification card"}${job_name ? ` (${job_name})` : ""}`;
 	}
 }
 
@@ -134,7 +134,7 @@ module.exports.templates = {
 			name: "captain's spare ID",
 			icon_state: "gold"
 		},
-		tree_paths: ["items/id/gold"]
+		tree_paths: ["items/id/gold/spare"]
 	}
 };
 

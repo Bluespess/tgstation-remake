@@ -59,6 +59,26 @@ class PreferencesPanel extends Panel {
 			this.char_prefs.randomize_name(msg.randomize_name);
 			this.send_prefs(["name"]);
 		}
+		if(msg.job_preferences) {
+			for(let [key, setting] of Object.entries(msg.job_preferences)) {
+				setting = Math.max(Math.min(Math.round(+setting || 0), 3), 0); // sanitize the value
+				if(key == "assistant")
+					setting = +!!setting; // turn it into 0/1 deal
+				if(!this.client.server.job_controller.jobs[key])
+					continue; // oi that job doesnt exist ree
+				if(setting == 0)
+					delete this.char_prefs.job_preferences[key];
+				else
+					this.char_prefs.job_preferences[key] = setting;
+				if(setting == 3) {
+					for(let [otherjob, othersetting] of Object.entries(this.char_prefs.job_preferences)) {
+						if(otherjob != key && othersetting == 3) {
+							this.char_prefs.job_preferences[otherjob] = 2;
+						}
+					}
+				}
+			}
+		}
 	}
 
 	send_prefs(parts) {
@@ -71,6 +91,16 @@ class PreferencesPanel extends Panel {
 		this.send_message({char_prefs: char_prefs_msg});
 	}
 
+	send_job_prefs() {
+		let prefs = {};
+		let meta = {};
+		for(let [key, job] of Object.entries(this.client.server.job_controller.jobs)) {
+			prefs[key] = this.char_prefs.job_preferences[key] || 0;
+			meta[key] = {selection_color: job.selection_color, departments: job.departments, name: job.title};
+		}
+		this.send_message({job_preferences: prefs, job_metas: meta});
+	}
+
 	closed() {
 		this.client.preferences_panel = null;
 	}
@@ -79,6 +109,7 @@ class PreferencesPanel extends Panel {
 
 		this.send_message({set_tab: this.start_tab, sprite_accessories, skin_tones});
 		this.send_prefs();
+		this.send_job_prefs();
 	}
 
 	static open_for(client, options = {}) {

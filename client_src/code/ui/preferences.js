@@ -2,6 +2,9 @@
 
 const {Atom, dropdown} = require('bluespess-client');
 
+const job_pref_settings = ["NEVER", "Low", "Medium", "High"];
+const job_pref_colors = ["red", "orange", "green", "slateblue"];
+
 class PreferencesPanel {
 	constructor(panel) {
 		this.panel = panel;
@@ -9,6 +12,7 @@ class PreferencesPanel {
 		this.panel.content_obj.innerHTML = `
 <div class='center'>
 	<div class='button' data-radio-group='tab' data-tab='character'>Character Setup</div>
+	<div class='button' data-radio-group='tab' data-tab='job-preferences'>Job Preferences</div>
 	<div class='button' data-radio-group='tab' data-tab='preferences'>Preferences</div>
 </div>
 <hr>
@@ -50,10 +54,15 @@ class PreferencesPanel {
 		<div>
 			<h3>Hair Style</h3>
 			<div><div class='button property-hair dropdown'>Bald</div></div>
-			<div><div class='button property-hair_color dropdown'>Color</div>
+			<div><div class='button property-hair_color dropdown'>Color</div></div>
 		</div>
 	</div>
 </div>
+
+</div>
+<div class='tabcontent' style='display: none' data-tab='job-preferences'>
+
+<div class='job-list' style='color: #000000;display:grid;grid-auto-flow:column'></div>
 
 </div>
 <div class='tabcontent' style='display: none' data-tab='preferences'>
@@ -269,6 +278,96 @@ Preferences
 			if(elem.value == msg.name_correction[0])
 				elem.value = msg.name_correction[1];
 		}
+		if(msg.job_preferences) {
+			this.job_preferences = msg.job_preferences;
+			if(msg.job_metas)
+				this.job_metas = msg.job_metas;
+			// alright now we order the jobs.
+			let job_order = [...Object.keys(this.job_metas)];
+			job_order.sort((a, b) => {
+				let ameta = this.job_metas[a];
+				let bmeta = this.job_metas[b];
+				let department_diff = department_order.indexOf(ameta.departments[0] || "misc") - department_order.indexOf(bmeta.departments[0] || "misc");
+				if(department_diff != 0)
+					return department_diff;
+				if(ameta.departments.includes("command") && !bmeta.departments.includes("command"))
+					return -1;
+				if(!ameta.departments.includes("command") && bmeta.departments.includes("command"))
+					return 1;
+				return 0;
+			});
+			this.panel.$(`.job-list`).style.gridTemplateRows = `repeat(${Math.ceil(job_order.length / 2)}, auto)`;
+			let assistant_disable = false;
+			for(let key of job_order) {
+				let meta = this.job_metas[key];
+				let elem = document.createElement("div");
+				elem.style.minWidth = "280px";
+				elem.style.backgroundColor = meta.selection_color;
+				elem.dataset.jobKey = key;
+				let setting = this.job_preferences[key];
+				elem.innerHTML = `
+<div style='text-align:right;width:180px;display:inline-block;padding-right:3px'>${meta.name}</div>
+<div style='display:inline-block' class='job-pref-button-container'></div>`;
+				let job_pref_button_container = elem.querySelector('.job-pref-button-container');
+				let job_pref_button = document.createElement('div');
+				job_pref_button_container.appendChild(job_pref_button);
+				job_pref_button.classList.add("button", "dropdown", "white", "job-selection-button");
+				if(key == "assistant") {
+					if(setting) {
+						assistant_disable = true;
+						job_pref_button.style.color = "green";
+						job_pref_button.textContent = "Yes";
+					} else {
+						job_pref_button.style.color = "red";
+						job_pref_button.textContent = "No";
+					}
+				} else {
+					if(assistant_disable) {
+						job_pref_button.style.visibility = "hidden";
+					}
+					job_pref_button.classList.add("affected-by-assistant");
+					job_pref_button.style.color = job_pref_colors[setting];
+					job_pref_button.textContent = job_pref_settings[setting];
+					job_pref_button.addEventListener("click", (e) => {
+						if(e.defaultPrevented)
+							return;
+						let menu = document.createElement('div');
+						menu.classList.add("dropdown-content");
+						for(let i = 0; i <= 3; i++) {
+							let item = document.createElement('div');
+							item.classList.add("button", "dropdown-item", "white");
+							if(i == this.job_preferences[key]) {
+								item.classList.add("selected");
+							}
+							item.textContent = job_pref_settings[i];
+							item.style.color = job_pref_colors[i];
+							item.addEventListener("click", (e) => {
+								this.panel.send_message({job_preferences: {[key]: i}});
+								e.preventDefault();
+								job_pref_button.textContent = job_pref_settings[i];
+								job_pref_button.style.color = job_pref_colors[i];
+								this.job_preferences[key] = i;
+								if(i == 3) {
+									for(let [otherjob, level] of Object.entries(this.job_preferences)) {
+										if(level == 3 && otherjob != key) {
+											this.job_preferences[otherjob] = 2;
+											let otherelem = this.panel.$(`.job-list div[data-job-key="${otherjob}"] .job-selection-button`);
+											if(otherelem) {
+												otherelem.textContent = job_pref_settings[2];
+												otherelem.style.color = job_pref_colors[2];
+											}
+										}
+									}
+								}
+							});
+							menu.appendChild(item);
+						}
+						dropdown(job_pref_button, menu);
+					});
+				}
+				this.panel.$(`.job-list`).appendChild(elem);
+			}
+		}
 	}
 
 	update_previews() {
@@ -319,5 +418,6 @@ Preferences
 		return canvas;
 	}
 }
+let department_order = ["misc", "command", "supply", "service", "eng", "med", "sci", "sec", "synth"];
 
 module.exports.panel_classes = {PreferencesPanel};

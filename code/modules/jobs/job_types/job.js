@@ -1,6 +1,6 @@
 'use strict';
 const Outfit = require('../../outfits/outfit.js');
-const {weak_deep_assign, has_component} = require('bluespess');
+const {weak_deep_assign, has_component, to_chat} = require('bluespess');
 const CharacterPreferences = require('../../client/character.js');
 
 class JobType {
@@ -31,8 +31,13 @@ class JobType {
 		}, obj);
 	}
 
-	get_access_list() {
-		return this.access;
+	get_access_list(server) {
+		let access = [...this.access];
+		if(server.job_controller.minimal_access)
+			access = [...this.minimal_access];
+		if(server.game_options.everyone_has_maint_access && !access.includes("maint"))
+			access.push("maint");
+		return access;
 	}
 
 	instance(server, prefs) {
@@ -41,6 +46,17 @@ class JobType {
 		let mob = prefs.instance_human(server, {name_override: this.name_override});
 		this.equip(mob);
 		return mob;
+	}
+
+	after_spawn(user) {
+		to_chat`<b>You are the ${""}${this.title}.</b>`(user);
+		to_chat`<b>As the ${this.title} you answer directly to ${this.supervisors}. Special circumstances may change this.</b>`(user);
+		to_chat`<b>To speak on your department's radio, use the :h button. To see others, look closely at your headset.</b>`(user);
+		if(this.req_admin_notify)
+			to_chat`<b>You are playing a job that is important for Game Progression. If you have to disconnect, please notify the admins via adminhelp.</b>`(user);
+		if(user.server.game_options.minimal_access_threshold) {
+			to_chat`<span style='color:blue;font-weight:bold'>As this station was initially staffed with a ${user.server.job_controller.minimal_access ? "full crew, only your job's necessities" : "skeleton crew, additional access may"} have been added to your ID card.</span>`(user);
+		}
 	}
 
 	equip(mob) {
@@ -68,6 +84,7 @@ class JobOutfit extends Outfit {
 
 			pda_slot: "belt"
 		});
+		Object.defineProperty(this, "jobtype", {enumerable: false, value: this.jobtype});
 	}
 
 	pre_equip() {
@@ -85,7 +102,7 @@ class JobOutfit extends Outfit {
 		if(has_component(target, "MobInventory")) {
 			let id = target.c.MobInventory.slots.id && target.c.MobInventory.slots.id.item;
 			if(has_component(id, "CardId")) {
-				id.c.CardId.access = [...this.jobtype.get_access_list(target)];
+				id.c.CardId.access = [...this.jobtype.get_access_list(target.server, target)];
 				id.c.CardId.registered_name = target.name;
 				id.c.CardId.job = this.jobtype;
 				id.c.CardId.job_name = this.jobtype.title;

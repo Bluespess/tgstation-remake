@@ -16,32 +16,34 @@ class Outfit {
 	post_equip() {}
 
 	equip(target, visuals_only = false) {
-		this.pre_equip(target, visuals_only);
+		let clone = Object.create(this);
+		Object.assign(clone, JSON.parse(JSON.stringify(this)));
+		clone.pre_equip(target, visuals_only);
 
 		if(has_component(target, "MobInventory")) {
-			if(this.slots.iclothing && target.c.MobInventory.slots.iclothing)
-				target.c.MobInventory.slots.iclothing.equip_or_del(new Atom(target.server, this.slots.iclothing));
-			if(this.slots.oclothing && target.c.MobInventory.slots.oclothing)
-				target.c.MobInventory.slots.oclothing.equip_or_del(new Atom(target.server, this.slots.oclothing));
+			if(clone.slots.iclothing && target.c.MobInventory.slots.iclothing)
+				target.c.MobInventory.slots.iclothing.equip_or_del(new Atom(target.server, clone.slots.iclothing));
+			if(clone.slots.oclothing && target.c.MobInventory.slots.oclothing)
+				target.c.MobInventory.slots.oclothing.equip_or_del(new Atom(target.server, clone.slots.oclothing));
 
 			for(let [id, slot] of Object.entries(target.c.MobInventory.slots)) {
 				if(id == "iclothing" || id == "oclothing")
 					continue;
-				if(this.slots[id])
-					slot.equip_or_del(new Atom(target.server, this.slots[id]));
+				if(clone.slots[id])
+					slot.equip_or_del(new Atom(target.server, clone.slots[id]));
 			}
 
 			if(!visuals_only) {
 				let backpack = target.c.MobInventory.slots.back && target.c.MobInventory.slots.back.item;
-				if(this.backpack_contents && has_component(backpack, "StorageItem")) {
-					for(let item of this.backpack_contents) {
+				if(clone.backpack_contents && has_component(backpack, "StorageItem")) {
+					for(let item of clone.backpack_contents) {
 						backpack.c.StorageItem.insert_item_or_del(new Atom(target.server, item));
 					}
 				}
 			}
 		}
 
-		this.post_equip(target, visuals_only);
+		clone.post_equip(target, visuals_only);
 	}
 }
 

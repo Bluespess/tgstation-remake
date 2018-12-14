@@ -1,6 +1,7 @@
 'use strict';
 
 const {inst_dir, inst_access} = require('./utils.js');
+const job_landmarks = require('./job_landmarks.json');
 
 // Careful! There's a difference between returning null and undefined.
 // (undefined means "keep going, find a different rule" and null means "spawn nothing")
@@ -188,4 +189,8 @@ module.exports = [
 	["/obj/item/stack/sheet/plastic", (inst) => {return {template_name: "plastic_sheet", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
 	["/obj/item/stack/sheet/paperframes", (inst) => {return {template_name: "paperframe_sheet", variant_leaf_path: [JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
 	["/obj/item/stack/cable", (inst) => {return {template_name: "stack_cable", variant_leaf_path: [JSON.parse(inst.vars.item_color) || "random", JSON.parse(inst.vars.amount)]};}, {pixel_offsets: true}],
+
+	// LANDMARKS
+
+	["/obj/effect/landmark/start", (inst) => {return {template_name: "job_landmark", instance_vars: {name: job_landmarks[JSON.parse(inst.vars.name)]}};}],
 ];

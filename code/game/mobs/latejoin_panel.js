@@ -24,6 +24,8 @@ class LatejoinPanel extends Panel {
 
 	message_handler(msg) {
 		if(msg.join) {
+			if(this.client.server.ticker.game_state != "playing" || this.client.server.ticker.busy)
+				return;
 			let job = this.client.server.job_controller.jobs[msg.join];
 			if(!job)
 				return;
@@ -33,6 +35,7 @@ class LatejoinPanel extends Panel {
 			let mob = job.instance(this.client.server, this.client.character_preferences);
 			this.client.server.job_controller.send_to_late_join(mob, true);
 			mob.c.Mob.client = this.client;
+			job.after_spawn(mob);
 		}
 	}
 }

@@ -30,6 +30,7 @@ class MobBodyParts extends Component {
 							dam += bp.c.BodyPart[`${type}_damage`];
 					return dam;
 				},
+				affects_health: true,
 				set: (val, props) => {
 					obj.adjust(val - obj.get(), props);
 				},

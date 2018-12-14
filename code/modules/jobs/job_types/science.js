@@ -30,7 +30,7 @@ let scientist_outfit = new JobType.Outfit({
 module.exports.jobs.scientist.outfit = scientist_outfit;
 
 module.exports.jobs.roboticist = new JobType({
-	title: "Scientist",
+	title: "Roboticist",
 	total_positions: 2,
 	spawn_positions: 2,
 	supervisors: "the research director",
