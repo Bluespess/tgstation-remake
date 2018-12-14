@@ -147,6 +147,7 @@ server.importModule(require('./code/modules/projectiles/ammunition/energy.js'));
 server.importModule(require('./code/modules/projectiles/boxes_magazines/ammo_boxes.js'));
 server.importModule(require('./code/modules/projectiles/boxes_magazines/external_mag.js'));
 server.importModule(require('./code/modules/projectiles/guns/ballistic/pistol.js'));
+server.importModule(require('./code/modules/projectiles/guns/energy/laser.js'));
 server.importModule(require('./code/modules/projectiles/guns/energy/stun.js'));
 server.importModule(require('./code/modules/projectiles/guns/ballistic.js'));
 server.importModule(require('./code/modules/projectiles/guns/energy.js'));

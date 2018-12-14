@@ -140,6 +140,8 @@ module.exports = [
 
 	["/obj/item/melee/baseball_bat", () => {return {template_name: "baseball_bat"};}, {pixel_offsets: true}],
 
+	["/obj/item/gun/energy/laser", () => {return {template_name: "lasergun"};}, {pixel_offsets: true}],
+
 	// LAMPS AND LIGHTS
 
 	["/obj/machinery/light", (inst) => {

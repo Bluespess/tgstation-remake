@@ -11,7 +11,7 @@ BeamProjectile.depends = ["Projectile", "LightSource"];
 BeamProjectile.template = {
 	vars: {
 		components: {
-			"Projetile": {
+			"Projectile": {
 				hitsound: 'sound/weapons/sear.ogg',
 				hitsound_wall: 'sound/weapons/effects/searwall.ogg',
 				flag: "energy",
@@ -31,6 +31,9 @@ BeamProjectile.template = {
 };
 
 module.exports.templates = {
+	"beam_laser": {
+		components: ["BeamProjectile"]
+	},
 	"beam_disabler": {
 		components: ["BeamProjectile"],
 		vars: {
