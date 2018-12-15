@@ -96,6 +96,8 @@ server.importModule(require('./code/modules/atmospherics/environmental/controlle
 server.importModule(require('./code/modules/atmospherics/environmental/turf.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/machines/binary/_binary.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/machines/binary/pump.js'));
+server.importModule(require('./code/modules/atmospherics/machinery/machines/trinary/_trinary.js'));
+server.importModule(require('./code/modules/atmospherics/machinery/machines/trinary/filter.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/machines/unary/_unary.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/machines/unary/portables_connector.js'));
 server.importModule(require('./code/modules/atmospherics/machinery/machines/unary/tank.js'));

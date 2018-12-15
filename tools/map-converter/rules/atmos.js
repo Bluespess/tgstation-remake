@@ -108,6 +108,24 @@ module.exports = [
 		return ret;
 	}],
 
+	// TRINARY
+	["/obj/machinery/atmospherics/components/trinary/filter", (inst) => {
+		let template_name = "filter";
+		if(inst.vars.on)
+			template_name += "_on";
+		if(inst.vars.flipped)
+			template_name += "_flipped";
+
+		let template = {template_name, variant_leaf_path: [inst_dir(inst)]};
+		/*
+		if(inst.vars.filter_type) {
+			if(!template.instance_vars) template.instance_vars = {};
+			template.instance_vars.components = {Filter: {filter_type: +inst.vars.filter_type}};
+		}*/
+
+		return template;
+	}],
+
 	// CANISTERS
 
 	["/obj/machinery/portable_atmospherics/canister", () => {return {template_name: "canister"};}],
