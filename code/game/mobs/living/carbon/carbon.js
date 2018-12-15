@@ -24,6 +24,7 @@ class CarbonMob extends Component.Networked {
 		this.a.c.LivingMob.movement_delay = chain_func(this.a.c.LivingMob.movement_delay, this.movement_delay.bind(this));
 		this.a.c.LivingMob.life = chain_func(this.a.c.LivingMob.life, this.life.bind(this));
 		this.a.c.LivingMob.add_splatter_floor = this.add_splatter_floor.bind(this);
+		this.a.c.Examine.examine = this.examine.bind(this);
 
 		this.add_networked_var("lying", (newval) => {
 			if(newval) {
@@ -392,6 +393,75 @@ class CarbonMob extends Component.Networked {
 
 	slip(obj) {
 		this.a.c.LivingMob.apply_effect("Knockdown", {delay: obj.c.Slippery.knockdown_amount});
+	}
+
+	examine(user) {
+		to_chat`<span class='info'>*---------*<br>This is <em>${this.a.name}</em>!</span>`(user);
+		let t_He = this.a.p_they(true);
+		let t_his = this.a.p_their();
+		let t_him = this.a.p_them();
+		let t_has = this.a.p_have();
+		let t_is = this.a.p_are();
+		if(has_component(this.a, "MobInventory"))
+			this.a.c.MobInventory.examine_slots(user);
+		let appears_dead = false;
+		if(this.a.c.LivingMob.stat == combat_defines.DEAD) {
+			appears_dead = true;
+			if(this.a.c.LivingMob.suiciding)
+				to_chat`<span class='warning'>${t_He} appear${this.a.p_s()} to have commited suicide... there is no hope of recovery.</span>`(user);
+			let departed = "";
+			if(!this.a.c.Mob.key) {
+				let foundghost = false;
+				if(this.a.c.LivingMob.mind) {
+					for(let ghost of this.a.server.atoms_for_components.Ghost) {
+						if(ghost.c.Ghost.mind == this.a.c.LivingMob.mind) {
+							foundghost = true;
+							break;
+						}
+					}
+				}
+				if(!foundghost)
+					departed = ` and ${t_his} soul has departed`;
+			}
+			to_chat`<span class='deadsay'>${t_He} ${t_is} limp and unresponsive; there are no signs of life${departed}...</span>`(user);
+		}
+		if(has_component(this.a, "MobBodyParts"))
+			this.a.c.MobBodyParts.examine_limbs(user);
+		let bruteloss = this.a.c.LivingMob.get_damage("brute");
+		let burnloss = this.a.c.LivingMob.get_damage("burn");
+		let cloneloss = this.a.c.LivingMob.get_damage("clone");
+		if(bruteloss)
+			if(bruteloss < 30)
+				to_chat`<span class='warning'>${t_He} ${t_has} minor bruising.</span>`(user);
+			else
+				to_chat`<span class='warning'><b>${t_He} ${t_has} severe bruising!</b></span>`(user);
+		if(burnloss)
+			if(burnloss < 30)
+				to_chat`<span class='warning'>${t_He} ${t_has} minor burns.</span>`(user);
+			else
+				to_chat`<span class='warning'><b>${t_He} ${t_has} severe burns!</b></span>`(user);
+		if(cloneloss)
+			if(cloneloss < 30)
+				to_chat`<span class='warning'>${t_He} ${t_has} minor cellular damage.</span>`(user);
+			else
+				to_chat`<span class='warning'><b>${t_He} ${t_has} severe cellular damage!</b></span>`(user);
+
+		if(this.uses_blood && this.a.c.ReagentHolder.volume_of("Blood") < mob_defines.BLOOD_VOLUME_SAFE)
+			to_chat`<span class='warning'>${t_He} ${t_has} pale skin.</span>`(user);
+
+		if(!appears_dead) {
+			if(this.a.c.LivingMob.stat == combat_defines.UNCONSCIOUS)
+				to_chat`<span class='info'>${t_He} ${t_is}n't responding to anything around ${t_him} and seem${this.a.p_s()} to be asleep.</span>`(user);
+			else {
+				if(this.a.c.LivingMob.in_crit)
+					to_chat`<span class='info'>${t_He} ${t_is} barely conscious.</span>`(user);
+			}
+			if(!this.a.c.Mob.key)
+				to_chat`<span class='deadsay'>${t_He} ${t_is} totally catatonic. The stresses of life in deep space must have been too much for ${t_him}. Any recovery is unlikely.</span>`(user);
+			else if(!this.a.c.Mob.client)
+				to_chat`<span class='info'>${t_He} ${t_has} a blank, absent-minded stare and appears completely unresponsive to anything. ${t_He} may snap out of it soon.</span>`(user);
+		}
+		to_chat`<span class='info'>*---------*</span>`(user);
 	}
 }
 CarbonMob.depends = ["LivingMob", "Puller", "ReagentHolder"];

@@ -103,7 +103,7 @@ class JobOutfit extends Outfit {
 			let id = target.c.MobInventory.slots.id && target.c.MobInventory.slots.id.item;
 			if(has_component(id, "CardId")) {
 				id.c.CardId.access = [...this.jobtype.get_access_list(target.server, target)];
-				id.c.CardId.registered_name = target.name;
+				id.c.CardId.registered_name = target.c.LivingMob.real_name;
 				id.c.CardId.job = this.jobtype;
 				id.c.CardId.job_name = this.jobtype.title;
 				id.c.CardId.update_label();

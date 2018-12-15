@@ -33,6 +33,7 @@ client.importModule(require('./code/ui/preferences.js'));
 client.importModule(require('./code/ui/smes.js'));
 client.importModule(require('./code/ui/spawn_object.js'));
 client.importModule(require('./code/ui/stack_craft.js'));
+client.importModule(require('./code/ui/strip.js'));
 
 if(global.is_bs_editor_env) {
 	module.exports = client;

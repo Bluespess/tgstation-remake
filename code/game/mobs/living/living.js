@@ -1,5 +1,5 @@
 'use strict';
-const {Component, Sound, Atom, chain_func, format_html, visible_message, has_component} = require('bluespess');
+const {Component, Sound, Atom, chain_func, format_html, visible_message, has_component, to_chat} = require('bluespess');
 const _ = require('underscore');
 const GasMixture = require('../../../modules/atmospherics/gasmixtures/gas_mixture');
 const Mind = require('../mind/mind.js');
@@ -44,6 +44,7 @@ class LivingMob extends Component {
 			this.life_timeout = setTimeout(this.run_life.bind(this), 2000);
 		}
 		this.life_cycle_num = 0;
+		this.update_name();
 	}
 
 	add_damage_type(name) {
@@ -358,6 +359,36 @@ class LivingMob extends Component {
 		if(!effect)
 			return;
 		effect.adjust(amount);
+	}
+
+	identifiable() { // whether the face can be seen
+		return true;
+	}
+
+	update_name() {
+		this.a.name = this.get_visible_name();
+	}
+
+	get_visible_name() {
+		let face_name = this.get_face_name("");
+		let id_name = this.get_id_name("");
+		if(face_name) {
+			if(id_name && (id_name != face_name))
+				return `${face_name} (as ${id_name})`;
+			return face_name;
+		}
+		if(id_name)
+			return id_name;
+		return "Unknown";
+	}
+
+	get_face_name(if_no_face = "Unknown") {
+		if(!this.identifiable())
+			return if_no_face;
+		return this.real_name;
+	}
+	get_id_name(if_no_id = "Unknown") {
+		return if_no_id;
 	}
 }
 

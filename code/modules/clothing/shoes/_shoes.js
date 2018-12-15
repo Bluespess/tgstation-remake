@@ -95,7 +95,7 @@ FootItem.template = {
 		components: {
 			"FootItem": {
 				worn_icon: 'icons/mob/feet.png',
-				worn_icon_state: null // If null, inherits from inhand_icon_state
+				worn_icon_state: null // If null, inherits from icon_state
 			},
 			"Describe": {
 				desc: "comfortable-looking shoes."

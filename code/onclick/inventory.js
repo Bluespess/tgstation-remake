@@ -3,6 +3,7 @@
 const {Component, Atom, has_component, chain_func, is_atom, make_watched_property, visible_message, to_chat} = require('bluespess');
 const combat_defines = require('../defines/combat_defines.js');
 const EventEmitter = require('events');
+const StripPanel = require('./strip_panel.js');
 const _slots = Symbol('_slots');
 const {_slot} = require('../game/objects/items.js').symbols;
 const _visible = Symbol('_can_see');
@@ -17,11 +18,16 @@ class MobInventory extends Component {
 
 		this.a.c.Mob.on("keydown", this.keydown.bind(this));
 		this.a.c.HasAccess.has_access = chain_func(this.a.c.HasAccess.has_access, this.has_access.bind(this));
+		this.a.on("mouse_dragged_to", this.mouse_dragged_to.bind(this));
+		if(has_component(this.a, "LivingMob")) {
+			this.a.c.LivingMob.identifiable = chain_func(this.a.c.LivingMob.identifiable, this.identifiable.bind(this));
+			this.a.c.LivingMob.get_id_name = this.get_id_name.bind(this);
+		}
 		this.next_move = 0;
 		this[_slots] = {};
 		this.slots = new Proxy(this[_slots],{set:()=>{},deleteProperty:()=>{},defineProperty:()=>{}});
-		this.add_slot('lhand', {icon: 'icons/mob/screen_midnight.png', icon_state: "hand_l", screen_loc_x: 7.5, screen_loc_y: 0.15625, layer: 30}, {is_hand_slot: true, worn_layer: 19});
-		this.add_slot('rhand', {icon: 'icons/mob/screen_midnight.png', icon_state: "hand_r", screen_loc_x: 6.5, screen_loc_y: 0.15625, layer: 30}, {is_hand_slot: true, worn_layer: 19});
+		this.add_slot('lhand', {icon: 'icons/mob/screen_midnight.png', icon_state: "hand_l", screen_loc_x: 7.5, screen_loc_y: 0.15625, layer: 30}, {is_hand_slot: true, worn_layer: 19, visible: true, wear_verb: "holding", wear_prep: "in", wear_noun: "left hand", strip_panel_name: "left hand"});
+		this.add_slot('rhand', {icon: 'icons/mob/screen_midnight.png', icon_state: "hand_r", screen_loc_x: 6.5, screen_loc_y: 0.15625, layer: 30}, {is_hand_slot: true, worn_layer: 19, visible: true, wear_verb: "holding", wear_prep: "in", wear_noun: "right hand", strip_panel_name: "right hand"});
 
 		this.a.c.Eye.screen.swap_hands = new Atom(this.a.server, {vars:{
 			icon: 'icons/mob/screen_midnight.png', icon_state: "swap", screen_loc_x: 6.5, screen_loc_y: 1.15625, layer: 30
@@ -38,30 +44,31 @@ class MobInventory extends Component {
 
 		});
 
-		this.add_slot('id', {icon: 'icons/mob/screen_midnight.png', icon_state: "id", screen_loc_x: 3.375, screen_loc_y: 0.15625, layer: 30}, {clothing_slot:"IdSlotItem", worn_layer: 4, requires_slot: "iclothing"});
-		this.add_slot('belt', {icon: 'icons/mob/screen_midnight.png', icon_state: "belt", screen_loc_x: 4.4375, screen_loc_y: 0.15625, layer: 30}, {clothing_slot:"BeltItem", worn_layer: 10});
-		this.add_slot('back', {icon: 'icons/mob/screen_midnight.png', icon_state: "back", screen_loc_x: 5.4375, screen_loc_y: 0.15625, layer: 30}, {clothing_slot:"BackItem", worn_layer: 13});
-		this.add_slot('storage1', {icon: 'icons/mob/screen_midnight.png', icon_state: "pocket", screen_loc_x: 8.5625, screen_loc_y: 0.15625, layer: 30}, {max_size: 2, requires_slot: "iclothing", requires_slot_prefix: "pocket"});
-		this.add_slot('storage2', {icon: 'icons/mob/screen_midnight.png', icon_state: "pocket", screen_loc_x: 9.625, screen_loc_y: 0.15625, layer: 30}, {max_size: 2, requires_slot: "iclothing", requires_slot_prefix: "pocket"});
-		this.add_slot('suit_storage', {icon: 'icons/mob/screen_midnight.png', icon_state: "suit_storage", screen_loc_x: 2.3125, screen_loc_y: 0.15625, layer: 30}, {worn_layer: 11, requires_slot: "oclothing"});
+		this.add_slot('id', {icon: 'icons/mob/screen_midnight.png', icon_state: "id", screen_loc_x: 3.375, screen_loc_y: 0.15625, layer: 30}, {clothing_slot:"IdSlotItem", worn_layer: 4, requires_slot: "iclothing", visible: true, wear_verb: "wearing"});
+		this.add_slot('belt', {icon: 'icons/mob/screen_midnight.png', icon_state: "belt", screen_loc_x: 4.4375, screen_loc_y: 0.15625, layer: 30}, {clothing_slot:"BeltItem", worn_layer: 10, requires_slot: "iclothing", visible: true, wear_prep: "about", wear_noun: "waist"});
+		this.add_slot('back', {icon: 'icons/mob/screen_midnight.png', icon_state: "back", screen_loc_x: 5.4375, screen_loc_y: 0.15625, layer: 30}, {clothing_slot:"BackItem", worn_layer: 13, visible: true, wear_prep: "on", wear_noun: "back"});
+		this.add_slot('storage1', {icon: 'icons/mob/screen_midnight.png', icon_state: "pocket", screen_loc_x: 8.5625, screen_loc_y: 0.15625, layer: 30}, {max_size: 2, requires_slot: "iclothing", requires_slot_prefix: "pocket", strip_desc: "left pocket"});
+		this.add_slot('storage2', {icon: 'icons/mob/screen_midnight.png', icon_state: "pocket", screen_loc_x: 9.625, screen_loc_y: 0.15625, layer: 30}, {max_size: 2, requires_slot: "iclothing", requires_slot_prefix: "pocket", strip_desc: "right pocket"});
+		this.add_slot('suit_storage', {icon: 'icons/mob/screen_midnight.png', icon_state: "suit_storage", screen_loc_x: 2.3125, screen_loc_y: 0.15625, layer: 30}, {worn_layer: 11, requires_slot: "oclothing", visible: true, wear_verb: "carrying", wear_prep: "on", wear_noun_slot: "oclothing"});
 
 		this.a.c.Eye.screen.toggle_clothing = new Atom(this.a.server, {vars:{
 			icon: 'icons/mob/screen_midnight.png', icon_state: "toggle", screen_loc_x: 0.1875, screen_loc_y: 0.15625, layer: 30
 		}});
 		this.a.c.Eye.screen.toggle_clothing.on("clicked", () => {
-			for(var slotname of ['shoes', 'iclothing', 'oclothing', 'gloves', 'glasses', 'mask', 'ears', 'head']) {
+			for(var slotname of ['shoes', 'iclothing', 'oclothing', 'gloves', 'glasses', 'mask', 'ears', 'head', 'neck']) {
 				var slot = this.slots[slotname];
 				slot.visible = !slot.visible;
 			}
 		});
-		this.add_slot('shoes', {icon: 'icons/mob/screen_midnight.png', icon_state: "shoes", screen_loc_x: 1.25, screen_loc_y: 0.15625, layer: 30}, {clothing_slot: "FootItem", worn_layer: 5});
-		this.add_slot('iclothing', {icon: 'icons/mob/screen_midnight.png', icon_state: "uniform", screen_loc_x: 0.1875, screen_loc_y: 1.21875, layer: 30}, {clothing_slot: "UniformItem", worn_layer: 3});
-		this.add_slot('oclothing', {icon: 'icons/mob/screen_midnight.png', icon_state: "suit", screen_loc_x: 1.25, screen_loc_y: 1.21875, layer: 30}, {clothing_slot: "SuitItem", worn_layer: 8});
-		this.add_slot('gloves', {icon: 'icons/mob/screen_midnight.png', icon_state: "gloves", screen_loc_x: 2.3125, screen_loc_y: 1.21875, layer: 30}, {clothing_slot: "HandItem", worn_layer: 6});
-		this.add_slot('mask', {icon: 'icons/mob/screen_midnight.png', icon_state: "mask", screen_loc_x: 1.25, screen_loc_y: 2.28125, layer: 30}, {clothing_slot: "MaskItem", worn_layer: 15});
-		this.add_slot('glasses', {icon: 'icons/mob/screen_midnight.png', icon_state: "glasses", screen_loc_x: 0.1875, screen_loc_y: 2.28125, layer: 30}, {clothing_slot: "EyeItem", worn_layer: 9});
-		this.add_slot('ears', {icon: 'icons/mob/screen_midnight.png', icon_state: "ears", screen_loc_x: 2.3125, screen_loc_y: 2.28125, layer: 30}, {clothing_slot: "EarItem", worn_layer: 7});
-		this.add_slot('head', {icon: 'icons/mob/screen_midnight.png', icon_state: "head", screen_loc_x: 1.25, screen_loc_y: 3.34375, layer: 30}, {clothing_slot: "HeadItem", worn_layer: 16});
+		this.add_slot('shoes', {icon: 'icons/mob/screen_midnight.png', icon_state: "shoes", screen_loc_x: 1.25, screen_loc_y: 0.15625, layer: 30}, {clothing_slot: "FootItem", worn_layer: 5, visible: true, wear_verb: "wearing", wear_prep: "on", wear_noun: "feet"});
+		this.add_slot('iclothing', {icon: 'icons/mob/screen_midnight.png', icon_state: "uniform", screen_loc_x: 0.1875, screen_loc_y: 1.21875, layer: 30}, {clothing_slot: "UniformItem", worn_layer: 3, visible: true, wear_verb: "wearing"});
+		this.add_slot('oclothing', {icon: 'icons/mob/screen_midnight.png', icon_state: "suit", screen_loc_x: 1.25, screen_loc_y: 1.21875, layer: 30}, {clothing_slot: "SuitItem", worn_layer: 8, visible: true, wear_verb: "wearing"});
+		this.add_slot('gloves', {icon: 'icons/mob/screen_midnight.png', icon_state: "gloves", screen_loc_x: 2.3125, screen_loc_y: 1.21875, layer: 30}, {clothing_slot: "HandItem", worn_layer: 6, visible: true, wear_prep: "on", wear_noun: "hands"});
+		this.add_slot('mask', {icon: 'icons/mob/screen_midnight.png', icon_state: "mask", screen_loc_x: 1.25, screen_loc_y: 2.28125, layer: 30}, {clothing_slot: "MaskItem", worn_layer: 15, visible: true, wear_prep: "on", wear_noun: "face"});
+		this.add_slot('neck', {icon: 'icons/mob/screen_midnight.png', icon_state: "neck", screen_loc_x: 0.1875, screen_loc_y: 2.28125, layer: 30}, {clothing_slot: "NeckItem", worn_layer: 12, visible: true, wear_prep: "around", wear_noun: "neck"});
+		this.add_slot('glasses', {icon: 'icons/mob/screen_midnight.png', icon_state: "glasses", screen_loc_x: 0.1875, screen_loc_y: 3.34375, layer: 30}, {clothing_slot: "EyeItem", worn_layer: 9, visible: true, wear_prep: "covering", wear_noun: "eyes"});
+		this.add_slot('ears', {icon: 'icons/mob/screen_midnight.png', icon_state: "ears", screen_loc_x: 2.3125, screen_loc_y: 2.28125, layer: 30}, {clothing_slot: "EarItem", worn_layer: 7, visible: true, wear_prep: "on", wear_noun: "ears"});
+		this.add_slot('head', {icon: 'icons/mob/screen_midnight.png', icon_state: "head", screen_loc_x: 1.25, screen_loc_y: 3.34375, layer: 30}, {clothing_slot: "HeadItem", worn_layer: 16, visible: true, wear_verb: "wearing", wear_prep: "on", wear_noun: "head"});
 		// give neck layer 12
 
 		this.a.c.Eye.screen.drop_item = new Atom(this.a.server, {vars:{
@@ -113,6 +120,25 @@ class MobInventory extends Component {
 	}
 	get active_hand() {
 		return this[_active_hand];
+	}
+
+	examine_slots(user) {
+		let t_He = this.a.p_they(true);
+		let t_his = this.a.p_their();
+		let t_has = this.a.p_have();
+		let t_is = this.a.p_are();
+		let covered = this.get_covered_slots();
+		for(let slot of Object.values(this.slots)) {
+			if(!slot.item || covered.has(slot.id))
+				continue;
+			if(slot.props.visible) {
+				let blood_stained = false;
+				let verb = slot.props.wear_verb ? `${t_is} ${slot.props.wear_verb}` : t_has;
+				let article = slot.item.gender == "plural" ? "some" : "a";
+				let noun = slot.props.wear_noun ? ` ${slot.props.wear_prep} ${t_his} ${slot.props.wear_noun}` : "";
+				to_chat`<span class='${blood_stained ? "warning" : "info"}'>${t_He} ${verb} ${article} ${blood_stained ? "blood-stained " : ""}${slot.item}${noun}${blood_stained ? "!" : "."}</span>`(user);
+			}
+		}
 	}
 
 	keydown(e) {
@@ -244,6 +270,37 @@ class MobInventory extends Component {
 		}
 	}
 
+	get_id_name(if_no_id = "Unknown") {
+		let id_item = this.slots.id && this.slots.id.item;
+		if(!id_item)
+			return if_no_id;
+		if(has_component(id_item, "CardId") && id_item.c.CardId.registered_name)
+			return id_item.c.CardId.registered_name;
+		return if_no_id;
+	}
+
+	identifiable(prev) {
+		for(let slot of Object.values(this.slots)) {
+			if(slot.props.clothing_slot && has_component(slot.item, slot.props.clothing_slot) && slot.item.c[slot.props.clothing_slot].hide_face)
+				return false;
+		}
+		return prev();
+	}
+
+	get_covered_slots() {
+		let set = new Set();
+		for(let slot of Object.values(this.slots)) {
+			if(!slot.props.clothing_slot || !has_component(slot.item, slot.props.clothing_slot))
+				continue;
+			let covered_slots = slot.item.c[slot.props.clothing_slot].covered_slots;
+			if(!covered_slots)
+				continue;
+			for(let covered of covered_slots)
+				set.add(covered);
+		}
+		return set;
+	}
+
 	has_access(prev, access) {
 		if(prev())
 			return true;
@@ -257,6 +314,84 @@ class MobInventory extends Component {
 			if(slotitem.c.HasAccess.has_access(access))
 				return true;
 		}
+	}
+
+	mouse_dragged_to(e) {
+		let user = e.mob;
+		if(e.from.atom == this.a && e.to.atom == user && (!has_component(e.mob, "Tangible") || e.mob.c.Tangible.can_reach(this.a))) {
+			// time for some fun strippy times
+			if(!user.c.Mob.get_panel(this.a, StripPanel) && user.c.Mob.can_read_panel(this.a, StripPanel)) {
+				var panel = new StripPanel(user.c.Mob.client, {title: `${this.a.name}`});
+				user.c.Mob.bind_panel(this.a, panel);
+				panel.open();
+			}
+		}
+	}
+
+	strip_panel_equip(mob, slot) {
+		if(slot.item) return;
+		let this_slot = this.slots[this.active_hand];
+		if(!this_slot) return;
+		let this_item = this_slot.item;
+		if(!this_item) return;
+
+		if(!this_slot.can_unequip()) {
+			to_chat`<span class='warning'>You can't put the ${this_item} on the ${mob}, it's stuck to your hand!</span>`(this.a);
+			return;
+		}
+		if(!slot.can_accept_item(this_item)) {
+			to_chat`<span class='warning'>The ${this_item} doesn't fit in that place!</span>`(this.a);
+			return;
+		}
+		let delay = this_item.c.Item.equip_delay_other;
+		if(slot.props.visible) {
+			visible_message`<span class='danger'>The ${this.a} tries to put the ${this_item} on the ${mob}.</span>`
+				.self`<span class='userdanger'>The ${this.a} tries to put the ${this_item} on the ${mob}.</span>`
+				.emit_from(mob);
+		} else {
+			to_chat`<span class='notice'>You try to place the ${this_item} into the ${mob}'s ${slot.props.strip_desc}.</span>`(this.a);
+			delay *= 0.5; // reverse pickpocketing is da bomb
+		}
+		this.do_after({delay, target: mob, extra_checks: (cancel) => {
+			slot.on("item_changed", cancel);
+			return () => {slot.removeListener("item_changed", cancel);};
+		}}).then((success) => {
+			if(!success) {
+				if(!slot.props.visible)
+					to_chat`<span class='warning'>You feel your ${slot.props.strip_desc} being fumbled with!</span>`(mob);
+				return;
+			}
+			if(slot.can_accept_item(this_item))
+				slot.item = this_item;
+		});
+	}
+	strip_panel_unequip(mob, slot) {
+		let item = slot.item;
+		if(!item)
+			return;
+		if(!slot.can_unequip()) {
+			to_chat`<span class='warning'>You can't remove the ${slot.visible ? item : "item"}, it appears to be stuck!</span>`(this.a);
+			return;
+		}
+		if(slot.props.visible) {
+			visible_message`<span class='danger'>The ${this.a} tries to remove the ${mob}'s ${item.name}.</span>`
+				.self`<span class='userdanger'>The ${this.a} tries to remove the ${mob}'s ${item.name}.</span>`
+				.emit_from(mob);
+		} else {
+			to_chat`<span class='notice'>You try to empty the ${mob}'s ${slot.props.strip_desc}.</span>`(this.a);
+		}
+		this.do_after({delay: item.c.Item.strip_delay, target: mob, extra_checks: (cancel) => {
+			slot.on("item_changed", cancel);
+			return () => {slot.removeListener("item_changed", cancel);};
+		}}).then((success) => {
+			if(!success) {
+				if(!slot.props.visible)
+					to_chat`<span class='warning'>You feel your ${slot.props.strip_desc} being fumbled with!</span>`(mob);
+				return;
+			}
+			if(slot.can_unequip())
+				item.loc = mob.fine_loc;
+		});
 	}
 
 	do_after({delay, needhand = true, target = null, progress = true, extra_checks = null} = {}) {
@@ -366,9 +501,6 @@ class Slot extends EventEmitter {
 			return false;
 		if(this.props.max_size && this.props.max_size < item.c.Item.size)
 			return false;
-		if(this.props.special_slot) { // This slot has autism.
-			return false;
-		}
 		if(this.props.is_hand_slot && this.mob.c.MobInventory.nohold_counter)
 			return false;
 		if(this.props.clothing_slot && !has_component(item, this.props.clothing_slot))
@@ -488,22 +620,29 @@ class Slot extends EventEmitter {
 		if(olditem)
 			olditem.c.Item.emit("unequipped", this);
 		this.emit("item_changed", olditem, value);
+		this.mob.c.MobInventory.emit("slot_item_changed", this.id, olditem, value);
 		if(this.id == this.mob.c.MobInventory.active_hand)
 			this.mob.c.MobInventory.emit("active_hand_item_changed", olditem, value);
 		if(value)
 			value.c.Item.emit("equipped", this);
+		if(has_component(this.mob, "LivingMob")) {
+			this.mob.c.LivingMob.update_name();
+		}
 	}
 }
 
 MobInventory.depends = ["Mob", "MobHud", "HasAccess"];
-MobInventory.loadBefore = ["Mob", "MobHud", "HasAccess"];
+MobInventory.loadBefore = ["Mob", "MobHud", "HasAccess", "LivingMob"];
 
 MobInventory.template = {
 	vars: {
 		components: {
 			"MobInventory": {
 				nohold_counter: 0,
-				handcuffable: false
+				handcuffable: false,
+				strip_layout: ["lhand", "rhand", null, "back", null, "head", "mask", "neck", "glasses", "ears", null, "oclothing", "suit_storage", "shoes", "gloves", "iclothing", "belt", "storage1", "storage2", "id"],
+				strip_names: ["left hand", "right hand", null, "Back", null, "Head", "Mask", "Neck", "Eyes", "Ears", null, "Exosuit", "↳Suit Storage", "Shoes", "Gloves", "Uniform", "↳Belt", "↳Left Pocket", "↳Right Pocket", "↳ID"],
+
 			}
 		}
 	}

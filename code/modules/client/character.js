@@ -120,11 +120,11 @@ class CharacterPreferences {
 	}
 
 	instance_human(server, {name_override = null}) {
-		let template = {"components": ["HumanMob"], vars: {}};
+		let template = {"components": ["HumanMob"], vars: {components: {"LivingMob": {}}}};
 		if(name_override == "clown") {
-			template.vars.name = clown_names[Math.floor(Math.random() * clown_names.length)];
+			template.vars.components.LivingMob.real_name = clown_names[Math.floor(Math.random() * clown_names.length)];
 		} else {
-			template.vars.name = this.name;
+			template.vars.components.LivingMob.real_name = this.name;
 		}
 		template.vars.gender = this.gender;
 		let mob = new Atom(server, template);

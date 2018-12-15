@@ -1,8 +1,8 @@
 'use strict';
-const {Component, Atom, has_component, chain_func, to_chat} = require('bluespess');
+const {Component, Atom, has_component, chain_func, to_chat, format_html} = require('bluespess');
 const layers = require('../../../../../defines/layers.js');
 const combat_defines = require('../../../../../defines/combat_defines.js');
-const {random_zone} = require('./helpers.js');
+const {random_zone, parse_zone} = require('./helpers.js');
 
 class MobBodyParts extends Component {
 	constructor(atom, template) {
@@ -73,6 +73,42 @@ class MobBodyParts extends Component {
 		}
 	}
 
+	examine_limbs(user) {
+		let t_He = this.a.p_they(true);
+		let t_His = this.a.p_their(true);
+		let t_his = this.a.p_their();
+		let t_has = this.a.p_have();
+		let msg = `<span class='warning'>`;
+		let missing = new Set(["head", "chest", "l_arm", "r_arm", "l_leg", "r_leg"]);
+		for(let bp of this.limbs_set) {
+			missing.delete(bp.c.BodyPart.body_zone);
+			for(let item of bp.c.BodyPart.embedded_objects) {
+				msg += format_html`<b>${t_He} ${t_has} a ${item} embedded in ${t_his} ${bp}!</b><br>`;
+			}
+		}
+		let l_limbs_missing = 0;
+		let r_limbs_missing = 0;
+		for(let t of missing) {
+			if(t=="head") {
+				msg += format_html`<span class='deadsay'><b>${t_His} ${parse_zone(t)} is missing!</b></span><br>`;
+				continue;
+			}
+			if(t == "l_arm" || t == "l_leg")
+				l_limbs_missing++;
+			else if(t == "r_arm" || t == "r_leg")
+				r_limbs_missing++;
+			msg += format_html`<b>${t_His} ${parse_zone(t)} is missing!</b><br>`;
+		}
+		if(l_limbs_missing >= 2 && r_limbs_missing == 0)
+			msg += format_html`${t_He} look${this.a.p_s()} all right now.<br>`;
+		else if(l_limbs_missing == 0 && r_limbs_missing >= 2)
+			msg += format_html`${t_He} really keeps to the left.<br>`;
+		else if(l_limbs_missing >= 2 && r_limbs_missing >= 2)
+			msg += format_html`${t_He} ${this.a.p_do()}n't seem all there.<br>`;
+		msg += '</span>';
+		to_chat(user, msg);
+	}
+
 	apply_damage(prev, damage, damage_type = "brute", def_zone = null, blocked = this.run_armor_check(def_zone, "melee")) {
 		if(damage_type != "brute" && damage_type != "burn")
 			return prev();
@@ -136,6 +172,7 @@ class BodyPart extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 		this.owner = null;
+		this.embedded_objects = new Set();
 	}
 
 	attach(mob) {

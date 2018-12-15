@@ -17,7 +17,7 @@ SuitItem.template = {
 		components: {
 			"SuitItem": {
 				worn_icon: 'icons/mob/suit.png',
-				worn_icon_state: null, // If null, inherits from inhand_icon_state //*ACTUALLY* icon_state: this[_item].c[this.props.clothing_slot].worn_icon_state || this[_item].icon_state,
+				worn_icon_state: null, // If null, inherits from icon_state
 				suit_storage_blacklist: [], // components you can or can't put in the suit storage slot
 				suit_storage_whitelist: [],
 				blood_overlay_type: "suit", //currently useless

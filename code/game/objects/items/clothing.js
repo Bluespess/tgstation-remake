@@ -19,8 +19,6 @@ WearableItem.template = {
 				strip_delay: 4000,
 				body_parts_covered: [],
 				clothing_armor: {melee: 0, bullet: 0, laser: 0, energy: 0, bomb: 0, bio: 0, rad: 0, fire: 0, acid: 0},
-				flags_inv: null,
-				flags_cover: null,
 				dog_fashion: null,
 				heat_protection: [], //Bodyparts protected from heat. Use the same parts as body_parts_covered
 				cold_protection: [], //Same but for cold
@@ -49,7 +47,7 @@ BackItem.template = {
 		components: {
 			"BackItem": {
 				worn_icon: 'icons/mob/back.png',
-				worn_icon_state: null // If null, inherits from inhand_icon_state
+				worn_icon_state: null // If null, inherits from icon_state
 			}
 		}
 	}
@@ -69,7 +67,7 @@ BeltItem.template = {
 		components: {
 			"BeltItem": {
 				worn_icon: 'icons/mob/belt.png',
-				worn_icon_state: null // If null, inherits from inhand_icon_state
+				worn_icon_state: null // If null, inherits from icon_state
 			}
 		}
 	}
@@ -89,7 +87,7 @@ EarItem.template = {
 		components: {
 			"EarItem": {
 				worn_icon: 'icons/mob/ears.png',
-				worn_icon_state: null // If null, inherits from inhand_icon_state
+				worn_icon_state: null // If null, inherits from icon_state
 			}
 		}
 	}
@@ -109,7 +107,7 @@ EyeItem.template = {
 		components: {
 			"EyeItem": {
 				worn_icon: 'icons/mob/eyes.png',
-				worn_icon_state: null // If null, inherits from inhand_icon_state
+				worn_icon_state: null // If null, inherits from icon_state
 			}
 		}
 	}
@@ -129,7 +127,8 @@ MaskItem.template = {
 		components: {
 			"MaskItem": {
 				worn_icon: 'icons/mob/mask.png',
-				worn_icon_state: null // If null, inherits from inhand_icon_state
+				worn_icon_state: null, // If null, inherits from icon_state
+				hide_face: false
 			}
 		}
 	}
@@ -149,7 +148,7 @@ NeckItem.template = {
 		components: {
 			"NeckItem": {
 				worn_icon: 'icons/mob/neck.png',
-				worn_icon_state: null // If null, inherits from inhand_icon_state
+				worn_icon_state: null // If null, inherits from icon_state
 			}
 		}
 	}

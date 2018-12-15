@@ -16,7 +16,7 @@ UniformItem.template = {
 		components: {
 			"UniformItem": {
 				worn_icon: 'icons/mob/uniform.png',
-				worn_icon_state: null, // If null, inherits from inhand_icon_state
+				worn_icon_state: null, // If null, inherits from icon_state
 				fitted: "female_uniform_full",
 				can_adjust: true, //Useless until alt styles are implemented
 				alt_covers_chest: false //Also useless until alt styles

@@ -18,10 +18,11 @@ HeadItem.template = {
 		components: {
 			"HeadItem": {
 				worn_icon: 'icons/mob/head.png',
-				worn_icon_state: null, // If null, inherits from inhand_icon_state //*ACTUALLY* icon_state: this[_item].c[this.props.clothing_slot].worn_icon_state || this[_item].icon_state,
+				worn_icon_state: null, // If null, inherits from icon_state
 				block_tracking: false, //for AI tracking
 				can_toggle: false,
-				dynamic_hair_suffix: "+generic"
+				dynamic_hair_suffix: "+generic",
+				hide_face: false
 			},
 			"WearableItem": {
 				body_parts_covered: ['head']

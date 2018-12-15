@@ -70,7 +70,7 @@ IdSlotItem.template = {
 		components: {
 			"IdSlotItem": {
 				worn_icon: null,
-				worn_icon_state: null // If null, inherits from inhand_icon_state
+				worn_icon_state: null // If null, inherits from icon_state
 			}
 		}
 	}

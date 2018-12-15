@@ -35,8 +35,10 @@ module.exports.templates = {
 		vars: {
 			components: {
 				"WearableItem": {
-					body_parts_covered: ['chest', 'groin', 'l_leg', 'r_leg', 'l_arm', 'r_arm'],
-					flags_inv: "hidejumpsuit"
+					body_parts_covered: ['chest', 'groin', 'l_leg', 'r_leg', 'l_arm', 'r_arm']
+				},
+				"SuitItem": {
+					covered_slots: ['iclothing']
 				},
 				"Item": {
 					inhand_icon_state: "bio_suit",
@@ -75,7 +77,9 @@ module.exports.templates = {
 			components: {
 				"WearableItem": {
 					body_parts_covered: ['chest', 'groin', 'l_leg', 'r_leg', 'l_arm', 'r_arm'],
-					flags_inv: ["hidejumpsuit", "hideshoes"]
+				},
+				"SuitItem": {
+					covered_slots: ['iclothing', 'id', 'storage1', 'storage2', 'belt', 'gloves']
 				},
 				"Item": {
 					inhand_icon_state: "nun",
