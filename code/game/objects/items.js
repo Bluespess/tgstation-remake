@@ -129,7 +129,8 @@ Item.template = {
 				sharpness: Item.IS_BLUNT,
 				force: 0,
 				damage_type: "brute",
-				attack_verb: null
+				attack_verb: null,
+				needs_permit: false, //TODO: currently just a placeholder
 			}
 		},
 		icon: 'icons/obj/items.png',

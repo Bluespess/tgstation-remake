@@ -161,7 +161,8 @@ EnergyGun.template = {
 				charge_x_offset: 2/32,
 				charge_y_offset: 0,
 				select_icon: false,
-				can_charge: true
+				can_charge: true,
+				selfcharge: false //TODO: Actually implement this. Currently a placeholder.
 			},
 			"Examine": {
 				desc: "A basic energy-based gun."

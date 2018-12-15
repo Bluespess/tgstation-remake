@@ -141,6 +141,12 @@ module.exports = [
 	["/obj/item/melee/baseball_bat", () => {return {template_name: "baseball_bat"};}, {pixel_offsets: true}],
 
 	["/obj/item/gun/energy/laser", () => {return {template_name: "lasergun"};}, {pixel_offsets: true}],
+	["/obj/item/gun/energy/laser/practice", () => {return {template_name: "lasergun_practice"};}, {pixel_offsets: true}],
+	["/obj/item/gun/energy/laser/retro", () => {return {template_name: "lasergun_retro"};}, {pixel_offsets: true}],
+	["/obj/item/gun/energy/laser/retro/old", () => {return {template_name: "lasergun_retro_old"};}, {pixel_offsets: true}],
+	["/obj/item/gun/energy/laser/captain", () => {return {template_name: "lasergun_captain"};}, {pixel_offsets: true}],
+	["/obj/item/gun/energy/laser/bluetag", () => {return {template_name: "lasergun_bluetag"};}, {pixel_offsets: true}],
+	["/obj/item/gun/energy/laser/redtag", () => {return {template_name: "lasergun_redtag"};}, {pixel_offsets: true}],
 
 	// LAMPS AND LIGHTS
 

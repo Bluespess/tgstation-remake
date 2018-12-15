@@ -78,6 +78,63 @@ module.exports.templates = {
 			}
 		},
 		tree_paths: ["items/ammo_casing/energy/lasergun"]
+	},
+	"energy_lens_lasergun_practice": {
+		components: ["EnergyLens"],
+		vars: {
+			components: {
+				"EnergyLens": {
+					select_name: "practice"
+				},
+				"AmmoCasing": {
+					projectile_type: "beam_laser_practice"
+				}
+			}
+		},
+		tree_paths: ["items/ammo_casing/energy/lasergun/practice"]
+	},
+	"energy_lens_lasergun_old": {
+		components: ["EnergyLens"],
+		vars: {
+			components: {
+				"EnergyLens": {
+					e_cost: 200,
+					select_name: "kill"
+				},
+				"AmmoCasing": {
+					projectile_type: "beam_laser"
+				}
+			}
+		},
+		tree_paths: ["items/ammo_casing/energy/lasergun/old"]
+	},
+	"energy_lens_lasergun_bluetag": {
+		components: ["EnergyLens"],
+		vars: {
+			components: {
+				"EnergyLens": {
+					select_name: "bluetag"
+				},
+				"AmmoCasing": {
+					projectile_type: "beam_laser_lasertag_bluetag"
+				}
+			}
+		},
+		tree_paths: ["items/ammo_casing/energy/lasergun/bluetag"]
+	},
+	"energy_lens_lasergun_redtag": {
+		components: ["EnergyLens"],
+		vars: {
+			components: {
+				"EnergyLens": {
+					select_name: "redtag"
+				},
+				"AmmoCasing": {
+					projectile_type: "beam_laser_lasertag_redtag"
+				}
+			}
+		},
+		tree_paths: ["items/ammo_casing/energy/lasergun/redtag"]
 	}
 };
 
