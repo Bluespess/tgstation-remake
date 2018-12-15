@@ -134,8 +134,7 @@ BallisticGun.template = {
 				can_suppress: false,
 				can_unsuppress: true,
 				empty_state: true,
-				mag_state: true,
-				clumsy_check: true //TODO: currently just a placeholder
+				mag_state: true
 			},
 			"Item": {
 				size: 3

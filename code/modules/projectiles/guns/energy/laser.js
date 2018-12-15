@@ -22,7 +22,6 @@ module.exports.templates = {
 				"EnergyGun": {
 					ammo_type: ["energy_lens_lasergun"],
 					shaded_charge: true,
-					charge_x_offset: 1/32
 				},
 				"Item": {
 					inhand_icon_state: "laser",
@@ -47,7 +46,7 @@ module.exports.templates = {
 				"Item": {
 					needs_permit: false
 				},
-				"BallisticGun": {
+				"Gun": {
 					clumsy_check: false
 				},
 				"Examine": {
@@ -62,9 +61,6 @@ module.exports.templates = {
 		parent_template: "lasergun",
 		vars: {
 			components: {
-				"EnergyGun": {
-					charge_x_offset: 3/32
-				},
 				"Examine": {
 					desc: "An older model of the basic lasergun, no longer used by Nanotrasen's private security or military forces. Nevertheless, it is still quite deadly and easy to maintain, making it a favorite amongst pirates and other outlaws."
 				}
@@ -79,8 +75,7 @@ module.exports.templates = {
 		vars: {
 			components: {
 				"EnergyGun": {
-					ammo_type: ["energy_lens_lasergun_old"],
-					charge_x_offset: 3/32
+					ammo_type: ["energy_lens_lasergun_old"]
 				},
 				"Examine": {
 					desc: "First generation lasergun, developed by Nanotrasen. Suffers from ammo issues but its unique ability to recharge its ammo without the need of a magazine helps compensate. You really hope someone has developed a better lasergun while you were in cyro."
@@ -96,7 +91,6 @@ module.exports.templates = {
 		vars: {
 			components: {
 				"EnergyGun": {
-					charge_x_offset: 3/32,
 					selfcharge: true
 				},
 				"Examine": {
@@ -116,10 +110,11 @@ module.exports.templates = {
 				"Item": {
 					needs_permit: false
 				},
-				"EnergyGun": {
-					charge_x_offset: 2/32,
-					selfcharge: true,
+				"Gun": {
 					clumsy_check: false,
+				},
+				"EnergyGun": {
+					selfcharge: true,
 					ammo_type: ["energy_lens_lasergun_bluetag"],
 				},
 				"Examine": {
@@ -139,10 +134,11 @@ module.exports.templates = {
 				"Item": {
 					needs_permit: false
 				},
-				"EnergyGun": {
-					charge_x_offset: 2/32,
-					selfcharge: true,
+				"Gun": {
 					clumsy_check: false,
+				},
+				"EnergyGun": {
+					selfcharge: true,
 					ammo_type: ["energy_lens_lasergun_redtag"],
 				},
 				"Examine": {
