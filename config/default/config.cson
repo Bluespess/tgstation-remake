@@ -8,3 +8,5 @@ motd: '''
 		<i>This is still extremely unfinished.</i>
 	</div>
 	'''
+
+title_screen: 'icons/title_screen/default.png'

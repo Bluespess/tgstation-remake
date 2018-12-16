@@ -1,6 +1,6 @@
 'use strict';
 
-const {Component, Sound, to_chat} = require('bluespess');
+const {Component, Sound, Atom, to_chat} = require('bluespess');
 const NewPlayerPanel = require('./new_player_panel.js');
 const _ = require('underscore');
 const CharacterPreferences = require('../../modules/client/character.js');
@@ -9,6 +9,18 @@ class NewPlayer extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 		this.a.c.Mob.on('client_changed', this.client_changed.bind(this));
+
+		this.splash_screen = new Atom(this.a.server, {
+			components: ["SplashScreen"],
+			vars: {
+				screen_loc_x: 0,
+				screen_loc_y: 14,
+				icon: this.a.server.config.title_screen,
+				icon_state: "",
+				layer: 30
+			}
+		});
+		this.a.c.Eye.screen.splash_screen = this.splash_screen;
 	}
 
 	client_changed(old_client, new_client) {
@@ -33,11 +45,17 @@ class NewPlayer extends Component {
 				new_client.character_preferences = new CharacterPreferences();
 		}
 	}
+
+	destroy() {
+		this.splash_screen.destroy();
+	}
 }
 NewPlayer.depends = ['Mob'];
 NewPlayer.loadBefore = ['Mob'];
 
-module.exports.components = {NewPlayer};
+class SplashScreen extends Component.Networked {}
+
+module.exports.components = {NewPlayer, SplashScreen};
 module.exports.now = function(server) {
 	server.lobby_music = _.sample([
 		"sound/ambience/title1.ogg",

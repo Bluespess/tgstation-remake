@@ -31,7 +31,6 @@ class AtmosMachine extends Component {
 	update_node_display() {
 		if(!this.node_display || !this.under_floor_obj)
 			return;
-		console.log(this.node_display);
 		for(let i = 0; i < this.node_display.length; i++) {
 			let dir = 1 << i;
 			let obj = this.node_display[i];
