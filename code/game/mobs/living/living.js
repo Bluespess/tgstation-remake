@@ -1,5 +1,5 @@
 'use strict';
-const {Component, Sound, Atom, chain_func, format_html, visible_message, has_component, to_chat} = require('bluespess');
+const {Component, Sound, Atom, chain_func, format_html, visible_message, has_component} = require('bluespess');
 const _ = require('underscore');
 const GasMixture = require('../../../modules/atmospherics/gasmixtures/gas_mixture');
 const Mind = require('../mind/mind.js');
