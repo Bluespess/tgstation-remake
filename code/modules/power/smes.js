@@ -123,7 +123,7 @@ class Smes extends Component {
 		} else {
 			this.last_input_available = 0;
 			this.last_input_potential = 0;
-			this.inputting = 0;
+			this.inputting = false;
 		}
 		if(this.did_balance)
 			this.did_balance = false;

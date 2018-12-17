@@ -11,10 +11,12 @@ class GameTicker extends EventEmitter {
 		super();
 		this.server = server;
 		this.server.ticker = this;
-		this.game_state = "pregame"; // can be pregame, playing, or finished
+		/** @type {"pregame"|"playing"|"finished"} */
+		this.game_state = "pregame";
 		this.busy = false;
 		this.total_players = 0;
 		this.total_players_ready = 0;
+		/** @type {number|null} */
 		this.start_at = null;
 
 		this.round_tip_override = null;

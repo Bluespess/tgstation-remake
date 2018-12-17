@@ -28,14 +28,22 @@ class ApcPowered extends Component {
 		}
 	}
 
-	// returns the energy available in joules
+	/**
+	 * @param {string} channel 
+	 * @return {number} Amount of availible energy in joules
+	 */
 	get_available_power(channel = this.power_channel) {
 		if(!this.area)
 			return 0;
 		return this.area.c.AreaPower.get_available_power(channel);
 	}
 
-	// uses this amount of energy in joules
+	/**
+	 * 
+	 * @param {number} amount 
+	 * @param {string} channel 
+	 * @return {number} Amount of energy used in joules
+	 */
 	use_power(amount, channel = this.power_channel) {
 		if(!this.area)
 			return 0;

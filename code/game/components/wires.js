@@ -106,7 +106,7 @@ MachineWires.template = {
 				wire_defs: {}, // a list of wire IDs
 				// but be careful though the individual wire IDs will be inherited
 				wire_group: null, // if not null all wire machines with the same group will have the same
-				status_text: null
+				status_text: ""
 			}
 		}
 	}
