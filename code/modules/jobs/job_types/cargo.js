@@ -11,8 +11,8 @@ module.exports.jobs.qm = new JobType({
 	selection_color: "#d7b088",
 	department_head: ["hop"],
 	departments: ["supply"],
-	access: ["maint", "cargo", "qm", "mining", "mining_station", "mineral_storeroom"],
-	minimal_access: ["maint", "cargo", "qm", "mining", "mining_station", "mineral_storeroom"],
+	access: ["maint", "cargo", "cargo_office", "qm", "mining", "mining_station", "mineral_storeroom"],
+	minimal_access: ["maint", "cargo", "cargo_office", "qm", "mining", "mining_station", "mineral_storeroom"],
 });
 
 let qm_outfit = new JobType.Outfit({
@@ -33,8 +33,8 @@ module.exports.jobs.cargo_tech = new JobType({
 	selection_color: "#dcba97",
 	department_head: ["qm", "hop"],
 	departments: ["supply"],
-	access: ["maint", "cargo", "mining", "mining_station", "mineral_storeroom"],
-	minimal_access: ["maint", "cargo", "mineral_storeroom"],
+	access: ["maint", "cargo", "cargo_office", "mining", "mining_station", "mineral_storeroom"],
+	minimal_access: ["maint", "cargo", "cargo_office", "mineral_storeroom"],
 });
 
 let cargo_tech_outfit = new JobType.Outfit({
@@ -56,8 +56,8 @@ module.exports.jobs.mining = new JobType({
 	selection_color: "#dcba97",
 	department_head: ["qm", "hop"],
 	departments: ["supply"],
-	access: ["maint", "cargo", "mining", "mining_station", "mineral_storeroom"],
-	minimal_access: ["maint", "cargo", "mineral_storeroom"],
+	access: ["maint", "cargo", "cargo_office", "mining", "mining_station", "mineral_storeroom"],
+	minimal_access: ["maint", "cargo", "cargo_office", "mining", "mining_station", "mineral_storeroom"],
 });
 
 let mining_outfit = new JobType.Outfit({
