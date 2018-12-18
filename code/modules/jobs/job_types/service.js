@@ -11,7 +11,7 @@ module.exports.jobs.bartender = new JobType({
 	selection_color: "#bbe291",
 	department_head: ["hop"],
 	departments: ["service"],
-	access: ["hydroponics", "bar", "kichen", "morgue", "weapons"],
+	access: ["hydroponics", "bar", "kitchen", "morgue", "weapons"],
 	minimal_access: ["bar"],
 });
 
@@ -33,7 +33,7 @@ module.exports.jobs.cook = new JobType({
 	selection_color: "#bbe291",
 	department_head: ["hop"],
 	departments: ["service"],
-	access: ["hydroponics", "bar", "kichen", "morgue"],
+	access: ["hydroponics", "bar", "kitchen", "morgue"],
 	minimal_access: ["kitchen", "morgue"],
 });
 
@@ -56,7 +56,7 @@ module.exports.jobs.hydro = new JobType({
 	selection_color: "#bbe291",
 	department_head: ["hop"],
 	departments: ["service"],
-	access: ["hydroponics", "bar", "kichen", "morgue"],
+	access: ["hydroponics", "bar", "kitchen", "morgue"],
 	minimal_access: ["hydroponics","morgue"],
 });
 

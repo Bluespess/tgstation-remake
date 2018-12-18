@@ -138,7 +138,7 @@ class Smes extends Component {
 				this.a.c.PowerNode.new_avail += this.new_last_output_used;
 				this.a.c.PowerNode.powernet.new_smes_output_total += this.new_last_output_used;
 				if(this.new_last_output_used < 0.0001) {
-					this.outputting = 0;
+					this.outputting = false;
 				}
 			} else {
 				this.new_last_output_used = 0;
