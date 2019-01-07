@@ -42,6 +42,7 @@ if(global.is_bs_editor_env) {
 	client.handle_login = function() {
 		this.panel_manager.create_client_panel({title: "Login", can_close: false, content_class: "LoginPanel", width: 250, height: 400});
 	};
+	require('./code/preload.js')(client);
 	window.addEventListener("load", () => {
 		let eye = new Eye(client, "");
 		let main_plane = new Plane.World(eye, "");
