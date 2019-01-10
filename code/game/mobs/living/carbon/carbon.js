@@ -235,6 +235,12 @@ class CarbonMob extends Component.Networked {
 			else if(old && !this.lying)
 				this.a.c.MobInventory.nohold_counter--;
 		}
+		if(has_component(this.a, "MobInteract")) {
+			if(this.lying && !old)
+				this.a.c.MobInteract.nointeract_counter++;
+			else if(old && !this.lying)
+				this.a.c.MobInteract.nointeract_counter--;
+		}
 	}
 
 	life(prev, cycle) {

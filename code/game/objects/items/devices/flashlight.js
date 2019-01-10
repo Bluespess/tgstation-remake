@@ -5,6 +5,7 @@ const {Component} = require('bluespess');
 class Flashlight extends Component {
 	constructor(atom, template) {
 		super(atom, template);
+		this.a.c.ItemActions.add_action({name: "Toggle Flashlight"});
 		this.a.c.LightSource.on("enabled_changed", this.enabled_changed.bind(this));
 		this.a.c.Item.attack_self = this.attack_self.bind(this);
 		this.enabled_changed();
@@ -23,8 +24,8 @@ class Flashlight extends Component {
 	}
 }
 
-Flashlight.depends = ["LightSource", "Item"];
-Flashlight.loadBefore = ["LightSource", "Item"];
+Flashlight.depends = ["LightSource", "Item", "ItemActions"];
+Flashlight.loadBefore = ["LightSource", "Item", "ItemActions"];
 
 Flashlight.template = {
 	vars: {

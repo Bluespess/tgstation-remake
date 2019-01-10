@@ -169,6 +169,7 @@ server.importModule(require('./code/modules/reagents/holder.js'));
 server.importModule(require('./code/modules/shuttle/shuttle.js'));
 server.importModule(require('./code/modules/smoothing/smoothing.js'));
 server.importModule(require('./code/modules/speech/speech.js'));
+server.importModule(require('./code/onclick/action.js'));
 server.importModule(require('./code/onclick/hud.js'));
 server.importModule(require('./code/onclick/interact.js'));
 server.importModule(require('./code/onclick/inventory.js'));

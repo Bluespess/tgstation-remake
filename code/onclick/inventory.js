@@ -244,19 +244,21 @@ class MobInventory extends Component {
 	}
 
 	handcuffed_changed(from, to) {
+		if(from) {
+			this.a.c.MobHud.clear_alert("handcuffed");
+			this.a.overlays.handcuffed = null;
+			this.slots.lhand.atom.overlays.handcuffed = null;
+			this.slots.rhand.atom.overlays.handcuffed = null;
+			this.a.c.MobInteract.nointeract_counter--;
+		}
 		if(to) {
 			this.a.c.MobHud.throw_alert("handcuffed", "alert_handcuffed", {new_master: to});
 			this.a.overlays.handcuffed = {overlay_layer: 17, icon: 'icons/mob/mob.png', icon_state: "handcuff1"};
 			// some interesting icon_state values you got there tg
 			this.slots.rhand.atom.overlays.handcuffed = {icon: 'icons/mob/screen_gen.png', icon_state: "markus"};
 			this.slots.lhand.atom.overlays.handcuffed = {icon: 'icons/mob/screen_gen.png', icon_state: "gabrielle"};
+			this.a.c.MobInteract.nointeract_counter++;
 			this.accident();
-		}
-		if(from) {
-			this.a.c.MobHud.clear_alert("handcuffed");
-			this.a.overlays.handcuffed = null;
-			this.slots.lhand.atom.overlays.handcuffed = null;
-			this.slots.rhand.atom.overlays.handcuffed = null;
 		}
 	}
 

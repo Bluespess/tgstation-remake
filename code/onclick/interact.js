@@ -1,5 +1,5 @@
 'use strict';
-const {Component, Atom, has_component} = require('bluespess');
+const {Component, Atom, has_component, make_watched_property} = require('bluespess');
 const combat_defines = require('../defines/combat_defines.js');
 const mob_defines = require('../defines/mob_defines.js');
 
@@ -8,6 +8,7 @@ class MobInteract extends Component {
 		super(atom, template);
 		this.a.c.Mob.on("click_on", this.click_on.bind(this));
 		this.next_move = 0;
+		make_watched_property(this, "nointeract_counter", "number");
 		if(this.zone_sel_template) {
 			let zone_sel = new Atom(this.a.server, this.zone_sel_template);
 			process.nextTick(() => {
@@ -24,7 +25,10 @@ class MobInteract extends Component {
 		this.a.c.Eye.screen.move_intent.on("clicked", () => {
 			this.move_intent();
 		});
-
+		this.on("nointeract_counter_changed", (from, to) => {
+			if((from && !to) || (to && !from))
+				this.a.c.MobHud.update_buttons();
+		});
 	}
 
 	click_on(e) {
@@ -140,7 +144,7 @@ MobInteract.template = {
 	}
 };
 
-MobInteract.depends = ["Mob"];
-MobInteract.loadBefore = ["Mob"];
+MobInteract.depends = ["Mob", "MobHud"];
+MobInteract.loadBefore = ["Mob", "MobHud"];
 
 module.exports.components = {MobInteract};

@@ -5,6 +5,8 @@ class MobHud extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 		this.alerts = {};
+		this.actions = new Set();
+		this.action_buttons = new Map();
 		this.a.on("click", this._onclick.bind(this));
 	}
 
@@ -109,15 +111,47 @@ class MobHud extends Component {
 			this.a.c.Eye.screen[`ui_alert${alert_idx}`] = undefined;
 		}
 	}
+	reorganize_buttons() {
+		const row_size = 10;
+		let buttons_array = [...this.action_buttons.values()];
+		for(let i = 0; i < buttons_array.length; i++) {
+			let button = buttons_array[i];
+			this.a.c.Eye.screen[`button_${button.object_id}`] = button;
+			let row = Math.floor(i / row_size);
+			let col = i % row_size;
+			button.screen_loc_x = 0.1875 + (1.0625 * col);
+			button.screen_loc_y = 13.8125 - row;
+		}
+	}
+	update_buttons() {
+		for(let button of this.action_buttons.values())
+			button.c.ActionButton.update_icon();
+	}
 }
 
 MobHud.depends = ["Mob"];
 
-class Alert extends Component.Networked {
+class Tooltip extends Component.Networked {
 	constructor(atom, template) {
 		super(atom, template);
 		this.add_networked_var("desc");
-		this.add_networked_var("tooltip_theme");
+		this.add_networked_var("theme");
+	}
+}
+Tooltip.template = {
+	vars: {
+		components: {
+			"Tooltip": {
+				desc: "Something seems to have gone wrong with this tooltip, so report this bug please",
+				theme: ""
+			}
+		}
+	}
+};
+
+class Alert extends Component {
+	constructor(atom, template) {
+		super(atom, template);
 		this.a.on("clicked", this.clicked.bind(this));
 		this.mob_viewer = null;
 	}
@@ -131,9 +165,7 @@ Alert.template = {
 	vars: {
 		components: {
 			Alert: {
-				timeout: 0, // If set to a number, this alert will clear itself after that many deciseconds
-				desc: "Something seems to have gone wrong with this alert, so report this bug please",
-				tooltip_theme: "",
+				timeout: 0, // If set to a number, this alert will clear itself after that many ms
 				resist_alert: false
 			}
 		},
@@ -144,6 +176,8 @@ Alert.template = {
 	},
 	hidden: true // Make it not appear in map editor
 };
+Alert.depends = ["Tooltip"];
+Alert.loadBefore = ["Tooltip"];
 
 class GridDisplay extends Component.Networked {
 	constructor(atom, template) {
@@ -173,8 +207,10 @@ module.exports.templates = {
 		components: ["Alert"],
 		vars: {
 			components: {
+				"Tooltip": {
+					desc: "You've been buckled to something. Click the alert to unbuckle unless you're handcuffed."
+				},
 				"Alert": {
-					desc: "You've been buckled to something. Click the alert to unbuckle unless you're handcuffed.",
 					resist_alert: true
 				}
 			},
@@ -186,8 +222,10 @@ module.exports.templates = {
 		components: ["Alert"],
 		vars: {
 			components: {
+				"Tooltip": {
+					desc: "You're handcuffed and can't act. If anyone drags you, you won't be able to move. Click the alert to free yourself."
+				},
 				"Alert": {
-					desc: "You're handcuffed and can't act. If anyone drags you, you won't be able to move. Click the alert to free yourself.",
 					resist_alert: true
 				}
 			},
@@ -198,7 +236,7 @@ module.exports.templates = {
 		components: ["Alert"],
 		vars: {
 			components: {
-				"Alert": {
+				"Tooltip": {
 					desc: "You're not getting enough oxygen. Find some good air before you pass out! The box in your backpack has an oxygen tank and breath mask in it"
 				}
 			},
@@ -211,7 +249,7 @@ module.exports.templates = {
 		components: ["Alert"],
 		vars: {
 			components: {
-				"Alert": {
+				"Tooltip": {
 					desc: "There's too much oxygen in the air, and you're breathing it in! Find some good air before you pass out!"
 				}
 			},
@@ -224,7 +262,7 @@ module.exports.templates = {
 		components: ["Alert"],
 		vars: {
 			components: {
-				"Alert": {
+				"Tooltip": {
 					desc: "You're not getting enough carbon dioxide. Find some good air before you pass out!"
 				}
 			},
@@ -237,7 +275,7 @@ module.exports.templates = {
 		components: ["Alert"],
 		vars: {
 			components: {
-				"Alert": {
+				"Tooltip": {
 					desc: "There's too much carbon dioxide in the air, and you're breathing it in! Find some good air before you pass out!"
 				}
 			},
@@ -250,7 +288,7 @@ module.exports.templates = {
 		components: ["Alert"],
 		vars: {
 			components: {
-				"Alert": {
+				"Tooltip": {
 					desc: "You're not getting enough plasma. Find some good air before you pass out!"
 				}
 			},
@@ -263,7 +301,7 @@ module.exports.templates = {
 		components: ["Alert"],
 		vars: {
 			components: {
-				"Alert": {
+				"Tooltip": {
 					desc: "There's highly flammable, toxic plasma in the air and you're breathing it in. Find some fresh air. \
 		The box in your backpack has an oxygen tank and gas mask in it."
 				}
@@ -278,7 +316,7 @@ module.exports.templates = {
 		components: ["Alert"],
 		vars: {
 			components: {
-				"Alert": {
+				"Tooltip": {
 					desc: "You ate too much food, lardass. Run around the station and lose some weight."
 				}
 			},
@@ -290,7 +328,7 @@ module.exports.templates = {
 		components: ["Alert"],
 		vars: {
 			components: {
-				"Alert": {
+				"Tooltip": {
 					desc: "Some food would be good right about now."
 				}
 			},
@@ -302,7 +340,7 @@ module.exports.templates = {
 		components: ["Alert"],
 		vars: {
 			components: {
-				"Alert": {
+				"Tooltip": {
 					desc: "You're severely malnourished. The hunger pains make moving around a chore."
 				}
 			},
@@ -314,7 +352,7 @@ module.exports.templates = {
 		components: ["Alert"],
 		vars: {
 			components: {
-				"Alert": {
+				"Tooltip": {
 					desc: "You're flaming hot! Get somewhere cooler and take off any insulating clothing like a fire suit."
 				}
 			},
@@ -326,7 +364,7 @@ module.exports.templates = {
 		components: ["Alert"],
 		vars: {
 			components: {
-				"Alert": {
+				"Tooltip": {
 					desc: "You're freezing cold! Get somewhere warmer and take off any insulating clothing like a space suit."
 				}
 			},
@@ -338,7 +376,7 @@ module.exports.templates = {
 		components: ["Alert"],
 		vars: {
 			components: {
-				"Alert": {
+				"Tooltip": {
 					desc: "The air around you is hazardously thin. A space suit would protect you."
 				}
 			},
@@ -350,7 +388,7 @@ module.exports.templates = {
 		components: ["Alert"],
 		vars: {
 			components: {
-				"Alert": {
+				"Tooltip": {
 					desc: "The air around you is hazardously thick. A fire suit would protect you."
 				}
 			},
@@ -362,7 +400,7 @@ module.exports.templates = {
 		components: ["Alert"],
 		vars: {
 			components: {
-				"Alert": {
+				"Tooltip": {
 					desc: "You can't see! This may be caused by a genetic defect, eye trauma, being unconscious, \
 		or something covering your eyes."
 				}
@@ -375,7 +413,7 @@ module.exports.templates = {
 		components: ["Alert"],
 		vars: {
 			components: {
-				"Alert": {
+				"Tooltip": {
 					desc: "Whoa man, you're tripping balls! Careful you don't get addicted... if you aren't already."
 				}
 			},
@@ -387,7 +425,7 @@ module.exports.templates = {
 		components: ["Alert"],
 		vars: {
 			components: {
-				"Alert": {
+				"Tooltip": {
 					desc: "All that alcohol you've been drinking is impairing your speech, motor skills, and mental cognition. Make sure to act like it."
 				}
 			},
@@ -399,7 +437,7 @@ module.exports.templates = {
 		components: ["Alert"],
 		vars: {
 			components: {
-				"Alert": {
+				"Tooltip": {
 					desc: "Something got lodged into your flesh and is causing major bleeding. It might fall out with time, but surgery is the safest way. \
 		If you're feeling frisky, click yourself in help intent to pull the object out."
 				}
@@ -412,7 +450,7 @@ module.exports.templates = {
 		components: ["Alert"],
 		vars: {
 			components: {
-				"Alert": {
+				"Tooltip": {
 					desc: "Gravity has ceased affecting you, and you're floating around aimlessly. You'll need something large and heavy, like a \
 		wall or lattice, to push yourself off if you want to move. A jetpack would enable free range of motion. A pair of \
 		magboots would let you walk around normally on the floor. Barring those, you can throw things, use a fire extinguisher, \
@@ -427,7 +465,7 @@ module.exports.templates = {
 		components: ["Alert"],
 		vars: {
 			components: {
-				"Alert": {
+				"Tooltip": {
 					desc: "You're on fire. Stop, drop and roll to put the fire out or move to a vacuum area."
 				}
 			},
@@ -442,9 +480,9 @@ module.exports.templates = {
 		components: ["Alert"],
 		vars: {
 			components: {
-				"Alert": {
+				"Tooltip": {
 					desc: "There's flammable plasma in the air. If it lights up, you'll be toast.",
-					tooltip_theme: "alien"
+					theme: "alien"
 				}
 			},
 			name: "Plasma",
@@ -455,9 +493,9 @@ module.exports.templates = {
 		components: ["Alert"],
 		vars: {
 			components: {
-				"Alert": {
+				"Tooltip": {
 					desc: "It's too hot! Flee to space or at least away from the flames. Standing on weeds will heal you.",
-					tooltip_theme: "alien"
+					theme: "alien"
 				}
 			},
 			name: "Too Hot",
@@ -468,9 +506,9 @@ module.exports.templates = {
 		components: ["Alert"],
 		vars: {
 			components: {
-				"Alert": {
+				"Tooltip": {
 					desc: "Your queen has been killed, you will suffer movement penalties and loss of hivemind. A new queen cannot be made until you recover.",
-					tooltip_theme: "alien"
+					theme: "alien"
 				}
 			},
 			name: "Severed Matriarchy",
@@ -484,9 +522,9 @@ module.exports.templates = {
 		components: ["Alert"],
 		vars: {
 			components: {
-				"Alert": {
+				"Tooltip": {
 					desc: "You have no factory, and are slowly dying!",
-					tooltip_theme: "blob"
+					theme: "blob"
 				}
 			},
 			name: "No Factory",
@@ -495,4 +533,4 @@ module.exports.templates = {
 	},
 };
 
-module.exports.components = {Alert, MobHud, GridDisplay};
+module.exports.components = {Alert, MobHud, GridDisplay, Tooltip};

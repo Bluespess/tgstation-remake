@@ -1,7 +1,7 @@
 'use strict';
 const {Component} = require('bluespess-client');
 
-class Alert extends Component {
+class Tooltip extends Component {
 	constructor(atom, template) {
 		super(atom, template);
 		this.a.on("mouseover", this.mouseover.bind(this));
@@ -9,7 +9,7 @@ class Alert extends Component {
 		this.a.on("mousemove", this.mousemove.bind(this));
 		this.alert_div = document.createElement("div");
 		this.alert_div.classList.add("tooltip");
-		this.alert_div.classList.add(this.tooltip_theme || "midnight");
+		this.alert_div.classList.add(this.theme || "midnight");
 		this.alert_div.innerHTML = `<div class="content"><h1 class="title"></h1><p class="desc"></p></div>`;
 		this.title_elem = this.alert_div.querySelector('.title');
 		this.desc_elem = this.alert_div.querySelector('.desc');
@@ -40,4 +40,4 @@ class Alert extends Component {
 	}
 }
 
-module.exports.components = {Alert};
+module.exports.components = {Tooltip};
