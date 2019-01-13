@@ -67,7 +67,7 @@ class PreferencesPanel {
 </div>
 <div class='tabcontent' style='display: none' data-tab='preferences'>
 
-Preferences
+<input type="range" min="1" max="16" step="1" class="shadow-quality-slider" value=8>
 
 </div>`;
 		[...this.panel.$$(`.button[data-radio-group="tab"]`)].forEach((item) => {
@@ -216,6 +216,19 @@ Preferences
 		this.panel.$(`.property-age`).addEventListener("input", (e) => {
 			let age = Math.round(+e.target.value);
 			this.panel.send_message({char_prefs: {age}});
+		});
+
+		let shadow_quality_slider = this.panel.$(`.shadow-quality-slider`);
+		shadow_quality_slider.value = this.panel.manager.client.soft_shadow_resolution;
+		shadow_quality_slider.addEventListener("input", () => {
+			let desired_res = +shadow_quality_slider.value;
+			this.panel.manager.client.soft_shadow_resolution = desired_res;
+			localStorage.setItem("shadow_resolution", desired_res);
+			for(let atom of this.panel.manager.client.atoms) {
+				if(atom && atom.c && atom.c.LightingObject) {
+					atom.mark_dirty();
+				}
+			}
 		});
 
 		this.panel.on("message", this.handle_message.bind(this));
@@ -419,5 +432,12 @@ Preferences
 	}
 }
 let department_order = ["misc", "command", "supply", "service", "eng", "med", "sci", "sec", "synth"];
+
+module.exports.now = (client) => {
+	let shadow_pref = localStorage.getItem("shadow_resolution");
+	if(shadow_pref != null) {
+		client.soft_shadow_resolution = +shadow_pref;
+	}
+};
 
 module.exports.panel_classes = {PreferencesPanel};

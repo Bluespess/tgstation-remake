@@ -99,8 +99,10 @@ class MobInventory extends Component {
 		}});
 
 		this.on("handcuffed_changed", this.handcuffed_changed.bind(this));
+		this.on("internal_changed", this.internal_changed.bind(this));
 
 		make_watched_property(this, "handcuffed");
+		make_watched_property(this, "internal");
 	}
 
 	add_slot(id, appearance, props) {
@@ -259,6 +261,15 @@ class MobInventory extends Component {
 			this.slots.lhand.atom.overlays.handcuffed = {icon: 'icons/mob/screen_gen.png', icon_state: "gabrielle"};
 			this.a.c.MobInteract.nointeract_counter++;
 			this.accident();
+		}
+	}
+
+	internal_changed(from, to) {
+		if(from && has_component(from, "Tank")) {
+			from.c.Tank.internal_toggle_action.bg_icon_state = "bg_default";
+		}
+		if(to && has_component(to, "Tank")) {
+			to.c.Tank.internal_toggle_action.bg_icon_state = "bg_default_on";
 		}
 	}
 

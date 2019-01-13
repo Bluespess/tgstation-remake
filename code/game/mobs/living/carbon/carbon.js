@@ -1,5 +1,6 @@
 'use strict';
 const {Component, Atom, Sound, chain_func, has_component, to_chat} = require('bluespess');
+const {get_air_holder} = require('../../../../modules/atmospherics/environmental/air_holder.js');
 const _ = require('underscore');
 const combat_defines = require('../../../../defines/combat_defines.js');
 const atmos_defines = require('../../../../defines/atmos_defines.js');
@@ -255,8 +256,9 @@ class CarbonMob extends Component.Networked {
 	}
 
 	handle_environment() {
-		let environment = this.a.c.LivingMob.environment;
-		let pressure = environment.return_pressure();
+		let env_holder = get_air_holder(this.a);
+		let environment = env_holder && env_holder.c.AirHolder.return_air();
+		let pressure = environment ? environment.return_pressure() : 0;
 		if(pressure >= atmos_defines.HAZARD_HIGH_PRESSURE) {
 			this.a.c.LivingMob.adjust_damage("brute", Math.min(((pressure / atmos_defines.HAZARD_HIGH_PRESSURE) - 1) * atmos_defines.PRESSURE_DAMAGE_COEFFICIENT, atmos_defines.MAX_HIGH_PRESSURE_DAMAGE));
 			this.a.c.MobHud.throw_alert("pressure", "alert_highpressure", {severity: 2});
@@ -279,14 +281,17 @@ class CarbonMob extends Component.Networked {
 			this.losebreath++;
 		else if(this.a.c.LivingMob.in_crit)
 			this.losebreath += 0.25;
-		let environment = this.a.c.LivingMob.environment;
+		let env_holder = get_air_holder(this.a);
+		let environment = env_holder && env_holder.c.AirHolder.return_air();
 		let breath;
 		if(this.losebreath >= 1) {
 			this.losebreath--;
 		} else {
+			if(!breath)
+				breath = this.get_breath_from_internal(atmos_defines.BREATH_VOLUME);
 			if(!breath && environment) {
 				let percentage = Math.min(atmos_defines.BREATH_VOLUME / environment.volume, 1);
-				breath = environment.remove_ratio(percentage);
+				breath = env_holder.c.AirHolder.remove_air(percentage * environment.total_moles());
 				breath.volume = atmos_defines.BREATH_VOLUME;
 			}
 		}
@@ -301,7 +306,21 @@ class CarbonMob extends Component.Networked {
 		}
 
 		if(environment)
-			environment.merge(breath);
+			env_holder.c.AirHolder.assume_air(breath);
+	}
+
+	get_breath_from_internal(volume_needed) {
+		if(!has_component(this.a, "MobInventory"))
+			return null;
+		if(this.a.c.MobInventory.internal) {
+			let internal = this.a.c.MobInventory.internal;
+			if(internal.loc != this.a)
+				this.a.c.MobInventory.internal = null;
+			else if(!this.organs.breathing_tube && (!this.a.c.MobInventory.slots.mask || !this.a.c.MobInventory.slots.mask.item || this.a.c.MobInventory.slots.mask.item.c.MaskItem.adjusted))
+				this.a.c.MobInventory.internal = null;
+			else
+				return this.a.c.MobInventory.internal.c.Tank.remove_air_volume(volume_needed);
+		}
 	}
 
 	handle_organs() {

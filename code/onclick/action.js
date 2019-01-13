@@ -22,6 +22,11 @@ class Action /*lawsuit*/ extends EventEmitter {
 		}, inst);
 		this.instanced_buttons = [];
 		make_watched_property(this, "bg_icon_state", "string");
+		this.on("bg_icon_state_changed", (from, to) => {
+			for(let button of this.instanced_buttons) {
+				button.icon_state = to;
+			}
+		});
 	}
 	add_to(mob) {
 		if(!has_component(mob, "MobHud"))
@@ -51,6 +56,7 @@ class Action /*lawsuit*/ extends EventEmitter {
 		button.c.ActionButton.action = this;
 		button.c.ActionButton.mob = mob;
 		button.c.ActionButton.update_icon();
+		this.instanced_buttons.push(button);
 		mob.c.MobHud.action_buttons.set(this, button);
 		mob.c.MobHud.reorganize_buttons();
 	}
@@ -67,6 +73,9 @@ class Action /*lawsuit*/ extends EventEmitter {
 		if(button) {
 			mob.c.Eye.screen["button_" + button.object_id] = null;
 			button.destroy();
+			let idx = this.instanced_buttons.indexOf(button);
+			if(idx != -1)
+				this.instanced_buttons.splice(idx, 1);
 		}
 		mob.c.MobHud.reorganize_buttons();
 	}

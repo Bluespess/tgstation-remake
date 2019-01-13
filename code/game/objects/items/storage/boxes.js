@@ -52,6 +52,13 @@ module.exports.templates = {
 			components: {
 				"Examine": {
 					desc: "It contains essential survival equipment."
+				},
+				"StorageItem": {
+					populate_contents() {
+						new Atom(this.a.server, "mask_breath", this.a);
+						new Atom(this.a.server, "tank_emergency_oxygen", this.a);
+						// TODO medipen
+					}
 				}
 			},
 			name: "survival box",

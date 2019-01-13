@@ -82,7 +82,7 @@ class OrganLungs extends Component {
 
 	handle_enough_gas(key, moles) {
 		if(!this.a.c.Organ.mob.c.LivingMob.in_crit)
-			this.a.c.Organ.mob.c.LivingMob.adjust_damage("oxy", -5);
+			this.a.c.Organ.mob.c.LivingMob.adjust_damage("oxy", -1);
 		return moles;
 	}
 
