@@ -6,6 +6,7 @@ const combat_defines = require('../../../defines/combat_defines.js');
 const mob_defines = require('../../../defines/mob_defines.js');
 const {random_zone} = require('./carbon/body_parts/helpers.js');
 const layers = require('../../../defines/layers.js');
+const pass_flags = require('../../../defines/pass_flags.js');
 
 const _stat = Symbol('_stat');
 
@@ -37,6 +38,7 @@ class LivingMob extends Component {
 		this.a.attack_by = chain_func(this.a.attack_by, this.attack_by.bind(this));
 		this.a.can_be_crossed = chain_func(this.a.can_be_crossed, this.can_be_crossed.bind(this));
 		this.a.move = chain_func(this.a.move, this.move.bind(this));
+		this.a.on("bumped", this.bumped.bind(this));
 		this.on("health_changed", this.health_changed.bind(this));
 		this.life_timeout = null;
 		if(this.stat != combat_defines.DEAD) {
@@ -378,6 +380,66 @@ class LivingMob extends Component {
 	get_id_name(if_no_id = "Unknown") {
 		return if_no_id;
 	}
+
+	bumped(atom, offsetx, offsety) {
+		if(this.buckled || this.now_pushing)
+			return;
+		if(has_component(atom, "Tangible")) {
+			if(has_component(atom, "LivingMob") && this.mob_collide(atom, offsetx, offsety))
+				return;
+			if(!atom.c.Tangible.anchored) {
+				this.a.glide_size = atom.glide_size;
+				this.now_pushing = true;
+				atom.move(Math.sign(offsetx), Math.sign(offsety), "bumped");
+				this.a.move(offsetx, offsety, "pushing");
+				this.now_pushing = false;
+			}
+		}
+	}
+	mob_collide(atom, offsetx, offsety) {
+		if(this.now_pushing)
+			return true;
+		if(!atom.c.LivingMob.buckled) {
+			let mob_swap = false;
+			let this_intent = has_component(this.a, "MobInteract") ? this.a.c.MobInteract.act_intent : "harm";
+			let other_intent = has_component(atom, "MobInteract") ? atom.c.MobInteract.act_intent : "harm";
+			if(has_component(this.a, "Puller") && this.a.c.Puller.pulling == atom && this_intent == "grab")
+				mob_swap = true;
+			else if((this_intent == "help") || (other_intent == "help"))
+				mob_swap = true;
+			if(mob_swap) {
+				if(!this.a.c.Tangible.adjacent(atom))
+					return;
+				this.now_pushing = true;
+				let oldloc = this.a.fine_loc;
+				let oldloc_other = atom.fine_loc;
+				let dx = atom.x - this.a.x;
+				let dy = atom.y - this.a.y;
+				let move_failed = false;
+
+				this.a.pass_flags |= pass_flags.PASSMOB;
+				atom.pass_flags |= pass_flags.PASSMOB;
+
+				this.now_pushing = true;
+
+				atom.glide_size = this.a.glide_size;
+				if(!atom.move(-dx, -dy, "push_swap") || !this.a.move(dx, dy, "push_swap")) {
+					move_failed = true;
+					this.a.loc = oldloc;
+					atom.loc = oldloc_other;
+					move_failed = true;
+				}
+
+				this.now_pushing = false;
+
+				atom.pass_flags &= ~pass_flags.PASSMOB;
+				this.a.pass_flags &= ~pass_flags.PASSMOB;
+
+				if(!move_failed)
+					return true;
+			}
+		}
+	}
 }
 
 Object.assign(LivingMob.prototype, require('./living_defense.js'));
@@ -401,7 +463,8 @@ LivingMob.template = {
 		},
 		name: "",
 		density: 1,
-		layer: layers.MOB_LAYER
+		layer: layers.MOB_LAYER,
+		let_pass_flags: pass_flags.PASSMOB
 	}
 };
 

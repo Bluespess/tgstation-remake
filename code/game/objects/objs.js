@@ -7,16 +7,8 @@ class Tangible extends Component {
 		super(atom, template);
 		this.fingerprints = [];
 		this.fingerprints_hidden = [];
-		this.pullers = [];
-		this.a.on("bumped_by", this.bumped_by.bind(this));
+		this.puller = null; // fuck it - one puller at a time.
 		this.last_high_pressure_movement_air_cycle = 0;
-	}
-
-	bumped_by(atom, offsetx, offsety) {
-		if(!this.anchored && has_component(atom, "LivingMob")) {
-			this.a.glide_size = atom.glide_size;
-			this.a.move(Math.sign(offsetx), Math.sign(offsety), "bumped");
-		}
 	}
 
 	experience_pressure_difference(difference, dx, dy, pressure_resistance_prob_delta = 0) {

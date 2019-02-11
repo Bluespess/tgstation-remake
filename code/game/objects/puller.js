@@ -67,7 +67,14 @@ class Puller extends Component {
 		}
 		if(val == this[_pulling])
 			return;
+		if(this[_pulling])
+			this[_pulling].c.Tangible.puller = null;
 		this[_pulling] = val;
+		if(val) {
+			if(val.c.Tangible.puller)
+				val.c.Tangible.puller.c.Puller.pulling = null;
+			val.c.Tangible.puller = this.a;
+		}
 		this.emit("pulling_changed", val);
 	}
 }
