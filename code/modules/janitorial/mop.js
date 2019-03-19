@@ -13,7 +13,7 @@ class Mop extends Component {
 
 		if(has_component(target, "OpenReagentContainer")) {
 			if(target.c.ReagentHolder.total_volume < 1)
-				to_chat`<span class='warning'>The ${target} is out of water!</span>`(user);
+				to_chat`<span class='warning'>The ${target} is empty!</span>`(user);
 			else {
 				target.c.ReagentHolder.transfer_to(this.a, 5);
 				to_chat`<span class='warning'>You wet the ${this.a} in the ${target}</span>`(user);
