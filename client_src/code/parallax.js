@@ -30,7 +30,7 @@ module.exports.ParallaxPlane = class ParallaxPlane extends Plane {
 							dispy = -(origin_disp.dispy + this.get_plane().parallax_offset[1]) * layer;
 						}
 						dispx = ((dispx % 480) - 480) % 480;
-						dispy = ((dispy % 480) + 480) % 480;
+						dispy = ((dispy % 480) - 480) % 480;
 						dispx += x*480;
 						dispy += y*480;
 						dispx /= 32;
@@ -55,6 +55,13 @@ module.exports.ParallaxPlane = class ParallaxPlane extends Plane {
 		}
 		this.parallax_velocity_lasttimestamp = timestamp;
 		super.draw_objects(timestamp);
+	}
+
+	draw_gl(transform, timestamp) {
+		let gl = this.client.gl;
+		gl.blendFunc(gl.ONE, gl.ONE);
+		this.draw_objects_gl(transform, timestamp);
+		gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 	}
 
 	composite_plane(eye_ctx, timestamp) {

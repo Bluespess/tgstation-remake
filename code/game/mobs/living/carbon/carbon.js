@@ -521,7 +521,7 @@ module.exports.templates = {
 		vars: {
 			icon: 'icons/mob/screen_full.png',
 			screen_loc_x: 0,
-			screen_loc_y: 14,
+			screen_loc_y: 0,
 			mouse_opacity: 0,
 			layer: 21
 		}
@@ -530,7 +530,7 @@ module.exports.templates = {
 		vars: {
 			icon: 'icons/mob/screen_full.png',
 			screen_loc_x: 0,
-			screen_loc_y: 14,
+			screen_loc_y: 0,
 			mouse_opacity: 0,
 			layer: 20.9
 		}
@@ -539,7 +539,7 @@ module.exports.templates = {
 		vars: {
 			icon: 'icons/mob/screen_full.png',
 			screen_loc_x: 0,
-			screen_loc_y: 14,
+			screen_loc_y: 0,
 			mouse_opacity: 0,
 			layer: 20.8
 		}
@@ -548,7 +548,7 @@ module.exports.templates = {
 		vars: {
 			icon: 'icons/mob/screen_full.png',
 			screen_loc_x: 0,
-			screen_loc_y: 14,
+			screen_loc_y: 0,
 			mouse_opacity: 0,
 			layer: 20.9
 		}

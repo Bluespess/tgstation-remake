@@ -10,6 +10,7 @@ class SplashScreen extends Component {
 		this.a.del = chain_func(this.a.del, this.del.bind(this));
 		this.a.on_render_tick = chain_func(this.a.on_render_tick, this.on_render_tick.bind(this));
 		this.a.draw = chain_func(this.a.draw, this.draw.bind(this));
+		this.a.draw_gl = chain_func(this.a.draw_gl, this.draw_gl.bind(this));
 	}
 
 	on_render_tick(prev) {
@@ -25,6 +26,15 @@ class SplashScreen extends Component {
 		}
 		prev();
 		ctx.globalAlpha = old_alpha;
+	}
+
+	draw_gl(prev, transform, timestamp) {
+		if(this.fading) {
+			this.a.alpha = (1 - 1 / this.fade_len * (timestamp - this.fade_start));
+		} else {
+			this.a.alpha = 1;
+		}
+		prev();
 	}
 
 	del(prev) {

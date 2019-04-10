@@ -14,7 +14,7 @@ class NewPlayer extends Component {
 			components: ["SplashScreen"],
 			vars: {
 				screen_loc_x: 0,
-				screen_loc_y: 14,
+				screen_loc_y: 0,
 				icon: this.a.server.config.title_screen,
 				icon_state: "",
 				layer: 30

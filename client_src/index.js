@@ -50,9 +50,9 @@ if(global.is_bs_editor_env) {
 		let ui_plane = new Plane(eye, "ui");
 		ui_plane.z_index = 10000;
 		let lighting_plane = new Plane.Lighting(eye, "lighting");
-		lighting_plane.z_index = 5000;
+		lighting_plane.z_index = -9999;
 		let parallax_plane = new ParallaxPlane(eye, "parallax");
-		parallax_plane.z_index = 9999;
+		parallax_plane.z_index = -5000;
 		eye.canvas = document.getElementById("mainlayer");
 		eye.create_click_handlers();
 		eye.on("mouse_over_atom_changed", (from, to) => {
