@@ -5,21 +5,18 @@
 <link rel='stylesheet' href='client.css'>
 </head>
 <body>
-	<div id='gamewindow'>
-		<div id='linkwindow'>
-			<div class='button' onclick="window.open('https://ss13.io/', '_blank');">Website</div>
-			<div class='button' onclick="window.open('https://discordapp.com/invite/WRjKty6', '_blank');">Discord</div>
-			<div class='button' onclick="window.open('https://github.com/bluespess/tgstation-remake/', '_blank');">Github</div>
-			<div class='button' onclick="window.open('https://github.com/bluespess/tgstation-remake/issues/new', '_blank');">Report Issue</div>
+	<div id='gamewindow' style="grid-template-columns: 67vw 33vw;">
+		<div id='linkwindow' style="background-color:black;text-align:center;">
+			<p style="font-family:'Times New Roman',Times,serif;font-size:25px;color:lightgrey;">Civilization 13</p><br>
 		</div>
 		<div id='mapwindow'>
 			<canvas width=480 height=480 id='mainlayer'></canvas>
 			<div id="hovering-atom"></div>
 		</div>
-		<div id='chatwindow'>
+		<div id='chatwindow' style="background-color:grey;">
 
 		</div>
-		<div id='inputwindow'>
+		<div id='inputwindow' style="background-color:grey;">
 			<input type='text' id='main-text-input' maxlength=256 disabled=1></input>
 		</div>
 	</div>

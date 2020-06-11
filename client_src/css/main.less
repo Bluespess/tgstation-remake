@@ -8,13 +8,13 @@
 	height: 100vh;
 
 	grid-template-rows: 50px auto 30px;
-	grid-template-columns: auto minmax(33vw,~"calc(100vw - 100vh + 30px)");
+	grid-template-columns: 67vw 33vw;
 
 	grid-template-areas: "m l" "m c" "i i";
 
 	@media (max-aspect-ratio: 1/1) {
-		grid-template-rows: 50px auto minmax(33vh,~"calc(100vh - 100vw - 80px)") 30px;
-		grid-template-columns: auto;
+		grid-template-rows: 50px auto 33vh 30px;
+		grid-template-columns: 67vw 33vw;
 		grid-template-areas: "l" "m" "c" "i";
 	}
 
@@ -47,11 +47,12 @@
 
 	#chatwindow {
 		grid-area: c;
+		background-color: lightgrey;
 	}
 
 	#linkwindow {
 		grid-area: l;
-		background-color: #eee;
+		background-color: black;
 		display: flex;
 		justify-content: space-evenly;
 		align-items: center;
